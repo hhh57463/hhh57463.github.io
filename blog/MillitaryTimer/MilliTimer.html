@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Huduck Story</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+
+	<script>
+		function MilliTime(){
+        var clock = document.getElementById("MillitaryTimer");
+        var myDate = new Date("1/7/2019");
+        myDate.setDate(myDate.getDate() + 585);
+        var Check = myDate;
+        var TimeCheck = Check.getFullYear() + "년" + (Check.getMonth() + 1) + "월" + Check.getDate() + "일";
+        clock.innerHTML = TimeCheck;
+}
+window.onload = function(){
+    MilliTime();
+}
+		</script>
+	<body id="top">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="../../index.html" class="image avatar"><img src="../../images/MinTa.png" alt="" /></a>
+					<h1><strong>심민석</strong> <br><a href="http://home.dju.ac.kr/comeng2/html/main.html"><strong>대전대학교</strong><br /><strong>컴퓨터 공학과</strong> <br></a>
+						<!--<strong>컴퓨터 공학과</strong> <br>-->
+					crafted by <a href="http://html5up.net">HTML5 UP</a>.</h1>
+				</div>
+			</header>
+
+		<!-- Main -->
+			<div id="main">
+				<!-- One -->
+					<section id="one">
+						<header class="major">
+							<h2>형 전역 한다 <commodo></commodo><br/>
+							<h2 id = "MillitaryTimer"> <commodo></commodo><br />
+							</h2>
+							<form>
+									입영 날짜 : <input type='date'/><br>
+								  </form>
+						</header>
+							<br><br>
+						<!--<ul class="actions">
+							<li><a href="http://huduck.tistory.com/" class="button">Tistory!</a></li>
+						</ul>-->
+					</section>
+
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://www.facebook.com/profile.php?id=100010069485238" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="https://github.com/hhh57463" class="icon fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js"></script>
+			<script src="../../assets/js/jquery.poptrox.min.js"></script>
+			<script src="../../assets/js/skel.min.js"></script>
+			<script src="../../assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="../../assets/js/main.js"></script>
+
+	</body>
+</html>
