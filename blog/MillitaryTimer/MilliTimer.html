@@ -5,83 +5,149 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Huduck Story</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="../../assets/css/main.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	</head>
 
-	<script>
-		function MilliTime(){
-        var clock = document.getElementById("MillitaryTimer");
-        var myDate = new Date("1/7/2019");
-        myDate.setDate(myDate.getDate() + 585);
-        var Check = myDate;
-        var TimeCheck = Check.getFullYear() + "년" + (Check.getMonth() + 1) + "월" + Check.getDate() + "일";
-        clock.innerHTML = TimeCheck;
-}
-window.onload = function(){
-    MilliTime();
-}
-		</script>
-	<body id="top">
+<head>
+	<title>Huduck Story</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="../../assets/css/main.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 
-		<!-- Header -->
-			<header id="header">
-				<div class="inner">
-					<a href="../../index.html" class="image avatar"><img src="../../images/MinTa.png" alt="" /></a>
-					<h1><strong>심민석</strong> <br><a href="http://home.dju.ac.kr/comeng2/html/main.html"><strong>대전대학교</strong><br /><strong>컴퓨터 공학과</strong> <br></a>
-						<!--<strong>컴퓨터 공학과</strong> <br>-->
-					crafted by <a href="http://html5up.net">HTML5 UP</a>.</h1>
-				</div>
+</head>
+
+<script language="javascript">
+	function input_Text() {
+
+		var checkdate = document.getElementById("test").value;
+		var Today = new Date();
+		var ShortDay = Today.getFullYear() + "-" + (Today.getMonth() + 1) + "-" + Today.getDate();
+		var arr1 = checkdate.split('-');
+		var arr2 = ShortDay.split('-');
+		var dat1 = new Date(arr1[0], arr1[1], arr1[2]);
+		var dat2 = new Date(arr2[0], arr2[1], arr2[2]);
+
+
+		var diff = dat1 - dat2;
+		var currDay = 24 * 60 * 60 * 1000;                              // 시 * 분 * 초 * 밀리세컨
+		var currMonth = currDay * 30;                                   // 월 만듬
+		var currYear = currMonth * 12;                                  // 년 만듬
+
+
+
+		document.write("* 날짜 두개 : " + checkdate + ", " + ShortDay + "<br/>");
+		document.write("* 일수 차이 : " + parseInt(diff / currDay) + " 일<br/>");
+		document.write("* 월수 차이 : " + parseInt(diff / currMonth) + " 월<br/>");
+		document.write("* 년수 차이 : " + parseInt(diff / currYear) + " 년<br/><br/>");
+	}
+	function printTime() {
+		var clock = document.getElementById("MillitaryTimer");
+		var now = new Date();
+		var nowTime = now.getFullYear() + "년" + (now.getMonth() + 1) + "월" + now.getDate() + "일";
+		clock.innerHTML = nowTime;
+		setTimeout("printTime()", 1000);                             //1초마다 지연됨(1초마다 실행)   
+	}
+	window.onload = function () {
+		printTime();
+	}
+</script>
+
+<body id="top">
+
+	<!-- Header -->
+	<header id="header">
+		<div class="inner">
+			<a href="../../index.html" class="image avatar">
+				<img src="../../images/MinTa.png" alt="" />
+			</a>
+			<h1>
+				<strong>심민석</strong>
+				<br>
+				<a href="http://home.dju.ac.kr/comeng2/html/main.html">
+					<strong>대전대학교</strong>
+					<br />
+					<strong>컴퓨터 공학과</strong>
+					<br>
+				</a>
+				<!--<strong>컴퓨터 공학과</strong> <br>-->
+				crafted by
+				<a href="http://html5up.net">HTML5 UP</a>.</h1>
+		</div>
+	</header>
+
+	<!-- Main -->
+	<div id="main">
+		<!-- One -->
+		<section id="one">
+			<header class="major">
+				<h2>형 전역 한다
+					<commodo></commodo>
+					<br/>
+					<h2>오늘 날짜 :
+						<span id="MillitaryTimer"></span>
+						</h1>
+						<commodo></commodo>
+						<br />
+					</h2>
+					입영 날짜 :
+					<form>
+						<input type="date" id="test" value="" />
+						<input type='button' onclick='input_Text()' value='계산하기' />
+					</form>
+					<br>
 			</header>
-
-		<!-- Main -->
-			<div id="main">
-				<!-- One -->
-					<section id="one">
-						<header class="major">
-							<h2>형 전역 한다 <commodo></commodo><br/>
-							<h2 id = "MillitaryTimer"> <commodo></commodo><br />
-							</h2>
-							<form>
-									입영 날짜 : <input type='date'/><br>
-								  </form>
-						</header>
-							<br><br>
-						<!--<ul class="actions">
+			<br>
+			<br>
+			<!--<ul class="actions">
 							<li><a href="http://huduck.tistory.com/" class="button">Tistory!</a></li>
 						</ul>-->
-					</section>
+		</section>
 
 
-			</div>
+	</div>
 
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-					<ul class="icons">
-						<li><a href="https://www.facebook.com/profile.php?id=100010069485238" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="https://github.com/hhh57463" class="icon fa-github"><span class="label">Github</span></a></li>
-						<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</div>
-			</footer>
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="inner">
+			<ul class="icons">
+				<li>
+					<a href="https://www.facebook.com/profile.php?id=100010069485238" class="icon fa-facebook">
+						<span class="label">Facebook</span>
+					</a>
+				</li>
+				<li>
+					<a href="https://github.com/hhh57463" class="icon fa-github">
+						<span class="label">Github</span>
+					</a>
+				</li>
+				<li>
+					<a href="#" class="icon fa-dribbble">
+						<span class="label">Dribbble</span>
+					</a>
+				</li>
+				<li>
+					<a href="#" class="icon fa-envelope-o">
+						<span class="label">Email</span>
+					</a>
+				</li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; Untitled</li>
+				<li>Design:
+					<a href="http://html5up.net">HTML5 UP</a>
+				</li>
+			</ul>
+		</div>
+	</footer>
 
-		<!-- Scripts -->
-			<script src="../../assets/js/jquery.min.js"></script>
-			<script src="../../assets/js/jquery.poptrox.min.js"></script>
-			<script src="../../assets/js/skel.min.js"></script>
-			<script src="../../assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="../../assets/js/main.js"></script>
+	<!-- Scripts -->
+	<script src="../../assets/js/jquery.min.js"></script>
+	<script src="../../assets/js/jquery.poptrox.min.js"></script>
+	<script src="../../assets/js/skel.min.js"></script>
+	<script src="../../assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="../../assets/js/main.js"></script>
 
-	</body>
+</body>
+
 </html>
