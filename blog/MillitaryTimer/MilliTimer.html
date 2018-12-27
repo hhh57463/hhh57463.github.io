@@ -19,7 +19,12 @@
 <script language="javascript">
 	function input_Text() {
 
-		var checkdate = document.getElementById("test").value;
+		if (document.getElementById("test").value == 0) {
+			alert("잘못된 입력입니다.");
+		}
+		else {
+			var checkdate = document.getElementById("test").value;
+		}
 		var Today = new Date();
 		var ShortDay = Today.getFullYear() + "-" + (Today.getMonth() + 1) + "-" + Today.getDate();
 		var arr1 = checkdate.split('-');
