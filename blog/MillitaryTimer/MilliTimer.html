@@ -14,6 +14,25 @@
 	<link rel="stylesheet" href="../../assets/css/main.css" />
 	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 
+	<style type="text/css">
+		.zones {
+			-moz-appearance: none;
+			-webkit-appearance: none;
+			-ms-appearance: none;
+			appearance: none;
+			background: #f7f7f7;
+			border-radius: 0.35em;
+			border: solid 2px transparent;
+			color: inherit;
+			display: block;
+			outline: 0;
+			padding: 0 0.75em;
+			text-decoration: none;
+			width: 20%;
+			/*원래 사이즈 100% 교환한 사이즈 20%*/
+		}
+	</style>
+
 </head>
 
 <script language="javascript">
@@ -31,19 +50,37 @@
 		var arr2 = ShortDay.split('-');
 		var dat1 = new Date(arr1[0], arr1[1], arr1[2]);
 		var dat2 = new Date(arr2[0], arr2[1], arr2[2]);
+		var finaldat = new Date(arr1[0], arr1[1], arr1[2]);
 
-
+		var years = arr1[0];
+		// 복무기간 현재 1년9개월 / 2020년 1년 6개월
 		var diff = dat1 - dat2;
 		var currDay = 24 * 60 * 60 * 1000;                              // 시 * 분 * 초 * 밀리세컨
 		var currMonth = currDay * 30;                                   // 월 만듬
 		var currYear = currMonth * 12;                                  // 년 만듬
 
 
-
 		document.write("* 날짜 두개 : " + checkdate + ", " + ShortDay + "<br/>");
 		document.write("* 일수 차이 : " + parseInt(diff / currDay) + " 일<br/>");
 		document.write("* 월수 차이 : " + parseInt(diff / currMonth) + " 월<br/>");
 		document.write("* 년수 차이 : " + parseInt(diff / currYear) + " 년<br/><br/>");
+
+		if (2020 > parseInt(years)) {
+			var checkfinal = (finaldat.getFullYear() + 1) + "-" + (finaldat.getMonth() + 9) + "-" + (finaldat.getDate() - 1);
+			var arr3 = checkfinal.split('-');
+			var dat3 = new Date(arr3[0], arr3[1], arr3[2]);
+			var finaldiff = dat3 - dat2;
+			document.write("* 전역 일 : " + checkfinal + " 일<br/>");
+			document.write("* 전역까지 남은 일 : " + parseInt(finaldiff / currDay) + " 일<br/>");
+		}
+		else if (2020 <= parseInt(years)) {
+			var checkfinal = (finaldat.getFullYear() + 1) + "-" + (finaldat.getMonth() + 6) + "-" + (finaldat.getDate() - 1);
+			var arr3 = checkfinal.split('-');
+			var dat3 = new Date(arr3[0], arr3[1], arr3[2]);
+			var finaldiff = dat3 - dat2;
+			document.write("* 전역 일 : " + checkfinal + " 일<br/>");
+			document.write("* 전역까지 남은 일 : " + parseInt(finaldiff / currDay) + " 일<br/>");
+		}
 	}
 	function printTime() {
 		var clock = document.getElementById("MillitaryTimer");
@@ -96,6 +133,15 @@
 					</h2>
 					입영 날짜 :
 					<form>
+						<select class="zones">
+							<option>군별 선택</option>
+							<option>육군</option>
+							<option>해군</option>
+							<option>공군</option>
+							<option>의경</option>
+							<option>사회복무요원</option>
+
+						</select>
 						<input type="date" id="test" value="" />
 						<input type='button' onclick='input_Text()' value='계산하기' />
 					</form>
