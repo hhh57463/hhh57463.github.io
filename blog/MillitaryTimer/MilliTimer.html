@@ -28,7 +28,7 @@
 			outline: 0;
 			padding: 0 0.75em;
 			text-decoration: none;
-			width: 20%;
+			width: 25%;
 			/*원래 사이즈 100% 교환한 사이즈 20%*/
 		}
 	</style>
@@ -37,11 +37,15 @@
 
 <script language="javascript">
 	function input_Text() {
+		var ArmyKinds = document.getElementById("btn").options[document.getElementById("btn").selectedIndex].value;
 
-		if (document.getElementById("test").value == 0) {
-			alert("잘못된 입력입니다.");
+		if (ArmyKinds == "0") {
+			alert("군별을 선택해 주십시오.");
 		}
-		else {
+		if (document.getElementById("test").value == 0) {
+			alert("날짜 입력이 잘못 되었습니다.");
+		}
+		else if (ArmyKinds != "0" && document.getElementById("test").value != 0) {
 			var checkdate = document.getElementById("test").value;
 		}
 		var Today = new Date();
@@ -51,13 +55,17 @@
 		var dat1 = new Date(arr1[0], arr1[1], arr1[2]);
 		var dat2 = new Date(arr2[0], arr2[1], arr2[2]);
 		var finaldat = new Date(arr1[0], arr1[1], arr1[2]);
-
+		// var checkfinal = (finaldat.getFullYear() + 1) + "-" + (finaldat.getMonth() + 9) + "-" + (finaldat.getDate() - 1);
+		// var arr3 = checkfinal.split('-');
+		// var dat3 = new Date(arr3[0], arr3[1], arr3[2]);
 		var years = arr1[0];
 		// 복무기간 현재 1년9개월 / 2020년 1년 6개월
 		var diff = dat1 - dat2;
 		var currDay = 24 * 60 * 60 * 1000;                              // 시 * 분 * 초 * 밀리세컨
 		var currMonth = currDay * 30;                                   // 월 만듬
 		var currYear = currMonth * 12;                                  // 년 만듬
+		// var finaldiff = dat3 - dat2;
+
 
 
 		document.write("* 날짜 두개 : " + checkdate + ", " + ShortDay + "<br/>");
@@ -65,21 +73,105 @@
 		document.write("* 월수 차이 : " + parseInt(diff / currMonth) + " 월<br/>");
 		document.write("* 년수 차이 : " + parseInt(diff / currYear) + " 년<br/><br/>");
 
-		if (2020 > parseInt(years)) {
-			var checkfinal = (finaldat.getFullYear() + 1) + "-" + (finaldat.getMonth() + 9) + "-" + (finaldat.getDate() - 1);
-			var arr3 = checkfinal.split('-');
-			var dat3 = new Date(arr3[0], arr3[1], arr3[2]);
-			var finaldiff = dat3 - dat2;
-			document.write("* 전역 일 : " + checkfinal + " 일<br/>");
-			document.write("* 전역까지 남은 일 : " + parseInt(finaldiff / currDay) + " 일<br/>");
+		if (ArmyKinds == "1") {                                                                                         //육군
+			if (2020 > parseInt(years)) {
+				var checkfinal = (finaldat.getFullYear() + 1) + "-" + (finaldat.getMonth() + 9) + "-" + (finaldat.getDate() - 1);
+				var arr3 = checkfinal.split('-');
+				var dat3 = new Date(arr3[0], arr3[1], arr3[2]);
+				var finaldiff = dat3 - dat2;
+				document.write("* 군별 : 육군 <br/>");
+				document.write("* 전역 일 : " + checkfinal + " 일<br/>");
+				document.write("* 전역까지 남은 일 : " + parseInt(finaldiff / currDay) + " 일<br/>");
+			}
+			else if (2020 <= parseInt(years)) {
+				var checkfinal = (finaldat.getFullYear() + 1) + "-" + (finaldat.getMonth() + 6) + "-" + (finaldat.getDate() - 1);
+				var arr3 = checkfinal.split('-');
+				var dat3 = new Date(arr3[0], arr3[1], arr3[2]);
+				var finaldiff = dat3 - dat2;
+				document.write("* 군별 : 육군 <br/>");
+				document.write("* 전역 일 : " + checkfinal + " 일<br/>");
+				document.write("* 전역까지 남은 일 : " + parseInt(finaldiff / currDay) + " 일<br/>");
+			}
 		}
-		else if (2020 <= parseInt(years)) {
-			var checkfinal = (finaldat.getFullYear() + 1) + "-" + (finaldat.getMonth() + 6) + "-" + (finaldat.getDate() - 1);
-			var arr3 = checkfinal.split('-');
-			var dat3 = new Date(arr3[0], arr3[1], arr3[2]);
-			var finaldiff = dat3 - dat2;
-			document.write("* 전역 일 : " + checkfinal + " 일<br/>");
-			document.write("* 전역까지 남은 일 : " + parseInt(finaldiff / currDay) + " 일<br/>");
+		if (ArmyKinds == "2") {                                                                                             //해군
+			if (2020 > parseInt(years)) {
+				var checkfinal = (finaldat.getFullYear() + 1) + "-" + (finaldat.getMonth() + 11) + "-" + (finaldat.getDate() - 1);
+				var arr3 = checkfinal.split('-');
+				var dat3 = new Date(arr3[0], arr3[1], arr3[2]);
+				var finaldiff = dat3 - dat2;
+				document.write("* 군별 : 해군 <br/>");
+				document.write("* 전역 일 : " + checkfinal + " 일<br/>");
+				document.write("* 전역까지 남은 일 : " + parseInt(finaldiff / currDay) + " 일<br/>");
+			}
+			else if (2020 <= parseInt(years)) {
+				var checkfinal = (finaldat.getFullYear() + 1) + "-" + (finaldat.getMonth() + 8) + "-" + (finaldat.getDate() - 1);
+				var arr3 = checkfinal.split('-');
+				var dat3 = new Date(arr3[0], arr3[1], arr3[2]);
+				var finaldiff = dat3 - dat2;
+				document.write("* 군별 : 해군 <br/>");
+				document.write("* 전역 일 : " + checkfinal + " 일<br/>");
+				document.write("* 전역까지 남은 일 : " + parseInt(finaldiff / currDay) + " 일<br/>");
+			}
+		}                                                                                                                   //공군
+		if (ArmyKinds == "3") {
+			if (2020 > parseInt(years)) {
+				var checkfinal = (finaldat.getFullYear() + 2) + "-" + finaldat.getMonth() + "-" + (finaldat.getDate() - 1);
+				var arr3 = checkfinal.split('-');
+				var dat3 = new Date(arr3[0], arr3[1], arr3[2]);
+				var finaldiff = dat3 - dat2;
+				document.write("* 군별 : 공군 <br/>");
+				document.write("* 전역 일 : " + checkfinal + " 일<br/>");
+				document.write("* 전역까지 남은 일 : " + parseInt(finaldiff / currDay) + " 일<br/>");
+			}
+			else if (2020 <= parseInt(years)) {
+				var checkfinal = (finaldat.getFullYear() + 1) + "-" + (finaldat.getMonth() + 10) + "-" + (finaldat.getDate() - 1);
+				var arr3 = checkfinal.split('-');
+				var dat3 = new Date(arr3[0], arr3[1], arr3[2]);
+				var finaldiff = dat3 - dat2;
+				document.write("* 군별 : 공군 <br/>");
+				document.write("* 전역 일 : " + checkfinal + " 일<br/>");
+				document.write("* 전역까지 남은 일 : " + parseInt(finaldiff / currDay) + " 일<br/>");
+			}
+		}
+		if (ArmyKinds == "4") {                                                                                                 //의경
+			if (2020 > parseInt(years)) {
+				var checkfinal = (finaldat.getFullYear() + 1) + "-" + (finaldat.getMonth() + 9) + "-" + (finaldat.getDate() - 1);
+				var arr3 = checkfinal.split('-');
+				var dat3 = new Date(arr3[0], arr3[1], arr3[2]);
+				var finaldiff = dat3 - dat2;
+				document.write("* 군별 : 의경 <br/>");
+				document.write("* 전역 일 : " + checkfinal + " 일<br/>");
+				document.write("* 전역까지 남은 일 : " + parseInt(finaldiff / currDay) + " 일<br/>");
+			}
+			else if (2020 <= parseInt(years)) {
+				var checkfinal = (finaldat.getFullYear() + 1) + "-" + (finaldat.getMonth() + 6) + "-" + (finaldat.getDate() - 1);
+				var arr3 = checkfinal.split('-');
+				var dat3 = new Date(arr3[0], arr3[1], arr3[2]);
+				var finaldiff = dat3 - dat2;
+				document.write("* 군별 : 의경 <br/>");
+				document.write("* 전역 일 : " + checkfinal + " 일<br/>");
+				document.write("* 전역까지 남은 일 : " + parseInt(finaldiff / currDay) + " 일<br/>");
+			}
+		}
+		if (ArmyKinds == "5") {                                                                                                     //사회복무요원
+			if (2020 > parseInt(years)) {
+				var checkfinal = (finaldat.getFullYear() + 2) + "-" + (finaldat.getMonth() + 1) + "-" + (finaldat.getDate() - 1);
+				var arr3 = checkfinal.split('-');
+				var dat3 = new Date(arr3[0], arr3[1], arr3[2]);
+				var finaldiff = dat3 - dat2;
+				document.write("* 군별 : 사회복무요원 <br/>");
+				document.write("* 전역 일 : " + checkfinal + " 일<br/>");
+				document.write("* 전역까지 남은 일 : " + parseInt(finaldiff / currDay) + " 일<br/>");
+			}
+			else if (2020 <= parseInt(years)) {
+				var checkfinal = (finaldat.getFullYear() + 1) + "-" + (finaldat.getMonth() + 9) + "-" + (finaldat.getDate() - 1);
+				var arr3 = checkfinal.split('-');
+				var dat3 = new Date(arr3[0], arr3[1], arr3[2]);
+				var finaldiff = dat3 - dat2;
+				document.write("* 군별 : 사회복무요원 <br/>");
+				document.write("* 전역 일 : " + checkfinal + " 일<br/>");
+				document.write("* 전역까지 남은 일 : " + parseInt(finaldiff / currDay) + " 일<br/>");
+			}
 		}
 	}
 	function printTime() {
@@ -131,18 +223,18 @@
 						<commodo></commodo>
 						<br />
 					</h2>
-					입영 날짜 :
 					<form>
-						<select class="zones">
-							<option>군별 선택</option>
-							<option>육군</option>
-							<option>해군</option>
-							<option>공군</option>
-							<option>의경</option>
-							<option>사회복무요원</option>
-
+						<select class="zones" id="btn">
+							<option value="0">군별 선택</option>
+							<option value="1">육군</option>
+							<option value="2">해군</option>
+							<option value="3">공군</option>
+							<option value="4">의경</option>
+							<option value="5">사회복무요원</option>
 						</select>
+						<br>
 						<input type="date" id="test" value="" />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<input type='button' onclick='input_Text()' value='계산하기' />
 					</form>
 					<br>
