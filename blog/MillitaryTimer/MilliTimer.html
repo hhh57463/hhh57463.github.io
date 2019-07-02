@@ -49,12 +49,16 @@
 			var checkdate = document.getElementById("test").value;
 		}
 		var Today = new Date();
+		var OriginDatstr = "2017-01-03";
 		var ShortDay = Today.getFullYear() + "-" + (Today.getMonth() + 1) + "-" + Today.getDate();
 		var arr1 = checkdate.split('-');
 		var arr2 = ShortDay.split('-');
+		var Originarr = OriginDatstr.split('-');
 		var dat1 = new Date(arr1[0], arr1[1], arr1[2]);
 		var dat2 = new Date(arr2[0], arr2[1], arr2[2]);
 		var finaldat = new Date(arr1[0], arr1[1], arr1[2]);
+		var easydat = finaldat.getFullYear() + "-" + finaldat.getMonth() + "-" + finaldat.getDate();
+		var OriginDat = new Date(Originarr[0], Originarr[1], Originarr[2]);
 		// var checkfinal = (finaldat.getFullYear() + 1) + "-" + (finaldat.getMonth() + 9) + "-" + (finaldat.getDate() - 1);
 		// var arr3 = checkfinal.split('-');
 		// var dat3 = new Date(arr3[0], arr3[1], arr3[2]);
@@ -65,17 +69,42 @@
 		var currMonth = currDay * 30;                                   // 월 만듬
 		var currYear = currMonth * 12;                                  // 년 만듬
 		// var finaldiff = dat3 - dat2;
+		var mindiff = dat1 - OriginDat;
+		var minDay = 24 * 60 * 60 * 1000;
+		var minMon = minDay * 30;
+		var minYear = minMon * 12;
+		var minusDay = (parseInt(mindiff / minDay)) / 14;
+		var finalminDay = Math.floor(minusDay);
+		var finalday = 638 - finalminDay;
+		var yearmogs = parseInt(finalday / 365);
+		var yearmogsnamer = parseInt(finalday % 365);
+		var monthmogs = parseInt(yearmogsnamer / 30);
+		var monthmogsnamer = parseInt(yearmogsnamer % 30);
+		var daymogs  = parseInt(monthmogsnamer / 7);
+		var daynamer = parseInt(monthmogsnamer % 7);
+		var resutlday = parseInt(daymogs + daynamer) + 2;
+		// var resultdat = new Date((finaldat.getFullYear() + yearmogs), (finaldat.getMonth() + monthmogs), (finaldat.getDate() + resultday));
+		// var printfinaldat = new Date(finaldat.getFullYear() + yearmogs) + "-" + (finaldat.getMonth() + monthmogs) + "-" + (finaldat.getDate() + resultday);
+		
+		// document.write("전역일 : " + printfinaldat + "일<br/>");
 
+		document.write("군생활이 : " + finalminDay +" 일 줄었습니다.<br/>");
+		document.write("군생활을 : " + finalday +" 일 동안 하시게 될 것입니다.<br/>");
 
-
-		document.write("* 날짜 두개 : " + checkdate + ", " + ShortDay + "<br/>");
-		document.write("* 일수 차이 : " + parseInt(diff / currDay) + " 일<br/>");
-		document.write("* 월수 차이 : " + parseInt(diff / currMonth) + " 월<br/>");
-		document.write("* 년수 차이 : " + parseInt(diff / currYear) + " 년<br/><br/>");
+		document.write("* 오늘 날짜 : " + ShortDay + "<br/>");
+		document.write("* 입대 날짜 : " + easydat + "<br/>");
+		if(parseInt(diff/currDay)<0)
+		{
+		document.write("* 군생활 한 날짜 : " + parseInt(diff / currDay) * -1 + " 일<br/>");
+		}
+		else if(parseInt(diff/currDay)>0)
+		{
+			document.write("* 입대 : " + parseInt(diff / currDay) + " 일 전<br/>");
+		}
 
 		if (ArmyKinds == "1") {                                                                                         //육군
 			if (2020 > parseInt(years)) {
-				var checkfinal = (finaldat.getFullYear() + 1) + "-" + (finaldat.getMonth() + 9) + "-" + (finaldat.getDate() - 1);
+				var checkfinal = (finaldat.getFullYear() + yearmogs) + "-" + (finaldat.getMonth() + monthmogs) + "-" + (finaldat.getDate() + resutlday);
 				var arr3 = checkfinal.split('-');
 				var dat3 = new Date(arr3[0], arr3[1], arr3[2]);
 				var finaldiff = dat3 - dat2;
@@ -214,7 +243,7 @@
 		<!-- One -->
 		<section id="one">
 			<header class="major">
-				<h2>형 전역 한다
+				<h2>형 군대 간다
 					<commodo></commodo>
 					<br/>
 					<h2>오늘 날짜 :
@@ -237,7 +266,6 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<input type='button' onclick='input_Text()' value='계산하기' />
 					</form>
-					<br>
 			</header>
 			<br>
 			<br>
