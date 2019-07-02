@@ -83,19 +83,21 @@
 		var daymogs  = parseInt(monthmogsnamer / 7);
 		var daynamer = parseInt(monthmogsnamer % 7);
 		var resutlday = parseInt(daymogs + daynamer) + 2;
+		var persent = Math.floor(((parseInt(diff / currDay) * 100) / finalday) * -1);
 		// var resultdat = new Date((finaldat.getFullYear() + yearmogs), (finaldat.getMonth() + monthmogs), (finaldat.getDate() + resultday));
 		// var printfinaldat = new Date(finaldat.getFullYear() + yearmogs) + "-" + (finaldat.getMonth() + monthmogs) + "-" + (finaldat.getDate() + resultday);
 		
 		// document.write("전역일 : " + printfinaldat + "일<br/>");
+	
 
 		document.write("군생활이 : " + finalminDay +" 일 줄었습니다.<br/>");
-		document.write("군생활을 : " + finalday +" 일 동안 하시게 될 것입니다.<br/>");
+		document.write("군생활을 : " + finalday +" 일 동안 하십니다.<br/>");
 
 		document.write("* 오늘 날짜 : " + ShortDay + "<br/>");
 		document.write("* 입대 날짜 : " + easydat + "<br/>");
 		if(parseInt(diff/currDay)<0)
 		{
-		document.write("* 군생활 한 날짜 : " + parseInt(diff / currDay) * -1 + " 일<br/>");
+		document.write("* 군생활 한 날짜 : " + parseInt(diff / currDay) * -1 + " 일 (총 " + persent + "% 하셨습니다.)<br/>");
 		}
 		else if(parseInt(diff/currDay)>0)
 		{
