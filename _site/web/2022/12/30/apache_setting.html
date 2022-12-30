@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Apache 설치 | Mindol</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Apache 설치" />
+<meta name="author" content="Mindol" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="TMI 2022 겨울방학 계절학기 프로젝트" />
+<meta property="og:description" content="TMI 2022 겨울방학 계절학기 프로젝트" />
+<link rel="canonical" href="http://localhost:4000/web/2022/12/30/apache_setting.html" />
+<meta property="og:url" content="http://localhost:4000/web/2022/12/30/apache_setting.html" />
+<meta property="og:site_name" content="Mindol" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-12-30T06:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Apache 설치" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2022-12-30T06:00:00+09:00","datePublished":"2022-12-30T06:00:00+09:00","description":"TMI 2022 겨울방학 계절학기 프로젝트","headline":"Apache 설치","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/web/2022/12/30/apache_setting.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/profile.jpg"},"name":"Mindol"},"url":"http://localhost:4000/web/2022/12/30/apache_setting.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Mindol" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+  <script>
+    const hour = (new Date()).getHours();
+    let filename = "";
+    if (hour >= 5 && hour < 7) {
+      filename = "/assets/css/skin-sunrise.css";
+    } else if (hour >= 7 && hour < 17) {
+      filename = "/assets/css/skin-daylight.css";
+    } else if (hour >= 17 && hour < 19) {
+      filename = "/assets/css/skin-sunset.css";
+    } else {
+      filename = "/assets/css/skin-midnight.css";
+    }
+    const elem = document.createElement("link");
+    elem.setAttribute("rel", "stylesheet");
+    elem.setAttribute("type", "text/css");
+    elem.setAttribute("href", filename);
+    document.getElementsByTagName("head")[0].appendChild(elem);
+  </script>
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">Mindol</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/assets/img/profile.jpg" class="author-avatar u-photo align-center" alt="Mindol">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Mindol</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:hhh57463@naver.com">hhh57463@naver.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <a href="/feed.xml">
+    <i class="sidebar-icon fas fa-rss"></i><span>Subscribe</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://github.com/hhh57463"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://instagram.com/hhh57463"><i class="fab fa-instagram fa-2x" title="Instagram"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">Apache 설치</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2022-12-30T06:00:00+09:00" itemprop="datePublished">
+        Dec 30, 2022
+      </time></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="tmi">TMI</h1>
+<hr />
+<p>2022 겨울방학 계절학기 프로젝트</p>
+
+<h1 id="인게임">인게임</h1>
+<hr />
+<h2 id="아파치-설치">아파치 설치</h2>
+<p><a href="https://www.apachelounge.com/download/">Apache</a>에 접속하여 아파치 설치</p>
+
+<p><img src="/assets/img/Tiler/Lobby.png" alt="image" width="100%" height="100%" /><br />
+서버를 연 컴퓨터의 아이피와 닉네임을 입력합니다.<br /></p>
+
+<h2 id="로비-화면">로비 화면</h2>
+<p><img src="/assets/img/Tiler/Menu.png" alt="image" width="100%" height="100%" /><br />
+게임 시작 버튼과 게임 설정버튼이 존재합니다.<br /></p>
+
+<p><img src="/assets/img/Tiler/Menu_setting.png" alt="image" width="100%" height="100%" /><br />
+설정 버튼을 눌러 게임 볼륨과 효과음을 조절할 수 있습니다.<br /></p>
+
+<p><img src="/assets/img/Tiler/Menu_play.png" alt="image" width="100%" height="100%" /><br />
+게임 시작 버튼을 눌러 방을 생성하거나 만들어진 방에 들어갈 수 있습니다.<br /></p>
+
+<h2 id="방-입장">방 입장</h2>
+<p><img src="/assets/img/Tiler/Game_Lobby.png" alt="image" width="100%" height="100%" /><br />
+방에서 플레이어의 종족, 색상을 변경할 수 있습니다.<br /></p>
+
+<h2 id="종족">종족</h2>
+<p><img src="/assets/img/Tiler/Game_Lobby_Tribe.png" alt="image" width="100%" height="100%" /><br />
+종족은 3가지 종족이 존재하며, 숲, 바다, 마을종족이 있습니다.<br /></p>
+
+<h2 id="색상-변경">색상 변경</h2>
+<p><img src="/assets/img/Tiler/Game_Lobby_Color.png" alt="image" width="100%" height="100%" /><br />
+자신의 종족을 구별할 수 있는 원하는 색상을 선택할 수 있습니다.<br /></p>
+
+<p><img src="/assets/img/Tiler/Game_Lobby_User.png" alt="image" width="100%" height="100%" /><br />
+최소 2명에서 최대 6명까지 플레이할 수 있습니다.</p>
+
+<h2 id="게임-화면">게임 화면</h2>
+<p><img src="/assets/img/Tiler/Ingame_0.png" alt="image" width="100%" height="100%" /><br />
+게임이 시작되면 자신 차례에 행동을 할 수 있습니다.</p>
+
+<p><img src="/assets/img/Tiler/Ingame_1.png" alt="image" width="100%" height="100%" /><br />
+게임을 시작하면 성에서 일꾼을 생성할 수 있습니다.</p>
+
+<p><img src="/assets/img/Tiler/Ingame_2.png" alt="image" width="100%" height="100%" /><br />
+일꾼은 재화를 생성하기위한 광산과 농장 그리고 강력한 병력을 생성할 수 있는 군사기지와<br />
+자신의 영역을 지켜줄 수 있는 터렛을 제작할 수 있습니다.</p>
+
+<p><img src="/assets/img/Tiler/Ingame_3.png" alt="image" width="100%" height="100%" /><br />
+플레이어가 한턴에 가능한 행동은 최대 2번입니다<br />
+또한 우측 하단에 자신의 차례를 건너뛰는 skip버튼이 존재합니다.</p>
+
+<p><img src="/assets/img/Tiler/Ingame_4.png" alt="image" width="100%" height="100%" /><br />
+군사기지에서는 일꾼보다 강력한 유닛들을 생성할 수 있습니다.</p>
+
+<p><img src="/assets/img/Tiler/Ingame_5.png" alt="image" width="100%" height="100%" /><br />
+마법사는 최대 두칸 이동이 가능합니다.</p>
+
+<p><img src="/assets/img/Tiler/Ingame_6.png" alt="image" width="100%" height="100%" /><br />
+일정확률로 턴이 시작될때 보급품이 떨어지게 됩니다.</p>
+
+<p><img src="/assets/img/Tiler/Ingame_7.png" alt="image" width="100%" height="100%" /><br />
+보급품을 획득하는 방법은 유닛이 보급품을 공격하면 됩니다.</p>
+
+<p><img src="/assets/img/Tiler/Ingame_8.png" alt="image" width="100%" height="100%" /><br />
+보급품 획득 시 식량과 광물중 하나의 재화가 랜덤하게 지급됩니다.</p>
+
+<p><img src="/assets/img/Tiler/Ingame_9.png" alt="image" width="100%" height="100%" /><br />
+적의 영역을 발견한 후 침략을 시작할 수 있습니다.</p>
+
+<p><img src="/assets/img/Tiler/Ingame_10.png" alt="image" width="100%" height="100%" /><br />
+건물들을 부수고</p>
+
+<p><img src="/assets/img/Tiler/Ingame_11.png" alt="image" width="100%" height="100%" /><br />
+적 유닛을 제거하며</p>
+
+<p><img src="/assets/img/Tiler/Ingame_12.png" alt="image" width="100%" height="100%" /><br />
+성을 공격하고 성의 체력이 바닥나면</p>
+
+<p><img src="/assets/img/Tiler/Ingame_13.png" alt="image" width="100%" height="100%" /><br />
+마지막까지 살아남은 플레이어가 우승합니다.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/categories/#web">web</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#apache">apache</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#php">php</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#web">web</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/unity/2021/01/29/Tiler.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> Tiler
+
+          </span>
+        </a>
+      
+
+      
+        <a class="post-next" href="/web/2022/12/30/jekyll%EC%84%A4%EC%B9%98.html">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            jekyll 블로그 만들기
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+<script src="https://utteranc.es/client.js"
+        repo="hhh57463/hhh57463.github.io"
+        issue-term="url"
+        theme="gruvbox-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2017&nbsp;-&nbsp;2022 Mindol; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Mindol&#39;s Blog</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>
