@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-12-31T01:12:05+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">jekyll 블로그 만들기</title><link href="http://localhost:4000/web/2022/12/30/jekyll%EC%84%A4%EC%B9%98.html" rel="alternate" type="text/html" title="jekyll 블로그 만들기" /><published>2022-12-30T06:00:00+09:00</published><updated>2022-12-30T06:00:00+09:00</updated><id>http://localhost:4000/web/2022/12/30/jekyll%EC%84%A4%EC%B9%98</id><content type="html" xml:base="http://localhost:4000/web/2022/12/30/jekyll%EC%84%A4%EC%B9%98.html"><![CDATA[<h2 id="ruby-설치">ruby 설치</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-12-31T02:13:13+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">jekyll 블로그 만들기</title><link href="http://localhost:4000/web/2022/12/30/jekyll%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0.html" rel="alternate" type="text/html" title="jekyll 블로그 만들기" /><published>2022-12-30T06:00:01+09:00</published><updated>2022-12-30T06:00:01+09:00</updated><id>http://localhost:4000/web/2022/12/30/jekyll%EC%9D%84%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EB%A7%8C%EB%93%A4%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/web/2022/12/30/jekyll%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0.html"><![CDATA[<h2 id="ruby-설치">ruby 설치</h2>
 <hr />
 <p><img src="/assets/img/jekyll/ruby_home.png" alt="image" width="100%" height="100%" /><br />
 <a href="https://rubyinstaller.org/downloads//">ruby</a>에 접속합니다.</p>
@@ -51,87 +51,7 @@ cmd로 다운받은 디렉토리에 접속하여</p>
 레포지토리와 테마 디렉터리를 연결 후 푸쉬후<br /></p>
 
 <p><img src="/assets/img/jekyll/blog_check.png" alt="image" width="100%" height="100%" /><br />
-주소창에 계정이름.github.io를 입력하여 블로그에 접속하여 줍니다.<br /></p>]]></content><author><name>Mindol</name></author><category term="web" /><category term="jekyll" /><category term="web" /><category term="github" /><summary type="html"><![CDATA[ruby 설치 ruby에 접속합니다.]]></summary></entry><entry><title type="html">Apache 설치</title><link href="http://localhost:4000/web/2022/12/30/apache_setting.html" rel="alternate" type="text/html" title="Apache 설치" /><published>2022-12-30T06:00:00+09:00</published><updated>2022-12-30T06:00:00+09:00</updated><id>http://localhost:4000/web/2022/12/30/apache_setting</id><content type="html" xml:base="http://localhost:4000/web/2022/12/30/apache_setting.html"><![CDATA[<h1 id="tmi">TMI</h1>
-<hr />
-<p>2022 겨울방학 계절학기 프로젝트</p>
-
-<h1 id="인게임">인게임</h1>
-<hr />
-<h2 id="아파치-설치">아파치 설치</h2>
-<p><a href="https://www.apachelounge.com/download/">Apache</a>에 접속하여 아파치 설치</p>
-
-<p><img src="/assets/img/Tiler/Lobby.png" alt="image" width="100%" height="100%" /><br />
-서버를 연 컴퓨터의 아이피와 닉네임을 입력합니다.<br /></p>
-
-<h2 id="로비-화면">로비 화면</h2>
-<p><img src="/assets/img/Tiler/Menu.png" alt="image" width="100%" height="100%" /><br />
-게임 시작 버튼과 게임 설정버튼이 존재합니다.<br /></p>
-
-<p><img src="/assets/img/Tiler/Menu_setting.png" alt="image" width="100%" height="100%" /><br />
-설정 버튼을 눌러 게임 볼륨과 효과음을 조절할 수 있습니다.<br /></p>
-
-<p><img src="/assets/img/Tiler/Menu_play.png" alt="image" width="100%" height="100%" /><br />
-게임 시작 버튼을 눌러 방을 생성하거나 만들어진 방에 들어갈 수 있습니다.<br /></p>
-
-<h2 id="방-입장">방 입장</h2>
-<p><img src="/assets/img/Tiler/Game_Lobby.png" alt="image" width="100%" height="100%" /><br />
-방에서 플레이어의 종족, 색상을 변경할 수 있습니다.<br /></p>
-
-<h2 id="종족">종족</h2>
-<p><img src="/assets/img/Tiler/Game_Lobby_Tribe.png" alt="image" width="100%" height="100%" /><br />
-종족은 3가지 종족이 존재하며, 숲, 바다, 마을종족이 있습니다.<br /></p>
-
-<h2 id="색상-변경">색상 변경</h2>
-<p><img src="/assets/img/Tiler/Game_Lobby_Color.png" alt="image" width="100%" height="100%" /><br />
-자신의 종족을 구별할 수 있는 원하는 색상을 선택할 수 있습니다.<br /></p>
-
-<p><img src="/assets/img/Tiler/Game_Lobby_User.png" alt="image" width="100%" height="100%" /><br />
-최소 2명에서 최대 6명까지 플레이할 수 있습니다.</p>
-
-<h2 id="게임-화면">게임 화면</h2>
-<p><img src="/assets/img/Tiler/Ingame_0.png" alt="image" width="100%" height="100%" /><br />
-게임이 시작되면 자신 차례에 행동을 할 수 있습니다.</p>
-
-<p><img src="/assets/img/Tiler/Ingame_1.png" alt="image" width="100%" height="100%" /><br />
-게임을 시작하면 성에서 일꾼을 생성할 수 있습니다.</p>
-
-<p><img src="/assets/img/Tiler/Ingame_2.png" alt="image" width="100%" height="100%" /><br />
-일꾼은 재화를 생성하기위한 광산과 농장 그리고 강력한 병력을 생성할 수 있는 군사기지와<br />
-자신의 영역을 지켜줄 수 있는 터렛을 제작할 수 있습니다.</p>
-
-<p><img src="/assets/img/Tiler/Ingame_3.png" alt="image" width="100%" height="100%" /><br />
-플레이어가 한턴에 가능한 행동은 최대 2번입니다<br />
-또한 우측 하단에 자신의 차례를 건너뛰는 skip버튼이 존재합니다.</p>
-
-<p><img src="/assets/img/Tiler/Ingame_4.png" alt="image" width="100%" height="100%" /><br />
-군사기지에서는 일꾼보다 강력한 유닛들을 생성할 수 있습니다.</p>
-
-<p><img src="/assets/img/Tiler/Ingame_5.png" alt="image" width="100%" height="100%" /><br />
-마법사는 최대 두칸 이동이 가능합니다.</p>
-
-<p><img src="/assets/img/Tiler/Ingame_6.png" alt="image" width="100%" height="100%" /><br />
-일정확률로 턴이 시작될때 보급품이 떨어지게 됩니다.</p>
-
-<p><img src="/assets/img/Tiler/Ingame_7.png" alt="image" width="100%" height="100%" /><br />
-보급품을 획득하는 방법은 유닛이 보급품을 공격하면 됩니다.</p>
-
-<p><img src="/assets/img/Tiler/Ingame_8.png" alt="image" width="100%" height="100%" /><br />
-보급품 획득 시 식량과 광물중 하나의 재화가 랜덤하게 지급됩니다.</p>
-
-<p><img src="/assets/img/Tiler/Ingame_9.png" alt="image" width="100%" height="100%" /><br />
-적의 영역을 발견한 후 침략을 시작할 수 있습니다.</p>
-
-<p><img src="/assets/img/Tiler/Ingame_10.png" alt="image" width="100%" height="100%" /><br />
-건물들을 부수고</p>
-
-<p><img src="/assets/img/Tiler/Ingame_11.png" alt="image" width="100%" height="100%" /><br />
-적 유닛을 제거하며</p>
-
-<p><img src="/assets/img/Tiler/Ingame_12.png" alt="image" width="100%" height="100%" /><br />
-성을 공격하고 성의 체력이 바닥나면</p>
-
-<p><img src="/assets/img/Tiler/Ingame_13.png" alt="image" width="100%" height="100%" /><br />
-마지막까지 살아남은 플레이어가 우승합니다.</p>]]></content><author><name>Mindol</name></author><category term="web" /><category term="Apache" /><category term="php" /><category term="web" /><summary type="html"><![CDATA[TMI 2022 겨울방학 계절학기 프로젝트]]></summary></entry><entry><title type="html">Tiler</title><link href="http://localhost:4000/unity/2021/01/29/Tiler.html" rel="alternate" type="text/html" title="Tiler" /><published>2021-01-29T06:00:05+09:00</published><updated>2021-01-29T06:00:05+09:00</updated><id>http://localhost:4000/unity/2021/01/29/Tiler</id><content type="html" xml:base="http://localhost:4000/unity/2021/01/29/Tiler.html"><![CDATA[<h1 id="tmi">TMI</h1>
+주소창에 계정이름.github.io를 입력하여 블로그에 접속하여 줍니다.<br /></p>]]></content><author><name>Mindol</name></author><category term="web" /><category term="jekyll" /><category term="web" /><category term="ruby" /><category term="github" /><summary type="html"><![CDATA[ruby 설치 ruby에 접속합니다.]]></summary></entry><entry><title type="html">Tiler</title><link href="http://localhost:4000/unity/2021/01/29/Tiler.html" rel="alternate" type="text/html" title="Tiler" /><published>2021-01-29T06:00:05+09:00</published><updated>2021-01-29T06:00:05+09:00</updated><id>http://localhost:4000/unity/2021/01/29/Tiler</id><content type="html" xml:base="http://localhost:4000/unity/2021/01/29/Tiler.html"><![CDATA[<h1 id="tmi">TMI</h1>
 <hr />
 <p>2020년 군 전역 후 친구들과 만든 멀티 게임</p>
 
