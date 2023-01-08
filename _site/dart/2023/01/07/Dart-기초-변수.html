@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Dart 기초 - 변수 | Mindol</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Dart 기초 - 변수" />
+<meta name="author" content="Mindol" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="TMI Flutter를 공부하기 위한 Dart 공부" />
+<meta property="og:description" content="TMI Flutter를 공부하기 위한 Dart 공부" />
+<link rel="canonical" href="http://localhost:4000/dart/2023/01/07/Dart-%EA%B8%B0%EC%B4%88-%EB%B3%80%EC%88%98.html" />
+<meta property="og:url" content="http://localhost:4000/dart/2023/01/07/Dart-%EA%B8%B0%EC%B4%88-%EB%B3%80%EC%88%98.html" />
+<meta property="og:site_name" content="Mindol" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-07T06:00:01+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Dart 기초 - 변수" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-01-07T06:00:01+09:00","datePublished":"2023-01-07T06:00:01+09:00","description":"TMI Flutter를 공부하기 위한 Dart 공부","headline":"Dart 기초 - 변수","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/dart/2023/01/07/Dart-%EA%B8%B0%EC%B4%88-%EB%B3%80%EC%88%98.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/profile.jpg"},"name":"Mindol"},"url":"http://localhost:4000/dart/2023/01/07/Dart-%EA%B8%B0%EC%B4%88-%EB%B3%80%EC%88%98.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Mindol" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+  <script>
+    const hour = (new Date()).getHours();
+    let filename = "";
+    if (hour >= 5 && hour < 7) {
+      filename = "/assets/css/skin-sunrise.css";
+    } else if (hour >= 7 && hour < 17) {
+      filename = "/assets/css/skin-daylight.css";
+    } else if (hour >= 17 && hour < 19) {
+      filename = "/assets/css/skin-sunset.css";
+    } else {
+      filename = "/assets/css/skin-midnight.css";
+    }
+    const elem = document.createElement("link");
+    elem.setAttribute("rel", "stylesheet");
+    elem.setAttribute("type", "text/css");
+    elem.setAttribute("href", filename);
+    document.getElementsByTagName("head")[0].appendChild(elem);
+  </script>
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">Mindol</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/assets/img/profile.jpg" class="author-avatar u-photo align-center" alt="Mindol">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Mindol</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:hhh57463@naver.com">hhh57463@naver.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <a href="/feed.xml">
+    <i class="sidebar-icon fas fa-rss"></i><span>Subscribe</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://github.com/hhh57463"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://instagram.com/hhh57463"><i class="fab fa-instagram fa-2x" title="Instagram"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">Dart 기초 - 변수</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-01-07T06:00:01+09:00" itemprop="datePublished">
+        Jan 7, 2023
+      </time></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="tmi">TMI</h1>
+<hr />
+<p>Flutter를 공부하기 위한 Dart 공부</p>
+
+<h1 id="변수">변수</h1>
+<hr />
+<p>변수</p>
+
+<p>var 변수명 = 값;                      값에 맞는 자료형에 맞게 셋팅</p>
+
+<p>자료형 변수명 = 값;                자료형에 맞는 값을 넣어야함</p>
+
+<p>dynamic 변수명;, var 변수명;  여러 타입을 가질 수 있는 변수 선언 추천하지 않지만 가끔 사용 됨</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
+	<span class="kd">dynamic</span> <span class="n">name</span><span class="p">;</span>
+	<span class="n">name</span> <span class="o">=</span> <span class="s">'민돌'</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">name</span> <span class="k">is</span> <span class="kt">String</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">name</span><span class="o">.</span><span class="na">isNotEmpty</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// dynamic을 사용할 때에는 타입을 검사하고 사용하는 것을 습관화 하기</span>
+</code></pre></div></div>
+
+<p>var : 관습적으로 함수나 메소드 내부에서 지역 변수를 선언할 때에 사용 값을 수정해도 타입은 유지되야함</p>
+
+<p>자료형 지정 : class에서 변수나 property를 선언할 때 타입 지정</p>
+
+<p>null safety : 개발자가 null 값을 참조할 수 없도록 하는 것</p>
+
+<p>일반적으로,   자료형 변수 = null; 은 불가능한 문법이지만</p>
+
+<p>자료형? 변수;                           변수에 자료형에 맞는 값과 null이 들어갈 수 있게 함</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
+	<span class="kt">String</span><span class="o">?</span> <span class="n">name</span> <span class="o">=</span> <span class="s">'민돌'</span><span class="p">;</span>
+	<span class="n">name</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">name</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">name</span><span class="o">.</span><span class="na">isNotEmpty</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>는</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
+	<span class="kt">String</span><span class="o">?</span> <span class="n">name</span> <span class="o">=</span> <span class="s">'민돌'</span><span class="p">;</span>
+	<span class="n">name</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="n">name</span><span class="o">?.</span><span class="na">isNotEmpty</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>로 줄여 쓸수 있다</p>
+
+<p>final 키워드 : 변수를 상수로 만들어줌</p>
+
+<p>final name = ‘민돌’;</p>
+
+<p>final String name = ‘민돌’;</p>
+
+<p>name 변수는 수정 불가능</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
+	<span class="kd">late</span> <span class="kd">final</span> <span class="kt">String</span> <span class="n">name</span><span class="p">;</span>
+	<span class="n">name</span> <span class="o">=</span> <span class="s">'민돌'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>late는 변수를 먼저 만든 후 데이터를 나중에 한번만 넣을 수 있게 함 (수정 불가, 값을 넣기전에 접근 불가능)</p>
+
+<p>const : compile-time constant</p>
+
+<p>컴파일 전에 값을 알고 있는 변수를 만드는 법 특정 값을 알고 있을 때 (#define 같음 잘모르겠음)</p>
+
+<p>list 선언법</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="n">num_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">];</span>
+<span class="c1">// 여러 자료형이 들어갈 수 있음</span>
+<span class="kt">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">num_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">];</span>
+<span class="c1">// 정수만 들어갈 수 있음</span>
+<span class="c1">// list에 요소 추가 : 리스트명.add(값);</span>
+</code></pre></div></div>
+
+<p>list의 마지막 요소 가져오기 : 리스트명.last</p>
+
+<p>visual code에서 리스트의 요소를 ,로 끝내면 저절로 여러줄로 포매팅</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">num_list</span> <span class="o">=</span> <span class="p">[</span>
+<span class="mi">1</span><span class="p">,</span>
+<span class="mi">2</span><span class="p">,</span>
+<span class="mi">3</span><span class="p">,</span>
+<span class="mi">4</span><span class="p">,</span>
+<span class="mi">5</span><span class="p">,</span>
+<span class="p">];</span>
+</code></pre></div></div>
+
+<p>list의 collecting if 기능 (만약 로그인 했을때 추가해야할 경우 등 유용)</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">num_list</span> <span class="o">=</span> <span class="p">[</span>
+<span class="mi">1</span><span class="p">,</span>
+<span class="mi">2</span><span class="p">,</span>
+<span class="mi">3</span><span class="p">,</span>
+<span class="mi">4</span><span class="p">,</span>
+<span class="k">if</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="mi">5</span><span class="p">,</span>                       <span class="c1">// 만약 조건문이 참이면 5를 추가</span>
+<span class="p">];</span>
+
+<span class="k">if</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">num_list</span><span class="o">.</span><span class="na">add</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>               <span class="c1">// 위와 같은 역할</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>list의 collecting for 기능</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">num2_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">];</span>
+<span class="kt">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">num_list</span> <span class="o">=</span> <span class="p">[</span>
+<span class="mi">1</span><span class="p">,</span>
+<span class="mi">2</span><span class="p">,</span>
+<span class="mi">3</span><span class="p">,</span>
+<span class="mi">4</span><span class="p">,</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="n">i</span> <span class="k">in</span> <span class="n">num2_list</span><span class="p">)</span> <span class="n">$i</span>                       <span class="c1">// 요소 i를 추가</span>
+<span class="p">];</span>
+
+<span class="k">if</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">num_list</span><span class="o">.</span><span class="na">add</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>               <span class="c1">// 위와 같은 역할</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>문자열에 변수 넣기</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="n">name</span> <span class="o">=</span> <span class="s">'민돌'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="kd">var</span> <span class="n">hi</span> <span class="o">=</span> <span class="s">"hi my name is </span><span class="si">$name</span><span class="s">, nice to meet you and I'm </span><span class="si">${age+15}</span><span class="s">"</span><span class="p">;</span>
+<span class="c1">// 일반 변수 출력시 $변수 계산 후 출력시 ${계산}</span>
+<span class="n">print</span><span class="p">(</span><span class="n">hi</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>map : dictionary와 같음 (Map&lt;key, value&gt;)</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="n">dic</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="s">'name'</span> <span class="o">:</span> <span class="s">'민돌'</span><span class="p">,</span>
+	<span class="s">'age'</span> <span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
+	<span class="s">'marry'</span> <span class="o">:</span> <span class="kc">false</span>
+<span class="p">};</span>
+
+<span class="kt">Map</span><span class="p">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Object</span><span class="p">&gt;</span> <span class="n">dic</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="s">'name'</span> <span class="o">:</span> <span class="s">'민돌'</span><span class="p">,</span>
+	<span class="s">'age'</span> <span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
+	<span class="s">'marry'</span> <span class="o">:</span> <span class="kc">false</span>
+<span class="p">}</span>
+
+<span class="n">print</span><span class="p">(</span><span class="n">dic</span><span class="p">[</span><span class="s">'name'</span><span class="p">]);</span>
+
+</code></pre></div></div>
+
+<p>Set : python의 튜플과 같음</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Set</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">nums</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">};</span>
+<span class="c1">// Set은 List와 유사하지만 요소들이 고유함 (하나씩만 존재함)</span>
+<span class="n">nums</span><span class="o">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">print</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span>
+<span class="c1">// 출력결과는 1,2,3,4,5</span>
+</code></pre></div></div>
+
+<p>요소가 하나만 있을때는 Set을 사용하고 중복이 가능하면 List 사용</p>
+
+<p>리스트 반전</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+  <span class="kt">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">list_R</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">reversed</span><span class="o">.</span><span class="na">toList</span><span class="p">();</span>      
+<span class="c1">// reversed를 사용하면 자료형이 List가 아닌 Iterable이 되어 List형식으로 변환해줘야함</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">list</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">list_R</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>typedef : 변수에 alias를 지정 (별명 지정)</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">typedef</span> <span class="n">JungSoo</span> <span class="o">=</span> <span class="kt">int</span><span class="p">;</span>
+<span class="kd">typedef</span> <span class="n">UserInfo</span> <span class="o">=</span> <span class="kt">Map</span><span class="p">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="p">&gt;;</span>
+<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">JungSoo</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/categories/#dart">Dart</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#dart">dart</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/web/2022/12/30/jekyll%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> jekyll 블로그 만들기
+
+          </span>
+        </a>
+      
+
+      
+        <a class="post-next" href="/dart/2023/01/08/Dart-%EA%B8%B0%EC%B4%88-%ED%95%A8%EC%88%98.html">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            Dart 기초 - 함수
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+<script src="https://utteranc.es/client.js"
+        repo="hhh57463/hhh57463.github.io"
+        issue-term="url"
+        theme="gruvbox-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2017&nbsp;-&nbsp;2023 Mindol; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Mindol&#39;s Blog</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>
