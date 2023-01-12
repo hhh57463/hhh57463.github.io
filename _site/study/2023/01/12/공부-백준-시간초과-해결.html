@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>ios::sync_with_stdio(false), cin.tie(0) | Mindol</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="ios::sync_with_stdio(false), cin.tie(0)" />
+<meta name="author" content="Mindol" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="TMI 알고리즘 문제를 풀때 항상 파이썬으로 했지만 언젠간 C++을 써야한다는 것을 느껴 C++로 문제를 풀려함" />
+<meta property="og:description" content="TMI 알고리즘 문제를 풀때 항상 파이썬으로 했지만 언젠간 C++을 써야한다는 것을 느껴 C++로 문제를 풀려함" />
+<link rel="canonical" href="http://localhost:4000/study/2023/01/12/%EA%B3%B5%EB%B6%80-%EB%B0%B1%EC%A4%80-%EC%8B%9C%EA%B0%84%EC%B4%88%EA%B3%BC-%ED%95%B4%EA%B2%B0.html" />
+<meta property="og:url" content="http://localhost:4000/study/2023/01/12/%EA%B3%B5%EB%B6%80-%EB%B0%B1%EC%A4%80-%EC%8B%9C%EA%B0%84%EC%B4%88%EA%B3%BC-%ED%95%B4%EA%B2%B0.html" />
+<meta property="og:site_name" content="Mindol" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-12T06:00:01+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="ios::sync_with_stdio(false), cin.tie(0)" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-01-12T06:00:01+09:00","datePublished":"2023-01-12T06:00:01+09:00","description":"TMI 알고리즘 문제를 풀때 항상 파이썬으로 했지만 언젠간 C++을 써야한다는 것을 느껴 C++로 문제를 풀려함","headline":"ios::sync_with_stdio(false), cin.tie(0)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/study/2023/01/12/%EA%B3%B5%EB%B6%80-%EB%B0%B1%EC%A4%80-%EC%8B%9C%EA%B0%84%EC%B4%88%EA%B3%BC-%ED%95%B4%EA%B2%B0.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/profile.jpg"},"name":"Mindol"},"url":"http://localhost:4000/study/2023/01/12/%EA%B3%B5%EB%B6%80-%EB%B0%B1%EC%A4%80-%EC%8B%9C%EA%B0%84%EC%B4%88%EA%B3%BC-%ED%95%B4%EA%B2%B0.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Mindol" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+  <script>
+    const hour = (new Date()).getHours();
+    let filename = "";
+    if (hour >= 5 && hour < 7) {
+      filename = "/assets/css/skin-sunrise.css";
+    } else if (hour >= 7 && hour < 17) {
+      filename = "/assets/css/skin-daylight.css";
+    } else if (hour >= 17 && hour < 19) {
+      filename = "/assets/css/skin-sunset.css";
+    } else {
+      filename = "/assets/css/skin-midnight.css";
+    }
+    const elem = document.createElement("link");
+    elem.setAttribute("rel", "stylesheet");
+    elem.setAttribute("type", "text/css");
+    elem.setAttribute("href", filename);
+    document.getElementsByTagName("head")[0].appendChild(elem);
+  </script>
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">Mindol</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/assets/img/profile.jpg" class="author-avatar u-photo align-center" alt="Mindol">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Mindol</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:hhh57463@naver.com">hhh57463@naver.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <a href="/feed.xml">
+    <i class="sidebar-icon fas fa-rss"></i><span>Subscribe</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://github.com/hhh57463"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://instagram.com/hhh57463"><i class="fab fa-instagram fa-2x" title="Instagram"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">ios::sync_with_stdio(false), cin.tie(0)</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-01-12T06:00:01+09:00" itemprop="datePublished">
+        Jan 12, 2023
+      </time></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="tmi">TMI</h1>
+<hr />
+<p>알고리즘 문제를 풀때 항상 파이썬으로 했지만<br />
+언젠간 C++을 써야한다는 것을 느껴 C++로 문제를 풀려함</p>
+
+<h1 id="시간초과">시간초과</h1>
+<hr />
+<p>알고리즘 공부중에 코드마다</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</code></pre></div></div>
+<p>가 있는 것을 보았는데, 궁금해서 검색해봤다.<br /><br /></p>
+
+<p>보통 백준, 프로그래머스처럼 온라인 저지 사이트에서<br />
+C++을 이용하여 알고리즘 문제를 풀 때<br />
+시간초과 방지를 위해 사용한다.<br /><br /></p>
+
+<p>C++에서는 기존 입출력으로 cin, cout을 사용하는데,<br />
+시간초과가 발생하는 경우가 있다.<br /><br />
+그럴때 사용하는데, 이유로 입출력 양이 굉장히 많아지면 입출력하는데 소모시간이 많아져 시간초과가 발생한다.<br />
+📚 위의 코드를 사용하면 입출력 속도가 빨라진다 한다.</p>
+<h2 id="iossync_with_sdiofalse">ios::sync_with_sdio(false)</h2>
+<hr />
+<h3 id="c와-c-표준-stream의-동기화를-비활성화하는-코드">C와 C++ 표준 stream의 동기화를 비활성화하는 코드<br /><br /></h3>
+
+<p>동기화가 활성화 되어있으면 C스타일과 C++스타일의 입출력을 혼합해도 문제가 없다<br />
+printf, scanf와 cout, cin을 같이 사용해도 문제가 없는 것이다.<br /><br /></p>
+
+<p>하지만 <code class="language-plaintext highlighter-rouge">ios::sync_with_sdio(false)</code>를 작성하면 C스타일과 C++스타일을 혼합하여 사용할 수 없는 대신,<br /></p>
+<h3 id="c스타일-코드만-사용하면-기존의-동기화-과정에-필요했던-시간이-절약되어-입출력-속도가-빨라지는-효과가-있다">C++스타일 코드만 사용하면 기존의 동기화 과정에 필요했던 시간이 절약되어 입출력 속도가 빨라지는 효과가 있다.<br /><br /></h3>
+
+<p>알고리즘 문제를 풀 때는 동기화는 필요없고 시간 절약이 우선이니<br />
+<code class="language-plaintext highlighter-rouge">ios::sync_with_sdio(false)</code>를 사용하여 입출력 시간을 절약하는 것이다<br /><br /></p>
+
+<p>하지만 동기화된 C++버퍼의 경우 thread-safe하기 때문에 모든 IO의 순서가 예상한 것과 정확히 일치함을 보장할 수 있지만<br />
+<code class="language-plaintext highlighter-rouge">ios::sync_with_sdio(false);</code>를 사용하면 동기화가 비활성화 됐기 때문에 멀티 쓰레드 환경에서는 출력 순서를 보장할 수 없다<br />
+(thread-safe는 운영체제에서 mutex나 세마포어 등으로 동시 접근을 막는 것과 같이, 여러 쓰레드가 동시 접근해도 안전하다는 의미)<br /><br /></p>
+
+<p>그리고 C스타일의 printf, scanf, putchar, getchar 등을 같이 사용하면 안된다.</p>
+<h2 id="cintie0">cin.tie(0)</h2>
+<hr />
+<h3 id="cin과-cout의-묶음을-풀어준다">cin과 cout의 묶음을 풀어준다.<br /><br /></h3>
+
+<p>아래의 코드가 있다고 생각해보면</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"이름을 입력해 주세요 </span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">name</span><span class="p">;</span>
+</code></pre></div></div>
+<p>평소에는 cin과 cout이 묶여 있어
+“이름을 입력해 주세요 \n”가 먼저 출력된 후 이름을 입력할 수 있다.<br />
+<code class="language-plaintext highlighter-rouge">cin.tie(0)</code>나 <code class="language-plaintext highlighter-rouge">cin.tie(null)</code> 코드를 추가해 주면<br />
+“이름을 입력해 주세요 \n”가 출력되기 전에 이름을 입력할  수 있다.<br /></p>
+<h3 id="내부적으로-cin과-cout을-묶어주는-과정을-수행하지-않기-때문에-시간이-절약된다">내부적으로 cin과 cout을 묶어주는 과정을 수행하지 않기 때문에 시간이 절약된다.<br /><br /></h3>
+
+<p>물론 이름을 입력해달라는 문구가 나오기 전에 입력을 할 수 있는 것은 이상하지만<br />
+알고리즘 문제를 풀 때는 크게 상관이 없고,<br />
+입출력 시간을 절약할 수 있기 때문에 <code class="language-plaintext highlighter-rouge">cin.tie(0)</code>을 많이 사용한다.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/categories/#study">Study</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#cpp">cpp</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#study">study</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/dart/2023/01/10/Dart-%EA%B8%B0%EC%B4%88-%ED%81%B4%EB%9E%98%EC%8A%A4.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> Dart 기초 - 클래스
+
+          </span>
+        </a>
+      
+
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+<script src="https://utteranc.es/client.js"
+        repo="hhh57463/hhh57463.github.io"
+        issue-term="url"
+        theme="gruvbox-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2017&nbsp;-&nbsp;2023 Mindol; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Mindol&#39;s Blog</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>
