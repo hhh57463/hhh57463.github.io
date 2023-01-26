@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Get Out Of My Bank"
+excerpt: "제작한 게임 설명 - Get Out Of My Bank"
 categories: [Unity]
 tag: [Unity]
 date: 2017-10-06 00:00:00 +0300

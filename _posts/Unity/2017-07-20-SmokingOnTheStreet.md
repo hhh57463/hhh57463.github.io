@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Smoking On The Street"
+excerpt: "제작한 게임 설명 - Smoking On The Street"
 categories: [Unity]
 tag: [Unity]
 date: 2017-09-21 00:00:01 +0300

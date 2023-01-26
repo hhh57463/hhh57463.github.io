@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[jekyll] - markdown파일로 포스팅 | Mindol</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="[jekyll] - markdown파일로 포스팅" />
+<meta name="author" content="Mindol" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="마크다운파일을 이용한 블로그 포스팅" />
+<meta property="og:description" content="마크다운파일을 이용한 블로그 포스팅" />
+<link rel="canonical" href="http://localhost:4000/web/2023/01/26/markdown%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%ED%8F%AC%EC%8A%A4%ED%8C%85.html" />
+<meta property="og:url" content="http://localhost:4000/web/2023/01/26/markdown%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%ED%8F%AC%EC%8A%A4%ED%8C%85.html" />
+<meta property="og:site_name" content="Mindol" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-26T06:00:01+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[jekyll] - markdown파일로 포스팅" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-01-26T06:00:01+09:00","datePublished":"2023-01-26T06:00:01+09:00","description":"마크다운파일을 이용한 블로그 포스팅","headline":"[jekyll] - markdown파일로 포스팅","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/web/2023/01/26/markdown%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%ED%8F%AC%EC%8A%A4%ED%8C%85.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/profile.jpg"},"name":"Mindol"},"url":"http://localhost:4000/web/2023/01/26/markdown%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%ED%8F%AC%EC%8A%A4%ED%8C%85.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Mindol" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+  <script>
+    const hour = (new Date()).getHours();
+    let filename = "";
+    if (hour >= 5 && hour < 7) {
+      filename = "/assets/css/skin-sunrise.css";
+    } else if (hour >= 7 && hour < 17) {
+      filename = "/assets/css/skin-daylight.css";
+    } else if (hour >= 17 && hour < 19) {
+      filename = "/assets/css/skin-sunset.css";
+    } else {
+      filename = "/assets/css/skin-midnight.css";
+    }
+    const elem = document.createElement("link");
+    elem.setAttribute("rel", "stylesheet");
+    elem.setAttribute("type", "text/css");
+    elem.setAttribute("href", filename);
+    document.getElementsByTagName("head")[0].appendChild(elem);
+  </script>
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">Mindol</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/assets/img/profile.jpg" class="author-avatar u-photo align-center" alt="Mindol">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Mindol</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:hhh57463@naver.com">hhh57463@naver.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <a href="/feed.xml">
+    <i class="sidebar-icon fas fa-rss"></i><span>Subscribe</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://github.com/hhh57463"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://instagram.com/hhh57463"><i class="fab fa-instagram fa-2x" title="Instagram"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">[jekyll] - markdown파일로 포스팅</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-01-26T06:00:01+09:00" itemprop="datePublished">
+        Jan 26, 2023
+      </time></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="markdown이란">Markdown이란?</h2>
+<hr />
+<p>마크다운(Markdown)은 일반 텍스트 기반의 경량 마크업 언어.<br />
+일반 텍스트로 서식이 있는 문서를 작성하는 데 사용되며,<br />
+일반 마크업 언어에 비해 문법이 쉽고 간단한 것이 특징이다.<br /></p>
+
+<h2 id="포스팅을-하기-전">포스팅을 하기 전</h2>
+<hr />
+<p>Mardown을 지원하는 에디터를 준비해야합니다.<br />
+저는 Visual Studio Code를 사용중입니다.</p>
+
+<h2 id="_posts">_posts</h2>
+<hr />
+<p>블로그 디렉토리를 들어가면 대력적으로 이런 형식으로 구성이 되어있습니다.
+<img src="/assets/img/jekyll/jekyll_post_1.png" alt="image" width="50%" height="50%" /><br />
+포스팅을 하기위해서는 _posts 디렉터리에 markdown파일을 만들어야합니다.<br />
+만약 _posts 디렉터리가 존재하지 않을 시 _posts라는 디렉터리를 생성해줍니다.<br />
+❗ 모든 포스트 파일은 _posts 디렉터리 내 위치합니다.</p>
+
+<h2 id="markdown-파일-생성">Markdown 파일 생성</h2>
+<hr />
+<p>마크다운 파일을 생성해줍니다.<br />
+❗ 파일 명은 yyyy-mm-dd-포스트 제목.md 형식으로 만들어줍니다.
+<img src="/assets/img/jekyll/jekyll_post_2.png" alt="image" width="100%" height="100%" /><br /></p>
+
+<h2 id="머릿말front-matter-작성">머릿말(Front-Matter) 작성</h2>
+<hr />
+<p>준비했던 에디터로 해당 파일을 열어줍니다</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">post</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">포스팅</span><span class="nv"> </span><span class="s">이름"</span>
+<span class="na">excerpt</span><span class="pi">:</span> <span class="s2">"</span><span class="s">소개글"</span>
+<span class="na">categories</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">Category1</span><span class="pi">,</span> <span class="nv">Category2</span><span class="pi">]</span>
+<span class="na">tag</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">tag1</span><span class="pi">,</span> <span class="nv">tag2</span><span class="pi">,</span> <span class="nv">tag2</span><span class="pi">]</span>
+<span class="na">date</span><span class="pi">:</span> <span class="s">2023-01-26 00:00:01 +0300</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+<p>머릿말은 두개의 <code class="language-plaintext highlighter-rouge">---</code> 사이에 영역을 구분해줘야 한다.<br />
+title: 포스트의 제목을 큰 따옴표로 적어 준다. title을 적어주지 않을 시,<br />
+생성한 파일의 포스트 제목 부분이 제목으로 업로드 된다.<br />
+excerpt: 포스트 목록에 보여지는 간단한 소개글.<br />
+<img src="/assets/img/jekyll/jekyll_post_3.png" alt="image" width="20%" height="20%" /><br />
+categories: 포스트의 카테고리<br />
+tags: 카테고리와의 차이로 카테고리는 sub url이 붙는 페이지가 있지만 태그는 없다,<br />
+카테고리보다 좀 더 세부적으로 나눌 수 있다.
+date: 포스팅 날짜</p>
+
+<h2 id="포스트-내용-확인">포스트 내용 확인</h2>
+<hr />
+<p>나는 포스트 내용을 확인할 때 두가지 방법을 사용한다.<br />
+첫째로 Visual Studio Code에서 지원하는 Preview기능으로,<br />
+마크다운 파일의 내용을 확인할 수 있다.
+<img src="/assets/img/jekyll/jekyll_post_4.png" alt="image" width="100%" height="100%" /><br />
+에디터의 상단 UI중 빨간 네모 버튼을 눌러주면
+<img src="/assets/img/jekyll/jekyll_post_5.png" alt="image" width="50%" height="50%" /><br />
+이렇게 마크다운 형식의 파일 내용을 확인할 수 있다.<br />
+두번째로 로컬 서버를 열어 블로그에 적용될 모습을 확인하는 방법이다.<br />
+cmd로 블로그 디렉터리로 이동 후 <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code>명령어를 입력 하면<br />
+로컬 환경에서 jekyll 서버를 가동할 수 있다.<br />
+url에 <code class="language-plaintext highlighter-rouge">127.0.0.1:4000</code>이나 <code class="language-plaintext highlighter-rouge">localhost:4000</code>을 입력하여 블로그에 접속할 수 있다.<br />
+<img src="/assets/img/jekyll/jekyll_post_6.png" alt="image" width="50%" height="50%" /><br /></p>
+
+<h2 id="간단한-markdown-문법">간단한 Markdown 문법</h2>
+<hr />
+<p><code class="language-plaintext highlighter-rouge">#</code>,<code class="language-plaintext highlighter-rouge">##</code>,<code class="language-plaintext highlighter-rouge">###</code>: HTML의 <code class="language-plaintext highlighter-rouge">&lt;h1&gt;</code>,<code class="language-plaintext highlighter-rouge">&lt;h2&gt;</code>,<code class="language-plaintext highlighter-rouge">&lt;h3&gt;</code> 태그와 같다 주로 하나의 소제목이나,<br />
+어떠한 글을 강조할 때 사용한다<br /><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">[text](url)</code>: HTML의 <code class="language-plaintext highlighter-rouge">&lt;a href:"url"&gt;text&lt;/a&gt;</code>와 같은 역할을 한다.<br />
+text에 링크를 걸 수 있다.<br />
+주로 하이퍼링크나, 파일 다운로드에 사용된다.<br />
+ex) <a href="https://hhh57463.github.io">블로그주소</a><br /><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">![image](이미지 파일 위치)</code>: 이미지를 삽입할 때 사용한다.<br />
+나는 블로그 디렉터리 내의 assets파일 내<br />
+img디렉터리를 생성하여 이미지를 관리한다.<br />
+<code class="language-plaintext highlighter-rouge">![image](이미지 파일){: width="50%" height="50%"}</code><br />
+이런식으로 이미지의 크기를 조절할 수 있다. (위의 예시는 이미지 크기 50%)<br /><br />
+<code class="language-plaintext highlighter-rouge">+ 내용</code>, <code class="language-plaintext highlighter-rouge">- 내용</code>: HTML의 <code class="language-plaintext highlighter-rouge">&lt;li&gt;</code> 태그와 같은 역할, 주로 리스트를 표시할 때 사용한다.<br /><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;br&gt;</code>: 줄바꿈 태그, Enter키로 2칸의 공백을 만들면 <code class="language-plaintext highlighter-rouge">&lt;br&gt;</code>로 간주된다.<br /><br /></p>
+
+<p>💡 마크다운 내에서는 이모지를 사용할 수 있으며, HTML의 태그를 사용할 수 있다.<br />
+나는 주로 <a href="https://www.emojiengine.com/ko/">링크</a>에서 이모지를 가져와 사용한다.<br /></p>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/categories/#web">web</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#github">github</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#jekyll">jekyll</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#markdown">markdown</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#web">web</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/study/2023/01/12/%EA%B3%B5%EB%B6%80-%EB%B0%B1%EC%A4%80-%EC%8B%9C%EA%B0%84%EC%B4%88%EA%B3%BC-%ED%95%B4%EA%B2%B0.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> ios::sync_with_stdio(false), cin.tie(0)
+
+          </span>
+        </a>
+      
+
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+<script src="https://utteranc.es/client.js"
+        repo="hhh57463/hhh57463.github.io"
+        issue-term="url"
+        theme="gruvbox-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2017&nbsp;-&nbsp;2023 Mindol; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Mindol&#39;s Blog</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

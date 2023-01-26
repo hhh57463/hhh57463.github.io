@@ -1,7 +1,88 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-01-12T22:20:49+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">ios::sync_with_stdio(false), cin.tie(0)</title><link href="http://localhost:4000/study/2023/01/12/%EA%B3%B5%EB%B6%80-%EB%B0%B1%EC%A4%80-%EC%8B%9C%EA%B0%84%EC%B4%88%EA%B3%BC-%ED%95%B4%EA%B2%B0.html" rel="alternate" type="text/html" title="ios::sync_with_stdio(false), cin.tie(0)" /><published>2023-01-12T06:00:01+09:00</published><updated>2023-01-12T06:00:01+09:00</updated><id>http://localhost:4000/study/2023/01/12/%5B%EA%B3%B5%EB%B6%80%5D%EB%B0%B1%EC%A4%80%20%EC%8B%9C%EA%B0%84%EC%B4%88%EA%B3%BC%20%ED%95%B4%EA%B2%B0</id><content type="html" xml:base="http://localhost:4000/study/2023/01/12/%EA%B3%B5%EB%B6%80-%EB%B0%B1%EC%A4%80-%EC%8B%9C%EA%B0%84%EC%B4%88%EA%B3%BC-%ED%95%B4%EA%B2%B0.html"><![CDATA[<h1 id="tmi">TMI</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-01-26T15:29:47+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">[jekyll] - markdown파일로 포스팅</title><link href="http://localhost:4000/web/2023/01/26/markdown%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%ED%8F%AC%EC%8A%A4%ED%8C%85.html" rel="alternate" type="text/html" title="[jekyll] - markdown파일로 포스팅" /><published>2023-01-26T06:00:01+09:00</published><updated>2023-01-26T06:00:01+09:00</updated><id>http://localhost:4000/web/2023/01/26/markdown%EC%9D%84%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%ED%8F%AC%EC%8A%A4%ED%8C%85</id><content type="html" xml:base="http://localhost:4000/web/2023/01/26/markdown%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%ED%8F%AC%EC%8A%A4%ED%8C%85.html"><![CDATA[<h2 id="markdown이란">Markdown이란?</h2>
 <hr />
-<p>알고리즘 문제를 풀때 항상 파이썬으로 했지만<br />
-언젠간 C++을 써야한다는 것을 느껴 C++로 문제를 풀려함</p>
+<p>마크다운(Markdown)은 일반 텍스트 기반의 경량 마크업 언어.<br />
+일반 텍스트로 서식이 있는 문서를 작성하는 데 사용되며,<br />
+일반 마크업 언어에 비해 문법이 쉽고 간단한 것이 특징이다.<br /></p>
+
+<h2 id="포스팅을-하기-전">포스팅을 하기 전</h2>
+<hr />
+<p>Mardown을 지원하는 에디터를 준비해야합니다.<br />
+저는 Visual Studio Code를 사용중입니다.</p>
+
+<h2 id="_posts">_posts</h2>
+<hr />
+<p>블로그 디렉토리를 들어가면 대력적으로 이런 형식으로 구성이 되어있습니다.
+<img src="/assets/img/jekyll/jekyll_post_1.png" alt="image" width="50%" height="50%" /><br />
+포스팅을 하기위해서는 _posts 디렉터리에 markdown파일을 만들어야합니다.<br />
+만약 _posts 디렉터리가 존재하지 않을 시 _posts라는 디렉터리를 생성해줍니다.<br />
+❗ 모든 포스트 파일은 _posts 디렉터리 내 위치합니다.</p>
+
+<h2 id="markdown-파일-생성">Markdown 파일 생성</h2>
+<hr />
+<p>마크다운 파일을 생성해줍니다.<br />
+❗ 파일 명은 yyyy-mm-dd-포스트 제목.md 형식으로 만들어줍니다.
+<img src="/assets/img/jekyll/jekyll_post_2.png" alt="image" width="100%" height="100%" /><br /></p>
+
+<h2 id="머릿말front-matter-작성">머릿말(Front-Matter) 작성</h2>
+<hr />
+<p>준비했던 에디터로 해당 파일을 열어줍니다</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">post</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">포스팅</span><span class="nv"> </span><span class="s">이름"</span>
+<span class="na">excerpt</span><span class="pi">:</span> <span class="s2">"</span><span class="s">소개글"</span>
+<span class="na">categories</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">Category1</span><span class="pi">,</span> <span class="nv">Category2</span><span class="pi">]</span>
+<span class="na">tag</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">tag1</span><span class="pi">,</span> <span class="nv">tag2</span><span class="pi">,</span> <span class="nv">tag2</span><span class="pi">]</span>
+<span class="na">date</span><span class="pi">:</span> <span class="s">2023-01-26 00:00:01 +0300</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+<p>머릿말은 두개의 <code class="language-plaintext highlighter-rouge">---</code> 사이에 영역을 구분해줘야 한다.<br />
+title: 포스트의 제목을 큰 따옴표로 적어 준다. title을 적어주지 않을 시,<br />
+생성한 파일의 포스트 제목 부분이 제목으로 업로드 된다.<br />
+excerpt: 포스트 목록에 보여지는 간단한 소개글.<br />
+<img src="/assets/img/jekyll/jekyll_post_3.png" alt="image" width="20%" height="20%" /><br />
+categories: 포스트의 카테고리<br />
+tags: 카테고리와의 차이로 카테고리는 sub url이 붙는 페이지가 있지만 태그는 없다,<br />
+카테고리보다 좀 더 세부적으로 나눌 수 있다.
+date: 포스팅 날짜</p>
+
+<h2 id="포스트-내용-확인">포스트 내용 확인</h2>
+<hr />
+<p>나는 포스트 내용을 확인할 때 두가지 방법을 사용한다.<br />
+첫째로 Visual Studio Code에서 지원하는 Preview기능으로,<br />
+마크다운 파일의 내용을 확인할 수 있다.
+<img src="/assets/img/jekyll/jekyll_post_4.png" alt="image" width="100%" height="100%" /><br />
+에디터의 상단 UI중 빨간 네모 버튼을 눌러주면
+<img src="/assets/img/jekyll/jekyll_post_5.png" alt="image" width="50%" height="50%" /><br />
+이렇게 마크다운 형식의 파일 내용을 확인할 수 있다.<br />
+두번째로 로컬 서버를 열어 블로그에 적용될 모습을 확인하는 방법이다.<br />
+cmd로 블로그 디렉터리로 이동 후 <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code>명령어를 입력 하면<br />
+로컬 환경에서 jekyll 서버를 가동할 수 있다.<br />
+url에 <code class="language-plaintext highlighter-rouge">127.0.0.1:4000</code>이나 <code class="language-plaintext highlighter-rouge">localhost:4000</code>을 입력하여 블로그에 접속할 수 있다.<br />
+<img src="/assets/img/jekyll/jekyll_post_6.png" alt="image" width="50%" height="50%" /><br /></p>
+
+<h2 id="간단한-markdown-문법">간단한 Markdown 문법</h2>
+<hr />
+<p><code class="language-plaintext highlighter-rouge">#</code>,<code class="language-plaintext highlighter-rouge">##</code>,<code class="language-plaintext highlighter-rouge">###</code>: HTML의 <code class="language-plaintext highlighter-rouge">&lt;h1&gt;</code>,<code class="language-plaintext highlighter-rouge">&lt;h2&gt;</code>,<code class="language-plaintext highlighter-rouge">&lt;h3&gt;</code> 태그와 같다 주로 하나의 소제목이나,<br />
+어떠한 글을 강조할 때 사용한다<br /><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">[text](url)</code>: HTML의 <code class="language-plaintext highlighter-rouge">&lt;a href:"url"&gt;text&lt;/a&gt;</code>와 같은 역할을 한다.<br />
+text에 링크를 걸 수 있다.<br />
+주로 하이퍼링크나, 파일 다운로드에 사용된다.<br />
+ex) <a href="https://hhh57463.github.io">블로그주소</a><br /><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">![image](이미지 파일 위치)</code>: 이미지를 삽입할 때 사용한다.<br />
+나는 블로그 디렉터리 내의 assets파일 내<br />
+img디렉터리를 생성하여 이미지를 관리한다.<br />
+<code class="language-plaintext highlighter-rouge">![image](이미지 파일){: width="50%" height="50%"}</code><br />
+이런식으로 이미지의 크기를 조절할 수 있다. (위의 예시는 이미지 크기 50%)<br /><br />
+<code class="language-plaintext highlighter-rouge">+ 내용</code>, <code class="language-plaintext highlighter-rouge">- 내용</code>: HTML의 <code class="language-plaintext highlighter-rouge">&lt;li&gt;</code> 태그와 같은 역할, 주로 리스트를 표시할 때 사용한다.<br /><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;br&gt;</code>: 줄바꿈 태그, Enter키로 2칸의 공백을 만들면 <code class="language-plaintext highlighter-rouge">&lt;br&gt;</code>로 간주된다.<br /><br /></p>
+
+<p>💡 마크다운 내에서는 이모지를 사용할 수 있으며, HTML의 태그를 사용할 수 있다.<br />
+나는 주로 <a href="https://www.emojiengine.com/ko/">링크</a>에서 이모지를 가져와 사용한다.<br /></p>]]></content><author><name>Mindol</name></author><category term="web" /><category term="jekyll" /><category term="web" /><category term="markdown" /><category term="github" /><summary type="html"><![CDATA[마크다운파일을 이용한 블로그 포스팅]]></summary></entry><entry><title type="html">ios::sync_with_stdio(false), cin.tie(0)</title><link href="http://localhost:4000/study/2023/01/12/%EA%B3%B5%EB%B6%80-%EB%B0%B1%EC%A4%80-%EC%8B%9C%EA%B0%84%EC%B4%88%EA%B3%BC-%ED%95%B4%EA%B2%B0.html" rel="alternate" type="text/html" title="ios::sync_with_stdio(false), cin.tie(0)" /><published>2023-01-12T06:00:01+09:00</published><updated>2023-01-12T06:00:01+09:00</updated><id>http://localhost:4000/study/2023/01/12/%5B%EA%B3%B5%EB%B6%80%5D%EB%B0%B1%EC%A4%80%20%EC%8B%9C%EA%B0%84%EC%B4%88%EA%B3%BC%20%ED%95%B4%EA%B2%B0</id><content type="html" xml:base="http://localhost:4000/study/2023/01/12/%EA%B3%B5%EB%B6%80-%EB%B0%B1%EC%A4%80-%EC%8B%9C%EA%B0%84%EC%B4%88%EA%B3%BC-%ED%95%B4%EA%B2%B0.html"><![CDATA[<h1 id="tmi">TMI</h1>
+<hr />
+<p>C++ 공부중에 발견한 코드</p>
 
 <h1 id="시간초과">시간초과</h1>
 <hr />
@@ -19,21 +100,21 @@ C++을 이용하여 알고리즘 문제를 풀 때<br />
 시간초과가 발생하는 경우가 있다.<br /><br />
 그럴때 사용하는데, 이유로 입출력 양이 굉장히 많아지면 입출력하는데 소모시간이 많아져 시간초과가 발생한다.<br />
 📚 위의 코드를 사용하면 입출력 속도가 빨라진다 한다.</p>
-<h2 id="iossync_with_sdiofalse">ios::sync_with_sdio(false)</h2>
+<h2 id="iossync_with_stdiofalse">ios::sync_with_stdio(false)</h2>
 <hr />
 <h3 id="c와-c-표준-stream의-동기화를-비활성화하는-코드">C와 C++ 표준 stream의 동기화를 비활성화하는 코드<br /><br /></h3>
 
 <p>동기화가 활성화 되어있으면 C스타일과 C++스타일의 입출력을 혼합해도 문제가 없다<br />
 printf, scanf와 cout, cin을 같이 사용해도 문제가 없는 것이다.<br /><br /></p>
 
-<p>하지만 <code class="language-plaintext highlighter-rouge">ios::sync_with_sdio(false)</code>를 작성하면 C스타일과 C++스타일을 혼합하여 사용할 수 없는 대신,<br /></p>
+<p>하지만 <code class="language-plaintext highlighter-rouge">ios::sync_with_stdio(false)</code>를 작성하면 C스타일과 C++스타일을 혼합하여 사용할 수 없는 대신,<br /></p>
 <h3 id="c스타일-코드만-사용하면-기존의-동기화-과정에-필요했던-시간이-절약되어-입출력-속도가-빨라지는-효과가-있다">C++스타일 코드만 사용하면 기존의 동기화 과정에 필요했던 시간이 절약되어 입출력 속도가 빨라지는 효과가 있다.<br /><br /></h3>
 
 <p>알고리즘 문제를 풀 때는 동기화는 필요없고 시간 절약이 우선이니<br />
-<code class="language-plaintext highlighter-rouge">ios::sync_with_sdio(false)</code>를 사용하여 입출력 시간을 절약하는 것이다<br /><br /></p>
+<code class="language-plaintext highlighter-rouge">ios::sync_with_stdio(false)</code>를 사용하여 입출력 시간을 절약하는 것이다<br /><br /></p>
 
 <p>하지만 동기화된 C++버퍼의 경우 thread-safe하기 때문에 모든 IO의 순서가 예상한 것과 정확히 일치함을 보장할 수 있지만<br />
-<code class="language-plaintext highlighter-rouge">ios::sync_with_sdio(false);</code>를 사용하면 동기화가 비활성화 됐기 때문에 멀티 쓰레드 환경에서는 출력 순서를 보장할 수 없다<br />
+<code class="language-plaintext highlighter-rouge">ios::sync_with_stdio(false);</code>를 사용하면 동기화가 비활성화 됐기 때문에 멀티 쓰레드 환경에서는 출력 순서를 보장할 수 없다<br />
 (thread-safe는 운영체제에서 mutex나 세마포어 등으로 동시 접근을 막는 것과 같이, 여러 쓰레드가 동시 접근해도 안전하다는 의미)<br /><br /></p>
 
 <p>그리고 C스타일의 printf, scanf, putchar, getchar 등을 같이 사용하면 안된다.</p>
@@ -53,7 +134,7 @@ printf, scanf와 cout, cin을 같이 사용해도 문제가 없는 것이다.<br
 
 <p>물론 이름을 입력해달라는 문구가 나오기 전에 입력을 할 수 있는 것은 이상하지만<br />
 알고리즘 문제를 풀 때는 크게 상관이 없고,<br />
-입출력 시간을 절약할 수 있기 때문에 <code class="language-plaintext highlighter-rouge">cin.tie(0)</code>을 많이 사용한다.</p>]]></content><author><name>Mindol</name></author><category term="Study" /><category term="study" /><category term="cpp" /><summary type="html"><![CDATA[TMI 알고리즘 문제를 풀때 항상 파이썬으로 했지만 언젠간 C++을 써야한다는 것을 느껴 C++로 문제를 풀려함]]></summary></entry><entry><title type="html">Dart 기초 - 클래스</title><link href="http://localhost:4000/dart/2023/01/10/Dart-%EA%B8%B0%EC%B4%88-%ED%81%B4%EB%9E%98%EC%8A%A4.html" rel="alternate" type="text/html" title="Dart 기초 - 클래스" /><published>2023-01-10T06:00:01+09:00</published><updated>2023-01-10T06:00:01+09:00</updated><id>http://localhost:4000/dart/2023/01/10/Dart%20%EA%B8%B0%EC%B4%88-%ED%81%B4%EB%9E%98%EC%8A%A4</id><content type="html" xml:base="http://localhost:4000/dart/2023/01/10/Dart-%EA%B8%B0%EC%B4%88-%ED%81%B4%EB%9E%98%EC%8A%A4.html"><![CDATA[<h1 id="tmi">TMI</h1>
+입출력 시간을 절약할 수 있기 때문에 <code class="language-plaintext highlighter-rouge">cin.tie(0)</code>을 많이 사용한다.</p>]]></content><author><name>Mindol</name></author><category term="Study" /><category term="study" /><category term="cpp" /><summary type="html"><![CDATA[백준 C++ 시간초과 해결]]></summary></entry><entry><title type="html">Dart 기초 - 클래스</title><link href="http://localhost:4000/dart/2023/01/10/Dart-%EA%B8%B0%EC%B4%88-%ED%81%B4%EB%9E%98%EC%8A%A4.html" rel="alternate" type="text/html" title="Dart 기초 - 클래스" /><published>2023-01-10T06:00:01+09:00</published><updated>2023-01-10T06:00:01+09:00</updated><id>http://localhost:4000/dart/2023/01/10/Dart%20%EA%B8%B0%EC%B4%88-%ED%81%B4%EB%9E%98%EC%8A%A4</id><content type="html" xml:base="http://localhost:4000/dart/2023/01/10/Dart-%EA%B8%B0%EC%B4%88-%ED%81%B4%EB%9E%98%EC%8A%A4.html"><![CDATA[<h1 id="tmi">TMI</h1>
 <hr />
 <p>Flutter를 공부하기 위한 Dart 공부</p>
 
@@ -366,7 +447,7 @@ super() ← 부모 클래스 생성자<br />
 <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">Horse</span> <span class="k">with</span> <span class="n">Strong</span><span class="p">,</span> <span class="n">QuickRunner</span><span class="p">{}</span>
-</code></pre></div></div>]]></content><author><name>Mindol</name></author><category term="Dart" /><category term="Dart" /><summary type="html"><![CDATA[TMI Flutter를 공부하기 위한 Dart 공부]]></summary></entry><entry><title type="html">Dart 기초 - 함수</title><link href="http://localhost:4000/dart/2023/01/08/Dart-%EA%B8%B0%EC%B4%88-%ED%95%A8%EC%88%98.html" rel="alternate" type="text/html" title="Dart 기초 - 함수" /><published>2023-01-08T06:00:01+09:00</published><updated>2023-01-08T06:00:01+09:00</updated><id>http://localhost:4000/dart/2023/01/08/Dart%20%EA%B8%B0%EC%B4%88-%ED%95%A8%EC%88%98</id><content type="html" xml:base="http://localhost:4000/dart/2023/01/08/Dart-%EA%B8%B0%EC%B4%88-%ED%95%A8%EC%88%98.html"><![CDATA[<h1 id="tmi">TMI</h1>
+</code></pre></div></div>]]></content><author><name>Mindol</name></author><category term="Dart" /><category term="Dart" /><summary type="html"><![CDATA[Dart공부 - 클래스]]></summary></entry><entry><title type="html">Dart 기초 - 함수</title><link href="http://localhost:4000/dart/2023/01/08/Dart-%EA%B8%B0%EC%B4%88-%ED%95%A8%EC%88%98.html" rel="alternate" type="text/html" title="Dart 기초 - 함수" /><published>2023-01-08T06:00:01+09:00</published><updated>2023-01-08T06:00:01+09:00</updated><id>http://localhost:4000/dart/2023/01/08/Dart%20%EA%B8%B0%EC%B4%88-%ED%95%A8%EC%88%98</id><content type="html" xml:base="http://localhost:4000/dart/2023/01/08/Dart-%EA%B8%B0%EC%B4%88-%ED%95%A8%EC%88%98.html"><![CDATA[<h1 id="tmi">TMI</h1>
 <hr />
 <p>Flutter를 공부하기 위한 Dart 공부</p>
 
@@ -488,7 +569,7 @@ dart의 출력문 print(’문자열’);<br />
 <span class="n">mindol</span>
 <span class="n">Exited</span>
 </code></pre></div></div>
-<p>❓ 위의 경고는 3번째 줄 이후부터는 null일리 없다 라는 경고</p>]]></content><author><name>Mindol</name></author><category term="Dart" /><category term="Dart" /><summary type="html"><![CDATA[TMI Flutter를 공부하기 위한 Dart 공부]]></summary></entry><entry><title type="html">Dart 기초 - 변수</title><link href="http://localhost:4000/dart/2023/01/07/Dart-%EA%B8%B0%EC%B4%88-%EB%B3%80%EC%88%98.html" rel="alternate" type="text/html" title="Dart 기초 - 변수" /><published>2023-01-07T06:00:01+09:00</published><updated>2023-01-07T06:00:01+09:00</updated><id>http://localhost:4000/dart/2023/01/07/Dart%20%EA%B8%B0%EC%B4%88-%EB%B3%80%EC%88%98</id><content type="html" xml:base="http://localhost:4000/dart/2023/01/07/Dart-%EA%B8%B0%EC%B4%88-%EB%B3%80%EC%88%98.html"><![CDATA[<h1 id="tmi">TMI</h1>
+<p>❓ 위의 경고는 3번째 줄 이후부터는 null일리 없다 라는 경고</p>]]></content><author><name>Mindol</name></author><category term="Dart" /><category term="Dart" /><summary type="html"><![CDATA[Dart공부 - 함수]]></summary></entry><entry><title type="html">Dart 기초 - 변수</title><link href="http://localhost:4000/dart/2023/01/07/Dart-%EA%B8%B0%EC%B4%88-%EB%B3%80%EC%88%98.html" rel="alternate" type="text/html" title="Dart 기초 - 변수" /><published>2023-01-07T06:00:01+09:00</published><updated>2023-01-07T06:00:01+09:00</updated><id>http://localhost:4000/dart/2023/01/07/Dart%20%EA%B8%B0%EC%B4%88-%EB%B3%80%EC%88%98</id><content type="html" xml:base="http://localhost:4000/dart/2023/01/07/Dart-%EA%B8%B0%EC%B4%88-%EB%B3%80%EC%88%98.html"><![CDATA[<h1 id="tmi">TMI</h1>
 <hr />
 <p>Flutter를 공부하기 위한 Dart 공부</p>
 
@@ -501,7 +582,7 @@ dynamic 변수명;, var 변수명;  여러 타입을 가질 수 있는 변수 �
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
 	<span class="kd">dynamic</span> <span class="n">name</span><span class="p">;</span>
 	<span class="n">name</span> <span class="o">=</span> <span class="s">'민돌'</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">name</span> <span class="k">is</span> <span class="kt">String</span><span class="p">)</span>
+  	<span class="k">if</span> <span class="p">(</span><span class="n">name</span> <span class="k">is</span> <span class="kt">String</span><span class="p">)</span>
 	<span class="p">{</span>
 		<span class="n">name</span><span class="o">.</span><span class="na">isNotEmpty</span><span class="p">;</span>
 	<span class="p">}</span>
@@ -516,7 +597,7 @@ null safety : 개발자가 null 값을 참조할 수 없도록 하는 것<br />
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
 	<span class="kt">String</span><span class="o">?</span> <span class="n">name</span> <span class="o">=</span> <span class="s">'민돌'</span><span class="p">;</span>
 	<span class="n">name</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">name</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span>
+  	<span class="k">if</span> <span class="p">(</span><span class="n">name</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span>
 	<span class="p">{</span>
 		<span class="n">name</span><span class="o">.</span><span class="na">isNotEmpty</span><span class="p">;</span>
 	<span class="p">}</span>
@@ -526,7 +607,7 @@ null safety : 개발자가 null 값을 참조할 수 없도록 하는 것<br />
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
 	<span class="kt">String</span><span class="o">?</span> <span class="n">name</span> <span class="o">=</span> <span class="s">'민돌'</span><span class="p">;</span>
 	<span class="n">name</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-  <span class="n">name</span><span class="o">?.</span><span class="na">isNotEmpty</span><span class="p">;</span>
+  	<span class="n">name</span><span class="o">?.</span><span class="na">isNotEmpty</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
 <p>로 줄여 쓸수 있다</p>
@@ -643,7 +724,7 @@ visual code에서 리스트의 요소를 ,로 끝내면 저절로 여러줄로 �
   <span class="n">JungSoo</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
   <span class="n">print</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div></div>]]></content><author><name>Mindol</name></author><category term="Dart" /><category term="Dart" /><summary type="html"><![CDATA[TMI Flutter를 공부하기 위한 Dart 공부]]></summary></entry><entry><title type="html">jekyll 블로그 만들기</title><link href="http://localhost:4000/web/2022/12/30/jekyll%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0.html" rel="alternate" type="text/html" title="jekyll 블로그 만들기" /><published>2022-12-30T06:00:01+09:00</published><updated>2022-12-30T06:00:01+09:00</updated><id>http://localhost:4000/web/2022/12/30/jekyll%EC%9D%84%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EB%A7%8C%EB%93%A4%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/web/2022/12/30/jekyll%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0.html"><![CDATA[<h2 id="ruby-설치">ruby 설치</h2>
+</code></pre></div></div>]]></content><author><name>Mindol</name></author><category term="Dart" /><category term="Dart" /><summary type="html"><![CDATA[Dart공부 - 변수]]></summary></entry><entry><title type="html">[jekyll] - jekyll 블로그 만들기</title><link href="http://localhost:4000/web/2022/12/30/jekyll%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0.html" rel="alternate" type="text/html" title="[jekyll] - jekyll 블로그 만들기" /><published>2022-12-30T06:00:01+09:00</published><updated>2022-12-30T06:00:01+09:00</updated><id>http://localhost:4000/web/2022/12/30/jekyll%EC%9D%84%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EB%A7%8C%EB%93%A4%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/web/2022/12/30/jekyll%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0.html"><![CDATA[<h2 id="ruby-설치">ruby 설치</h2>
 <hr />
 <p><img src="/assets/img/jekyll/ruby_home.png" alt="image" width="100%" height="100%" /><br />
 <a href="https://rubyinstaller.org/downloads//">ruby</a>에 접속합니다.</p>
@@ -673,7 +754,7 @@ cmd에</p>
 
 <p><img src="/assets/img/jekyll/jekyll_theme_2.png" alt="image" width="100%" height="100%" /><br />
 현재 이 블로그는 <a href="http://jekyllthemes.org/themes/hamilton/">Hamilton</a> 테마를 사용하고 있습니다.<br />
-Download 버튼을 눌러 테마를 다운로드 해줍니다.<br /></p>
+Download 버튼을 눌러 테마를 다운로드 후, 압축을 풀어줍니다.<br /></p>
 
 <p>cmd에</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">install</span>
@@ -693,10 +774,11 @@ cmd로 다운받은 디렉토리에 접속하여</p>
 깃허브 레포지토리를 생성해줍니다.<br />
 레포지토리 이름은 반드시<br />
 📚 계정이름.github.io 으로 해줍니다.<br />
-레포지토리와 테마 디렉터리를 연결 후 푸쉬후<br /></p>
+레포지토리와 테마 디렉터리를 연결 후 푸쉬합니다.<br />
+❗ 어느정도 시간이 흘러야 블로그가 적용됩니다.</p>
 
 <p><img src="/assets/img/jekyll/blog_check.png" alt="image" width="100%" height="100%" /><br />
-주소창에 계정이름.github.io를 입력하여 블로그에 접속하여 줍니다.<br /></p>]]></content><author><name>Mindol</name></author><category term="web" /><category term="jekyll" /><category term="web" /><category term="ruby" /><category term="github" /><summary type="html"><![CDATA[ruby 설치 ruby에 접속합니다.]]></summary></entry><entry><title type="html">Tiler</title><link href="http://localhost:4000/unity/2021/02/10/Tiler.html" rel="alternate" type="text/html" title="Tiler" /><published>2021-02-10T06:00:05+09:00</published><updated>2021-02-10T06:00:05+09:00</updated><id>http://localhost:4000/unity/2021/02/10/Tiler</id><content type="html" xml:base="http://localhost:4000/unity/2021/02/10/Tiler.html"><![CDATA[<h1 id="tmi">TMI</h1>
+주소창에 계정이름.github.io를 입력하여 블로그에 접속하여 줍니다.<br /></p>]]></content><author><name>Mindol</name></author><category term="web" /><category term="jekyll" /><category term="web" /><category term="ruby" /><category term="github" /><summary type="html"><![CDATA[jekyll을 이용한 블로그 만들기]]></summary></entry><entry><title type="html">Tiler</title><link href="http://localhost:4000/unity/2021/02/10/Tiler.html" rel="alternate" type="text/html" title="Tiler" /><published>2021-02-10T06:00:05+09:00</published><updated>2021-02-10T06:00:05+09:00</updated><id>http://localhost:4000/unity/2021/02/10/Tiler</id><content type="html" xml:base="http://localhost:4000/unity/2021/02/10/Tiler.html"><![CDATA[<h1 id="tmi">TMI</h1>
 <hr />
 <p>2020년 군 전역 후 친구들과 만든 멀티 게임</p>
 
@@ -781,7 +863,7 @@ cmd로 다운받은 디렉토리에 접속하여</p>
 성을 공격하고 성의 체력이 바닥나면</p>
 
 <p><img src="/assets/img/Tiler/Ingame_13.png" alt="image" width="100%" height="100%" /><br />
-마지막까지 살아남은 플레이어가 우승합니다.</p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="Unity" /><summary type="html"><![CDATA[TMI 2020년 군 전역 후 친구들과 만든 멀티 게임]]></summary></entry><entry><title type="html">Crush Me</title><link href="http://localhost:4000/unity/2018/03/08/CrushMe.html" rel="alternate" type="text/html" title="Crush Me" /><published>2018-03-08T06:00:00+09:00</published><updated>2018-03-08T06:00:00+09:00</updated><id>http://localhost:4000/unity/2018/03/08/CrushMe</id><content type="html" xml:base="http://localhost:4000/unity/2018/03/08/CrushMe.html"><![CDATA[<h1 id="tmi">TMI</h1>
+마지막까지 살아남은 플레이어가 우승합니다.</p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="Unity" /><summary type="html"><![CDATA[턴제 전략게임! Tiler]]></summary></entry><entry><title type="html">Crush Me</title><link href="http://localhost:4000/unity/2018/03/08/CrushMe.html" rel="alternate" type="text/html" title="Crush Me" /><published>2018-03-08T06:00:00+09:00</published><updated>2018-03-08T06:00:00+09:00</updated><id>http://localhost:4000/unity/2018/03/08/CrushMe</id><content type="html" xml:base="http://localhost:4000/unity/2018/03/08/CrushMe.html"><![CDATA[<h1 id="tmi">TMI</h1>
 <hr />
 <p>2017년에 제작하였지만 2022 K-Game개발 챌린지에 제출하기위해 리메이크 중</p>
 
@@ -809,7 +891,7 @@ cmd로 다운받은 디렉토리에 접속하여</p>
 플레이어를 움직여 최고기록을 갱신해 보세요.</p>
 
 <p><img src="/assets/img/CrushMe/result.jpg" alt="image" width="50%" height="50%" /><br />
-플레이어 사망 시 현재기록과 최고기록이 나옵니다.</p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="Unity" /><summary type="html"><![CDATA[TMI 2017년에 제작하였지만 2022 K-Game개발 챌린지에 제출하기위해 리메이크 중]]></summary></entry><entry><title type="html">Pipe In The Hole</title><link href="http://localhost:4000/unity/2017/12/26/PipeInTheHole.html" rel="alternate" type="text/html" title="Pipe In The Hole" /><published>2017-12-26T06:00:01+09:00</published><updated>2017-12-26T06:00:01+09:00</updated><id>http://localhost:4000/unity/2017/12/26/PipeInTheHole</id><content type="html" xml:base="http://localhost:4000/unity/2017/12/26/PipeInTheHole.html"><![CDATA[<h1 id="tmi">TMI</h1>
+플레이어 사망 시 현재기록과 최고기록이 나옵니다.</p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="Unity" /><summary type="html"><![CDATA[제작한 게임 설명 - Crush Me]]></summary></entry><entry><title type="html">Pipe In The Hole</title><link href="http://localhost:4000/unity/2017/12/26/PipeInTheHole.html" rel="alternate" type="text/html" title="Pipe In The Hole" /><published>2017-12-26T06:00:01+09:00</published><updated>2017-12-26T06:00:01+09:00</updated><id>http://localhost:4000/unity/2017/12/26/PipeInTheHole</id><content type="html" xml:base="http://localhost:4000/unity/2017/12/26/PipeInTheHole.html"><![CDATA[<h1 id="tmi">TMI</h1>
 <hr />
 <p>2016년 겨울방학 팀 프로젝트 시간에 제작한 게임</p>
 
@@ -841,7 +923,7 @@ cmd로 다운받은 디렉토리에 접속하여</p>
 실패 화면</p>
 
 <p><img src="/assets/img/PipeInTheHole/Result.jpg" alt="image" width="50%" height="50%" /><br />
-최종 점수는 오브젝트를 회전한 횟수와 통과 횟수를 더한 값입니다.</p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="Unity" /><summary type="html"><![CDATA[TMI 2016년 겨울방학 팀 프로젝트 시간에 제작한 게임]]></summary></entry><entry><title type="html">Get Out Of My Bank</title><link href="http://localhost:4000/unity/2017/10/06/GetOutOfMyBank.html" rel="alternate" type="text/html" title="Get Out Of My Bank" /><published>2017-10-06T06:00:00+09:00</published><updated>2017-10-06T06:00:00+09:00</updated><id>http://localhost:4000/unity/2017/10/06/GetOutOfMyBank</id><content type="html" xml:base="http://localhost:4000/unity/2017/10/06/GetOutOfMyBank.html"><![CDATA[<h1 id="tmi">TMI</h1>
+최종 점수는 오브젝트를 회전한 횟수와 통과 횟수를 더한 값입니다.</p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="Unity" /><summary type="html"><![CDATA[제작한 게임 설명 - Pipe In The Hole]]></summary></entry><entry><title type="html">Get Out Of My Bank</title><link href="http://localhost:4000/unity/2017/10/06/GetOutOfMyBank.html" rel="alternate" type="text/html" title="Get Out Of My Bank" /><published>2017-10-06T06:00:00+09:00</published><updated>2017-10-06T06:00:00+09:00</updated><id>http://localhost:4000/unity/2017/10/06/GetOutOfMyBank</id><content type="html" xml:base="http://localhost:4000/unity/2017/10/06/GetOutOfMyBank.html"><![CDATA[<h1 id="tmi">TMI</h1>
 <hr />
 <p>2017년 게임과학고등학교 스마트폰게임 개발 체험 행사에 참가하여 제작한 게임</p>
 
@@ -868,37 +950,4 @@ cmd로 다운받은 디렉토리에 접속하여</p>
 
 <p><img src="/assets/img/GetOutOfMyBank/GameOver.jpg" alt="image" width="50%" height="50%" /><br />
 가지고 있는 3개의 돈주머니를 모두 빼앗기면<br />
-파산 문구가 뜨며 게임이 끝납니다.</p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="Unity" /><summary type="html"><![CDATA[TMI 2017년 게임과학고등학교 스마트폰게임 개발 체험 행사에 참가하여 제작한 게임]]></summary></entry><entry><title type="html">Smoking On The Street</title><link href="http://localhost:4000/unity/2017/09/21/SmokingOnTheStreet.html" rel="alternate" type="text/html" title="Smoking On The Street" /><published>2017-09-21T06:00:01+09:00</published><updated>2017-09-21T06:00:01+09:00</updated><id>http://localhost:4000/unity/2017/09/21/SmokingOnTheStreet</id><content type="html" xml:base="http://localhost:4000/unity/2017/09/21/SmokingOnTheStreet.html"><![CDATA[<h1 id="tmi">TMI</h1>
-<hr />
-<p>2017년 기능성 게임 개발 대회에 참가하기 위해 제작한 기능성 게임<br />
-담배를 소재로 하였음</p>
-
-<h1 id="설치파일">설치파일</h1>
-<hr />
-<ul>
-  <li><a href="/assets/download/SmokingOnTheStreet.apk"> apk</a><br /></li>
-  <li><a href="/assets/download/SmokingOnTheStreet.zip"> zip</a></li>
-</ul>
-
-<h1 id="인게임">인게임</h1>
-<hr />
-<h2 id="메뉴-화면">메뉴 화면</h2>
-<p><img src="/assets/img/SmokingOnTheStreet/Menu.jpg" alt="image" width="50%" height="50%" /><br />
-플레이 버튼을 클릭 시 게임이 시작됩니다.</p>
-
-<h2 id="게임화면">게임화면</h2>
-<p><img src="/assets/img/SmokingOnTheStreet/Ciga.jpg" alt="image" width="50%" height="50%" /><br />
-게임을 시작하면 주인공이 피는 담배가 나옵니다.</p>
-
-<p><img src="/assets/img/SmokingOnTheStreet/NPC.jpg" alt="image" width="50%" height="50%" /><br />
-거리를 걸어가는 주인공의 사망지수를 파란색 노드를 터치하여 낮춥니다<br />
-가끔 나오는 주민들이 주인공의 담배 냄새에 불쾌함을 느낍니다.</p>
-
-<p><img src="/assets/img/SmokingOnTheStreet/Store.jpg" alt="image" width="50%" height="50%" /><br />
-편의점을 발견한 주인공은 새로운 담배를 사기위해 편의점으로 들어갑니다.</p>
-
-<p><img src="/assets/img/SmokingOnTheStreet/StoreCiga.jpg" alt="image" width="50%" height="50%" /><br />
-새로운 담배를 사고 나오는 주인공, 사망 지수의 속도가 증가합니다.</p>
-
-<p><img src="/assets/img/SmokingOnTheStreet/Result.jpg" alt="image" width="50%" height="50%" /><br />
-사망 지수가 가득차 사망한 주인공, 사망한 이유와 살아있던 시간, 역대 시간이 나옵니다.</p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="Unity" /><summary type="html"><![CDATA[TMI 2017년 기능성 게임 개발 대회에 참가하기 위해 제작한 기능성 게임 담배를 소재로 하였음]]></summary></entry></feed>
+파산 문구가 뜨며 게임이 끝납니다.</p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="Unity" /><summary type="html"><![CDATA[제작한 게임 설명 - Get Out Of My Bank]]></summary></entry></feed>

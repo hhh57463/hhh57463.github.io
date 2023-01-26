@@ -12,8 +12,8 @@
 <meta property="og:title" content="Dart 기초 - 변수" />
 <meta name="author" content="Mindol" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="TMI Flutter를 공부하기 위한 Dart 공부" />
-<meta property="og:description" content="TMI Flutter를 공부하기 위한 Dart 공부" />
+<meta name="description" content="Dart공부 - 변수" />
+<meta property="og:description" content="Dart공부 - 변수" />
 <link rel="canonical" href="http://localhost:4000/dart/2023/01/07/Dart-%EA%B8%B0%EC%B4%88-%EB%B3%80%EC%88%98.html" />
 <meta property="og:url" content="http://localhost:4000/dart/2023/01/07/Dart-%EA%B8%B0%EC%B4%88-%EB%B3%80%EC%88%98.html" />
 <meta property="og:site_name" content="Mindol" />
@@ -23,7 +23,7 @@
 <meta property="twitter:title" content="Dart 기초 - 변수" />
 <meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-01-07T06:00:01+09:00","datePublished":"2023-01-07T06:00:01+09:00","description":"TMI Flutter를 공부하기 위한 Dart 공부","headline":"Dart 기초 - 변수","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/dart/2023/01/07/Dart-%EA%B8%B0%EC%B4%88-%EB%B3%80%EC%88%98.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/profile.jpg"},"name":"Mindol"},"url":"http://localhost:4000/dart/2023/01/07/Dart-%EA%B8%B0%EC%B4%88-%EB%B3%80%EC%88%98.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-01-07T06:00:01+09:00","datePublished":"2023-01-07T06:00:01+09:00","description":"Dart공부 - 변수","headline":"Dart 기초 - 변수","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/dart/2023/01/07/Dart-%EA%B8%B0%EC%B4%88-%EB%B3%80%EC%88%98.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/profile.jpg"},"name":"Mindol"},"url":"http://localhost:4000/dart/2023/01/07/Dart-%EA%B8%B0%EC%B4%88-%EB%B3%80%EC%88%98.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -186,7 +186,7 @@ dynamic 변수명;, var 변수명;  여러 타입을 가질 수 있는 변수 �
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
 	<span class="kd">dynamic</span> <span class="n">name</span><span class="p">;</span>
 	<span class="n">name</span> <span class="o">=</span> <span class="s">'민돌'</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">name</span> <span class="k">is</span> <span class="kt">String</span><span class="p">)</span>
+  	<span class="k">if</span> <span class="p">(</span><span class="n">name</span> <span class="k">is</span> <span class="kt">String</span><span class="p">)</span>
 	<span class="p">{</span>
 		<span class="n">name</span><span class="o">.</span><span class="na">isNotEmpty</span><span class="p">;</span>
 	<span class="p">}</span>
@@ -201,7 +201,7 @@ null safety : 개발자가 null 값을 참조할 수 없도록 하는 것<br />
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
 	<span class="kt">String</span><span class="o">?</span> <span class="n">name</span> <span class="o">=</span> <span class="s">'민돌'</span><span class="p">;</span>
 	<span class="n">name</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">name</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span>
+  	<span class="k">if</span> <span class="p">(</span><span class="n">name</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span>
 	<span class="p">{</span>
 		<span class="n">name</span><span class="o">.</span><span class="na">isNotEmpty</span><span class="p">;</span>
 	<span class="p">}</span>
@@ -211,7 +211,7 @@ null safety : 개발자가 null 값을 참조할 수 없도록 하는 것<br />
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
 	<span class="kt">String</span><span class="o">?</span> <span class="n">name</span> <span class="o">=</span> <span class="s">'민돌'</span><span class="p">;</span>
 	<span class="n">name</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-  <span class="n">name</span><span class="o">?.</span><span class="na">isNotEmpty</span><span class="p">;</span>
+  	<span class="n">name</span><span class="o">?.</span><span class="na">isNotEmpty</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
 <p>로 줄여 쓸수 있다</p>
@@ -368,7 +368,7 @@ visual code에서 리스트의 요소를 ,로 끝내면 저절로 여러줄로 �
         <a class="post-previous" href="/web/2022/12/30/jekyll%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0.html">
           <h4 class="post-pagination-label">Prev</h4>
           <span class="post-pagination-title">
-            <i class="fas fa-arrow-left"></i> jekyll 블로그 만들기
+            <i class="fas fa-arrow-left"></i> [jekyll] - jekyll 블로그 만들기
 
           </span>
         </a>
