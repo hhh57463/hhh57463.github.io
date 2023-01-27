@@ -195,7 +195,9 @@ dart의 출력문 print(’문자열’);<br />
 일반적으로 매개변수 있는 함수를 사용할 때는 Named Parameter를 사용하는 것을 지향(평소에 사용했던 매개변수 선언 순서에 맞는 호출 방법은 Positional parameter)<br />
 나중에 코드를 볼 때 이해가 쉽지 않기 때문에<br />
 특히 해당 함수가 같은 파일 내에 있지 않으면 어려움</p>
+
 <h3 id="named-parameters">Named Parameters</h3>
+<hr />
 <p>함수 호출 시 매개변수 순서와 상관없이 변수에 지정해 주는 것 (함수 선언시 매개변수를 {}로 감싸야 함</p>
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">String</span> <span class="nf">Hello</span><span class="p">({</span><span class="kt">String</span> <span class="n">name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">age</span><span class="p">,</span> <span class="kt">String</span> <span class="n">country</span><span class="p">})</span> <span class="o">=</span><span class="p">&gt;</span> <span class="s">"Hello </span><span class="si">$name</span><span class="s"> you are </span><span class="si">$age</span><span class="s"> and from </span><span class="si">$country</span><span class="s">"</span><span class="p">;</span>
 
@@ -246,7 +248,9 @@ dart의 출력문 print(’문자열’);<br />
 <span class="n">Hello</span> <span class="n">Mindol</span> <span class="n">you</span> <span class="n">are</span> <span class="kc">null</span> <span class="n">and</span> <span class="n">from</span> <span class="n">Korea</span>
 <span class="n">Exited</span>
 </code></pre></div></div>
+
 <h2 id="optional">Optional</h2>
+<hr />
 <p>named parameter를 적용하지 않고 특정 매개변수를 required하지 않게 하는 방법</p>
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">String</span> <span class="nf">Hello</span><span class="p">(</span><span class="kt">String</span> <span class="n">name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">age</span><span class="p">,</span> <span class="p">[</span><span class="kt">String</span><span class="o">?</span> <span class="n">country</span> <span class="o">=</span> <span class="s">'Korea'</span><span class="p">])</span> <span class="o">=</span><span class="p">&gt;</span>
     <span class="s">"Hello </span><span class="si">$name</span><span class="s"> you are </span><span class="si">$age</span><span class="s"> and from </span><span class="si">$country</span><span class="s">"</span><span class="p">;</span>
@@ -255,7 +259,9 @@ dart의 출력문 print(’문자열’);<br />
   <span class="n">print</span><span class="p">(</span><span class="n">Hello</span><span class="p">(</span><span class="s">"Mindol"</span><span class="p">,</span> <span class="mi">25</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div></div>
+
 <h2 id="삼항-연산자">삼항 연산자</h2>
+<hr />
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">String</span> <span class="nf">capitalizeName</span><span class="p">(</span><span class="kt">String</span><span class="o">?</span> <span class="n">name</span><span class="p">)</span> <span class="o">=</span><span class="p">&gt;</span>
     <span class="n">name</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">name</span><span class="o">.</span><span class="na">toUpperCase</span><span class="p">()</span> <span class="o">:</span> <span class="s">'NULL'</span><span class="p">;</span>
 <span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
