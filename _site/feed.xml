@@ -1,4 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-01-27T18:41:51+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">[jekyll] - markdown파일로 포스팅</title><link href="http://localhost:4000/web/2023/01/26/markdown%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%ED%8F%AC%EC%8A%A4%ED%8C%85.html" rel="alternate" type="text/html" title="[jekyll] - markdown파일로 포스팅" /><published>2023-01-26T06:00:01+09:00</published><updated>2023-01-26T06:00:01+09:00</updated><id>http://localhost:4000/web/2023/01/26/markdown%EC%9D%84%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%ED%8F%AC%EC%8A%A4%ED%8C%85</id><content type="html" xml:base="http://localhost:4000/web/2023/01/26/markdown%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%ED%8F%AC%EC%8A%A4%ED%8C%85.html"><![CDATA[<h2 id="markdown이란">Markdown이란?</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-01-28T19:28:50+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">[Flutter] - Widget</title><link href="http://localhost:4000/flutter/2023/01/28/Flutter%EA%B8%B0%EC%B4%88-Widget.html" rel="alternate" type="text/html" title="[Flutter] - Widget" /><published>2023-01-28T06:00:01+09:00</published><updated>2023-01-28T06:00:01+09:00</updated><id>http://localhost:4000/flutter/2023/01/28/Flutter%EA%B8%B0%EC%B4%88-Widget</id><content type="html" xml:base="http://localhost:4000/flutter/2023/01/28/Flutter%EA%B8%B0%EC%B4%88-Widget.html"><![CDATA[<h1 id="tmi">TMI</h1>
+<hr />
+<p>Flutter는 게임엔진처럼 동작, 엔진이 화면 상의 모든 픽셀을 그림.<br />
+게임 엔진은 무언가를 렌더링할 때 호스트 플랫폼을 사용하지 않고 스스로 그래픽을 그림, Flutter도 같음.</p>
+
+<h2 id="react-native-vs-flutter">React Native vs Flutter</h2>
+<hr />
+<p>React Native: 네이티브 앱 운영체제 상에서 가능한 위젯을 사용하고 싶을 때,<br />
+호스트 운영체제가 만들어주는 위젯을 사용하는 크로스플랫폼 어플리케이션을 만들 때<br />
+Flutter: 세밀한 디자인 요구사항이 들어가며, 요소들이나 애니메이션들을 전부 커스터마이징 해야할 때<br />
+(ios, android 앱처럼이 아닌, 자체의 디자인으로 이루어진 어플리케이션을 만들 때)</p>
+
+<h2 id="widget">Widget</h2>
+<hr />
+<p>Widget(위젯)</p>
+<ul>
+  <li>Flutter: 앱의 UI를 만드는 것</li>
+  <li>프로그래밍: class 생성</li>
+</ul>
+
+<p>Widget을 레고 블럭을 조립한다고 생각, Flutter에 있는 모든 건 Widget<br />
+Widget을 합치는 방식으로 앱을 제작해나감<br />
+공식 위젯: <a href="https://docs.flutter.dev/development/ui/widgets">flutter Widget 카탈로그</a>에 가면 애니메이션, 레이아웃 등 여러 위젯을 볼 수 있음<br />
+클래스를 생성할때 flutter SDK에 있는 3개의 core Widget중 하나를 상속받아야함<br />
+StatelessWidget: 가장 기초적인 위젯으로 바꿔주는 클래스로 그냥 화면에 무언가 띄어주는 용도</p>
+
+<h2 id="build-method">build Method</h2>
+<hr />
+<p>모든 위젯은 build 메소드를 구현해야 함<br />
+build 메소드의 역할<br />
+Flutter가 실행하게 되는데, build 메소드가 반환하는걸 화면에서 보여줌<br />
+(위젯의 UI를 만드는 것)</p>
+
+<h2 id="root-widget">root Widget</h2>
+<hr />
+<p>앱의 시작 위젯으로 모든 위젯의 시작점<br />
+앱의 root Widget은 두 개의 옵션 중 하나를 반환해야 함</p>
+<ul>
+  <li>material: 구글의 디자인 시스템</li>
+  <li>cupertino:  애플의 디자인 시스템</li>
+</ul>
+
+<p>🤔 하지만 우리는 구글, 애플의 디자인이 아닌 우리만의 디자인을 만들고 싶은데 왜 material, cuperino를 반환해야 하는 걸까?<br />
+디자인 시스템을 사용해도 android, ios의 앱처럼 보이진 않지만 root Widget이여서 시작점을 선택하는 것으로, 기본 UI 설정과 같은 재료들을 선택하는 것<br />
+(하지만 Flutter는 구글이 제작했기에 material 앱 스타일이 cuperino 스타일보다 보기 좋다함 😅)</p>
+
+<h2 id="scaffold">scaffold</h2>
+<hr />
+<p>Flutter는 하나의 개발 규칙이 있는데, 화면이 scaffold를 가져야하는 것<br />
+scaffold: 화면의 구성 및 구조에 관한 것들을 가지고 있는 위젯, 화면의 구조를 제공하며,<br />
+모바일 앱의 모든 화면은 scaffold가 필요함<br />
+scaffold의 기능: navigation bar 구현, bottom tab bar, 화면 중앙 정렬 등</p>
+
+<h2 id="home">home</h2>
+<hr />
+<p>앱의 home에 있을 때 무엇을 보여줄지 정하는 프로퍼티로 home안의 위젯을 구성하면 됨</p>
+
+<h2 id="구성-요소">구성 요소</h2>
+<hr />
+<p>클래스에 커서를 올려 놓으면 클래스의 구성이 나오는데, 그것으로 무엇을 할 수 있는지 유추해 볼 수 있음, 자주 사용하도록 하자</p>]]></content><author><name>Mindol</name></author><category term="Flutter" /><category term="Flutter" /><category term="Dart" /><summary type="html"><![CDATA[플러터의 기초 공부]]></summary></entry><entry><title type="html">[jekyll] - markdown파일로 포스팅</title><link href="http://localhost:4000/web/2023/01/26/markdown%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%ED%8F%AC%EC%8A%A4%ED%8C%85.html" rel="alternate" type="text/html" title="[jekyll] - markdown파일로 포스팅" /><published>2023-01-26T06:00:01+09:00</published><updated>2023-01-26T06:00:01+09:00</updated><id>http://localhost:4000/web/2023/01/26/markdown%EC%9D%84%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%ED%8F%AC%EC%8A%A4%ED%8C%85</id><content type="html" xml:base="http://localhost:4000/web/2023/01/26/markdown%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%ED%8F%AC%EC%8A%A4%ED%8C%85.html"><![CDATA[<h2 id="markdown이란">Markdown이란?</h2>
 <hr />
 <p>마크다운(Markdown)은 일반 텍스트 기반의 경량 마크업 언어.<br />
 일반 텍스트로 서식이 있는 문서를 작성하는 데 사용되며,<br />
@@ -25,14 +84,14 @@
 
 <h2 id="머릿말front-matter-작성">머릿말(Front-Matter) 작성</h2>
 <hr />
-<p>준비했던 에디터로 해당 파일을 열어줍니다</p>
+<p>준비했던 에디터로 해당 파일을 열어준 후, 맨 위에 아래처럼 작성해줍니다.</p>
 <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
 <span class="na">layout</span><span class="pi">:</span> <span class="s">post</span>
 <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">포스팅</span><span class="nv"> </span><span class="s">이름"</span>
 <span class="na">excerpt</span><span class="pi">:</span> <span class="s2">"</span><span class="s">소개글"</span>
-<span class="na">categories</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">Category1</span><span class="pi">,</span> <span class="nv">Category2</span><span class="pi">]</span>
+<span class="na">categories</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">Category1</span><span class="pi">]</span>
 <span class="na">tag</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">tag1</span><span class="pi">,</span> <span class="nv">tag2</span><span class="pi">,</span> <span class="nv">tag3</span><span class="pi">]</span>
-<span class="na">date</span><span class="pi">:</span> <span class="s">2023-01-26 00:00:01 +0300</span>
+<span class="na">date</span><span class="pi">:</span> <span class="s">2023-01-26 00:00:00 +0300</span>
 <span class="nn">---</span>
 </code></pre></div></div>
 <p>머릿말은 두개의 <code class="language-plaintext highlighter-rouge">---</code> 사이에 영역을 구분해줘야 한다.<br />
@@ -964,31 +1023,4 @@ cmd로 다운받은 디렉토리에 접속하여</p>
 실패 화면</p>
 
 <p><img src="/assets/img/PipeInTheHole/Result.jpg" alt="image" width="50%" height="50%" /><br />
-최종 점수는 오브젝트를 회전한 횟수와 통과 횟수를 더한 값입니다.</p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="Unity" /><summary type="html"><![CDATA[제작한 게임 설명 - Pipe In The Hole]]></summary></entry><entry><title type="html">Get Out Of My Bank</title><link href="http://localhost:4000/unity/2017/10/06/GetOutOfMyBank.html" rel="alternate" type="text/html" title="Get Out Of My Bank" /><published>2017-10-06T06:00:00+09:00</published><updated>2017-10-06T06:00:00+09:00</updated><id>http://localhost:4000/unity/2017/10/06/GetOutOfMyBank</id><content type="html" xml:base="http://localhost:4000/unity/2017/10/06/GetOutOfMyBank.html"><![CDATA[<h1 id="tmi">TMI</h1>
-<hr />
-<p>2017년 게임과학고등학교 스마트폰게임 개발 체험 행사에 참가하여 제작한 게임</p>
-
-<h1 id="설치파일">설치파일</h1>
-<hr />
-<ul>
-  <li><a href="/assets/download/GetOutOfMyBank.apk"> apk</a><br /></li>
-  <li><a href="/assets/download/GetOutOfMyBank.zip"> zip</a></li>
-</ul>
-
-<h1 id="인게임">인게임</h1>
-<hr />
-<h2 id="메뉴-화면">메뉴 화면</h2>
-<p><img src="/assets/img/GetOutOfMyBank/Menu.jpg" alt="image" width="50%" height="50%" /><br />
-가운데 도둑을 클릭시 게임이 시작됩니다.</p>
-
-<h2 id="게임-화면">게임 화면</h2>
-<p><img src="/assets/img/GetOutOfMyBank/Ingame.jpg" alt="image" width="50%" height="50%" /><br />
-각 플레이어에게 3개의 돈주머니가 주어집니다, 도둑은 정해진 길로 타원을 그리며 이동합니다.</p>
-
-<p><img src="/assets/img/GetOutOfMyBank/Jump.jpg" alt="image" width="50%" height="50%" /><br />
-도둑이 은행 옆 점프대에 올라왔을때 화면 터치 시<br />
-도둑이 점프를 합니다, 만약 점프를 못할 시 가지고있는 돈주머니 한개를 빼앗깁니다.<br /></p>
-
-<p><img src="/assets/img/GetOutOfMyBank/GameOver.jpg" alt="image" width="50%" height="50%" /><br />
-가지고 있는 3개의 돈주머니를 모두 빼앗기면<br />
-파산 문구가 뜨며 게임이 끝납니다.</p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="Unity" /><summary type="html"><![CDATA[제작한 게임 설명 - Get Out Of My Bank]]></summary></entry></feed>
+최종 점수는 오브젝트를 회전한 횟수와 통과 횟수를 더한 값입니다.</p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="Unity" /><summary type="html"><![CDATA[제작한 게임 설명 - Pipe In The Hole]]></summary></entry></feed>

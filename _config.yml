@@ -1,7 +1,7 @@
 title: Mindol
 description: Mindol's Blog
 author: Mindol
-avatar: /assets/img/profile.jpg
+avatar: /assets/img/Minta.png
 email: hhh57463@naver.com
 
 plugins:
@@ -32,12 +32,12 @@ exclude:
 # twitter:
 #   username: ngzhio
 #   card: summary
-logo: /assets/img/profile.jpg
+logo: /assets/img/Minta.png
 social:
   name: Mindol
   links:
-    #- https://twitter.com/ngzhio
     - https://github.com/hhh57463
     - https://www.instagram.com/hhh57463
+    # - https://sly-lemonade-717.notion.site/d6f467dc95934f8581ef33fe4e84ad17
 google_site_verification: u4WXQl0Eu66rsQo2kRdCNx
 lang: en
