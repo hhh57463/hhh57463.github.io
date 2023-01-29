@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[Flutter] - UI | Mindol</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="[Flutter] - UI" />
+<meta name="author" content="Mindol" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="플러터의 기초 공부" />
+<meta property="og:description" content="플러터의 기초 공부" />
+<link rel="canonical" href="http://localhost:4000/flutter/2023/01/29/Flutter-%EA%B8%B0%EC%B4%88-UI.html" />
+<meta property="og:url" content="http://localhost:4000/flutter/2023/01/29/Flutter-%EA%B8%B0%EC%B4%88-UI.html" />
+<meta property="og:site_name" content="Mindol" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-29T06:00:01+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[Flutter] - UI" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-01-29T06:00:01+09:00","datePublished":"2023-01-29T06:00:01+09:00","description":"플러터의 기초 공부","headline":"[Flutter] - UI","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/flutter/2023/01/29/Flutter-%EA%B8%B0%EC%B4%88-UI.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/MinTa.png"},"name":"Mindol"},"url":"http://localhost:4000/flutter/2023/01/29/Flutter-%EA%B8%B0%EC%B4%88-UI.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Mindol" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+  <script>
+    const hour = (new Date()).getHours();
+    let filename = "";
+    if (hour >= 5 && hour < 7) {
+      filename = "/assets/css/skin-sunrise.css";
+    } else if (hour >= 7 && hour < 17) {
+      filename = "/assets/css/skin-daylight.css";
+    } else if (hour >= 17 && hour < 19) {
+      filename = "/assets/css/skin-sunset.css";
+    } else {
+      filename = "/assets/css/skin-midnight.css";
+    }
+    const elem = document.createElement("link");
+    elem.setAttribute("rel", "stylesheet");
+    elem.setAttribute("type", "text/css");
+    elem.setAttribute("href", filename);
+    document.getElementsByTagName("head")[0].appendChild(elem);
+  </script>
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">Mindol</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/assets/img/MinTa.png" class="author-avatar u-photo align-center" alt="Mindol">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Mindol</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:hhh57463@naver.com">hhh57463@naver.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <!-- <a href="/feed.xml"> -->
+    <a href="https://sly-lemonade-717.notion.site/d6f467dc95934f8581ef33fe4e84ad17">
+    <i class="sidebar-icon fas fa-rss"></i><span>Portfolio</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://github.com/hhh57463"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://instagram.com/hhh57463"><i class="fab fa-instagram fa-2x" title="Instagram"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">[Flutter] - UI</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-01-29T06:00:01+09:00" itemprop="datePublished">
+        Jan 29, 2023
+      </time></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="시작하기-전">시작하기 전…</h2>
+<hr />
+<p><img src="/assets/img/Flutter/flutter_UI_1.png" alt="image" width="50%" height="50%" /><br />
+클래스에 커서를 올려서 확인해보면 nullsafety가 되어있는 필드들은 꼭 필요하지 않다는것 같음<br />
+(근데 나머진 다 디폴트로 들어가있는데…? 아직 잘 모르겠음)<br /></p>
+
+<h2 id="color">Color</h2>
+<hr />
+<p>Colors.색상 다음 .을 입력하면 색조를 고를 수 있음 (얼마나 어두워질것인지)<br />
+<img src="/assets/img/Flutter/flutter_UI_2.png" alt="image" width="50%" height="50%" /><br />
+Color(0xFF색상코드)로 색상지정이 가능<br />
+<img src="/assets/img/Flutter/flutter_UI_3.png" alt="image" width="50%" height="50%" /><br />
+색상.Opecity()로 투명도를 조정할 수 있다<br />
+<img src="/assets/img/Flutter/flutter_UI_4.png" alt="image" width="50%" height="50%" /><br /></p>
+
+<h2 id="column">Column</h2>
+<hr />
+<p>자식으로 다른 위젯을 넣으려면 Column 클래스 이용<br />
+하나의 Column에 두개의 Text를 넣는 예제<br /></p>
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">home:</span> <span class="n">Scaffold</span><span class="p">(</span>
+        <span class="nl">backgroundColor:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">black</span><span class="p">,</span>
+        <span class="nl">body:</span> <span class="n">Column</span><span class="p">(</span>
+          <span class="nl">children:</span> <span class="p">[</span>
+            <span class="n">Row</span><span class="p">(</span>
+              <span class="nl">children:</span> <span class="p">[</span>
+              <span class="n">Column</span><span class="p">(</span>
+                  <span class="nl">children:</span> <span class="p">[</span>
+                    <span class="n">Text</span><span class="p">(</span>
+                      <span class="s">'Hey, Mindol'</span><span class="p">,</span>
+                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
+                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
+                      <span class="p">),</span>
+                    <span class="p">),</span>
+                    <span class="n">Text</span><span class="p">(</span>
+                      <span class="s">'Welcom Back'</span><span class="p">,</span>
+                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
+                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
+                        <span class="p">),</span>
+                    <span class="p">),</span>
+                  <span class="p">],</span>
+                <span class="p">)</span>
+              <span class="p">]</span>
+            <span class="p">)</span>
+          <span class="p">],</span>
+        <span class="p">)</span>
+      <span class="p">),</span>
+</code></pre></div></div>
+<p>결과<br />
+<img src="/assets/img/Flutter/flutter_UI_5.png" alt="image" width="50%" height="50%" /><br />
+너무 위에 있어 아래로 좀 내려야 할듯함 그럴때 사용하는게 SizedBox<br /></p>
+
+<h2 id="sizedbox">SizedBox</h2>
+<hr />
+<p>크기가 있는 박스, 공간을 만들때 사용</p>
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">body:</span> <span class="n">Column</span><span class="p">(</span>
+          <span class="nl">children:</span> <span class="p">[</span>
+            <span class="n">SizedBox</span><span class="p">(</span>
+              <span class="nl">height:</span> <span class="mi">80</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">Row</span><span class="p">(</span>
+              <span class="nl">children:</span> <span class="p">[</span>
+              <span class="n">Column</span><span class="p">(</span>
+                  <span class="nl">children:</span> <span class="p">[</span>
+                    <span class="n">Text</span><span class="p">(</span>
+                      <span class="s">'Hey, Mindol'</span><span class="p">,</span>
+                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
+                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
+                      <span class="p">),</span>
+                    <span class="p">),</span>
+                    <span class="n">Text</span><span class="p">(</span>
+                      <span class="s">'Welcom Back'</span><span class="p">,</span>
+                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
+                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
+                        <span class="p">),</span>
+                    <span class="p">),</span>
+                  <span class="p">],</span>
+                <span class="p">)</span>
+              <span class="p">]</span>
+            <span class="p">)</span>
+          <span class="p">],</span>
+        <span class="p">)</span>
+</code></pre></div></div>
+<p>Column안에 SizedBox의 높이를 80으로 지정해주고 두개의 Text를 넣어준 예제<br /><br />
+결과<br />
+<img src="/assets/img/Flutter/flutter_UI_6.png" alt="image" width="50%" height="50%" /><br />
+위에 SizedBox가 생긴 후 Text가 그려지는것을 볼 수 있다<br />
+이제 텍스트를 오른쪽으로 옮겨보자<br /></p>
+
+<h2 id="alignment정렬">Alignment(정렬)</h2>
+<hr />
+<p>Row의 MainAxisAlignment은 수평방향이지만<br />
+Column의 MainAxisAlignment은 수직방향 <br /></p>
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">home:</span> <span class="n">Scaffold</span><span class="p">(</span>
+        <span class="nl">backgroundColor:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">black</span><span class="p">,</span>
+        <span class="nl">body:</span> <span class="n">Column</span><span class="p">(</span>
+          <span class="nl">children:</span> <span class="p">[</span>
+            <span class="n">SizedBox</span><span class="p">(</span>
+              <span class="nl">height:</span> <span class="mi">80</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">Row</span><span class="p">(</span>
+              <span class="nl">mainAxisAlignment:</span> <span class="n">MainAxisAlignment</span><span class="o">.</span><span class="na">end</span><span class="p">,</span> <span class="c1">// &lt;- Row의 정렬 속성 변경</span>
+              <span class="nl">children:</span> <span class="p">[</span>
+              <span class="n">Column</span><span class="p">(</span>
+                  <span class="nl">children:</span> <span class="p">[</span>
+                    <span class="n">Text</span><span class="p">(</span>
+                      <span class="s">'Hey, Mindol'</span><span class="p">,</span>
+                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
+                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
+                      <span class="p">),</span>
+                    <span class="p">),</span>
+                    <span class="n">Text</span><span class="p">(</span>
+                      <span class="s">'Welcom Back'</span><span class="p">,</span>
+                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
+                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
+                        <span class="p">),</span>
+                    <span class="p">),</span>
+                  <span class="p">],</span>
+                <span class="p">)</span>
+              <span class="p">]</span>
+            <span class="p">)</span>
+          <span class="p">],</span>
+        <span class="p">)</span>
+      <span class="p">),</span>
+</code></pre></div></div>
+<p>Row클래스의 mainAxisAlignment를 start에서 end로 변경해주었다<br /><br />
+결과<br />
+<img src="/assets/img/Flutter/flutter_UI_7.png" alt="image" width="50%" height="50%" /><br />
+이제 Text의 크기를 변경해줄 것이다<br /></p>
+
+<h2 id="text">Text</h2>
+<hr />
+<p>첫번째 텍스트의 크기를 더 크고, 진하게 할 것이다<br /></p>
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">body:</span> <span class="n">Column</span><span class="p">(</span>
+          <span class="nl">children:</span> <span class="p">[</span>
+            <span class="n">SizedBox</span><span class="p">(</span>
+              <span class="nl">height:</span> <span class="mi">80</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">Row</span><span class="p">(</span>
+              <span class="nl">mainAxisAlignment:</span> <span class="n">MainAxisAlignment</span><span class="o">.</span><span class="na">end</span><span class="p">,</span>
+              <span class="nl">children:</span> <span class="p">[</span>
+              <span class="n">Column</span><span class="p">(</span>
+                  <span class="nl">children:</span> <span class="p">[</span>
+                    <span class="n">Text</span><span class="p">(</span>
+                      <span class="s">'Hey, Mindol'</span><span class="p">,</span>
+                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
+                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
+                        <span class="nl">fontSize:</span> <span class="mi">38</span><span class="p">,</span>
+                        <span class="nl">fontWeight:</span> <span class="n">FontWeight</span><span class="o">.</span><span class="na">w600</span><span class="p">,</span>
+                      <span class="p">),</span>
+                    <span class="p">),</span>
+                    <span class="n">Text</span><span class="p">(</span>
+                      <span class="s">'Welcom Back'</span><span class="p">,</span>
+                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
+                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
+                        <span class="p">),</span>
+                    <span class="p">),</span>
+                  <span class="p">],</span>
+                <span class="p">)</span>
+              <span class="p">]</span>
+            <span class="p">)</span>
+          <span class="p">],</span>
+        <span class="p">)</span>
+</code></pre></div></div>
+<p>fontSize로 폰트의 크기를 정해고, fontWeight로 더 진하게 해줄 것이다<br /><br />
+결과<br />
+<img src="/assets/img/Flutter/flutter_UI_8.png" alt="image" width="50%" height="50%" /><br />
+현재 텍스트는 가운데 정렬을 하고있지만 모든 텍스트를 오른쪽에 붙이고 싶다<br />
+하지만 Column의 MainAxis는 수직이고, CrossAxis는 수평이다(Row와 반대)<br />
+Column 클래스의 crossAxisAlignment값을 CrossAxisAlignment.end로 변경<br /><br />
+결과<br />
+<img src="/assets/img/Flutter/flutter_UI_9.png" alt="image" width="50%" height="50%" /><br />
+잘 정렬되는 것을 볼 수 있다.<br />
+하지만 너무 오른쪽에 붙어 있는것 같아 공백을 조금 주고 싶다<br /></p>
+
+<h2 id="padding">Padding</h2>
+<hr />
+<p>지금까지 만들었던 Column을 Padding으로 감싸서 전체적으로 공백을 주려한다.<br />
+padding을 사용할때는 padding을 명시해야하는데,<br />
+padding클래스에<code class="language-plaintext highlighter-rouge">padding: EdgeInsets</code>를 입력하면 알 수 있다.<br /></p>
+<ul>
+  <li>EdgeInsets.all(): 값만큼 화면의 상하좌우 모두 padding을 줌<br /></li>
+  <li>EdgeInsets.only(): 상하좌우 중 한 가지를 구체적으로 정할 수 있음<br /></li>
+  <li>EdgeInsets.symmetric(): 수직 padding과 수평 padding을 지정할 수 있음<br /></li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/categories/#flutter">Flutter</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#dart">dart</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#flutter">flutter</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/flutter/2023/01/28/Flutter%EA%B8%B0%EC%B4%88-Widget.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> [Flutter] - Widget
+
+          </span>
+        </a>
+      
+
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+<script src="https://utteranc.es/client.js"
+        repo="hhh57463/hhh57463.github.io"
+        issue-term="url"
+        theme="gruvbox-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2017&nbsp;-&nbsp;2023 Mindol; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Mindol&#39;s Blog</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

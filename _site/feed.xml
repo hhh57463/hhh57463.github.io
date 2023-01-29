@@ -1,4 +1,187 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-01-29T13:20:43+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">[Flutter] - Widget</title><link href="http://localhost:4000/flutter/2023/01/28/Flutter%EA%B8%B0%EC%B4%88-Widget.html" rel="alternate" type="text/html" title="[Flutter] - Widget" /><published>2023-01-28T06:00:01+09:00</published><updated>2023-01-28T06:00:01+09:00</updated><id>http://localhost:4000/flutter/2023/01/28/Flutter%EA%B8%B0%EC%B4%88-Widget</id><content type="html" xml:base="http://localhost:4000/flutter/2023/01/28/Flutter%EA%B8%B0%EC%B4%88-Widget.html"><![CDATA[<h1 id="tmi">TMI</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-01-29T14:30:25+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">[Flutter] - UI</title><link href="http://localhost:4000/flutter/2023/01/29/Flutter-%EA%B8%B0%EC%B4%88-UI.html" rel="alternate" type="text/html" title="[Flutter] - UI" /><published>2023-01-29T06:00:01+09:00</published><updated>2023-01-29T06:00:01+09:00</updated><id>http://localhost:4000/flutter/2023/01/29/Flutter%20%EA%B8%B0%EC%B4%88-UI</id><content type="html" xml:base="http://localhost:4000/flutter/2023/01/29/Flutter-%EA%B8%B0%EC%B4%88-UI.html"><![CDATA[<h2 id="시작하기-전">시작하기 전…</h2>
+<hr />
+<p><img src="/assets/img/Flutter/flutter_UI_1.png" alt="image" width="50%" height="50%" /><br />
+클래스에 커서를 올려서 확인해보면 nullsafety가 되어있는 필드들은 꼭 필요하지 않다는것 같음<br />
+(근데 나머진 다 디폴트로 들어가있는데…? 아직 잘 모르겠음)<br /></p>
+
+<h2 id="color">Color</h2>
+<hr />
+<p>Colors.색상 다음 .을 입력하면 색조를 고를 수 있음 (얼마나 어두워질것인지)<br />
+<img src="/assets/img/Flutter/flutter_UI_2.png" alt="image" width="50%" height="50%" /><br />
+Color(0xFF색상코드)로 색상지정이 가능<br />
+<img src="/assets/img/Flutter/flutter_UI_3.png" alt="image" width="50%" height="50%" /><br />
+색상.Opecity()로 투명도를 조정할 수 있다<br />
+<img src="/assets/img/Flutter/flutter_UI_4.png" alt="image" width="50%" height="50%" /><br /></p>
+
+<h2 id="column">Column</h2>
+<hr />
+<p>자식으로 다른 위젯을 넣으려면 Column 클래스 이용<br />
+하나의 Column에 두개의 Text를 넣는 예제<br /></p>
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">home:</span> <span class="n">Scaffold</span><span class="p">(</span>
+        <span class="nl">backgroundColor:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">black</span><span class="p">,</span>
+        <span class="nl">body:</span> <span class="n">Column</span><span class="p">(</span>
+          <span class="nl">children:</span> <span class="p">[</span>
+            <span class="n">Row</span><span class="p">(</span>
+              <span class="nl">children:</span> <span class="p">[</span>
+              <span class="n">Column</span><span class="p">(</span>
+                  <span class="nl">children:</span> <span class="p">[</span>
+                    <span class="n">Text</span><span class="p">(</span>
+                      <span class="s">'Hey, Mindol'</span><span class="p">,</span>
+                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
+                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
+                      <span class="p">),</span>
+                    <span class="p">),</span>
+                    <span class="n">Text</span><span class="p">(</span>
+                      <span class="s">'Welcom Back'</span><span class="p">,</span>
+                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
+                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
+                        <span class="p">),</span>
+                    <span class="p">),</span>
+                  <span class="p">],</span>
+                <span class="p">)</span>
+              <span class="p">]</span>
+            <span class="p">)</span>
+          <span class="p">],</span>
+        <span class="p">)</span>
+      <span class="p">),</span>
+</code></pre></div></div>
+<p>결과<br />
+<img src="/assets/img/Flutter/flutter_UI_5.png" alt="image" width="50%" height="50%" /><br />
+너무 위에 있어 아래로 좀 내려야 할듯함 그럴때 사용하는게 SizedBox<br /></p>
+
+<h2 id="sizedbox">SizedBox</h2>
+<hr />
+<p>크기가 있는 박스, 공간을 만들때 사용</p>
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">body:</span> <span class="n">Column</span><span class="p">(</span>
+          <span class="nl">children:</span> <span class="p">[</span>
+            <span class="n">SizedBox</span><span class="p">(</span>
+              <span class="nl">height:</span> <span class="mi">80</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">Row</span><span class="p">(</span>
+              <span class="nl">children:</span> <span class="p">[</span>
+              <span class="n">Column</span><span class="p">(</span>
+                  <span class="nl">children:</span> <span class="p">[</span>
+                    <span class="n">Text</span><span class="p">(</span>
+                      <span class="s">'Hey, Mindol'</span><span class="p">,</span>
+                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
+                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
+                      <span class="p">),</span>
+                    <span class="p">),</span>
+                    <span class="n">Text</span><span class="p">(</span>
+                      <span class="s">'Welcom Back'</span><span class="p">,</span>
+                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
+                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
+                        <span class="p">),</span>
+                    <span class="p">),</span>
+                  <span class="p">],</span>
+                <span class="p">)</span>
+              <span class="p">]</span>
+            <span class="p">)</span>
+          <span class="p">],</span>
+        <span class="p">)</span>
+</code></pre></div></div>
+<p>Column안에 SizedBox의 높이를 80으로 지정해주고 두개의 Text를 넣어준 예제<br /><br />
+결과<br />
+<img src="/assets/img/Flutter/flutter_UI_6.png" alt="image" width="50%" height="50%" /><br />
+위에 SizedBox가 생긴 후 Text가 그려지는것을 볼 수 있다<br />
+이제 텍스트를 오른쪽으로 옮겨보자<br /></p>
+
+<h2 id="alignment정렬">Alignment(정렬)</h2>
+<hr />
+<p>Row의 MainAxisAlignment은 수평방향이지만<br />
+Column의 MainAxisAlignment은 수직방향 <br /></p>
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">home:</span> <span class="n">Scaffold</span><span class="p">(</span>
+        <span class="nl">backgroundColor:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">black</span><span class="p">,</span>
+        <span class="nl">body:</span> <span class="n">Column</span><span class="p">(</span>
+          <span class="nl">children:</span> <span class="p">[</span>
+            <span class="n">SizedBox</span><span class="p">(</span>
+              <span class="nl">height:</span> <span class="mi">80</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">Row</span><span class="p">(</span>
+              <span class="nl">mainAxisAlignment:</span> <span class="n">MainAxisAlignment</span><span class="o">.</span><span class="na">end</span><span class="p">,</span> <span class="c1">// &lt;- Row의 정렬 속성 변경</span>
+              <span class="nl">children:</span> <span class="p">[</span>
+              <span class="n">Column</span><span class="p">(</span>
+                  <span class="nl">children:</span> <span class="p">[</span>
+                    <span class="n">Text</span><span class="p">(</span>
+                      <span class="s">'Hey, Mindol'</span><span class="p">,</span>
+                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
+                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
+                      <span class="p">),</span>
+                    <span class="p">),</span>
+                    <span class="n">Text</span><span class="p">(</span>
+                      <span class="s">'Welcom Back'</span><span class="p">,</span>
+                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
+                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
+                        <span class="p">),</span>
+                    <span class="p">),</span>
+                  <span class="p">],</span>
+                <span class="p">)</span>
+              <span class="p">]</span>
+            <span class="p">)</span>
+          <span class="p">],</span>
+        <span class="p">)</span>
+      <span class="p">),</span>
+</code></pre></div></div>
+<p>Row클래스의 mainAxisAlignment를 start에서 end로 변경해주었다<br /><br />
+결과<br />
+<img src="/assets/img/Flutter/flutter_UI_7.png" alt="image" width="50%" height="50%" /><br />
+이제 Text의 크기를 변경해줄 것이다<br /></p>
+
+<h2 id="text">Text</h2>
+<hr />
+<p>첫번째 텍스트의 크기를 더 크고, 진하게 할 것이다<br /></p>
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">body:</span> <span class="n">Column</span><span class="p">(</span>
+          <span class="nl">children:</span> <span class="p">[</span>
+            <span class="n">SizedBox</span><span class="p">(</span>
+              <span class="nl">height:</span> <span class="mi">80</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">Row</span><span class="p">(</span>
+              <span class="nl">mainAxisAlignment:</span> <span class="n">MainAxisAlignment</span><span class="o">.</span><span class="na">end</span><span class="p">,</span>
+              <span class="nl">children:</span> <span class="p">[</span>
+              <span class="n">Column</span><span class="p">(</span>
+                  <span class="nl">children:</span> <span class="p">[</span>
+                    <span class="n">Text</span><span class="p">(</span>
+                      <span class="s">'Hey, Mindol'</span><span class="p">,</span>
+                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
+                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
+                        <span class="nl">fontSize:</span> <span class="mi">38</span><span class="p">,</span>
+                        <span class="nl">fontWeight:</span> <span class="n">FontWeight</span><span class="o">.</span><span class="na">w600</span><span class="p">,</span>
+                      <span class="p">),</span>
+                    <span class="p">),</span>
+                    <span class="n">Text</span><span class="p">(</span>
+                      <span class="s">'Welcom Back'</span><span class="p">,</span>
+                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
+                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
+                        <span class="p">),</span>
+                    <span class="p">),</span>
+                  <span class="p">],</span>
+                <span class="p">)</span>
+              <span class="p">]</span>
+            <span class="p">)</span>
+          <span class="p">],</span>
+        <span class="p">)</span>
+</code></pre></div></div>
+<p>fontSize로 폰트의 크기를 정해고, fontWeight로 더 진하게 해줄 것이다<br /><br />
+결과<br />
+<img src="/assets/img/Flutter/flutter_UI_8.png" alt="image" width="50%" height="50%" /><br />
+현재 텍스트는 가운데 정렬을 하고있지만 모든 텍스트를 오른쪽에 붙이고 싶다<br />
+하지만 Column의 MainAxis는 수직이고, CrossAxis는 수평이다(Row와 반대)<br />
+Column 클래스의 crossAxisAlignment값을 CrossAxisAlignment.end로 변경<br /><br />
+결과<br />
+<img src="/assets/img/Flutter/flutter_UI_9.png" alt="image" width="50%" height="50%" /><br />
+잘 정렬되는 것을 볼 수 있다.<br />
+하지만 너무 오른쪽에 붙어 있는것 같아 공백을 조금 주고 싶다<br /></p>
+
+<h2 id="padding">Padding</h2>
+<hr />
+<p>지금까지 만들었던 Column을 Padding으로 감싸서 전체적으로 공백을 주려한다.<br />
+padding을 사용할때는 padding을 명시해야하는데,<br />
+padding클래스에<code class="language-plaintext highlighter-rouge">padding: EdgeInsets</code>를 입력하면 알 수 있다.<br /></p>
+<ul>
+  <li>EdgeInsets.all(): 값만큼 화면의 상하좌우 모두 padding을 줌<br /></li>
+  <li>EdgeInsets.only(): 상하좌우 중 한 가지를 구체적으로 정할 수 있음<br /></li>
+  <li>EdgeInsets.symmetric(): 수직 padding과 수평 padding을 지정할 수 있음<br /></li>
+</ul>]]></content><author><name>Mindol</name></author><category term="Flutter" /><category term="Flutter" /><category term="Dart" /><summary type="html"><![CDATA[플러터의 기초 공부]]></summary></entry><entry><title type="html">[Flutter] - Widget</title><link href="http://localhost:4000/flutter/2023/01/28/Flutter%EA%B8%B0%EC%B4%88-Widget.html" rel="alternate" type="text/html" title="[Flutter] - Widget" /><published>2023-01-28T06:00:01+09:00</published><updated>2023-01-28T06:00:01+09:00</updated><id>http://localhost:4000/flutter/2023/01/28/Flutter%EA%B8%B0%EC%B4%88-Widget</id><content type="html" xml:base="http://localhost:4000/flutter/2023/01/28/Flutter%EA%B8%B0%EC%B4%88-Widget.html"><![CDATA[<h1 id="tmi">TMI</h1>
 <hr />
 <p>Flutter는 게임엔진처럼 동작, 엔진이 화면 상의 모든 픽셀을 그림.<br />
 게임 엔진은 무언가를 렌더링할 때 호스트 플랫폼을 사용하지 않고 스스로 그래픽을 그림, Flutter도 같음.</p>
@@ -991,36 +1174,4 @@ cmd로 다운받은 디렉토리에 접속하여</p>
 플레이어를 움직여 최고기록을 갱신해 보세요.</p>
 
 <p><img src="/assets/img/CrushMe/result.jpg" alt="image" width="50%" height="50%" /><br />
-플레이어 사망 시 현재기록과 최고기록이 나옵니다.</p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="Unity" /><summary type="html"><![CDATA[제작한 게임 설명 - Crush Me]]></summary></entry><entry><title type="html">Pipe In The Hole</title><link href="http://localhost:4000/unity/2017/12/26/PipeInTheHole.html" rel="alternate" type="text/html" title="Pipe In The Hole" /><published>2017-12-26T06:00:01+09:00</published><updated>2017-12-26T06:00:01+09:00</updated><id>http://localhost:4000/unity/2017/12/26/PipeInTheHole</id><content type="html" xml:base="http://localhost:4000/unity/2017/12/26/PipeInTheHole.html"><![CDATA[<h1 id="tmi">TMI</h1>
-<hr />
-<p>2016년 겨울방학 팀 프로젝트 시간에 제작한 게임</p>
-
-<h1 id="설치파일">설치파일</h1>
-<hr />
-<ul>
-  <li><a href="/assets/download/PipeInTheHole.apk"> apk</a><br /></li>
-  <li><a href="/assets/download/PipeInTheHole.zip"> zip</a></li>
-</ul>
-
-<h1 id="인게임">인게임</h1>
-<hr />
-<h2 id="인트로">인트로</h2>
-<p><img src="/assets/img/PipeInTheHole/Intro.jpg" alt="image" width="50%" height="50%" /><br />
-이야기가 있는 게임입니다 뒷내용이 궁금하시면 클리어 하시면 알 수 있습니다.<br /></p>
-
-<h2 id="메뉴-화면">메뉴 화면</h2>
-<p><img src="/assets/img/PipeInTheHole/Menu.jpg" alt="image" width="50%" height="50%" /><br />
-가운데 물방울을 클릭 시 게임이 시작됩니다.</p>
-
-<h2 id="게임-화면">게임 화면</h2>
-<p><img src="/assets/img/PipeInTheHole/GamePlay.jpg" alt="image" width="50%" height="50%" /><br />
-아래로 떨어지는 오브젝트를 제시되는 틀에 맞춰 화면을 드래그해 돌려줍니다.</p>
-
-<p><img src="/assets/img/PipeInTheHole/Clear.jpg" alt="image" width="50%" height="50%" /><br />
-성공 화면</p>
-
-<p><img src="/assets/img/PipeInTheHole/Fail.jpg" alt="image" width="50%" height="50%" /><br />
-실패 화면</p>
-
-<p><img src="/assets/img/PipeInTheHole/Result.jpg" alt="image" width="50%" height="50%" /><br />
-최종 점수는 오브젝트를 회전한 횟수와 통과 횟수를 더한 값입니다.</p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="Unity" /><summary type="html"><![CDATA[제작한 게임 설명 - Pipe In The Hole]]></summary></entry></feed>
+플레이어 사망 시 현재기록과 최고기록이 나옵니다.</p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="Unity" /><summary type="html"><![CDATA[제작한 게임 설명 - Crush Me]]></summary></entry></feed>
