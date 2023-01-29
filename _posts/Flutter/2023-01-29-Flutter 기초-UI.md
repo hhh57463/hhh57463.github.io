@@ -19,7 +19,7 @@ Colors.색상 다음 .을 입력하면 색조를 고를 수 있음 (얼마나 �
 ![image](/assets/img/Flutter/flutter_UI_2.png){: width="50%" height="50%"}<br>
 Color(0xFF색상코드)로 색상지정이 가능<br>
 ![image](/assets/img/Flutter/flutter_UI_3.png){: width="50%" height="50%"}<br>
-색상.Opecity()로 투명도를 조정할 수 있다<br>
+색상.Opacity()로 투명도를 조정할 수 있다<br>
 ![image](/assets/img/Flutter/flutter_UI_4.png){: width="50%" height="50%"}<br>
 
 ## Column
