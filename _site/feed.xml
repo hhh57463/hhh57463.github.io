@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-01-30T16:29:16+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">Unity Photon 주요 기능</title><link href="http://localhost:4000/unity/2023/01/30/Photon.html" rel="alternate" type="text/html" title="Unity Photon 주요 기능" /><published>2023-01-30T06:00:01+09:00</published><updated>2023-01-30T06:00:01+09:00</updated><id>http://localhost:4000/unity/2023/01/30/Photon</id><content type="html" xml:base="http://localhost:4000/unity/2023/01/30/Photon.html"><![CDATA[<h2 id="photon의-개념">Photon의 개념</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-01-30T18:56:55+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">Unity Photon 주요 기능</title><link href="http://localhost:4000/unity/2023/01/30/Photon.html" rel="alternate" type="text/html" title="Unity Photon 주요 기능" /><published>2023-01-30T06:00:01+09:00</published><updated>2023-01-30T06:00:01+09:00</updated><id>http://localhost:4000/unity/2023/01/30/Photon</id><content type="html" xml:base="http://localhost:4000/unity/2023/01/30/Photon.html"><![CDATA[<h2 id="photon의-개념">Photon의 개념</h2>
 <hr />
 
 <p><img src="/assets/img/Photon/Photon_1.png" alt="image" width="50%" height="50%" /><br />
@@ -514,7 +514,26 @@ ex) <a href="https://hhh57463.github.io">블로그주소</a><br /><br /></p>
 img디렉터리를 생성하여 이미지를 관리한다.<br />
 <code class="language-plaintext highlighter-rouge">![image](이미지 파일){: width="50%" height="50%"}</code><br />
 이런식으로 이미지의 크기를 조절할 수 있다. (위의 예시는 이미지 크기 50%)<br /><br />
-<code class="language-plaintext highlighter-rouge">+ 내용</code>, <code class="language-plaintext highlighter-rouge">- 내용</code>: HTML의 <code class="language-plaintext highlighter-rouge">&lt;li&gt;</code> 태그와 같은 역할, 주로 리스트를 표시할 때 사용한다.<br /><br /></p>
+<code class="language-plaintext highlighter-rouge">+ 내용</code>, <code class="language-plaintext highlighter-rouge">- 내용</code>: HTML의 <code class="language-plaintext highlighter-rouge">&lt;li&gt;</code> 태그와 같은 역할, 주로 리스트를 표시할 때 사용한다.<br /></p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sb">` `</span>: 두개의 <span class="err">`</span> 사이의 어떠한 텍스트를 작성하면 해당 텍스트를 강조할 수 있다
+</code></pre></div></div>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">: 두 개의 ``` 사이를 코드블럭으로 만든다.
+</span><span class="sb">첫 ```다음 언어 이름을 적으면 해당 언어의 코드블럭으로 만든다.
+</span></code></pre></div></div>
+<p>```python을 사용한 예시</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">def</span> <span class="nf">min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+
+<span class="k">def</span> <span class="nf">mul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+
+<span class="k">def</span> <span class="nf">div</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+</code></pre></div></div>
 
 <p><code class="language-plaintext highlighter-rouge">&lt;br&gt;</code>: 줄바꿈 태그, Enter키로 2칸의 공백을 만들면 <code class="language-plaintext highlighter-rouge">&lt;br&gt;</code>로 간주된다.<br /><br /></p>
 
