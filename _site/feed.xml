@@ -1,4 +1,201 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-01-29T14:30:25+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">[Flutter] - UI</title><link href="http://localhost:4000/flutter/2023/01/29/Flutter-%EA%B8%B0%EC%B4%88-UI.html" rel="alternate" type="text/html" title="[Flutter] - UI" /><published>2023-01-29T06:00:01+09:00</published><updated>2023-01-29T06:00:01+09:00</updated><id>http://localhost:4000/flutter/2023/01/29/Flutter%20%EA%B8%B0%EC%B4%88-UI</id><content type="html" xml:base="http://localhost:4000/flutter/2023/01/29/Flutter-%EA%B8%B0%EC%B4%88-UI.html"><![CDATA[<h2 id="시작하기-전">시작하기 전…</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-01-30T14:44:29+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">Unity Photon 주요 기능</title><link href="http://localhost:4000/unity/2023/01/30/Photon.html" rel="alternate" type="text/html" title="Unity Photon 주요 기능" /><published>2023-01-30T06:00:01+09:00</published><updated>2023-01-30T06:00:01+09:00</updated><id>http://localhost:4000/unity/2023/01/30/Photon</id><content type="html" xml:base="http://localhost:4000/unity/2023/01/30/Photon.html"><![CDATA[<h2 id="photon의-개념">Photon의 개념</h2>
+<hr />
+
+<p><img src="/assets/img/Photon/Photon_1.png" alt="image" width="50%" height="50%" /><br />
+Photon 연결할 때 App ID를 입력하고 연결하면 생기는 셋팅<br />
+이 중 App ID가 같을 때는 같은 네트워크를 사용한다는 뜻<br /></p>
+<ul>
+  <li>포톤 서버에는 룸과 로비의 개념이 있음<br /></li>
+  <li>룸은 네트워크 게임을 실행할 수 있는 논리적인 공간<br /></li>
+  <li>룸에 입장해야만 해당 룸에 접속한 다른 유저와 통신이 가능<br /></li>
+  <li>로비에 입장하려면 로비 입장 함수를 호출해야 로비에 입장 가능<br /></li>
+  <li>로비는 현재 룸이 생성되었는지에 대한 정보를 수신받을 수 있음<br /></li>
+  <li>룸이 목록을 받아와 특정 룸에 입장이 가능<br /></li>
+</ul>
+
+<h2 id="photon-통신을-위한-콜백함수">Photon 통신을 위한 콜백함수</h2>
+<hr />
+
+<table>
+  <thead>
+    <tr>
+      <th>함수 이름</th>
+      <th>호출 조건</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>OnConnectedToMaster()</td>
+      <td>포톤 서버에 접속 후 호출되는 콜백 함수</td>
+    </tr>
+    <tr>
+      <td>OnJoinedLobby()</td>
+      <td>로비에 접속 후 호출되는 콜백 함수</td>
+    </tr>
+    <tr>
+      <td>OnJoinRandomFailed(short returnCode, string message)</td>
+      <td>랜덤 룸 입장 실패했을 때 호출되는 콜백 함수</td>
+    </tr>
+    <tr>
+      <td>OnCreatedRoom()</td>
+      <td>룸 생성이 완료된 후 호출되는 콜백 함수</td>
+    </tr>
+    <tr>
+      <td>OnJoinedRoom()</td>
+      <td>룸에 입장한 후 호출되는 콜백 함수</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="photon-주요-메소드-프로퍼티">Photon 주요 메소드, 프로퍼티</h2>
+<hr />
+
+<table>
+  <thead>
+    <tr>
+      <th>이름</th>
+      <th>종류</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PhotonNetwork.AutomaticallySyncScene</td>
+      <td>프로퍼티</td>
+      <td>같은 룸의 유저들에게 자동으로 씬을 로딩할 것인지</td>
+    </tr>
+    <tr>
+      <td>PhotonNetwork.GameVersion</td>
+      <td>프로퍼티</td>
+      <td>게임 접속 버전 ( 같은 버전의 유저끼리 접속 허용)</td>
+    </tr>
+    <tr>
+      <td>PhotonNetwork.NickName</td>
+      <td>프로퍼티</td>
+      <td>객체의 닉네임</td>
+    </tr>
+    <tr>
+      <td>PhotonNetwork.SendRate</td>
+      <td>프로퍼티</td>
+      <td>포톤 서버와 통신 횟수</td>
+    </tr>
+    <tr>
+      <td>PhotonNetwork.ConnectUsingSettings()</td>
+      <td>메소드</td>
+      <td>서버 접속</td>
+    </tr>
+    <tr>
+      <td>PhotonNetwork.JoinLobby()</td>
+      <td>메소드</td>
+      <td>로비 입장</td>
+    </tr>
+    <tr>
+      <td>PhotonNetwork.JoinRandomRoom()</td>
+      <td>메소드</td>
+      <td>랜덤 매치메이킹</td>
+    </tr>
+    <tr>
+      <td>PhotonNetwork.CreateRoom(“방 이름”, 룸 속성)</td>
+      <td>메소드</td>
+      <td>속성을 가진 룸 생성</td>
+    </tr>
+    <tr>
+      <td>PhotonNetwork.InLobby</td>
+      <td>프로퍼티</td>
+      <td>로비에 접속 되었는지</td>
+    </tr>
+    <tr>
+      <td>PhotonNetwork.CurrentRoom</td>
+      <td>프로퍼티</td>
+      <td>현재 룸의 정보</td>
+    </tr>
+    <tr>
+      <td>PhotonNetwork.InRoom</td>
+      <td>프로퍼티</td>
+      <td>룸에 접속 되었는지</td>
+    </tr>
+    <tr>
+      <td>PhotonNetwork.Instantiate(“Prefab 이름”, position, rotation, 0)</td>
+      <td>함수</td>
+      <td>포톤 Instantiate</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="photon-view-스크립트">Photon View 스크립트</h2>
+<hr />
+
+<p>네트워크에 접속한 플레이어간 데이터를 송수신해주는 통신 모듈<br />
+동일한 룸에 입장한 다른 플레이어에게 자신의 위치와 회전 정보를 동기화<br />
+특정한 데이터 송수신 가능<br />
+네트워크 개체당 한개만 사용할 것 (네트워크 대역폭과 성능상의 이유로)<br />
+<img src="/assets/img/Photon/Photon_2.png" alt="image" width="50%" height="50%" /><br /></p>
+
+<p>Synchronization: 동기화 처리를 어떻게 할 것인지 기능에 따라 성능이 달라짐</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>속성</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Off</td>
+      <td>동기화 처리 X. RPC 호출만을 위한 PhotonView에 적합 (RPC: 원격 프로시저 호출 물리적으로 떨어져있는 다른 디바이스간의 함수를 호출하는 기능)</td>
+    </tr>
+    <tr>
+      <td>Reliable Delta Compressed</td>
+      <td>마지막 데이터가 변경되지 않았을 때 데이터 송신 X</td>
+    </tr>
+    <tr>
+      <td>Unreliable</td>
+      <td>패킷의 수신 여부를 확인 X</td>
+    </tr>
+    <tr>
+      <td>Unreliable On Change</td>
+      <td>UnReliable과 동일하며 변경사항이 발생했을 때만 송신</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="phton-transform-view-스크립트">Phton Transform View 스크립트</h2>
+<hr />
+<p><img src="/assets/img/Photon/Photon_3.png" alt="image" width="50%" height="50%" /><br />
+플레이어의 위치, 회전값을 동기화하기 위한 모듈<br />
+Synchronize Options: 체크되어있는 옵션을 동기화해라<br />
+Use Local: 동기화하는 데이터가 Local 기준인지<br /></p>
+
+<h2 id="photon-animator-view">Photon Animator View</h2>
+<hr />
+<p><img src="/assets/img/Photon/Photon_4.png" alt="image" width="50%" height="50%" /><br />
+애니메이터 컴포넌트를 동기화해주는 모듈<br />
+애니메이터 정보를 읽어 레이어와 파라미터 값을 자동으로 동기화 해줌<br /><br />
+Synchronize Layer Weights 애니메이션 동기화 횟수인것 같음<br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>속성</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Disabled</td>
+      <td>안함</td>
+    </tr>
+    <tr>
+      <td>Discrete</td>
+      <td>이산</td>
+    </tr>
+    <tr>
+      <td>Continuous</td>
+      <td>연속</td>
+    </tr>
+  </tbody>
+</table>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="Unity" /><category term="Network" /><summary type="html"><![CDATA[Photon-PUN]]></summary></entry><entry><title type="html">[Flutter] - UI</title><link href="http://localhost:4000/flutter/2023/01/29/Flutter-%EA%B8%B0%EC%B4%88-UI.html" rel="alternate" type="text/html" title="[Flutter] - UI" /><published>2023-01-29T06:00:01+09:00</published><updated>2023-01-29T06:00:01+09:00</updated><id>http://localhost:4000/flutter/2023/01/29/Flutter%20%EA%B8%B0%EC%B4%88-UI</id><content type="html" xml:base="http://localhost:4000/flutter/2023/01/29/Flutter-%EA%B8%B0%EC%B4%88-UI.html"><![CDATA[<h2 id="시작하기-전">시작하기 전…</h2>
 <hr />
 <p><img src="/assets/img/Flutter/flutter_UI_1.png" alt="image" width="50%" height="50%" /><br />
 클래스에 커서를 올려서 확인해보면 nullsafety가 되어있는 필드들은 꼭 필요하지 않다는것 같음<br />
@@ -10,7 +207,7 @@
 <img src="/assets/img/Flutter/flutter_UI_2.png" alt="image" width="50%" height="50%" /><br />
 Color(0xFF색상코드)로 색상지정이 가능<br />
 <img src="/assets/img/Flutter/flutter_UI_3.png" alt="image" width="50%" height="50%" /><br />
-색상.Opecity()로 투명도를 조정할 수 있다<br />
+색상.Opacity()로 투명도를 조정할 수 있다<br />
 <img src="/assets/img/Flutter/flutter_UI_4.png" alt="image" width="50%" height="50%" /><br /></p>
 
 <h2 id="column">Column</h2>
@@ -1146,32 +1343,4 @@ cmd로 다운받은 디렉토리에 접속하여</p>
 성을 공격하고 성의 체력이 바닥나면</p>
 
 <p><img src="/assets/img/Tiler/Ingame_13.png" alt="image" width="100%" height="100%" /><br />
-마지막까지 살아남은 플레이어가 우승합니다.</p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="Unity" /><summary type="html"><![CDATA[턴제 전략게임! Tiler]]></summary></entry><entry><title type="html">Crush Me</title><link href="http://localhost:4000/unity/2018/03/08/CrushMe.html" rel="alternate" type="text/html" title="Crush Me" /><published>2018-03-08T06:00:00+09:00</published><updated>2018-03-08T06:00:00+09:00</updated><id>http://localhost:4000/unity/2018/03/08/CrushMe</id><content type="html" xml:base="http://localhost:4000/unity/2018/03/08/CrushMe.html"><![CDATA[<h1 id="tmi">TMI</h1>
-<hr />
-<p>2017년에 제작하였지만 2022 K-Game개발 챌린지에 제출하기위해 리메이크 중</p>
-
-<h1 id="설치파일">설치파일</h1>
-<hr />
-<ul>
-  <li><a href="/assets/download/CrushMe.apk"> apk</a><br /></li>
-  <li><a href="/assets/download/CrushMe.zip"> zip</a></li>
-</ul>
-
-<h1 id="인게임">인게임</h1>
-<hr />
-<h2 id="메뉴-화면">메뉴 화면</h2>
-<p><img src="/assets/img/CrushMe/main.jpg" alt="image" width="50%" height="50%" /><br />
-시작버튼을 누르면 게임이 시작됩니다.<br /></p>
-
-<p><img src="/assets/img/CrushMe/setup.jpg" alt="image" width="50%" height="50%" /><br />
-화면 우하단 설정 버튼을 눌러 조이스틱의 위치를 바꿀 수 있습니다.</p>
-
-<h2 id="게임-화면">게임 화면</h2>
-<p><img src="/assets/img/CrushMe/skill.jpg" alt="image" width="50%" height="50%" /><br />
-조이스틱을 움직여 스킬을 최대 두개를 얻을 수 있습니다.</p>
-
-<p><img src="/assets/img/CrushMe/ingame.jpg" alt="image" width="50%" height="50%" /><br />
-플레이어를 움직여 최고기록을 갱신해 보세요.</p>
-
-<p><img src="/assets/img/CrushMe/result.jpg" alt="image" width="50%" height="50%" /><br />
-플레이어 사망 시 현재기록과 최고기록이 나옵니다.</p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="Unity" /><summary type="html"><![CDATA[제작한 게임 설명 - Crush Me]]></summary></entry></feed>
+마지막까지 살아남은 플레이어가 우승합니다.</p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="Unity" /><summary type="html"><![CDATA[턴제 전략게임! Tiler]]></summary></entry></feed>
