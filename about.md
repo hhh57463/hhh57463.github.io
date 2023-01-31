@@ -44,6 +44,8 @@ permalink: /about/
 + JAVA
 + C++
 + C
++ Git
++ GitHub
 
 ## ⚒ 재학 중 진행 프로젝트
 ---
