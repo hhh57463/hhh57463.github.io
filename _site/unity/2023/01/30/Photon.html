@@ -224,6 +224,14 @@ Photon 연결할 때 App ID를 입력하고 연결하면 생기는 셋팅<br />
       <td>OnDisconnected(DisconnectCause cause)</td>
       <td>연결이 끊겼을때 호출되는 콜백 함수</td>
     </tr>
+    <tr>
+      <td>OnPlayerEnteredRoom(Player newPlayer)</td>
+      <td>현재 룸에 새로운 유저가 들어왔을때 호출되는 콜백 함수</td>
+    </tr>
+    <tr>
+      <td>OnPlayerLeftRoom(Player otherPlayer)</td>
+      <td>현재 룸에 유저가 나갔을때 호출되는 콜백 함수</td>
+    </tr>
   </tbody>
 </table>
 
@@ -275,9 +283,14 @@ Photon 연결할 때 App ID를 입력하고 연결하면 생기는 셋팅<br />
       <td>랜덤 매치메이킹</td>
     </tr>
     <tr>
-      <td>PhotonNetwork.CreateRoom(“방 이름”, 룸 속성)</td>
+      <td>PhotonNetwork.CreateRoom(“룸 이름”, 룸 속성(Default: null))</td>
       <td>메소드</td>
       <td>속성을 가진 룸 생성</td>
+    </tr>
+    <tr>
+      <td>PhotonNetwork.JoinRoom(“룸 이름”)</td>
+      <td>메소드</td>
+      <td>해당 이름을 가진 룸에 입장</td>
     </tr>
     <tr>
       <td>PhotonNetwork.InLobby</td>

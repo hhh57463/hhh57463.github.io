@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-01-31T15:59:46+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">Unity Photon 주요 기능</title><link href="http://localhost:4000/unity/2023/01/30/Photon.html" rel="alternate" type="text/html" title="Unity Photon 주요 기능" /><published>2023-01-30T06:00:01+09:00</published><updated>2023-01-30T06:00:01+09:00</updated><id>http://localhost:4000/unity/2023/01/30/Photon</id><content type="html" xml:base="http://localhost:4000/unity/2023/01/30/Photon.html"><![CDATA[<h2 id="photon의-개념">Photon의 개념</h2>
-=======
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-01-30T18:56:55+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">Unity Photon 주요 기능</title><link href="http://localhost:4000/unity/2023/01/30/Photon.html" rel="alternate" type="text/html" title="Unity Photon 주요 기능" /><published>2023-01-30T06:00:01+09:00</published><updated>2023-01-30T06:00:01+09:00</updated><id>http://localhost:4000/unity/2023/01/30/Photon</id><content type="html" xml:base="http://localhost:4000/unity/2023/01/30/Photon.html"><![CDATA[<h2 id="photon의-개념">Photon의 개념</h2>
->>>>>>> b282632aa2caa22deef80b72eae6051151923689
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-02-01T13:41:56+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">Unity Photon 주요 기능</title><link href="http://localhost:4000/unity/2023/01/30/Photon.html" rel="alternate" type="text/html" title="Unity Photon 주요 기능" /><published>2023-01-30T06:00:01+09:00</published><updated>2023-01-30T06:00:01+09:00</updated><id>http://localhost:4000/unity/2023/01/30/Photon</id><content type="html" xml:base="http://localhost:4000/unity/2023/01/30/Photon.html"><![CDATA[<h2 id="photon의-개념">Photon의 개념</h2>
 <hr />
 
 <p><img src="/assets/img/Photon/Photon_1.png" alt="image" width="50%" height="50%" /><br />
@@ -51,6 +47,14 @@ Photon 연결할 때 App ID를 입력하고 연결하면 생기는 셋팅<br />
     <tr>
       <td>OnDisconnected(DisconnectCause cause)</td>
       <td>연결이 끊겼을때 호출되는 콜백 함수</td>
+    </tr>
+    <tr>
+      <td>OnPlayerEnteredRoom(Player newPlayer)</td>
+      <td>현재 룸에 새로운 유저가 들어왔을때 호출되는 콜백 함수</td>
+    </tr>
+    <tr>
+      <td>OnPlayerLeftRoom(Player otherPlayer)</td>
+      <td>현재 룸에 유저가 나갔을때 호출되는 콜백 함수</td>
     </tr>
   </tbody>
 </table>
@@ -103,9 +107,14 @@ Photon 연결할 때 App ID를 입력하고 연결하면 생기는 셋팅<br />
       <td>랜덤 매치메이킹</td>
     </tr>
     <tr>
-      <td>PhotonNetwork.CreateRoom(“방 이름”, 룸 속성)</td>
+      <td>PhotonNetwork.CreateRoom(“룸 이름”, 룸 속성(Default: null))</td>
       <td>메소드</td>
       <td>속성을 가진 룸 생성</td>
+    </tr>
+    <tr>
+      <td>PhotonNetwork.JoinRoom(“룸 이름”)</td>
+      <td>메소드</td>
+      <td>해당 이름을 가진 룸에 입장</td>
     </tr>
     <tr>
       <td>PhotonNetwork.InLobby</td>
