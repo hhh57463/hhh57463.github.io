@@ -3,7 +3,7 @@ layout: post
 title: "Save Earth"
 excerpt: "제작한 게임 설명 - Save Earth"
 categories: [Unity]
-tag: [Unity]
+tag: [unity, project]
 date: 2017-07-31 00:00:01 +0300
 ---
 

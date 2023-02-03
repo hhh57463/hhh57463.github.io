@@ -1,4 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-02-01T13:41:56+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">Unity Photon 주요 기능</title><link href="http://localhost:4000/unity/2023/01/30/Photon.html" rel="alternate" type="text/html" title="Unity Photon 주요 기능" /><published>2023-01-30T06:00:01+09:00</published><updated>2023-01-30T06:00:01+09:00</updated><id>http://localhost:4000/unity/2023/01/30/Photon</id><content type="html" xml:base="http://localhost:4000/unity/2023/01/30/Photon.html"><![CDATA[<h2 id="photon의-개념">Photon의 개념</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-02-03T16:51:12+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">Unity 플랫폼별 구분하여 작업</title><link href="http://localhost:4000/unity/2023/02/03/Different-for-each-Platform.html" rel="alternate" type="text/html" title="Unity 플랫폼별 구분하여 작업" /><published>2023-02-03T06:00:01+09:00</published><updated>2023-02-03T06:00:01+09:00</updated><id>http://localhost:4000/unity/2023/02/03/%20Different%20for%20each%20Platform</id><content type="html" xml:base="http://localhost:4000/unity/2023/02/03/Different-for-each-Platform.html"><![CDATA[<h2 id="플랫폼-의존-컴파일">플랫폼 의존 컴파일</h2>
+<hr />
+<p>유니티를 작업하다보면 플랫폼에 따라 다르게 동작해야하는 경우가 있다.<br />
+그럴때는 Unity의 <code class="language-plaintext highlighter-rouge">플랫폼 의존 컴파일</code> 기능을 이용하여 여러 플랫폼을 대응할 수 있다.<br /></p>
+
+<h2 id="플랫폼에-따른-코드-구현">플랫폼에 따른 코드 구현</h2>
+<hr />
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#if 심볼(플랫폼)
+</span>    <span class="c1">// 코드 작성</span>
+<span class="cp">#endif
+</span></code></pre></div></div>
+<p>이렇게 코드를 작성해 주면 해당 플랫폼에서만 동작하는 코드를 작성할 수 있다. Unity에 지정되어있는 심볼로 아래가 있다.<br />
+<img src="/assets/img/Unity/Platform_1.png" alt="image" /><br /><br />
+<a href="https://docs.unity3d.com/kr/current/Manual/PlatformDependentCompilation.html">링크-유니티 공식 문서</a><br /></p>
+
+<h2 id="예시">예시</h2>
+<hr />
+<p><img src="/assets/img/Unity/Platform_2.png" alt="image" width="50%" height="50%" /><br />
+플랫폼에 따라 화면에 보이는 Text가 다르게 변화하도록 코드를 작성한다.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+<span class="cp">#if UNITY_EDITOR                        // Unity Editor
+</span>        <span class="n">printText</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">"Platform: Unity Editor"</span><span class="p">;</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"Editor"</span><span class="p">);</span>
+<span class="cp">#endif
+#if UNITY_STANDALONE_WIN                // Window
+</span>        <span class="n">printText</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">"Platform: Window"</span><span class="p">;</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"Window"</span><span class="p">);</span>
+<span class="cp">#endif
+#if UNITY_STANDALONE_OSX                // macOS
+</span>        <span class="n">printText</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">"Platform: OSX"</span><span class="p">;</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"OSX"</span><span class="p">);</span>
+<span class="cp">#endif
+#if UNITY_IOS                           // IOS
+</span>        <span class="n">printText</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">"Platform: IOS"</span><span class="p">;</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"IOS"</span><span class="p">);</span>
+<span class="cp">#endif
+#if UNITY_ANDROID                       // Android
+</span>        <span class="n">printText</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">"Platform: Android"</span><span class="p">;</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"Android"</span><span class="p">);</span>
+<span class="cp">#endif
+</span>    <span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="실행결과">실행결과</h2>
+<hr />
+<p>Window로 빌드한 결과 잘 되는것을 볼 수 있다.<br />
+<img src="/assets/img/Unity/Platform_3.png" alt="image" width="50%" height="50%" /><br /><br />
+하지만 Unity Editor상에서도 똑같은 결과가 나오는 것을 확인 할 수 있다.<br />
+<img src="/assets/img/Unity/Platform_4.png" alt="image" width="50%" height="50%" /><br /><br />
+그 이유는 Build Setting중 Platform이 Window로 되어있기 때문에, Editor에서 실행되는 코드와 Window에서 실행되는 코드 둘 다 실행되기 때문이다.<br />
+콘솔창을 확인해 보면 Editor, Window 둘다 출력되는 것을 볼 수 있다.<br />
+<img src="/assets/img/Unity/Platform_5.png" alt="image" width="50%" height="50%" /><br /><br />
+Platform을 Android로 변경한 후 다시 실행시켜보면 Android가 출력되는 것을 볼 수 있다.<br />
+<img src="/assets/img/Unity/Platform_6.png" alt="image" width="50%" height="50%" /><br /><br />
+<img src="/assets/img/Unity/Platform_7.png" alt="image" width="50%" height="50%" /></p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="unity" /><category term="study" /><summary type="html"><![CDATA[Unity 플랫폼 의존 컴파일]]></summary></entry><entry><title type="html">Unity Photon 주요 기능</title><link href="http://localhost:4000/unity/2023/01/30/Photon.html" rel="alternate" type="text/html" title="Unity Photon 주요 기능" /><published>2023-01-30T06:00:01+09:00</published><updated>2023-01-30T06:00:01+09:00</updated><id>http://localhost:4000/unity/2023/01/30/Photon</id><content type="html" xml:base="http://localhost:4000/unity/2023/01/30/Photon.html"><![CDATA[<h2 id="photon의-개념">Photon의 개념</h2>
 <hr />
 
 <p><img src="/assets/img/Photon/Photon_1.png" alt="image" width="50%" height="50%" /><br />
@@ -212,7 +268,7 @@ Synchronize Layer Weights 애니메이션 동기화 횟수인것 같음<br /></p
       <td>연속</td>
     </tr>
   </tbody>
-</table>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="Unity" /><category term="Network" /><summary type="html"><![CDATA[Photon-PUN]]></summary></entry><entry><title type="html">[Flutter] - UI</title><link href="http://localhost:4000/flutter/2023/01/29/Flutter-%EA%B8%B0%EC%B4%88-UI.html" rel="alternate" type="text/html" title="[Flutter] - UI" /><published>2023-01-29T06:00:01+09:00</published><updated>2023-01-29T06:00:01+09:00</updated><id>http://localhost:4000/flutter/2023/01/29/Flutter%20%EA%B8%B0%EC%B4%88-UI</id><content type="html" xml:base="http://localhost:4000/flutter/2023/01/29/Flutter-%EA%B8%B0%EC%B4%88-UI.html"><![CDATA[<h2 id="시작하기-전">시작하기 전…</h2>
+</table>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="unity" /><category term="network" /><summary type="html"><![CDATA[Photon-PUN]]></summary></entry><entry><title type="html">[Flutter] - UI</title><link href="http://localhost:4000/flutter/2023/01/29/Flutter-%EA%B8%B0%EC%B4%88-UI.html" rel="alternate" type="text/html" title="[Flutter] - UI" /><published>2023-01-29T06:00:01+09:00</published><updated>2023-01-29T06:00:01+09:00</updated><id>http://localhost:4000/flutter/2023/01/29/Flutter%20%EA%B8%B0%EC%B4%88-UI</id><content type="html" xml:base="http://localhost:4000/flutter/2023/01/29/Flutter-%EA%B8%B0%EC%B4%88-UI.html"><![CDATA[<h2 id="시작하기-전">시작하기 전…</h2>
 <hr />
 <p><img src="/assets/img/Flutter/flutter_UI_1.png" alt="image" width="50%" height="50%" /><br />
 클래스에 커서를 올려서 확인해보면 nullsafety가 되어있는 필드들은 꼭 필요하지 않다는것 같음<br />
@@ -1294,89 +1350,4 @@ cmd로 다운받은 디렉토리에 접속하여</p>
 ❗ 어느정도 시간이 흘러야 블로그가 적용됩니다.</p>
 
 <p><img src="/assets/img/jekyll/blog_check.png" alt="image" width="100%" height="100%" /><br />
-주소창에 계정이름.github.io를 입력하여 블로그에 접속하여 줍니다.<br /></p>]]></content><author><name>Mindol</name></author><category term="web" /><category term="jekyll" /><category term="web" /><category term="ruby" /><category term="github" /><summary type="html"><![CDATA[jekyll을 이용한 블로그 만들기]]></summary></entry><entry><title type="html">Tiler</title><link href="http://localhost:4000/unity/2021/02/10/Tiler.html" rel="alternate" type="text/html" title="Tiler" /><published>2021-02-10T06:00:05+09:00</published><updated>2021-02-10T06:00:05+09:00</updated><id>http://localhost:4000/unity/2021/02/10/Tiler</id><content type="html" xml:base="http://localhost:4000/unity/2021/02/10/Tiler.html"><![CDATA[<h1 id="tmi">TMI</h1>
-<hr />
-<p>2020년 군 전역 후 친구들과 만든 멀티 게임</p>
-
-<h1 id="설치파일">설치파일</h1>
-<hr />
-<ul>
-  <li>클라이언트 다운로드 : <a href="https://github.com/DailyGreen/Tiler-Client/releases/tag/v1.0.0">링크</a><br /></li>
-  <li>서버 다운로드 : <a href="https://github.com/DailyGreen/Tiler-Server/releases/tag/v1.0.0">링크</a></li>
-</ul>
-
-<h1 id="인게임">인게임</h1>
-<hr />
-<h2 id="로그인-화면">로그인 화면</h2>
-<p><img src="/assets/img/Tiler/Lobby.png" alt="image" width="100%" height="100%" /><br />
-서버를 연 컴퓨터의 아이피와 닉네임을 입력합니다.<br /></p>
-
-<h2 id="로비-화면">로비 화면</h2>
-<p><img src="/assets/img/Tiler/Menu.png" alt="image" width="100%" height="100%" /><br />
-게임 시작 버튼과 게임 설정버튼이 존재합니다.<br /></p>
-
-<p><img src="/assets/img/Tiler/Menu_setting.png" alt="image" width="100%" height="100%" /><br />
-설정 버튼을 눌러 게임 볼륨과 효과음을 조절할 수 있습니다.<br /></p>
-
-<p><img src="/assets/img/Tiler/Menu_play.png" alt="image" width="100%" height="100%" /><br />
-게임 시작 버튼을 눌러 방을 생성하거나 만들어진 방에 들어갈 수 있습니다.<br /></p>
-
-<h2 id="방-입장">방 입장</h2>
-<p><img src="/assets/img/Tiler/Game_Lobby.png" alt="image" width="100%" height="100%" /><br />
-방에서 플레이어의 종족, 색상을 변경할 수 있습니다.<br /></p>
-
-<h2 id="종족">종족</h2>
-<p><img src="/assets/img/Tiler/Game_Lobby_Tribe.png" alt="image" width="100%" height="100%" /><br />
-종족은 3가지 종족이 존재하며, 숲, 바다, 마을종족이 있습니다.<br /></p>
-
-<h2 id="색상-변경">색상 변경</h2>
-<p><img src="/assets/img/Tiler/Game_Lobby_Color.png" alt="image" width="100%" height="100%" /><br />
-자신의 종족을 구별할 수 있는 원하는 색상을 선택할 수 있습니다.<br /></p>
-
-<p><img src="/assets/img/Tiler/Game_Lobby_User.png" alt="image" width="100%" height="100%" /><br />
-최소 2명에서 최대 6명까지 플레이할 수 있습니다.</p>
-
-<h2 id="게임-화면">게임 화면</h2>
-<p><img src="/assets/img/Tiler/Ingame_0.png" alt="image" width="100%" height="100%" /><br />
-게임이 시작되면 자신 차례에 행동을 할 수 있습니다.</p>
-
-<p><img src="/assets/img/Tiler/Ingame_1.png" alt="image" width="100%" height="100%" /><br />
-게임을 시작하면 성에서 일꾼을 생성할 수 있습니다.</p>
-
-<p><img src="/assets/img/Tiler/Ingame_2.png" alt="image" width="100%" height="100%" /><br />
-일꾼은 재화를 생성하기위한 광산과 농장 그리고 강력한 병력을 생성할 수 있는 군사기지와<br />
-자신의 영역을 지켜줄 수 있는 터렛을 제작할 수 있습니다.</p>
-
-<p><img src="/assets/img/Tiler/Ingame_3.png" alt="image" width="100%" height="100%" /><br />
-플레이어가 한턴에 가능한 행동은 최대 2번입니다<br />
-또한 우측 하단에 자신의 차례를 건너뛰는 skip버튼이 존재합니다.</p>
-
-<p><img src="/assets/img/Tiler/Ingame_4.png" alt="image" width="100%" height="100%" /><br />
-군사기지에서는 일꾼보다 강력한 유닛들을 생성할 수 있습니다.</p>
-
-<p><img src="/assets/img/Tiler/Ingame_5.png" alt="image" width="100%" height="100%" /><br />
-마법사는 최대 두칸 이동이 가능합니다.</p>
-
-<p><img src="/assets/img/Tiler/Ingame_6.png" alt="image" width="100%" height="100%" /><br />
-일정확률로 턴이 시작될때 보급품이 떨어지게 됩니다.</p>
-
-<p><img src="/assets/img/Tiler/Ingame_7.png" alt="image" width="100%" height="100%" /><br />
-보급품을 획득하는 방법은 유닛이 보급품을 공격하면 됩니다.</p>
-
-<p><img src="/assets/img/Tiler/Ingame_8.png" alt="image" width="100%" height="100%" /><br />
-보급품 획득 시 식량과 광물중 하나의 재화가 랜덤하게 지급됩니다.</p>
-
-<p><img src="/assets/img/Tiler/Ingame_9.png" alt="image" width="100%" height="100%" /><br />
-적의 영역을 발견한 후 침략을 시작할 수 있습니다.</p>
-
-<p><img src="/assets/img/Tiler/Ingame_10.png" alt="image" width="100%" height="100%" /><br />
-건물들을 부수고</p>
-
-<p><img src="/assets/img/Tiler/Ingame_11.png" alt="image" width="100%" height="100%" /><br />
-적 유닛을 제거하며</p>
-
-<p><img src="/assets/img/Tiler/Ingame_12.png" alt="image" width="100%" height="100%" /><br />
-성을 공격하고 성의 체력이 바닥나면</p>
-
-<p><img src="/assets/img/Tiler/Ingame_13.png" alt="image" width="100%" height="100%" /><br />
-마지막까지 살아남은 플레이어가 우승합니다.</p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="Unity" /><summary type="html"><![CDATA[턴제 전략게임! Tiler]]></summary></entry></feed>
+주소창에 계정이름.github.io를 입력하여 블로그에 접속하여 줍니다.<br /></p>]]></content><author><name>Mindol</name></author><category term="web" /><category term="jekyll" /><category term="web" /><category term="ruby" /><category term="github" /><summary type="html"><![CDATA[jekyll을 이용한 블로그 만들기]]></summary></entry></feed>
