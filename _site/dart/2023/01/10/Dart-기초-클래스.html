@@ -412,53 +412,56 @@
 
 <h2 id="추상화-메소드-abstract-method">추상화 메소드 (abstract method)</h2>
 <hr />
-<p>추상화 클래스 특징<br />
-추상화 클래스로는 객체를 생성할 수 없음<br />
-추상화 클래스는 상속 받은 클래스들이 직접 구현해야하는 메소드를 모아 놓은 일종의 블루프린트<br />
-특정 메소드를 구현하도록 강제함<br />
-각 클래스들이 같은 함수에 다른 내용을 가질 수 있음</p>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Human</span><span class="p">{</span>     <span class="c1">// 추상 클래스 선언</span>
-  <span class="kt">void</span> <span class="n">walk</span><span class="p">();</span>
-<span class="p">}</span>
+<p>추상화 클래스 특징<br /></p>
+<ul>
+  <li>추상화 클래스로는 객체를 생성할 수 없음</li>
+  <li>추상화 클래스는 상속 받은 클래스들이 직접 구현해야하는 메소드를 모아 놓은 일종의 블루프린트</li>
+  <li>특정 메소드를 구현하도록 강제함</li>
+  <li>각 클래스들이 같은 함수에 다른 내용을 가질 수 있음
+```dart
+abstract class Human{     // 추상 클래스 선언
+void walk();
+}</li>
+</ul>
 
-<span class="kd">class</span> <span class="nc">Player</span> <span class="kd">extends</span> <span class="n">Human</span><span class="p">{</span>   <span class="c1">// 추상 클래스 상속</span>
-  <span class="kt">String</span> <span class="n">name</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">xp</span><span class="p">;</span>
-  <span class="n">Team</span> <span class="n">team</span><span class="p">;</span>
+<p>class Player extends Human{   // 추상 클래스 상속
+  String name;
+  int xp;
+  Team team;</p>
 
-  <span class="n">Player</span><span class="p">({</span><span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="p">,</span> <span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">xp</span><span class="p">,</span> <span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">team</span><span class="p">});</span>
+<p>Player({required this.name, required this.xp, required this.team});</p>
 
-  <span class="kt">void</span> <span class="n">walk</span><span class="p">()</span> <span class="o">=</span><span class="p">&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">"I'm Walking"</span><span class="p">);</span>    <span class="c1">// 추상 클래스 메소드 구현</span>
+<p>void walk() =&gt; print(“I’m Walking”);    // 추상 클래스 메소드 구현</p>
 
-  <span class="kt">void</span> <span class="n">hello</span><span class="p">(){</span>
-    <span class="n">print</span><span class="p">(</span><span class="s">"Hi my name is </span><span class="si">$name</span><span class="s">"</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<p>void hello(){
+    print(“Hi my name is $name”);
+  }
+}</p>
 
-<span class="kd">class</span> <span class="nc">Coach</span> <span class="kd">extends</span> <span class="n">Human</span><span class="p">{</span>
-  <span class="kt">void</span> <span class="n">walk</span><span class="p">()</span> <span class="o">=</span><span class="p">&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">"coach is walk"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
+<p>class Coach extends Human{
+  void walk() =&gt; print(“coach is walk”);
+}</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+## 상속
+--------------
+상속받은 클래스(자식클래스)는 부모 클래스 내의 모든 내용을 가져옴
+```dart
+class Human{
+  final String name;
+  Human({required this.name});
+  void sayHello() =&gt; print("Hi my name is $name");
+}
 
-<h2 id="상속">상속</h2>
-<hr />
-<p>상속받은 클래스(자식클래스)는 부모 클래스 내의 모든 내용을 가져옴</p>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Human</span><span class="p">{</span>
-  <span class="kd">final</span> <span class="kt">String</span> <span class="n">name</span><span class="p">;</span>
-  <span class="n">Human</span><span class="p">({</span><span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="p">});</span>
-  <span class="kt">void</span> <span class="n">sayHello</span><span class="p">()</span> <span class="o">=</span><span class="p">&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">"Hi my name is </span><span class="si">$name</span><span class="s">"</span><span class="p">);</span>
-<span class="p">}</span>
+enum Team{blue, red}
 
-<span class="kt">enum</span> <span class="n">Team</span><span class="p">{</span><span class="n">blue</span><span class="p">,</span> <span class="n">red</span><span class="p">}</span>
+class Player extends Human{
+  final Team team;
+  Player({required this. team, required String name}) : super(name: name);
+}
 
-<span class="kd">class</span> <span class="nc">Player</span> <span class="kd">extends</span> <span class="n">Human</span><span class="p">{</span>
-  <span class="kd">final</span> <span class="n">Team</span> <span class="n">team</span><span class="p">;</span>
-  <span class="n">Player</span><span class="p">({</span><span class="kd">required</span> <span class="k">this</span><span class="p">.</span> <span class="n">team</span><span class="p">,</span> <span class="kd">required</span> <span class="kt">String</span> <span class="n">name</span><span class="p">})</span> <span class="o">:</span> <span class="k">super</span><span class="p">(</span><span class="nl">name:</span> <span class="n">name</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
-  <span class="kd">var</span> <span class="n">player</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="nl">team:</span> <span class="n">Team</span><span class="o">.</span><span class="na">red</span><span class="p">,</span> <span class="nl">name:</span> <span class="s">'mindol'</span><span class="p">);</span>
-<span class="p">}</span>
+void main(){
+  var player = Player(team: Team.red, name: 'mindol');
+}
 </code></pre></div></div>
 <p>💡 super 키워드를 통해 부모 클래스와 상호작용이 가능<br />
 super() ← 부모 클래스 생성자<br />
@@ -487,8 +490,7 @@ super() ← 부모 클래스 생성자<br />
 <hr />
 <p>Mixin : 생성자가 없는 클래스, 클래스에 프로퍼티들을 추가하거나 할 때 주로 사용<br />
 (다른 클래스의 프로퍼티와 메소드를 그냥 긁어오는 것 뿐, 상속과는 다른 개념(부모 클래스가 되지 않음)<br />
-여러 클래스에 사용이 가능함<br />
-생성자가 없어야 함</p>
+여러 클래스에 사용이 가능하며, 생성자가 없어야 함</p>
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Strong</span><span class="p">{</span>
   <span class="kd">final</span> <span class="kt">double</span> <span class="n">strengthLevel</span> <span class="o">=</span> <span class="mf">1500.99</span><span class="p">;</span>
 <span class="p">}</span>

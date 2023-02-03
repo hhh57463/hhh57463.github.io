@@ -176,32 +176,28 @@
   <div class="post-content e-content" itemprop="articleBody">
     <h2 id="markdown이란">Markdown이란?</h2>
 <hr />
-<p>마크다운(Markdown)은 일반 텍스트 기반의 경량 마크업 언어.<br />
-일반 텍스트로 서식이 있는 문서를 작성하는 데 사용되며,<br />
-일반 마크업 언어에 비해 문법이 쉽고 간단한 것이 특징이다.<br /></p>
+<p>마크다운(Markdown)은 일반 텍스트 기반의 경량 마크업 언어.<br /><br />
+일반 텍스트로 서식이 있는 문서를 작성하는 데 사용되며, 일반 마크업 언어에 비해 문법이 쉽고 간단한 것이 특징이다.<br /></p>
 
 <h2 id="포스팅을-하기-전">포스팅을 하기 전</h2>
 <hr />
-<p>Mardown을 지원하는 에디터를 준비해야합니다.<br />
-저는 Visual Studio Code를 사용중입니다.</p>
+<p>Mardown을 지원하는 에디터를 준비해야합니다, 나는 Visual Studio Code를 사용중.</p>
 
 <h2 id="_posts">_posts</h2>
 <hr />
-<p>블로그 디렉토리를 들어가면 대략적으로 이런 형식으로 구성이 되어있습니다.
+<p>블로그 디렉토리를 들어가면 대략적으로 이런 형식으로 구성.<br /><br />
 <img src="/assets/img/jekyll/jekyll_post_1.png" alt="image" width="50%" height="50%" /><br />
-포스팅을 하기위해서는 _posts 디렉터리에 markdown파일을 만들어야합니다.<br />
-만약 _posts 디렉터리가 존재하지 않을 시 _posts라는 디렉터리를 생성해줍니다.<br />
-❗ 모든 포스트 파일은 _posts 디렉터리 내 위치합니다.</p>
+포스팅을 하기위해서는 _posts 디렉터리에 markdown파일을 만들어야하며. 만약 _posts 디렉터리가 존재하지 않을 시 _posts라는 디렉터리를 생성.<br />
+<code class="language-plaintext highlighter-rouge">모든 포스트 파일은 _posts 디렉터리 내 위치</code></p>
 
 <h2 id="markdown-파일-생성">Markdown 파일 생성</h2>
 <hr />
-<p>마크다운 파일을 생성해줍니다.<br />
-❗ 파일 명은 yyyy-mm-dd-포스트 제목.md 형식으로 만들어줍니다.
+<p>마크다운 파일 생성. 파일 명은 <code class="language-plaintext highlighter-rouge">yyyy-mm-dd-포스트 제목.md</code> 형식으로 만들어야 함.
 <img src="/assets/img/jekyll/jekyll_post_2.png" alt="image" width="100%" height="100%" /><br /></p>
 
 <h2 id="머릿말front-matter-작성">머릿말(Front-Matter) 작성</h2>
 <hr />
-<p>준비했던 에디터로 해당 파일을 열어준 후, 맨 위에 아래처럼 작성해줍니다.</p>
+<p>준비했던 에디터로 해당 파일을 열어준 후, 맨 위에 아래처럼 작성한다.</p>
 <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
 <span class="na">layout</span><span class="pi">:</span> <span class="s">post</span>
 <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">포스팅</span><span class="nv"> </span><span class="s">이름"</span>
@@ -211,28 +207,24 @@
 <span class="na">date</span><span class="pi">:</span> <span class="s">2023-01-26 00:00:00 +0300</span>
 <span class="nn">---</span>
 </code></pre></div></div>
-<p>머릿말은 두개의 <code class="language-plaintext highlighter-rouge">---</code> 사이에 영역을 구분해줘야 한다.<br />
-title: 포스트의 제목을 큰 따옴표로 적어 준다. title을 적어주지 않을 시,<br />
-생성한 파일의 포스트 제목 부분이 제목으로 업로드 된다.<br />
+<p>머릿말은 두개의 <code class="language-plaintext highlighter-rouge">---</code> 사이에 영역을 구분해줘야 한다.<br /><br />
+title: 포스트의 제목을 큰 따옴표로 적어 준다. title을 적어주지 않을 시, 생성한 파일의 포스트 제목 부분이 제목으로 업로드 된다.<br /><br />
 excerpt: 포스트 목록에 보여지는 간단한 소개글.<br />
-<img src="/assets/img/jekyll/jekyll_post_3.png" alt="image" width="20%" height="20%" /><br />
-categories: 포스트의 카테고리<br />
-tags: 카테고리와의 차이로 카테고리는 sub url이 붙는 페이지가 있지만 태그는 없다,<br />
-카테고리보다 좀 더 세부적으로 나눌 수 있다.
+<img src="/assets/img/jekyll/jekyll_post_3.png" alt="image" width="20%" height="20%" /><br /><br />
+categories: 포스트의 카테고리<br /><br />
+tags: 카테고리와의 차이로 카테고리는 sub url이 붙는 페이지가 있지만 태그는 없다, 카테고리보다 좀 더 세부적으로 나눌 수 있다.<br /><br />
 date: 포스팅 날짜</p>
 
 <h2 id="포스트-내용-확인">포스트 내용 확인</h2>
 <hr />
-<p>나는 포스트 내용을 확인할 때 두가지 방법을 사용한다.<br />
-첫째로 Visual Studio Code에서 지원하는 Preview기능으로,<br />
-마크다운 파일의 내용을 확인할 수 있다.
+<p>나는 포스트 내용을 확인할 때 두가지 방법을 사용한다.<br /><br />
+첫째로 Visual Studio Code에서 지원하는 Preview기능으로, 마크다운 파일의 내용을 확인할 수 있다.<br />
 <img src="/assets/img/jekyll/jekyll_post_4.png" alt="image" width="100%" height="100%" /><br />
-에디터의 상단 UI중 빨간 네모 버튼을 눌러주면
+에디터의 상단 UI중 빨간 네모 버튼을 눌러주면<br />
 <img src="/assets/img/jekyll/jekyll_post_5.png" alt="image" width="50%" height="50%" /><br />
-이렇게 마크다운 형식의 파일 내용을 확인할 수 있다.<br />
+이렇게 마크다운 형식의 파일 내용을 확인할 수 있다.<br /><br />
 두번째로 로컬 서버를 열어 블로그에 적용될 모습을 확인하는 방법이다.<br />
-cmd로 블로그 디렉터리로 이동 후 <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code>명령어를 입력 하면<br />
-로컬 환경에서 jekyll 서버를 가동할 수 있다.<br />
+cmd로 블로그 디렉터리로 이동 후 <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code>명령어를 입력 하면 로컬 환경에서 jekyll 서버를 가동할 수 있다.<br />
 url에 <code class="language-plaintext highlighter-rouge">127.0.0.1:4000</code>이나 <code class="language-plaintext highlighter-rouge">localhost:4000</code>을 입력하여 블로그에 접속할 수 있다.<br />
 <img src="/assets/img/jekyll/jekyll_post_6.png" alt="image" width="50%" height="50%" /><br /></p>
 
@@ -250,8 +242,9 @@ ex) <a href="https://hhh57463.github.io">블로그주소</a><br /><br /></p>
 나는 블로그 디렉터리 내의 assets파일 내<br />
 img디렉터리를 생성하여 이미지를 관리한다.<br />
 <code class="language-plaintext highlighter-rouge">![image](이미지 파일){: width="50%" height="50%"}</code><br />
-이런식으로 이미지의 크기를 조절할 수 있다. (위의 예시는 이미지 크기 50%)<br /><br />
-<code class="language-plaintext highlighter-rouge">+ 내용</code>, <code class="language-plaintext highlighter-rouge">- 내용</code>: HTML의 <code class="language-plaintext highlighter-rouge">&lt;li&gt;</code> 태그와 같은 역할, 주로 리스트를 표시할 때 사용한다.<br /></p>
+이런식으로 이미지의 크기를 조절할 수 있다. (위의 예시는 이미지 크기 50%)<br /><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">+ 내용</code>, <code class="language-plaintext highlighter-rouge">- 내용</code>: HTML의 <code class="language-plaintext highlighter-rouge">&lt;li&gt;</code> 태그와 같은 역할, 주로 리스트를 표시할 때 사용한다.<br /></p>
 
 <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sb">` `</span>: 두개의 <span class="err">`</span> 사이의 어떠한 텍스트를 작성하면 해당 텍스트를 강조할 수 있다
 </code></pre></div></div>

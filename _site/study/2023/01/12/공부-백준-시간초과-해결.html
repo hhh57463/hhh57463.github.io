@@ -186,32 +186,26 @@
 </code></pre></div></div>
 <p>가 있는 것을 보았는데, 궁금해서 검색해봤다.<br /><br /></p>
 
-<p>보통 백준, 프로그래머스처럼 온라인 저지 사이트에서<br />
-C++을 이용하여 알고리즘 문제를 풀 때<br />
-시간초과 방지를 위해 사용한다.<br /><br /></p>
+<p>보통 백준, 프로그래머스처럼 온라인 저지 사이트에서 C++을 이용하여 알고리즘 문제를 풀 때 시간초과 방지를 위해 사용한다.<br /><br /></p>
 
-<p>C++에서는 기존 입출력으로 cin, cout을 사용하는데,<br />
-시간초과가 발생하는 경우가 있다.<br /><br />
-그럴때 사용하는데, 이유로 입출력 양이 굉장히 많아지면 입출력하는데 소모시간이 많아져 시간초과가 발생한다.<br />
+<p>C++에서는 기존 입출력으로 cin, cout을 사용하는데, 시간초과가 발생하는 경우가 있다.<br /><br /></p>
+
+<p>그럴때 사용하는데, 이유로 입출력 양이 굉장히 많아지면 입출력하는데 소모시간이 많아져 시간초과가 발생한다.<br /><br />
 📚 위의 코드를 사용하면 입출력 속도가 빨라진다 한다.</p>
 <h2 id="iossync_with_stdiofalse">ios::sync_with_stdio(false)</h2>
 <hr />
 <h3 id="c와-c-표준-stream의-동기화를-비활성화하는-코드">C와 C++ 표준 stream의 동기화를 비활성화하는 코드<br /><br /></h3>
 
-<p>동기화가 활성화 되어있으면 C스타일과 C++스타일의 입출력을 혼합해도 문제가 없다<br />
-printf, scanf와 cout, cin을 같이 사용해도 문제가 없는 것이다.<br /><br /></p>
+<p>동기화가 활성화 되어있으면 C스타일과 C++스타일의 입출력을 혼합해도 문제가 없다, printf, scanf와 cout, cin을 같이 사용해도 문제가 없는 것이다.<br /><br /></p>
 
-<p>하지만 <code class="language-plaintext highlighter-rouge">ios::sync_with_stdio(false)</code>를 작성하면 C스타일과 C++스타일을 혼합하여 사용할 수 없는 대신,<br /></p>
-<h3 id="c스타일-코드만-사용하면-기존의-동기화-과정에-필요했던-시간이-절약되어-입출력-속도가-빨라지는-효과가-있다">C++스타일 코드만 사용하면 기존의 동기화 과정에 필요했던 시간이 절약되어 입출력 속도가 빨라지는 효과가 있다.<br /><br /></h3>
+<p>하지만 <code class="language-plaintext highlighter-rouge">ios::sync_with_stdio(false)</code>를 작성하면 C스타일과 C++스타일을 혼합하여 사용할 수 없는 대신, <code class="language-plaintext highlighter-rouge">C++스타일 코드만 사용하면 기존의 동기화 과정에 필요했던 시간이 절약되어 입출력 속도가 빨라지는 효과가 있다.</code><br /><br /></p>
 
-<p>알고리즘 문제를 풀 때는 동기화는 필요없고 시간 절약이 우선이니<br />
-<code class="language-plaintext highlighter-rouge">ios::sync_with_stdio(false)</code>를 사용하여 입출력 시간을 절약하는 것이다<br /><br /></p>
+<p>알고리즘 문제를 풀 때는 동기화는 필요없고 시간 절약이 우선이니, <code class="language-plaintext highlighter-rouge">ios::sync_with_stdio(false)</code>를 사용하여 입출력 시간을 절약하는 것이다<br /><br /></p>
 
-<p>하지만 동기화된 C++버퍼의 경우 thread-safe하기 때문에 모든 IO의 순서가 예상한 것과 정확히 일치함을 보장할 수 있지만<br />
-<code class="language-plaintext highlighter-rouge">ios::sync_with_stdio(false);</code>를 사용하면 동기화가 비활성화 됐기 때문에 멀티 쓰레드 환경에서는 출력 순서를 보장할 수 없다<br />
-(thread-safe는 운영체제에서 mutex나 세마포어 등으로 동시 접근을 막는 것과 같이, 여러 쓰레드가 동시 접근해도 안전하다는 의미)<br /><br /></p>
+<p>하지만 동기화된 C++버퍼의 경우 thread-safe하기 때문에 모든 IO의 순서가 예상한 것과 정확히 일치함을 보장할 수 있지만 <code class="language-plaintext highlighter-rouge">ios::sync_with_stdio(false);</code>를 사용하면 동기화가 비활성화 됐기 때문에 멀티 쓰레드 환경에서는 출력 순서를 보장할 수 없다.<br /><br />
+thread-safe는 운영체제에서 mutex나 세마포어 등으로 동시 접근을 막는 것과 같이, 여러 쓰레드가 동시 접근해도 안전하다는 의미<br /><br /></p>
 
-<p>그리고 C스타일의 printf, scanf, putchar, getchar 등을 같이 사용하면 안된다.</p>
+<p>그리고 C스타일의 printf, scanf, putchar, getchar 등을 같이 사용하면 안된다.<br /></p>
 <h2 id="cintie0">cin.tie(0)</h2>
 <hr />
 <h3 id="cin과-cout의-묶음을-풀어준다">cin과 cout의 묶음을 풀어준다.<br /><br /></h3>
@@ -220,15 +214,10 @@ printf, scanf와 cout, cin을 같이 사용해도 문제가 없는 것이다.<br
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"이름을 입력해 주세요 </span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
 <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">name</span><span class="p">;</span>
 </code></pre></div></div>
-<p>평소에는 cin과 cout이 묶여 있어
-“이름을 입력해 주세요 \n”가 먼저 출력된 후 이름을 입력할 수 있다.<br />
-<code class="language-plaintext highlighter-rouge">cin.tie(0)</code>나 <code class="language-plaintext highlighter-rouge">cin.tie(null)</code> 코드를 추가해 주면<br />
-“이름을 입력해 주세요 \n”가 출력되기 전에 이름을 입력할  수 있다.<br /></p>
-<h3 id="내부적으로-cin과-cout을-묶어주는-과정을-수행하지-않기-때문에-시간이-절약된다">내부적으로 cin과 cout을 묶어주는 과정을 수행하지 않기 때문에 시간이 절약된다.<br /><br /></h3>
+<p>평소에는 cin과 cout이 묶여 있어 “이름을 입력해 주세요 \n”가 먼저 출력된 후 이름을 입력할 수 있다. <code class="language-plaintext highlighter-rouge">cin.tie(0)</code>나 <code class="language-plaintext highlighter-rouge">cin.tie(null)</code> 코드를 추가해 주면, “이름을 입력해 주세요 \n”가 출력되기 전에 이름을 입력할  수 있다.<br /><br />
+<code class="language-plaintext highlighter-rouge">내부적으로 cin과 cout을 묶어주는 과정을 수행하지 않기 때문에 시간이 절약된다.</code></p>
 
-<p>물론 이름을 입력해달라는 문구가 나오기 전에 입력을 할 수 있는 것은 이상하지만<br />
-알고리즘 문제를 풀 때는 크게 상관이 없고,<br />
-입출력 시간을 절약할 수 있기 때문에 <code class="language-plaintext highlighter-rouge">cin.tie(0)</code>을 많이 사용한다.</p>
+<p>물론 이름을 입력해달라는 문구가 나오기 전에 입력을 할 수 있는 것은 이상하지만, 알고리즘 문제를 풀 때는 크게 상관이 없고, 입출력 시간을 절약할 수 있기 때문에 <code class="language-plaintext highlighter-rouge">cin.tie(0)</code>을 많이 사용한다.</p>
 
   </div>
 

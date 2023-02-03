@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-02-03T16:51:12+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">Unity 플랫폼별 구분하여 작업</title><link href="http://localhost:4000/unity/2023/02/03/Different-for-each-Platform.html" rel="alternate" type="text/html" title="Unity 플랫폼별 구분하여 작업" /><published>2023-02-03T06:00:01+09:00</published><updated>2023-02-03T06:00:01+09:00</updated><id>http://localhost:4000/unity/2023/02/03/%20Different%20for%20each%20Platform</id><content type="html" xml:base="http://localhost:4000/unity/2023/02/03/Different-for-each-Platform.html"><![CDATA[<h2 id="플랫폼-의존-컴파일">플랫폼 의존 컴파일</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-02-03T19:25:56+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">Unity 플랫폼별 구분하여 작업</title><link href="http://localhost:4000/unity/2023/02/03/Different-for-each-Platform.html" rel="alternate" type="text/html" title="Unity 플랫폼별 구분하여 작업" /><published>2023-02-03T06:00:01+09:00</published><updated>2023-02-03T06:00:01+09:00</updated><id>http://localhost:4000/unity/2023/02/03/%20Different%20for%20each%20Platform</id><content type="html" xml:base="http://localhost:4000/unity/2023/02/03/Different-for-each-Platform.html"><![CDATA[<h2 id="플랫폼-의존-컴파일">플랫폼 의존 컴파일</h2>
 <hr />
-<p>유니티를 작업하다보면 플랫폼에 따라 다르게 동작해야하는 경우가 있다.<br />
-그럴때는 Unity의 <code class="language-plaintext highlighter-rouge">플랫폼 의존 컴파일</code> 기능을 이용하여 여러 플랫폼을 대응할 수 있다.<br /></p>
+<p>유니티를 작업하다보면 플랫폼에 따라 다르게 동작해야하는 경우가 있다. 그럴때는 Unity의 <code class="language-plaintext highlighter-rouge">플랫폼 의존 컴파일</code> 기능을 이용하여 여러 플랫폼을 대응할 수 있다.<br /></p>
 
 <h2 id="플랫폼에-따른-코드-구현">플랫폼에 따른 코드 구현</h2>
 <hr />
@@ -61,12 +60,12 @@ Platform을 Android로 변경한 후 다시 실행시켜보면 Android가 출력
 Photon 연결할 때 App ID를 입력하고 연결하면 생기는 셋팅<br />
 이 중 App ID가 같을 때는 같은 네트워크를 사용한다는 뜻<br /></p>
 <ul>
-  <li>포톤 서버에는 룸과 로비의 개념이 있음<br /></li>
-  <li>룸은 네트워크 게임을 실행할 수 있는 논리적인 공간<br /></li>
-  <li>룸에 입장해야만 해당 룸에 접속한 다른 유저와 통신이 가능<br /></li>
-  <li>로비에 입장하려면 로비 입장 함수를 호출해야 로비에 입장 가능<br /></li>
-  <li>로비는 현재 룸이 생성되었는지에 대한 정보를 수신받을 수 있음<br /></li>
-  <li>룸이 목록을 받아와 특정 룸에 입장이 가능<br /></li>
+  <li>포톤 서버에는 룸과 로비의 개념이 있음</li>
+  <li>룸은 네트워크 게임을 실행할 수 있는 논리적인 공간</li>
+  <li>룸에 입장해야만 해당 룸에 접속한 다른 유저와 통신이 가능</li>
+  <li>로비에 입장하려면 로비 입장 함수를 호출해야 로비에 입장 가능</li>
+  <li>로비는 현재 룸이 생성되었는지에 대한 정보를 수신받을 수 있음</li>
+  <li>룸이 목록을 받아와 특정 룸에 입장이 가능</li>
 </ul>
 
 <h2 id="photon-통신을-위한-콜백함수">Photon 통신을 위한 콜백함수</h2>
@@ -198,10 +197,7 @@ Photon 연결할 때 App ID를 입력하고 연결하면 생기는 셋팅<br />
 <h2 id="photon-view-스크립트">Photon View 스크립트</h2>
 <hr />
 
-<p>네트워크에 접속한 플레이어간 데이터를 송수신해주는 통신 모듈<br />
-동일한 룸에 입장한 다른 플레이어에게 자신의 위치와 회전 정보를 동기화<br />
-특정한 데이터 송수신 가능<br />
-네트워크 개체당 한개만 사용할 것 (네트워크 대역폭과 성능상의 이유로)<br />
+<p>네트워크에 접속한 플레이어간 데이터를 송수신해주는 통신 모듈로, 동일한 룸에 입장한 다른 플레이어에게 자신의 위치와 회전 정보를 동기화 해주며, 특정한 데이터를 송수신 가능하며 네트워크 개체당 한개만 사용할 것을 권장. (네트워크 대역폭과 성능상의 이유로)<br />
 <img src="/assets/img/Photon/Photon_2.png" alt="image" width="50%" height="50%" /><br /></p>
 
 <p>Synchronization: 동기화 처리를 어떻게 할 것인지 기능에 따라 성능이 달라짐</p>
@@ -236,7 +232,7 @@ Photon 연결할 때 App ID를 입력하고 연결하면 생기는 셋팅<br />
 <h2 id="phton-transform-view-스크립트">Phton Transform View 스크립트</h2>
 <hr />
 <p><img src="/assets/img/Photon/Photon_3.png" alt="image" width="50%" height="50%" /><br />
-플레이어의 위치, 회전값을 동기화하기 위한 모듈<br />
+플레이어의 위치, 회전값을 동기화하기 위한 모듈<br /><br />
 Synchronize Options: 체크되어있는 옵션을 동기화해라<br />
 Use Local: 동기화하는 데이터가 Local 기준인지<br /></p>
 
@@ -271,7 +267,7 @@ Synchronize Layer Weights 애니메이션 동기화 횟수인것 같음<br /></p
 </table>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="unity" /><category term="network" /><summary type="html"><![CDATA[Photon-PUN]]></summary></entry><entry><title type="html">[Flutter] - UI</title><link href="http://localhost:4000/flutter/2023/01/29/Flutter-%EA%B8%B0%EC%B4%88-UI.html" rel="alternate" type="text/html" title="[Flutter] - UI" /><published>2023-01-29T06:00:01+09:00</published><updated>2023-01-29T06:00:01+09:00</updated><id>http://localhost:4000/flutter/2023/01/29/Flutter%20%EA%B8%B0%EC%B4%88-UI</id><content type="html" xml:base="http://localhost:4000/flutter/2023/01/29/Flutter-%EA%B8%B0%EC%B4%88-UI.html"><![CDATA[<h2 id="시작하기-전">시작하기 전…</h2>
 <hr />
 <p><img src="/assets/img/Flutter/flutter_UI_1.png" alt="image" width="50%" height="50%" /><br />
-클래스에 커서를 올려서 확인해보면 nullsafety가 되어있는 필드들은 꼭 필요하지 않다는것 같음<br />
+클래스에 커서를 올려서 확인해보면 nullsafety가 되어있는 필드들은 꼭 필요하지 않다는것 같음.<br />
 (근데 나머진 다 디폴트로 들어가있는데…? 아직 잘 모르겠음)<br /></p>
 
 <h2 id="color">Color</h2>
@@ -453,15 +449,12 @@ padding클래스에<code class="language-plaintext highlighter-rouge">padding: E
   <li>EdgeInsets.symmetric(): 수직 padding과 수평 padding을 지정할 수 있음<br /></li>
 </ul>]]></content><author><name>Mindol</name></author><category term="Flutter" /><category term="Flutter" /><category term="Dart" /><summary type="html"><![CDATA[플러터의 기초 공부]]></summary></entry><entry><title type="html">[Flutter] - Widget</title><link href="http://localhost:4000/flutter/2023/01/28/Flutter%EA%B8%B0%EC%B4%88-Widget.html" rel="alternate" type="text/html" title="[Flutter] - Widget" /><published>2023-01-28T06:00:01+09:00</published><updated>2023-01-28T06:00:01+09:00</updated><id>http://localhost:4000/flutter/2023/01/28/Flutter%EA%B8%B0%EC%B4%88-Widget</id><content type="html" xml:base="http://localhost:4000/flutter/2023/01/28/Flutter%EA%B8%B0%EC%B4%88-Widget.html"><![CDATA[<h1 id="tmi">TMI</h1>
 <hr />
-<p>Flutter는 게임엔진처럼 동작, 엔진이 화면 상의 모든 픽셀을 그림.<br />
-게임 엔진은 무언가를 렌더링할 때 호스트 플랫폼을 사용하지 않고 스스로 그래픽을 그림, Flutter도 같음.</p>
+<p>Flutter는 게임엔진처럼 동작, 엔진이 화면 상의 모든 픽셀을 그려줌. 게임 엔진은 무언가를 렌더링할 때 호스트 플랫폼을 사용하지 않고 스스로 그래픽을 그림, Flutter도 같음.</p>
 
 <h2 id="react-native-vs-flutter">React Native vs Flutter</h2>
 <hr />
-<p>React Native: 네이티브 앱 운영체제 상에서 가능한 위젯을 사용하고 싶을 때,<br />
-호스트 운영체제가 만들어주는 위젯을 사용하는 크로스플랫폼 어플리케이션을 만들 때<br />
-Flutter: 세밀한 디자인 요구사항이 들어가며, 요소들이나 애니메이션들을 전부 커스터마이징 해야할 때<br />
-(ios, android 앱처럼이 아닌, 자체의 디자인으로 이루어진 어플리케이션을 만들 때)</p>
+<p>React Native: 네이티브 앱 운영체제 상에서 가능한 위젯을 사용하고 싶을 때, 호스트 운영체제가 만들어주는 위젯을 사용하는 크로스플랫폼 어플리케이션을 만들 때<br /><br />
+Flutter: 세밀한 디자인 요구사항이 들어가며, 요소들이나 애니메이션들을 전부 커스터마이징 해야할 때 (ios, android 앱처럼이 아닌, 자체의 디자인으로 이루어진 어플리케이션을 만들 때)</p>
 
 <h2 id="widget">Widget</h2>
 <hr />
@@ -471,17 +464,15 @@ Flutter: 세밀한 디자인 요구사항이 들어가며, 요소들이나 애�
   <li>프로그래밍: class 생성</li>
 </ul>
 
-<p>Widget을 레고 블럭을 조립한다고 생각, Flutter에 있는 모든 건 Widget<br />
-Widget을 합치는 방식으로 앱을 제작해나감<br />
-공식 위젯: <a href="https://docs.flutter.dev/development/ui/widgets">flutter Widget 카탈로그</a>에 가면 애니메이션, 레이아웃 등 여러 위젯을 볼 수 있음<br />
-클래스를 생성할때 flutter SDK에 있는 3개의 core Widget중 하나를 상속받아야함<br />
+<p>Widget을 레고 블럭을 조립한다고 생각, Flutter에 있는 모든 건 Widget, Widget을 합치는 방식으로 앱을 제작해나감.<br /><br />
+공식 위젯: <a href="https://docs.flutter.dev/development/ui/widgets">flutter Widget 카탈로그</a>에 가면 애니메이션, 레이아웃 등 여러 위젯을 볼 수 있음.<br /><br />
+클래스를 생성할때 flutter SDK에 있는 3개의 core Widget중 하나를 상속받아야함.<br />
 StatelessWidget: 가장 기초적인 위젯으로 바꿔주는 클래스로 그냥 화면에 무언가 띄어주는 용도</p>
 
 <h2 id="build-method">build Method</h2>
 <hr />
-<p>모든 위젯은 build 메소드를 구현해야 함<br />
-build 메소드의 역할<br />
-Flutter가 실행하게 되는데, build 메소드가 반환하는걸 화면에서 보여줌<br />
+<p>모든 위젯은 build 메소드를 구현해야 함<br /><br />
+build 메소드의 역할: Flutter가 실행하게 되는데, build 메소드가 반환하는걸 화면에서 보여줌<br />
 (위젯의 UI를 만드는 것)</p>
 
 <h2 id="root-widget">root Widget</h2>
@@ -493,15 +484,15 @@ Flutter가 실행하게 되는데, build 메소드가 반환하는걸 화면에�
   <li>cupertino:  애플의 디자인 시스템</li>
 </ul>
 
-<p>🤔 하지만 우리는 구글, 애플의 디자인이 아닌 우리만의 디자인을 만들고 싶은데 왜 material, cuperino를 반환해야 하는 걸까?<br />
-디자인 시스템을 사용해도 android, ios의 앱처럼 보이진 않지만 root Widget이여서 시작점을 선택하는 것으로, 기본 UI 설정과 같은 재료들을 선택하는 것<br />
+<p>🤔 하지만 우리는 구글, 애플의 디자인이 아닌 우리만의 디자인을 만들고 싶은데 왜 material, cuperino를 반환해야 하는 걸까?<br /><br />
+디자인 시스템을 사용해도 android, ios의 앱처럼 보이진 않지만 root Widget이여서 시작점을 선택하는 것으로, 기본 UI 설정과 같은 재료들을 선택하는 것.<br />
 (하지만 Flutter는 구글이 제작했기에 material 앱 스타일이 cuperino 스타일보다 보기 좋다함 😅)</p>
 
 <h2 id="scaffold">scaffold</h2>
 <hr />
-<p>Flutter는 하나의 개발 규칙이 있는데, 화면이 scaffold를 가져야하는 것<br />
+<p>Flutter는 하나의 개발 규칙이 있는데, 화면이 scaffold를 가져야하는 것<br /><br />
 scaffold: 화면의 구성 및 구조에 관한 것들을 가지고 있는 위젯, 화면의 구조를 제공하며,<br />
-모바일 앱의 모든 화면은 scaffold가 필요함<br />
+모바일 앱의 모든 화면은 scaffold가 필요함<br /><br />
 scaffold의 기능: navigation bar 구현, bottom tab bar, 화면 중앙 정렬 등</p>
 
 <h2 id="home">home</h2>
@@ -512,32 +503,28 @@ scaffold의 기능: navigation bar 구현, bottom tab bar, 화면 중앙 정렬 
 <hr />
 <p>클래스에 커서를 올려 놓으면 클래스의 구성이 나오는데, 그것으로 무엇을 할 수 있는지 유추해 볼 수 있음, 자주 사용하도록 하자</p>]]></content><author><name>Mindol</name></author><category term="Flutter" /><category term="Flutter" /><category term="Dart" /><summary type="html"><![CDATA[플러터의 기초 공부]]></summary></entry><entry><title type="html">[jekyll] - markdown파일로 포스팅</title><link href="http://localhost:4000/web/2023/01/26/markdown%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%ED%8F%AC%EC%8A%A4%ED%8C%85.html" rel="alternate" type="text/html" title="[jekyll] - markdown파일로 포스팅" /><published>2023-01-26T06:00:01+09:00</published><updated>2023-01-26T06:00:01+09:00</updated><id>http://localhost:4000/web/2023/01/26/markdown%EC%9D%84%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%ED%8F%AC%EC%8A%A4%ED%8C%85</id><content type="html" xml:base="http://localhost:4000/web/2023/01/26/markdown%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%ED%8F%AC%EC%8A%A4%ED%8C%85.html"><![CDATA[<h2 id="markdown이란">Markdown이란?</h2>
 <hr />
-<p>마크다운(Markdown)은 일반 텍스트 기반의 경량 마크업 언어.<br />
-일반 텍스트로 서식이 있는 문서를 작성하는 데 사용되며,<br />
-일반 마크업 언어에 비해 문법이 쉽고 간단한 것이 특징이다.<br /></p>
+<p>마크다운(Markdown)은 일반 텍스트 기반의 경량 마크업 언어.<br /><br />
+일반 텍스트로 서식이 있는 문서를 작성하는 데 사용되며, 일반 마크업 언어에 비해 문법이 쉽고 간단한 것이 특징이다.<br /></p>
 
 <h2 id="포스팅을-하기-전">포스팅을 하기 전</h2>
 <hr />
-<p>Mardown을 지원하는 에디터를 준비해야합니다.<br />
-저는 Visual Studio Code를 사용중입니다.</p>
+<p>Mardown을 지원하는 에디터를 준비해야합니다, 나는 Visual Studio Code를 사용중.</p>
 
 <h2 id="_posts">_posts</h2>
 <hr />
-<p>블로그 디렉토리를 들어가면 대략적으로 이런 형식으로 구성이 되어있습니다.
+<p>블로그 디렉토리를 들어가면 대략적으로 이런 형식으로 구성.<br /><br />
 <img src="/assets/img/jekyll/jekyll_post_1.png" alt="image" width="50%" height="50%" /><br />
-포스팅을 하기위해서는 _posts 디렉터리에 markdown파일을 만들어야합니다.<br />
-만약 _posts 디렉터리가 존재하지 않을 시 _posts라는 디렉터리를 생성해줍니다.<br />
-❗ 모든 포스트 파일은 _posts 디렉터리 내 위치합니다.</p>
+포스팅을 하기위해서는 _posts 디렉터리에 markdown파일을 만들어야하며. 만약 _posts 디렉터리가 존재하지 않을 시 _posts라는 디렉터리를 생성.<br />
+<code class="language-plaintext highlighter-rouge">모든 포스트 파일은 _posts 디렉터리 내 위치</code></p>
 
 <h2 id="markdown-파일-생성">Markdown 파일 생성</h2>
 <hr />
-<p>마크다운 파일을 생성해줍니다.<br />
-❗ 파일 명은 yyyy-mm-dd-포스트 제목.md 형식으로 만들어줍니다.
+<p>마크다운 파일 생성. 파일 명은 <code class="language-plaintext highlighter-rouge">yyyy-mm-dd-포스트 제목.md</code> 형식으로 만들어야 함.
 <img src="/assets/img/jekyll/jekyll_post_2.png" alt="image" width="100%" height="100%" /><br /></p>
 
 <h2 id="머릿말front-matter-작성">머릿말(Front-Matter) 작성</h2>
 <hr />
-<p>준비했던 에디터로 해당 파일을 열어준 후, 맨 위에 아래처럼 작성해줍니다.</p>
+<p>준비했던 에디터로 해당 파일을 열어준 후, 맨 위에 아래처럼 작성한다.</p>
 <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
 <span class="na">layout</span><span class="pi">:</span> <span class="s">post</span>
 <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">포스팅</span><span class="nv"> </span><span class="s">이름"</span>
@@ -547,28 +534,24 @@ scaffold의 기능: navigation bar 구현, bottom tab bar, 화면 중앙 정렬 
 <span class="na">date</span><span class="pi">:</span> <span class="s">2023-01-26 00:00:00 +0300</span>
 <span class="nn">---</span>
 </code></pre></div></div>
-<p>머릿말은 두개의 <code class="language-plaintext highlighter-rouge">---</code> 사이에 영역을 구분해줘야 한다.<br />
-title: 포스트의 제목을 큰 따옴표로 적어 준다. title을 적어주지 않을 시,<br />
-생성한 파일의 포스트 제목 부분이 제목으로 업로드 된다.<br />
+<p>머릿말은 두개의 <code class="language-plaintext highlighter-rouge">---</code> 사이에 영역을 구분해줘야 한다.<br /><br />
+title: 포스트의 제목을 큰 따옴표로 적어 준다. title을 적어주지 않을 시, 생성한 파일의 포스트 제목 부분이 제목으로 업로드 된다.<br /><br />
 excerpt: 포스트 목록에 보여지는 간단한 소개글.<br />
-<img src="/assets/img/jekyll/jekyll_post_3.png" alt="image" width="20%" height="20%" /><br />
-categories: 포스트의 카테고리<br />
-tags: 카테고리와의 차이로 카테고리는 sub url이 붙는 페이지가 있지만 태그는 없다,<br />
-카테고리보다 좀 더 세부적으로 나눌 수 있다.
+<img src="/assets/img/jekyll/jekyll_post_3.png" alt="image" width="20%" height="20%" /><br /><br />
+categories: 포스트의 카테고리<br /><br />
+tags: 카테고리와의 차이로 카테고리는 sub url이 붙는 페이지가 있지만 태그는 없다, 카테고리보다 좀 더 세부적으로 나눌 수 있다.<br /><br />
 date: 포스팅 날짜</p>
 
 <h2 id="포스트-내용-확인">포스트 내용 확인</h2>
 <hr />
-<p>나는 포스트 내용을 확인할 때 두가지 방법을 사용한다.<br />
-첫째로 Visual Studio Code에서 지원하는 Preview기능으로,<br />
-마크다운 파일의 내용을 확인할 수 있다.
+<p>나는 포스트 내용을 확인할 때 두가지 방법을 사용한다.<br /><br />
+첫째로 Visual Studio Code에서 지원하는 Preview기능으로, 마크다운 파일의 내용을 확인할 수 있다.<br />
 <img src="/assets/img/jekyll/jekyll_post_4.png" alt="image" width="100%" height="100%" /><br />
-에디터의 상단 UI중 빨간 네모 버튼을 눌러주면
+에디터의 상단 UI중 빨간 네모 버튼을 눌러주면<br />
 <img src="/assets/img/jekyll/jekyll_post_5.png" alt="image" width="50%" height="50%" /><br />
-이렇게 마크다운 형식의 파일 내용을 확인할 수 있다.<br />
+이렇게 마크다운 형식의 파일 내용을 확인할 수 있다.<br /><br />
 두번째로 로컬 서버를 열어 블로그에 적용될 모습을 확인하는 방법이다.<br />
-cmd로 블로그 디렉터리로 이동 후 <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code>명령어를 입력 하면<br />
-로컬 환경에서 jekyll 서버를 가동할 수 있다.<br />
+cmd로 블로그 디렉터리로 이동 후 <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code>명령어를 입력 하면 로컬 환경에서 jekyll 서버를 가동할 수 있다.<br />
 url에 <code class="language-plaintext highlighter-rouge">127.0.0.1:4000</code>이나 <code class="language-plaintext highlighter-rouge">localhost:4000</code>을 입력하여 블로그에 접속할 수 있다.<br />
 <img src="/assets/img/jekyll/jekyll_post_6.png" alt="image" width="50%" height="50%" /><br /></p>
 
@@ -586,8 +569,9 @@ ex) <a href="https://hhh57463.github.io">블로그주소</a><br /><br /></p>
 나는 블로그 디렉터리 내의 assets파일 내<br />
 img디렉터리를 생성하여 이미지를 관리한다.<br />
 <code class="language-plaintext highlighter-rouge">![image](이미지 파일){: width="50%" height="50%"}</code><br />
-이런식으로 이미지의 크기를 조절할 수 있다. (위의 예시는 이미지 크기 50%)<br /><br />
-<code class="language-plaintext highlighter-rouge">+ 내용</code>, <code class="language-plaintext highlighter-rouge">- 내용</code>: HTML의 <code class="language-plaintext highlighter-rouge">&lt;li&gt;</code> 태그와 같은 역할, 주로 리스트를 표시할 때 사용한다.<br /></p>
+이런식으로 이미지의 크기를 조절할 수 있다. (위의 예시는 이미지 크기 50%)<br /><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">+ 내용</code>, <code class="language-plaintext highlighter-rouge">- 내용</code>: HTML의 <code class="language-plaintext highlighter-rouge">&lt;li&gt;</code> 태그와 같은 역할, 주로 리스트를 표시할 때 사용한다.<br /></p>
 
 <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sb">` `</span>: 두개의 <span class="err">`</span> 사이의 어떠한 텍스트를 작성하면 해당 텍스트를 강조할 수 있다
 </code></pre></div></div>
@@ -623,32 +607,26 @@ img디렉터리를 생성하여 이미지를 관리한다.<br />
 </code></pre></div></div>
 <p>가 있는 것을 보았는데, 궁금해서 검색해봤다.<br /><br /></p>
 
-<p>보통 백준, 프로그래머스처럼 온라인 저지 사이트에서<br />
-C++을 이용하여 알고리즘 문제를 풀 때<br />
-시간초과 방지를 위해 사용한다.<br /><br /></p>
+<p>보통 백준, 프로그래머스처럼 온라인 저지 사이트에서 C++을 이용하여 알고리즘 문제를 풀 때 시간초과 방지를 위해 사용한다.<br /><br /></p>
 
-<p>C++에서는 기존 입출력으로 cin, cout을 사용하는데,<br />
-시간초과가 발생하는 경우가 있다.<br /><br />
-그럴때 사용하는데, 이유로 입출력 양이 굉장히 많아지면 입출력하는데 소모시간이 많아져 시간초과가 발생한다.<br />
+<p>C++에서는 기존 입출력으로 cin, cout을 사용하는데, 시간초과가 발생하는 경우가 있다.<br /><br /></p>
+
+<p>그럴때 사용하는데, 이유로 입출력 양이 굉장히 많아지면 입출력하는데 소모시간이 많아져 시간초과가 발생한다.<br /><br />
 📚 위의 코드를 사용하면 입출력 속도가 빨라진다 한다.</p>
 <h2 id="iossync_with_stdiofalse">ios::sync_with_stdio(false)</h2>
 <hr />
 <h3 id="c와-c-표준-stream의-동기화를-비활성화하는-코드">C와 C++ 표준 stream의 동기화를 비활성화하는 코드<br /><br /></h3>
 
-<p>동기화가 활성화 되어있으면 C스타일과 C++스타일의 입출력을 혼합해도 문제가 없다<br />
-printf, scanf와 cout, cin을 같이 사용해도 문제가 없는 것이다.<br /><br /></p>
+<p>동기화가 활성화 되어있으면 C스타일과 C++스타일의 입출력을 혼합해도 문제가 없다, printf, scanf와 cout, cin을 같이 사용해도 문제가 없는 것이다.<br /><br /></p>
 
-<p>하지만 <code class="language-plaintext highlighter-rouge">ios::sync_with_stdio(false)</code>를 작성하면 C스타일과 C++스타일을 혼합하여 사용할 수 없는 대신,<br /></p>
-<h3 id="c스타일-코드만-사용하면-기존의-동기화-과정에-필요했던-시간이-절약되어-입출력-속도가-빨라지는-효과가-있다">C++스타일 코드만 사용하면 기존의 동기화 과정에 필요했던 시간이 절약되어 입출력 속도가 빨라지는 효과가 있다.<br /><br /></h3>
+<p>하지만 <code class="language-plaintext highlighter-rouge">ios::sync_with_stdio(false)</code>를 작성하면 C스타일과 C++스타일을 혼합하여 사용할 수 없는 대신, <code class="language-plaintext highlighter-rouge">C++스타일 코드만 사용하면 기존의 동기화 과정에 필요했던 시간이 절약되어 입출력 속도가 빨라지는 효과가 있다.</code><br /><br /></p>
 
-<p>알고리즘 문제를 풀 때는 동기화는 필요없고 시간 절약이 우선이니<br />
-<code class="language-plaintext highlighter-rouge">ios::sync_with_stdio(false)</code>를 사용하여 입출력 시간을 절약하는 것이다<br /><br /></p>
+<p>알고리즘 문제를 풀 때는 동기화는 필요없고 시간 절약이 우선이니, <code class="language-plaintext highlighter-rouge">ios::sync_with_stdio(false)</code>를 사용하여 입출력 시간을 절약하는 것이다<br /><br /></p>
 
-<p>하지만 동기화된 C++버퍼의 경우 thread-safe하기 때문에 모든 IO의 순서가 예상한 것과 정확히 일치함을 보장할 수 있지만<br />
-<code class="language-plaintext highlighter-rouge">ios::sync_with_stdio(false);</code>를 사용하면 동기화가 비활성화 됐기 때문에 멀티 쓰레드 환경에서는 출력 순서를 보장할 수 없다<br />
-(thread-safe는 운영체제에서 mutex나 세마포어 등으로 동시 접근을 막는 것과 같이, 여러 쓰레드가 동시 접근해도 안전하다는 의미)<br /><br /></p>
+<p>하지만 동기화된 C++버퍼의 경우 thread-safe하기 때문에 모든 IO의 순서가 예상한 것과 정확히 일치함을 보장할 수 있지만 <code class="language-plaintext highlighter-rouge">ios::sync_with_stdio(false);</code>를 사용하면 동기화가 비활성화 됐기 때문에 멀티 쓰레드 환경에서는 출력 순서를 보장할 수 없다.<br /><br />
+thread-safe는 운영체제에서 mutex나 세마포어 등으로 동시 접근을 막는 것과 같이, 여러 쓰레드가 동시 접근해도 안전하다는 의미<br /><br /></p>
 
-<p>그리고 C스타일의 printf, scanf, putchar, getchar 등을 같이 사용하면 안된다.</p>
+<p>그리고 C스타일의 printf, scanf, putchar, getchar 등을 같이 사용하면 안된다.<br /></p>
 <h2 id="cintie0">cin.tie(0)</h2>
 <hr />
 <h3 id="cin과-cout의-묶음을-풀어준다">cin과 cout의 묶음을 풀어준다.<br /><br /></h3>
@@ -657,15 +635,10 @@ printf, scanf와 cout, cin을 같이 사용해도 문제가 없는 것이다.<br
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"이름을 입력해 주세요 </span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
 <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">name</span><span class="p">;</span>
 </code></pre></div></div>
-<p>평소에는 cin과 cout이 묶여 있어
-“이름을 입력해 주세요 \n”가 먼저 출력된 후 이름을 입력할 수 있다.<br />
-<code class="language-plaintext highlighter-rouge">cin.tie(0)</code>나 <code class="language-plaintext highlighter-rouge">cin.tie(null)</code> 코드를 추가해 주면<br />
-“이름을 입력해 주세요 \n”가 출력되기 전에 이름을 입력할  수 있다.<br /></p>
-<h3 id="내부적으로-cin과-cout을-묶어주는-과정을-수행하지-않기-때문에-시간이-절약된다">내부적으로 cin과 cout을 묶어주는 과정을 수행하지 않기 때문에 시간이 절약된다.<br /><br /></h3>
+<p>평소에는 cin과 cout이 묶여 있어 “이름을 입력해 주세요 \n”가 먼저 출력된 후 이름을 입력할 수 있다. <code class="language-plaintext highlighter-rouge">cin.tie(0)</code>나 <code class="language-plaintext highlighter-rouge">cin.tie(null)</code> 코드를 추가해 주면, “이름을 입력해 주세요 \n”가 출력되기 전에 이름을 입력할  수 있다.<br /><br />
+<code class="language-plaintext highlighter-rouge">내부적으로 cin과 cout을 묶어주는 과정을 수행하지 않기 때문에 시간이 절약된다.</code></p>
 
-<p>물론 이름을 입력해달라는 문구가 나오기 전에 입력을 할 수 있는 것은 이상하지만<br />
-알고리즘 문제를 풀 때는 크게 상관이 없고,<br />
-입출력 시간을 절약할 수 있기 때문에 <code class="language-plaintext highlighter-rouge">cin.tie(0)</code>을 많이 사용한다.</p>]]></content><author><name>Mindol</name></author><category term="Study" /><category term="study" /><category term="cpp" /><summary type="html"><![CDATA[백준 C++ 시간초과 해결]]></summary></entry><entry><title type="html">Dart 기초 - 클래스</title><link href="http://localhost:4000/dart/2023/01/10/Dart-%EA%B8%B0%EC%B4%88-%ED%81%B4%EB%9E%98%EC%8A%A4.html" rel="alternate" type="text/html" title="Dart 기초 - 클래스" /><published>2023-01-10T06:00:01+09:00</published><updated>2023-01-10T06:00:01+09:00</updated><id>http://localhost:4000/dart/2023/01/10/Dart%20%EA%B8%B0%EC%B4%88-%ED%81%B4%EB%9E%98%EC%8A%A4</id><content type="html" xml:base="http://localhost:4000/dart/2023/01/10/Dart-%EA%B8%B0%EC%B4%88-%ED%81%B4%EB%9E%98%EC%8A%A4.html"><![CDATA[<h1 id="tmi">TMI</h1>
+<p>물론 이름을 입력해달라는 문구가 나오기 전에 입력을 할 수 있는 것은 이상하지만, 알고리즘 문제를 풀 때는 크게 상관이 없고, 입출력 시간을 절약할 수 있기 때문에 <code class="language-plaintext highlighter-rouge">cin.tie(0)</code>을 많이 사용한다.</p>]]></content><author><name>Mindol</name></author><category term="Study" /><category term="study" /><category term="cpp" /><summary type="html"><![CDATA[백준 C++ 시간초과 해결]]></summary></entry><entry><title type="html">Dart 기초 - 클래스</title><link href="http://localhost:4000/dart/2023/01/10/Dart-%EA%B8%B0%EC%B4%88-%ED%81%B4%EB%9E%98%EC%8A%A4.html" rel="alternate" type="text/html" title="Dart 기초 - 클래스" /><published>2023-01-10T06:00:01+09:00</published><updated>2023-01-10T06:00:01+09:00</updated><id>http://localhost:4000/dart/2023/01/10/Dart%20%EA%B8%B0%EC%B4%88-%ED%81%B4%EB%9E%98%EC%8A%A4</id><content type="html" xml:base="http://localhost:4000/dart/2023/01/10/Dart-%EA%B8%B0%EC%B4%88-%ED%81%B4%EB%9E%98%EC%8A%A4.html"><![CDATA[<h1 id="tmi">TMI</h1>
 <hr />
 <p>Flutter를 공부하기 위한 Dart 공부</p>
 
@@ -903,53 +876,56 @@ printf, scanf와 cout, cin을 같이 사용해도 문제가 없는 것이다.<br
 
 <h2 id="추상화-메소드-abstract-method">추상화 메소드 (abstract method)</h2>
 <hr />
-<p>추상화 클래스 특징<br />
-추상화 클래스로는 객체를 생성할 수 없음<br />
-추상화 클래스는 상속 받은 클래스들이 직접 구현해야하는 메소드를 모아 놓은 일종의 블루프린트<br />
-특정 메소드를 구현하도록 강제함<br />
-각 클래스들이 같은 함수에 다른 내용을 가질 수 있음</p>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Human</span><span class="p">{</span>     <span class="c1">// 추상 클래스 선언</span>
-  <span class="kt">void</span> <span class="n">walk</span><span class="p">();</span>
-<span class="p">}</span>
+<p>추상화 클래스 특징<br /></p>
+<ul>
+  <li>추상화 클래스로는 객체를 생성할 수 없음</li>
+  <li>추상화 클래스는 상속 받은 클래스들이 직접 구현해야하는 메소드를 모아 놓은 일종의 블루프린트</li>
+  <li>특정 메소드를 구현하도록 강제함</li>
+  <li>각 클래스들이 같은 함수에 다른 내용을 가질 수 있음
+```dart
+abstract class Human{     // 추상 클래스 선언
+void walk();
+}</li>
+</ul>
 
-<span class="kd">class</span> <span class="nc">Player</span> <span class="kd">extends</span> <span class="n">Human</span><span class="p">{</span>   <span class="c1">// 추상 클래스 상속</span>
-  <span class="kt">String</span> <span class="n">name</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">xp</span><span class="p">;</span>
-  <span class="n">Team</span> <span class="n">team</span><span class="p">;</span>
+<p>class Player extends Human{   // 추상 클래스 상속
+  String name;
+  int xp;
+  Team team;</p>
 
-  <span class="n">Player</span><span class="p">({</span><span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="p">,</span> <span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">xp</span><span class="p">,</span> <span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">team</span><span class="p">});</span>
+<p>Player({required this.name, required this.xp, required this.team});</p>
 
-  <span class="kt">void</span> <span class="n">walk</span><span class="p">()</span> <span class="o">=</span><span class="p">&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">"I'm Walking"</span><span class="p">);</span>    <span class="c1">// 추상 클래스 메소드 구현</span>
+<p>void walk() =&gt; print(“I’m Walking”);    // 추상 클래스 메소드 구현</p>
 
-  <span class="kt">void</span> <span class="n">hello</span><span class="p">(){</span>
-    <span class="n">print</span><span class="p">(</span><span class="s">"Hi my name is </span><span class="si">$name</span><span class="s">"</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<p>void hello(){
+    print(“Hi my name is $name”);
+  }
+}</p>
 
-<span class="kd">class</span> <span class="nc">Coach</span> <span class="kd">extends</span> <span class="n">Human</span><span class="p">{</span>
-  <span class="kt">void</span> <span class="n">walk</span><span class="p">()</span> <span class="o">=</span><span class="p">&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">"coach is walk"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
+<p>class Coach extends Human{
+  void walk() =&gt; print(“coach is walk”);
+}</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+## 상속
+--------------
+상속받은 클래스(자식클래스)는 부모 클래스 내의 모든 내용을 가져옴
+```dart
+class Human{
+  final String name;
+  Human({required this.name});
+  void sayHello() =&gt; print("Hi my name is $name");
+}
 
-<h2 id="상속">상속</h2>
-<hr />
-<p>상속받은 클래스(자식클래스)는 부모 클래스 내의 모든 내용을 가져옴</p>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Human</span><span class="p">{</span>
-  <span class="kd">final</span> <span class="kt">String</span> <span class="n">name</span><span class="p">;</span>
-  <span class="n">Human</span><span class="p">({</span><span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="p">});</span>
-  <span class="kt">void</span> <span class="n">sayHello</span><span class="p">()</span> <span class="o">=</span><span class="p">&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">"Hi my name is </span><span class="si">$name</span><span class="s">"</span><span class="p">);</span>
-<span class="p">}</span>
+enum Team{blue, red}
 
-<span class="kt">enum</span> <span class="n">Team</span><span class="p">{</span><span class="n">blue</span><span class="p">,</span> <span class="n">red</span><span class="p">}</span>
+class Player extends Human{
+  final Team team;
+  Player({required this. team, required String name}) : super(name: name);
+}
 
-<span class="kd">class</span> <span class="nc">Player</span> <span class="kd">extends</span> <span class="n">Human</span><span class="p">{</span>
-  <span class="kd">final</span> <span class="n">Team</span> <span class="n">team</span><span class="p">;</span>
-  <span class="n">Player</span><span class="p">({</span><span class="kd">required</span> <span class="k">this</span><span class="p">.</span> <span class="n">team</span><span class="p">,</span> <span class="kd">required</span> <span class="kt">String</span> <span class="n">name</span><span class="p">})</span> <span class="o">:</span> <span class="k">super</span><span class="p">(</span><span class="nl">name:</span> <span class="n">name</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
-  <span class="kd">var</span> <span class="n">player</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="nl">team:</span> <span class="n">Team</span><span class="o">.</span><span class="na">red</span><span class="p">,</span> <span class="nl">name:</span> <span class="s">'mindol'</span><span class="p">);</span>
-<span class="p">}</span>
+void main(){
+  var player = Player(team: Team.red, name: 'mindol');
+}
 </code></pre></div></div>
 <p>💡 super 키워드를 통해 부모 클래스와 상호작용이 가능<br />
 super() ← 부모 클래스 생성자<br />
@@ -978,8 +954,7 @@ super() ← 부모 클래스 생성자<br />
 <hr />
 <p>Mixin : 생성자가 없는 클래스, 클래스에 프로퍼티들을 추가하거나 할 때 주로 사용<br />
 (다른 클래스의 프로퍼티와 메소드를 그냥 긁어오는 것 뿐, 상속과는 다른 개념(부모 클래스가 되지 않음)<br />
-여러 클래스에 사용이 가능함<br />
-생성자가 없어야 함</p>
+여러 클래스에 사용이 가능하며, 생성자가 없어야 함</p>
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Strong</span><span class="p">{</span>
   <span class="kd">final</span> <span class="kt">double</span> <span class="n">strengthLevel</span> <span class="o">=</span> <span class="mf">1500.99</span><span class="p">;</span>
 <span class="p">}</span>
@@ -1018,8 +993,7 @@ dart의 출력문 print(’문자열’);<br />
 </code></pre></div></div>
 <p>이렇게 줄일 수 있음<br />
 일반적으로 매개변수 있는 함수를 사용할 때는 Named Parameter를 사용하는 것을 지향(평소에 사용했던 매개변수 선언 순서에 맞는 호출 방법은 Positional parameter)<br />
-나중에 코드를 볼 때 이해가 쉽지 않기 때문에<br />
-특히 해당 함수가 같은 파일 내에 있지 않으면 어려움</p>
+나중에 코드를 볼 때 이해가 쉽지 않기 때문도 있고, 특히 해당 함수가 같은 파일 내에 있지 않으면 어려움<br /></p>
 
 <h3 id="named-parameters">Named Parameters</h3>
 <hr />
@@ -1133,8 +1107,8 @@ dart의 출력문 print(’문자열’);<br />
 <h1 id="변수">변수</h1>
 <hr />
 <p>변수
-var 변수명 = 값;    값에 맞는 자료형에 맞게 셋팅<br />
-자료형 변수명 = 값;  자료형에 맞는 값을 넣어야함<br />
+var 변수명 = 값;    값에 맞는 자료형에 맞게 셋팅<br /><br />
+자료형 변수명 = 값;  자료형에 맞는 값을 넣어야함<br /><br />
 dynamic 변수명;, var 변수명;  여러 타입을 가질 수 있는 변수 선언 추천하지 않지만 가끔 사용 됨</p>
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
 	<span class="kd">dynamic</span> <span class="n">name</span><span class="p">;</span>
@@ -1146,11 +1120,11 @@ dynamic 변수명;, var 변수명;  여러 타입을 가질 수 있는 변수 �
 <span class="p">}</span>
 <span class="c1">// dynamic을 사용할 때에는 타입을 검사하고 사용하는 것을 습관화 하기</span>
 </code></pre></div></div>
-<p>var : 관습적으로 함수나 메소드 내부에서 지역 변수를 선언할 때에 사용 값을 수정해도 타입은 유지되야함<br />
-자료형 지정 : class에서 변수나 property를 선언할 때 타입 지정<br />
-null safety : 개발자가 null 값을 참조할 수 없도록 하는 것<br />
-일반적으로, 자료형 변수 = null; 은 불가능한 문법이지만<br />
-자료형? 변수;  변수에 자료형에 맞는 값과 null이 들어갈 수 있게 함<br /></p>
+<p>var : 관습적으로 함수나 메소드 내부에서 지역 변수를 선언할 때에 사용 값을 수정해도 타입은 유지되야함<br /><br />
+자료형 지정 : class에서 변수나 property를 선언할 때 타입 지정<br /><br />
+null safety : 개발자가 null 값을 참조할 수 없도록 하는 것<br /><br />
+일반적으로, 자료형 변수 = null; 은 불가능한 문법이지만<br /><br />
+자료형? 변수;  변수에 자료형에 맞는 값과 null이 들어갈 수 있게 함<br /><br /></p>
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
 	<span class="kt">String</span><span class="o">?</span> <span class="n">name</span> <span class="o">=</span> <span class="s">'민돌'</span><span class="p">;</span>
 	<span class="n">name</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
@@ -1331,8 +1305,7 @@ Download 버튼을 눌러 테마를 다운로드 후, 압축을 풀어줍니다.
 <p>cmd에</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">install</span>
 </code></pre></div></div>
-<p>를 입력하여 bundle 설치 후<br />
-cmd로 다운받은 디렉토리에 접속하여</p>
+<p>를 입력하여 bundle 설치 후 cmd로 다운받은 디렉토리에 접속하여</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">exec </span>jekyll serve
 </code></pre></div></div>
 <p>를 입력하여 줍니다.<br /></p>
@@ -1343,11 +1316,8 @@ cmd로 다운받은 디렉토리에 접속하여</p>
 주소창에 localhost:4000을 입력하여 블로그에 접속해 테마를 확인해줍니다.<br /></p>
 
 <p><img src="/assets/img/jekyll/repository.png" alt="image" width="100%" height="100%" /><br />
-깃허브 레포지토리를 생성해줍니다.<br />
-레포지토리 이름은 반드시<br />
-📚 계정이름.github.io 으로 해줍니다.<br />
-레포지토리와 테마 디렉터리를 연결 후 푸쉬합니다.<br />
-❗ 어느정도 시간이 흘러야 블로그가 적용됩니다.</p>
+깃허브 레포지토리를 생성해줍니다, 레포지토리 이름은 반드시 <code class="language-plaintext highlighter-rouge">계정이름.github.io</code>로 해줍니다.<br />
+레포지토리와 테마 디렉터리를 연결 후 푸쉬합니다. 어느정도 시간이 흘러야 블로그가 적용됩니다.<br /></p>
 
 <p><img src="/assets/img/jekyll/blog_check.png" alt="image" width="100%" height="100%" /><br />
 주소창에 계정이름.github.io를 입력하여 블로그에 접속하여 줍니다.<br /></p>]]></content><author><name>Mindol</name></author><category term="web" /><category term="jekyll" /><category term="web" /><category term="ruby" /><category term="github" /><summary type="html"><![CDATA[jekyll을 이용한 블로그 만들기]]></summary></entry></feed>

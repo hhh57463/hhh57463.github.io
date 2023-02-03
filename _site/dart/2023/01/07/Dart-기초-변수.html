@@ -181,8 +181,8 @@
 <h1 id="변수">변수</h1>
 <hr />
 <p>변수
-var 변수명 = 값;    값에 맞는 자료형에 맞게 셋팅<br />
-자료형 변수명 = 값;  자료형에 맞는 값을 넣어야함<br />
+var 변수명 = 값;    값에 맞는 자료형에 맞게 셋팅<br /><br />
+자료형 변수명 = 값;  자료형에 맞는 값을 넣어야함<br /><br />
 dynamic 변수명;, var 변수명;  여러 타입을 가질 수 있는 변수 선언 추천하지 않지만 가끔 사용 됨</p>
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
 	<span class="kd">dynamic</span> <span class="n">name</span><span class="p">;</span>
@@ -194,11 +194,11 @@ dynamic 변수명;, var 변수명;  여러 타입을 가질 수 있는 변수 �
 <span class="p">}</span>
 <span class="c1">// dynamic을 사용할 때에는 타입을 검사하고 사용하는 것을 습관화 하기</span>
 </code></pre></div></div>
-<p>var : 관습적으로 함수나 메소드 내부에서 지역 변수를 선언할 때에 사용 값을 수정해도 타입은 유지되야함<br />
-자료형 지정 : class에서 변수나 property를 선언할 때 타입 지정<br />
-null safety : 개발자가 null 값을 참조할 수 없도록 하는 것<br />
-일반적으로, 자료형 변수 = null; 은 불가능한 문법이지만<br />
-자료형? 변수;  변수에 자료형에 맞는 값과 null이 들어갈 수 있게 함<br /></p>
+<p>var : 관습적으로 함수나 메소드 내부에서 지역 변수를 선언할 때에 사용 값을 수정해도 타입은 유지되야함<br /><br />
+자료형 지정 : class에서 변수나 property를 선언할 때 타입 지정<br /><br />
+null safety : 개발자가 null 값을 참조할 수 없도록 하는 것<br /><br />
+일반적으로, 자료형 변수 = null; 은 불가능한 문법이지만<br /><br />
+자료형? 변수;  변수에 자료형에 맞는 값과 null이 들어갈 수 있게 함<br /><br /></p>
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
 	<span class="kt">String</span><span class="o">?</span> <span class="n">name</span> <span class="o">=</span> <span class="s">'민돌'</span><span class="p">;</span>
 	<span class="n">name</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
