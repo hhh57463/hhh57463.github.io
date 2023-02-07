@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-02-07T15:21:10+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">Cinemachine</title><link href="http://localhost:4000/unity/2023/02/07/Cinemachine.html" rel="alternate" type="text/html" title="Cinemachine" /><published>2023-02-07T06:00:01+09:00</published><updated>2023-02-07T06:00:01+09:00</updated><id>http://localhost:4000/unity/2023/02/07/Cinemachine</id><content type="html" xml:base="http://localhost:4000/unity/2023/02/07/Cinemachine.html"><![CDATA[<h2 id="시네머신">시네머신?</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-02-07T15:29:30+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">Cinemachine</title><link href="http://localhost:4000/unity/2023/02/07/Cinemachine.html" rel="alternate" type="text/html" title="Cinemachine" /><published>2023-02-07T06:00:01+09:00</published><updated>2023-02-07T06:00:01+09:00</updated><id>http://localhost:4000/unity/2023/02/07/Cinemachine</id><content type="html" xml:base="http://localhost:4000/unity/2023/02/07/Cinemachine.html"><![CDATA[<h2 id="시네머신">시네머신?</h2>
 <hr />
 <p>영화 촬영을 하는 것처럼 씬을 촬영하여 게임 화면상에 비추어주는 유니티 패키지.<br /><br />
 기본적으로 카메라 오브젝트를 생성하지 않고 가상 카메라를 이용.<br /><br />
@@ -111,8 +111,9 @@ Soft Zone(소프트존)
 </span>: 대상이 소프트존 내에 있다면 카메라가 부드럽게 회전하여 대상이 데드존 안으로 들어가게 한다<br /><br />
 <span style="color:yellow">
 하드리밋
-</span>: 대상이 소프트존 내에 있다면 카메라가 부드럽게 회전하여 대상이 데드존 안에 들어가게 함 (소프트존보다 바깥에 있어 더 빠르고 격한 속도로 회전)<br /><br />
-<code class="language-plaintext highlighter-rouge">데드존이 클 수록 화면은 느리고 부드럽게 움직이며, 데드존이 작을수록 화면은 빠르고 격하게 움직임</code></p>
+</span>: 소프트존보다 바깥에 있어 더 빠르고 격한 속도로 회전하며 대상이 데드존 안으로 들어가게 함<br /><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">데드존이 클 수록 화면은 느리고 부드럽게 움직이며, 데드존이 작을수록 화면은 빠르고 격하게 움직임</code></p>
 
 <h2 id="테스트">테스트</h2>
 <hr />
