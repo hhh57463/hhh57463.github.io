@@ -7,23 +7,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Unity 플랫폼별 구분하여 작업 | Mindol</title>
+<title>Cinemachine | Mindol</title>
 <meta name="generator" content="Jekyll v3.9.2" />
-<meta property="og:title" content="Unity 플랫폼별 구분하여 작업" />
+<meta property="og:title" content="Cinemachine" />
 <meta name="author" content="Mindol" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Unity 플랫폼 의존 컴파일" />
-<meta property="og:description" content="Unity 플랫폼 의존 컴파일" />
-<link rel="canonical" href="http://localhost:4000/unity/2023/02/03/Different-for-each-Platform.html" />
-<meta property="og:url" content="http://localhost:4000/unity/2023/02/03/Different-for-each-Platform.html" />
+<meta name="description" content="Unity Cinemachine" />
+<meta property="og:description" content="Unity Cinemachine" />
+<link rel="canonical" href="http://localhost:4000/unity/2023/02/07/Cinemachine.html" />
+<meta property="og:url" content="http://localhost:4000/unity/2023/02/07/Cinemachine.html" />
 <meta property="og:site_name" content="Mindol" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-02-03T06:00:01+09:00" />
+<meta property="article:published_time" content="2023-02-07T06:00:01+09:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Unity 플랫폼별 구분하여 작업" />
+<meta property="twitter:title" content="Cinemachine" />
 <meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-02-03T06:00:01+09:00","datePublished":"2023-02-03T06:00:01+09:00","description":"Unity 플랫폼 의존 컴파일","headline":"Unity 플랫폼별 구분하여 작업","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/unity/2023/02/03/Different-for-each-Platform.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/MinTa.png"},"name":"Mindol"},"url":"http://localhost:4000/unity/2023/02/03/Different-for-each-Platform.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-02-07T06:00:01+09:00","datePublished":"2023-02-07T06:00:01+09:00","description":"Unity Cinemachine","headline":"Cinemachine","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/unity/2023/02/07/Cinemachine.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/MinTa.png"},"name":"Mindol"},"url":"http://localhost:4000/unity/2023/02/07/Cinemachine.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -166,70 +166,136 @@
 
   <header class="post-header">
 
-    <h1 class="post-title p-name" itemprop="name headline">Unity 플랫폼별 구분하여 작업</h1>
-    <p class="post-meta"><time class="dt-published" datetime="2023-02-03T06:00:01+09:00" itemprop="datePublished">
-        Feb 3, 2023
+    <h1 class="post-title p-name" itemprop="name headline">Cinemachine</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-02-07T06:00:01+09:00" itemprop="datePublished">
+        Feb 7, 2023
       </time></p>
 
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="플랫폼-의존-컴파일">플랫폼 의존 컴파일</h2>
+    <h2 id="시네머신">시네머신?</h2>
 <hr />
-<p>유니티를 작업하다보면 플랫폼에 따라 다르게 동작해야하는 경우가 있다. 그럴때는 Unity의 <code class="language-plaintext highlighter-rouge">플랫폼 의존 컴파일</code> 기능을 이용하여 여러 플랫폼을 대응할 수 있다.<br /></p>
+<p>영화 촬영을 하는 것처럼 씬을 촬영하여 게임 화면상에 비추어주는 유니티 패키지.<br /><br />
+기본적으로 카메라 오브젝트를 생성하지 않고 가상 카메라를 이용.<br /><br />
+가상 카메라는 원래 있는 카메라 오브젝트를 이용하여 여러 환경에서 비추어줄 씬을 보여주도록 도와줌.<br /><br />
+가상 카메라는 서로에게 영향을 끼치지 않으며, 유니티 카메라에도 영향을 받지 않아 자유로운 카메라 구성이 가능.</p>
 
-<h2 id="플랫폼에-따른-코드-구현">플랫폼에 따른 코드 구현</h2>
+<h2 id="패키지-추가">패키지 추가</h2>
 <hr />
-<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#if 심볼(플랫폼)
-</span>    <span class="c1">// 코드 작성</span>
-<span class="cp">#endif
-</span></code></pre></div></div>
-<p>이렇게 코드를 작성해 주면 해당 플랫폼에서만 동작하는 코드를 작성할 수 있다. Unity에 지정되어있는 심볼로 아래가 있다.<br />
-<img src="/assets/img/Unity/Platform_1.png" alt="image" /><br /><br />
-<a href="https://docs.unity3d.com/kr/current/Manual/PlatformDependentCompilation.html">링크-유니티 공식 문서</a><br /></p>
 
-<h2 id="예시">예시</h2>
+<p><img src="/assets/img/Unity/Cinemachine_1.png" alt="image" /><br />
+Window→Package Manager<br /><br />
+<img src="/assets/img/Unity/Cinemachine_2.png" alt="image" /><br />
+Packages를 Unity Registry로 변경 후 Cinemachine을 찾아 install<br /><br />
+<img src="/assets/img/Unity/Cinemachine_3.png" alt="image" /><br />
+Packages 디렉터리에 Cinemachine이 생긴것을 볼 수 있다<br /><br />
+<img src="/assets/img/Unity/Cinemachine_4.png" alt="image" /><br />
+Hierachy에서 시네머신 카메라를 생성할 수 있다.<br /><br /></p>
+
+<h2 id="종류">종류</h2>
 <hr />
-<p><img src="/assets/img/Unity/Platform_2.png" alt="image" width="50%" height="50%" /><br />
-플랫폼에 따라 화면에 보이는 Text가 다르게 변화하도록 코드를 작성한다.</p>
 
-<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
-    <span class="p">{</span>
-<span class="cp">#if UNITY_EDITOR                        // Unity Editor
-</span>        <span class="n">printText</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">"Platform: Unity Editor"</span><span class="p">;</span>
-        <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"Editor"</span><span class="p">);</span>
-<span class="cp">#endif
-#if UNITY_STANDALONE_WIN                // Window
-</span>        <span class="n">printText</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">"Platform: Window"</span><span class="p">;</span>
-        <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"Window"</span><span class="p">);</span>
-<span class="cp">#endif
-#if UNITY_STANDALONE_OSX                // macOS
-</span>        <span class="n">printText</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">"Platform: OSX"</span><span class="p">;</span>
-        <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"OSX"</span><span class="p">);</span>
-<span class="cp">#endif
-#if UNITY_IOS                           // IOS
-</span>        <span class="n">printText</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">"Platform: IOS"</span><span class="p">;</span>
-        <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"IOS"</span><span class="p">);</span>
-<span class="cp">#endif
-#if UNITY_ANDROID                       // Android
-</span>        <span class="n">printText</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">"Platform: Android"</span><span class="p">;</span>
-        <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"Android"</span><span class="p">);</span>
-<span class="cp">#endif
-</span>    <span class="p">}</span>
-</code></pre></div></div>
+<table>
+  <thead>
+    <tr>
+      <th>카메라</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Virtual Camera</td>
+      <td>기본적인 카메라, 유니티 카메라를 조정하듯 자유롭게 활용 가능</td>
+    </tr>
+    <tr>
+      <td>FreeLook Camera</td>
+      <td>오브젝트를 중심으로 원형의 링을 생성하여 그 구간 안에서 타깃을 관찰하는 카메라</td>
+    </tr>
+    <tr>
+      <td>Blend List Camera</td>
+      <td>할당된 버추얼 카메라들을 정해진 블랜드 방식에 따라 순차적으로 전환하는 카메라</td>
+    </tr>
+    <tr>
+      <td>State-Driven Camera</td>
+      <td>타겟 애니메이션의 상태별로 활성화/비활성화 시킬 수 있는 카메라</td>
+    </tr>
+    <tr>
+      <td>ClearShot Camera</td>
+      <td>플레이어의 충돌/트리거 상태에 따라 활성화/비활성화 시킬 수 있는 카메라</td>
+    </tr>
+    <tr>
+      <td>Dolly Camera</td>
+      <td>트랙을 깔아 해당 트랙에 따라 움직이는 카메라, Dolly Track과 함께 사용</td>
+    </tr>
+    <tr>
+      <td>Target Group Camera</td>
+      <td>그룹으로 묶인 카메라들을 자동으로 계산해 한 화면에 보여주는 카메라</td>
+    </tr>
+    <tr>
+      <td>Mixing Camera</td>
+      <td>Child Camera Weight 값에 따라 활성화/비활성화 해주는 카메라</td>
+    </tr>
+    <tr>
+      <td>2D Camera</td>
+      <td>직교 뷰로 사용되는 카메라</td>
+    </tr>
+  </tbody>
+</table>
 
-<h2 id="실행결과">실행결과</h2>
+<h2 id="프로퍼티-설명">프로퍼티 설명</h2>
 <hr />
-<p>Window로 빌드한 결과 잘 되는것을 볼 수 있다.<br />
-<img src="/assets/img/Unity/Platform_3.png" alt="image" width="50%" height="50%" /><br /><br />
-하지만 Unity Editor상에서도 똑같은 결과가 나오는 것을 확인 할 수 있다.<br />
-<img src="/assets/img/Unity/Platform_4.png" alt="image" width="50%" height="50%" /><br /><br />
-그 이유는 Build Setting중 Platform이 Window로 되어있기 때문에, Editor에서 실행되는 코드와 Window에서 실행되는 코드 둘 다 실행되기 때문이다.<br />
-콘솔창을 확인해 보면 Editor, Window 둘다 출력되는 것을 볼 수 있다.<br />
-<img src="/assets/img/Unity/Platform_5.png" alt="image" width="50%" height="50%" /><br /><br />
-Platform을 Android로 변경한 후 다시 실행시켜보면 Android가 출력되는 것을 볼 수 있다.<br />
-<img src="/assets/img/Unity/Platform_6.png" alt="image" width="50%" height="50%" /><br /><br />
-<img src="/assets/img/Unity/Platform_7.png" alt="image" width="50%" height="50%" /></p>
+<p>💡 가장 기본적인 Virtual Camera의 설명<br />
+<img src="/assets/img/Unity/Cinemachine_5.png" alt="image" /><br /><br />
+Save During Play: 에디터 Play 중 내용을 변경해도 설정 저장<br /><br />
+Priority: 카메라 우선도<br /><br />
+Follow: 따라다닐 오브젝트<br /><br />
+Look At: 바라볼 오브젝트<br /><br />
+Standby Update: Live 상태가 아닌 카메라의 업데이트 빈도</p>
+<ul>
+  <li>Never: 항상</li>
+  <li>Always: Live 일때만</li>
+  <li>Round Robine: 정기적으로</li>
+</ul>
+
+<p>Transitions: 카메라 사이 이동시 씬 전환 효과<br /><br />
+Body: 카메라의 위치<br /><br />
+Aim: 카메라의 각도<br /></p>
+
+<h2 id="body">Body</h2>
+<hr />
+<p><img src="/assets/img/Unity/Cinemachine_6.png" alt="image" /><br /><br />
+Follow Offset: 카메라와 대상의 거리<br /><br />
+Damping(제동): 값의 급격한 변화를 꺾어 부드럽게 이어주는 비율, 값이 커질 수록 부드러워져 민감도가 줄어듬</p>
+
+<h2 id="aim">Aim</h2>
+<hr />
+<p><img src="/assets/img/Unity/Cinemachine_7.png" alt="image" /><br /><br />
+Traked Object Offset: 대상에서 얼마나 더 떨어진 곳에서 바라볼지 (y값을 늘리면 대상보다 높은 곳을 조준한다)<br /><br />
+Damping: 회전 속도에 대한 제동값<br /><br />
+Dead Zone: 데드존의 크기<br /><br />
+Soft Zone: 소프트존의 크기<br /></p>
+
+<h2 id="soft-zone-dead-zone">Soft Zone, Dead Zone</h2>
+<hr />
+<p><img src="/assets/img/Unity/Cinemachine_8.png" alt="image" /><br /><br />
+<span style="color:red">
+Dead Zone(데드존)
+</span>: 대상이 데드존 내에서 움직이는 동안에는 카메라가 회전하지 않는다<br /><br />
+<span style="color:blue">
+Soft Zone(소프트존)
+</span>: 대상이 소프트존 내에 있다면 카메라가 부드럽게 회전하여 대상이 데드존 안으로 들어가게 한다<br /><br />
+<span style="color:yellow">
+하드리밋
+</span>: 대상이 소프트존 내에 있다면 카메라가 부드럽게 회전하여 대상이 데드존 안에 들어가게 함 (소프트존보다 바깥에 있어 더 빠르고 격한 속도로 회전)<br /><br />
+<code class="language-plaintext highlighter-rouge">데드존이 클 수록 화면은 느리고 부드럽게 움직이며, 데드존이 작을수록 화면은 빠르고 격하게 움직임</code></p>
+
+<h2 id="테스트">테스트</h2>
+<hr />
+<p>오브젝트를 생성하여 상하좌우로 움직이는 코드를 구현한 후 시네머신의 Follow, Look At에 연결해주었다.<br />
+<img src="/assets/img/Unity/Cinemachine_9.gif" alt="image" /><br /><br /></p>
+
+<p>카메라가 회전하여 오브젝트가 데드존으로 들어가게 하는 것을 볼 수 있다.</p>
 
   </div>
 
@@ -271,23 +337,15 @@ Platform을 Android로 변경한 후 다시 실행시켜보면 Android가 출력
 
     <nav class="post-pagination" role="navigation">
       
-        <a class="post-previous" href="/unity/2023/01/30/Photon.html">
+        <a class="post-previous" href="/unity/2023/02/03/Different-for-each-Platform.html">
           <h4 class="post-pagination-label">Prev</h4>
           <span class="post-pagination-title">
-            <i class="fas fa-arrow-left"></i> Unity Photon 주요 기능
+            <i class="fas fa-arrow-left"></i> Unity 플랫폼별 구분하여 작업
 
           </span>
         </a>
       
 
-      
-        <a class="post-next" href="/unity/2023/02/07/Cinemachine.html">
-          <h4 class="post-pagination-label">Next</h4>
-          <span class="post-pagination-title">
-            Cinemachine
- <i class="fas fa-arrow-right"></i>
-          </span>
-        </a>
       
     </nav>
   </footer>
