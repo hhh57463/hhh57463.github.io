@@ -66,7 +66,7 @@ Damping(제동): 값의 급격한 변화를 꺾어 부드럽게 이어주는 비
 ## Aim
 ---
 ![image](/assets/img/Unity/Cinemachine_7.png)<br><br>
-Traked Object Offset: 대상에서 얼마나 더 떨어진 곳에서 바라볼지 (y값을 늘리면 대상보다 높은 곳을 조준한다)<br><br>
+Tracked Object Offset: 대상에서 얼마나 더 떨어진 곳에서 바라볼지 (y값을 늘리면 대상보다 높은 곳을 조준한다)<br><br>
 Damping: 회전 속도에 대한 제동값<br><br>
 Dead Zone: 데드존의 크기<br><br>
 Soft Zone: 소프트존의 크기<br>

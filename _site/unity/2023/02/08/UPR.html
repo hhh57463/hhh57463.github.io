@@ -7,23 +7,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Cinemachine | Mindol</title>
+<title>URP | Mindol</title>
 <meta name="generator" content="Jekyll v3.9.2" />
-<meta property="og:title" content="Cinemachine" />
+<meta property="og:title" content="URP" />
 <meta name="author" content="Mindol" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Unity Cinemachine" />
-<meta property="og:description" content="Unity Cinemachine" />
-<link rel="canonical" href="http://localhost:4000/unity/2023/02/07/Cinemachine.html" />
-<meta property="og:url" content="http://localhost:4000/unity/2023/02/07/Cinemachine.html" />
+<meta name="description" content="Unity URP" />
+<meta property="og:description" content="Unity URP" />
+<link rel="canonical" href="http://localhost:4000/unity/2023/02/08/UPR.html" />
+<meta property="og:url" content="http://localhost:4000/unity/2023/02/08/UPR.html" />
 <meta property="og:site_name" content="Mindol" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-02-07T06:00:01+09:00" />
+<meta property="article:published_time" content="2023-02-08T07:00:00+09:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Cinemachine" />
+<meta property="twitter:title" content="URP" />
 <meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-02-07T06:00:01+09:00","datePublished":"2023-02-07T06:00:01+09:00","description":"Unity Cinemachine","headline":"Cinemachine","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/unity/2023/02/07/Cinemachine.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/MinTa.png"},"name":"Mindol"},"url":"http://localhost:4000/unity/2023/02/07/Cinemachine.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-02-08T07:00:00+09:00","datePublished":"2023-02-08T07:00:00+09:00","description":"Unity URP","headline":"URP","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/unity/2023/02/08/UPR.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/MinTa.png"},"name":"Mindol"},"url":"http://localhost:4000/unity/2023/02/08/UPR.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -166,137 +166,88 @@
 
   <header class="post-header">
 
-    <h1 class="post-title p-name" itemprop="name headline">Cinemachine</h1>
-    <p class="post-meta"><time class="dt-published" datetime="2023-02-07T06:00:01+09:00" itemprop="datePublished">
-        Feb 7, 2023
+    <h1 class="post-title p-name" itemprop="name headline">URP</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-02-08T07:00:00+09:00" itemprop="datePublished">
+        Feb 8, 2023
       </time></p>
 
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="시네머신">시네머신?</h2>
+    <h2 id="urp">URP?</h2>
 <hr />
-<p>영화 촬영을 하는 것처럼 씬을 촬영하여 게임 화면상에 비추어주는 유니티 패키지.<br /><br />
-기본적으로 카메라 오브젝트를 생성하지 않고 가상 카메라를 이용.<br /><br />
-가상 카메라는 원래 있는 카메라 오브젝트를 이용하여 여러 환경에서 비추어줄 씬을 보여주도록 도와줌.<br /><br />
-가상 카메라는 서로에게 영향을 끼치지 않으며, 유니티 카메라에도 영향을 받지 않아 자유로운 카메라 구성이 가능.</p>
+<p>항상 유니티 vs 언리얼에서 유니티가 무시받던 것이 바로 그래픽 능력. 유니티에서 새로운 파이프라인을 만들어 제공했는데 기존에는 디폴트 파이프라인이었지만, 설정을 통해 새로운 파이프라인을 사용할 수 있다.<br /><br />
+Universer Render Pipeline (URP): Unity에서 제작한 사전 빌드된 스크립터블 렌더 파이프라인<br /><br />
+URP는 아티스트 친화적 워크플로를 통해 모바일, 고사양 콘솔, PC 등 다양한 플랫폼에서 최적화된 그래픽스를 쉽고 빠르게 구현하도록 도와준다.</p>
 
-<h2 id="패키지-추가">패키지 추가</h2>
+<h2 id="urp-설정">URP 설정</h2>
 <hr />
-
-<p><img src="/assets/img/Unity/Cinemachine_1.png" alt="image" /><br />
+<p><img src="/assets/img/Unity/URP_1.png" alt="image" /><br />
 Window→Package Manager<br /><br />
-<img src="/assets/img/Unity/Cinemachine_2.png" alt="image" /><br />
-Packages를 Unity Registry로 변경 후 Cinemachine을 찾아 install<br /><br />
-<img src="/assets/img/Unity/Cinemachine_3.png" alt="image" /><br />
-Packages 디렉터리에 Cinemachine이 생긴것을 볼 수 있다<br /><br />
-<img src="/assets/img/Unity/Cinemachine_4.png" alt="image" /><br />
-Hierachy에서 시네머신 카메라를 생성할 수 있다.<br /><br /></p>
+<img src="/assets/img/Unity/URP_2.png" alt="image" /><br />
+Packages를 Unity Registry로 변경 후 Universe RP를 찾아 install<br /><br />
+<img src="/assets/img/Unity/URP_3.png" alt="image" /><br />
+Packages 디렉터리에 Universal RP가 생긴것을 볼 수 있다<br /><br />
+Render Pipeline을 기존 디폴트에서 URP로 변경해줘야한다.<br /><br />
+<img src="/assets/img/Unity/URP_4.png" alt="image" /><br />
+Create→Rendering→URP Asset (with Universal Renderer)<br /><br />
+<img src="/assets/img/Unity/URP_5.png" alt="image" /><br />
+두개의 파일이 생성된다.<br /><br />
+두 파일 중 Universal Render Pipeline Asset을 적용시켜줘야한다.<br /><br />
+<img src="/assets/img/Unity/URP_6.png" alt="image" /><br />
+Project Settings→Graphics→Scriptable Render Pipeline Settings에 Universal Render Pipeline Asset을 연결해준다.</p>
 
-<h2 id="종류">종류</h2>
+<h2 id="material">Material</h2>
+<hr />
+<p><img src="/assets/img/Unity/URP_7.png" alt="image" /><br />
+Material의 Shader가 Universal Render Pipeline/Lit으로 설정되어있다.<br /><br />
+파이프라인이 변경되어 셰이더를 URP에 있는 것들만 사용해야 한다.</p>
+
+<h2 id="shader">Shader</h2>
 <hr />
 
 <table>
   <thead>
     <tr>
-      <th>카메라</th>
+      <th>셰이더</th>
       <th>설명</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Virtual Camera</td>
-      <td>기본적인 카메라, 유니티 카메라를 조정하듯 자유롭게 활용 가능</td>
+      <td>2D</td>
+      <td>2D 프로젝트 개발시 사용</td>
     </tr>
     <tr>
-      <td>FreeLook Camera</td>
-      <td>오브젝트를 중심으로 원형의 링을 생성하여 그 구간 안에서 타깃을 관찰하는 카메라</td>
+      <td>Autodesk Interactive</td>
+      <td>AutoDesk 응용 프로그램과 조정할 때 사용</td>
     </tr>
     <tr>
-      <td>Blend List Camera</td>
-      <td>할당된 버추얼 카메라들을 정해진 블랜드 방식에 따라 순차적으로 전환하는 카메라</td>
+      <td>Nature</td>
+      <td>Speed Tree에 특화된 셰이더 포함</td>
     </tr>
     <tr>
-      <td>State-Driven Camera</td>
-      <td>타겟 애니메이션의 상태별로 활성화/비활성화 시킬 수 있는 카메라</td>
+      <td>Particle</td>
+      <td>이펙트 제작에 사용 (파티클 시스템)</td>
     </tr>
     <tr>
-      <td>ClearShot Camera</td>
-      <td>플레이어의 충돌/트리거 상태에 따라 활성화/비활성화 시킬 수 있는 카메라</td>
+      <td>Baked Lit</td>
+      <td>라이트 맵과 라이트 프로브를 통해 베이크된 조명만 필요한 스타일화 된 게임이나 앱에 사용<br /><br />물리적 기반 셰이딩을 사용하지 않으며 실시간 조명이 없어 실시관 관련 셰이더 키워브 및 변형이 셰이더 코드에서 제거되어 계산 속도가 빠르다<br /><br />미리 라이트 관련된 것들을 실시간으로 계산하지 않을때 사용</td>
     </tr>
     <tr>
-      <td>Dolly Camera</td>
-      <td>트랙을 깔아 해당 트랙에 따라 움직이는 카메라, Dolly Track과 함께 사용</td>
+      <td>Lit</td>
+      <td>실제 표면을 사실적인 품질로 렌더링 시켜줌. 무거우며 디폴트로 설정되어있음</td>
     </tr>
     <tr>
-      <td>Target Group Camera</td>
-      <td>그룹으로 묶인 카메라들을 자동으로 계산해 한 화면에 보여주는 카메라</td>
+      <td>Simple Lit</td>
+      <td>성능이 좋지만 리얼한 셰이더 느낌이 아님, Lit을 사용하기엔 무겁고 Baked Lit을 할 줄 모른다면 사용</td>
     </tr>
     <tr>
-      <td>Mixing Camera</td>
-      <td>Child Camera Weight 값에 따라 활성화/비활성화 해주는 카메라</td>
-    </tr>
-    <tr>
-      <td>2D Camera</td>
-      <td>직교 뷰로 사용되는 카메라</td>
+      <td>Unlit</td>
+      <td>전역 조명을 샘플링하는 옵션이 있는 조명없는 셰이더, Unity의 스톡 언릿 셰이더 대체</td>
     </tr>
   </tbody>
 </table>
-
-<h2 id="프로퍼티-설명">프로퍼티 설명</h2>
-<hr />
-<p>💡 가장 기본적인 Virtual Camera의 설명<br />
-<img src="/assets/img/Unity/Cinemachine_5.png" alt="image" /><br /><br />
-Save During Play: 에디터 Play 중 내용을 변경해도 설정 저장<br /><br />
-Priority: 카메라 우선도<br /><br />
-Follow: 따라다닐 오브젝트<br /><br />
-Look At: 바라볼 오브젝트<br /><br />
-Standby Update: Live 상태가 아닌 카메라의 업데이트 빈도</p>
-<ul>
-  <li>Never: 항상</li>
-  <li>Always: Live 일때만</li>
-  <li>Round Robine: 정기적으로</li>
-</ul>
-
-<p>Transitions: 카메라 사이 이동시 씬 전환 효과<br /><br />
-Body: 카메라의 위치<br /><br />
-Aim: 카메라의 각도<br /></p>
-
-<h2 id="body">Body</h2>
-<hr />
-<p><img src="/assets/img/Unity/Cinemachine_6.png" alt="image" /><br /><br />
-Follow Offset: 카메라와 대상의 거리<br /><br />
-Damping(제동): 값의 급격한 변화를 꺾어 부드럽게 이어주는 비율, 값이 커질 수록 부드러워져 민감도가 줄어듬</p>
-
-<h2 id="aim">Aim</h2>
-<hr />
-<p><img src="/assets/img/Unity/Cinemachine_7.png" alt="image" /><br /><br />
-Tracked Object Offset: 대상에서 얼마나 더 떨어진 곳에서 바라볼지 (y값을 늘리면 대상보다 높은 곳을 조준한다)<br /><br />
-Damping: 회전 속도에 대한 제동값<br /><br />
-Dead Zone: 데드존의 크기<br /><br />
-Soft Zone: 소프트존의 크기<br /></p>
-
-<h2 id="soft-zone-dead-zone">Soft Zone, Dead Zone</h2>
-<hr />
-<p><img src="/assets/img/Unity/Cinemachine_8.png" alt="image" /><br /><br />
-<span style="color:red">
-Dead Zone(데드존)
-</span>: 대상이 데드존 내에서 움직이는 동안에는 카메라가 회전하지 않는다<br /><br />
-<span style="color:blue">
-Soft Zone(소프트존)
-</span>: 대상이 소프트존 내에 있다면 카메라가 부드럽게 회전하여 대상이 데드존 안으로 들어가게 한다<br /><br />
-<span style="color:yellow">
-하드리밋
-</span>: 소프트존보다 바깥에 있어 더 빠르고 격한 속도로 회전하며 대상이 데드존 안으로 들어가게 함<br /><br /></p>
-
-<p><code class="language-plaintext highlighter-rouge">데드존이 클 수록 화면은 느리고 부드럽게 움직이며, 데드존이 작을수록 화면은 빠르고 격하게 움직임</code></p>
-
-<h2 id="테스트">테스트</h2>
-<hr />
-<p>오브젝트를 생성하여 상하좌우로 움직이는 코드를 구현한 후 시네머신의 Follow, Look At에 연결해주었다.<br />
-<img src="/assets/img/Unity/Cinemachine_9.gif" alt="image" /><br /><br /></p>
-
-<p>카메라가 회전하여 오브젝트가 데드존으로 들어가게 하는 것을 볼 수 있다.</p>
 
   </div>
 
@@ -338,23 +289,15 @@ Soft Zone(소프트존)
 
     <nav class="post-pagination" role="navigation">
       
-        <a class="post-previous" href="/unity/2023/02/03/Different-for-each-Platform.html">
+        <a class="post-previous" href="/unity/2023/02/07/Cinemachine.html">
           <h4 class="post-pagination-label">Prev</h4>
           <span class="post-pagination-title">
-            <i class="fas fa-arrow-left"></i> Unity 플랫폼별 구분하여 작업
+            <i class="fas fa-arrow-left"></i> Cinemachine
 
           </span>
         </a>
       
 
-      
-        <a class="post-next" href="/unity/2023/02/08/UPR.html">
-          <h4 class="post-pagination-label">Next</h4>
-          <span class="post-pagination-title">
-            URP
- <i class="fas fa-arrow-right"></i>
-          </span>
-        </a>
       
     </nav>
   </footer>
