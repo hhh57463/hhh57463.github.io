@@ -7,23 +7,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>URP | Mindol</title>
+<title>[Flutter] - VSCode 편의기능 | Mindol</title>
 <meta name="generator" content="Jekyll v3.9.2" />
-<meta property="og:title" content="URP" />
+<meta property="og:title" content="[Flutter] - VSCode 편의기능" />
 <meta name="author" content="Mindol" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Unity URP" />
-<meta property="og:description" content="Unity URP" />
-<link rel="canonical" href="http://localhost:4000/unity/2023/02/08/URP.html" />
-<meta property="og:url" content="http://localhost:4000/unity/2023/02/08/URP.html" />
+<meta name="description" content="코드 자동 수정, 가이드라인, 리팩토링" />
+<meta property="og:description" content="코드 자동 수정, 가이드라인, 리팩토링" />
+<link rel="canonical" href="http://localhost:4000/flutter/2023/02/22/Flutter-VSCode-%EA%B8%B0%EB%8A%A5.html" />
+<meta property="og:url" content="http://localhost:4000/flutter/2023/02/22/Flutter-VSCode-%EA%B8%B0%EB%8A%A5.html" />
 <meta property="og:site_name" content="Mindol" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-02-08T07:00:00+09:00" />
+<meta property="article:published_time" content="2023-02-22T06:00:02+09:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="URP" />
+<meta property="twitter:title" content="[Flutter] - VSCode 편의기능" />
 <meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-02-08T07:00:00+09:00","datePublished":"2023-02-08T07:00:00+09:00","description":"Unity URP","headline":"URP","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/unity/2023/02/08/URP.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/MinTa.png"},"name":"Mindol"},"url":"http://localhost:4000/unity/2023/02/08/URP.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-02-22T06:00:02+09:00","datePublished":"2023-02-22T06:00:02+09:00","description":"코드 자동 수정, 가이드라인, 리팩토링","headline":"[Flutter] - VSCode 편의기능","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/flutter/2023/02/22/Flutter-VSCode-%EA%B8%B0%EB%8A%A5.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/MinTa.png"},"name":"Mindol"},"url":"http://localhost:4000/flutter/2023/02/22/Flutter-VSCode-%EA%B8%B0%EB%8A%A5.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -166,88 +166,50 @@
 
   <header class="post-header">
 
-    <h1 class="post-title p-name" itemprop="name headline">URP</h1>
-    <p class="post-meta"><time class="dt-published" datetime="2023-02-08T07:00:00+09:00" itemprop="datePublished">
-        Feb 8, 2023
+    <h1 class="post-title p-name" itemprop="name headline">[Flutter] - VSCode 편의기능</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-02-22T06:00:02+09:00" itemprop="datePublished">
+        Feb 22, 2023
       </time></p>
 
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="urp">URP?</h2>
+    <h2 id="editorcodeactionsonsave">editor.codeActionsOnSave</h2>
 <hr />
-<p>항상 유니티 vs 언리얼에서 유니티가 무시받던 것이 바로 그래픽 능력. 유니티에서 새로운 파이프라인을 만들어 제공했는데 기존에는 디폴트 파이프라인이었지만, 설정을 통해 새로운 파이프라인을 사용할 수 있다.<br /><br />
-Universal Render Pipeline (URP): Unity에서 제작한 사전 빌드된 스크립터블 렌더 파이프라인<br /><br />
-URP는 아티스트 친화적 워크플로를 통해 모바일, 고사양 콘솔, PC 등 다양한 플랫폼에서 최적화된 그래픽스를 쉽고 빠르게 구현하도록 도와준다.</p>
+<p><img src="/assets/img/Flutter/flutter_craft_1.png" alt="image" width="50%" height="50%" /><br />
+VSCode로 Flutter를 하다보면 코드 아래 밑줄이 생기는 것을 볼 수 있다<br /><br />
+<img src="/assets/img/Flutter/flutter_craft_2.png" alt="image" /><br />
+커서를 올려보면 바뀌지 않는 값을 const로 지정해 주라는 뜻이다<br /><br />
+<img src="/assets/img/Flutter/flutter_craft_3.png" alt="image" width="50%" height="50%" /><br />
+VSCode좌하단 설정버튼→명령 팔레트 클릭 또는 <code class="language-plaintext highlighter-rouge">Ctrl + Shift + P</code> 후<br /><br />
+<img src="/assets/img/Flutter/flutter_craft_4.png" alt="image" /><br />
+<code class="language-plaintext highlighter-rouge">open user Settings</code>를 입력하면<br /><br />
+<img src="/assets/img/Flutter/flutter_craft_5.png" alt="image" /><br />
+settings.json 파일이 열린다<br /><br />
+<img src="/assets/img/Flutter/flutter_craft_6.png" alt="image" /><br />
+하단에 <code class="language-plaintext highlighter-rouge">"editor.codeActionsOnSave": {"source.fixAll": true},</code>를 입력해준다<br /><br />
+이제 코드 작업을 수행한 후 저장하면 밑줄이 생기던 코드가 자동으로 수정된다.</p>
 
-<h2 id="urp-설정">URP 설정</h2>
+<h2 id="dartpreviewflutteruiguides">dart.previewFlutterUiGuides</h2>
 <hr />
-<p><img src="/assets/img/Unity/URP_1.png" alt="image" /><br />
-Window→Package Manager<br /><br />
-<img src="/assets/img/Unity/URP_2.png" alt="image" /><br />
-Packages를 Unity Registry로 변경 후 Universal RP를 찾아 install<br /><br />
-<img src="/assets/img/Unity/URP_3.png" alt="image" /><br />
-Packages 디렉터리에 Universal RP가 생긴것을 볼 수 있다<br /><br />
-Render Pipeline을 기존 디폴트에서 URP로 변경해줘야한다.<br /><br />
-<img src="/assets/img/Unity/URP_4.png" alt="image" /><br />
-Create→Rendering→URP Asset (with Universal Renderer)<br /><br />
-<img src="/assets/img/Unity/URP_5.png" alt="image" /><br />
-두개의 파일이 생성된다.<br /><br />
-두 파일 중 Universal Render Pipeline Asset을 적용시켜줘야한다.<br /><br />
-<img src="/assets/img/Unity/URP_6.png" alt="image" /><br />
-Project Settings→Graphics→Scriptable Render Pipeline Settings에 Universal Render Pipeline Asset을 연결해준다.</p>
+<p><img src="/assets/img/Flutter/flutter_craft_7.png" alt="image" /><br />
+위젯의 부모가 무엇인지 가이드라인을 시각적으로 보여주는 기능<br /><br />
+<img src="/assets/img/Flutter/flutter_craft_8.png" alt="image" /><br />
+settings.json파일 하단에 <code class="language-plaintext highlighter-rouge">"dart.previewFlutterUiGuides": true,</code> 를 입력후 저장하고 VSCode를 껏다 켜주면 적용된다.</p>
 
-<h2 id="material">Material</h2>
+<h2 id="code-actions">Code Actions</h2>
 <hr />
-<p><img src="/assets/img/Unity/URP_7.png" alt="image" /><br />
-Material의 Shader가 Universal Render Pipeline/Lit으로 설정되어있다.<br /><br />
-파이프라인이 변경되어 셰이더를 URP에 있는 것들만 사용해야 한다.</p>
-
-<h2 id="shader">Shader</h2>
-<hr />
-
-<table>
-  <thead>
-    <tr>
-      <th>셰이더</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>2D</td>
-      <td>2D 프로젝트 개발시 사용</td>
-    </tr>
-    <tr>
-      <td>Autodesk Interactive</td>
-      <td>AutoDesk 응용 프로그램과 조정할 때 사용</td>
-    </tr>
-    <tr>
-      <td>Nature</td>
-      <td>Speed Tree에 특화된 셰이더 포함</td>
-    </tr>
-    <tr>
-      <td>Particle</td>
-      <td>이펙트 제작에 사용 (파티클 시스템)</td>
-    </tr>
-    <tr>
-      <td>Baked Lit</td>
-      <td>라이트 맵과 라이트 프로브를 통해 베이크된 조명만 필요한 스타일화 된 게임이나 앱에 사용<br /><br />물리적 기반 셰이딩을 사용하지 않으며 실시간 조명이 없어 실시관 관련 셰이더 키워브 및 변형이 셰이더 코드에서 제거되어 계산 속도가 빠르다<br /><br />미리 라이트 관련된 것들을 실시간으로 계산하지 않을때 사용</td>
-    </tr>
-    <tr>
-      <td>Lit</td>
-      <td>실제 표면을 사실적인 품질로 렌더링 시켜줌. 무거우며 디폴트로 설정되어있음</td>
-    </tr>
-    <tr>
-      <td>Simple Lit</td>
-      <td>성능이 좋지만 리얼한 셰이더 느낌이 아님, Lit을 사용하기엔 무겁고 Baked Lit을 할 줄 모른다면 사용</td>
-    </tr>
-    <tr>
-      <td>Unlit</td>
-      <td>전역 조명을 샘플링하는 옵션이 있는 조명없는 셰이더, Unity의 스톡 언릿 셰이더 대체</td>
-    </tr>
-  </tbody>
-</table>
+<p>Code Actions: 코드를 간단한 방법으로 리팩토링 해주는 기능
+<img src="/assets/img/Flutter/flutter_craft_9.png" alt="image" width="50%" height="50%" /><br />
+만약 해당 Column을 Padding으로 감싸고 싶으면 Column을 클릭 후 왼쪽 노란 전구를 클릭해준다.<br /><br />
+<img src="/assets/img/Flutter/flutter_craft_10.png" alt="image" width="50%" height="50%" /><br />
+Wrap with Padding을 클릭해주면 <br /><br />
+<img src="/assets/img/Flutter/flutter_craft_11.png" alt="image" width="50%" height="50%" /><br />
+원래라면 복사 붙여넣기 해서 Padding을 추가했다면 클릭 한번으로 Padding으로 감쌀 수 있다.<br /><br />
+<img src="/assets/img/Flutter/flutter_craft_12.png" alt="image" width="50%" height="50%" /><br />
+Remove this widget을 클릭하면<br /><br />
+<img src="/assets/img/Flutter/flutter_craft_13.png" alt="image" width="50%" height="50%" /><br />
+해당 위젯이 사라지는것을 볼 수 있다.</p>
 
   </div>
 
@@ -260,7 +222,7 @@ Material의 Shader가 Universal Render Pipeline/Lit으로 설정되어있다.<br
           
             <li class="post-category">
               
-              <a href="/categories/#unity">Unity</a>
+              <a href="/categories/#flutter">Flutter</a>
             </li>
           
         </ul>
@@ -275,12 +237,12 @@ Material의 Shader가 Universal Render Pipeline/Lit으로 설정되어있다.<br
           
             <li class="post-tag">
               
-              <a href="/tags/#study">study</a>
+              <a href="/tags/#dart">dart</a>
             </li>
           
             <li class="post-tag">
               
-              <a href="/tags/#unity">unity</a>
+              <a href="/tags/#flutter">flutter</a>
             </li>
           
         </ul>
@@ -289,23 +251,15 @@ Material의 Shader가 Universal Render Pipeline/Lit으로 설정되어있다.<br
 
     <nav class="post-pagination" role="navigation">
       
-        <a class="post-previous" href="/unity/2023/02/07/Cinemachine.html">
+        <a class="post-previous" href="/unity/2023/02/08/URP.html">
           <h4 class="post-pagination-label">Prev</h4>
           <span class="post-pagination-title">
-            <i class="fas fa-arrow-left"></i> Cinemachine
+            <i class="fas fa-arrow-left"></i> URP
 
           </span>
         </a>
       
 
-      
-        <a class="post-next" href="/flutter/2023/02/22/Flutter-VSCode-%EA%B8%B0%EB%8A%A5.html">
-          <h4 class="post-pagination-label">Next</h4>
-          <span class="post-pagination-title">
-            [Flutter] - VSCode 편의기능
- <i class="fas fa-arrow-right"></i>
-          </span>
-        </a>
       
     </nav>
   </footer>

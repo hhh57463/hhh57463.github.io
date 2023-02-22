@@ -1,4 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-02-08T16:56:20+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">URP</title><link href="http://localhost:4000/unity/2023/02/08/URP.html" rel="alternate" type="text/html" title="URP" /><published>2023-02-08T07:00:00+09:00</published><updated>2023-02-08T07:00:00+09:00</updated><id>http://localhost:4000/unity/2023/02/08/URP</id><content type="html" xml:base="http://localhost:4000/unity/2023/02/08/URP.html"><![CDATA[<h2 id="urp">URP?</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-02-22T12:13:02+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">[Flutter] - VSCode 편의기능</title><link href="http://localhost:4000/flutter/2023/02/22/Flutter-VSCode-%EA%B8%B0%EB%8A%A5.html" rel="alternate" type="text/html" title="[Flutter] - VSCode 편의기능" /><published>2023-02-22T06:00:02+09:00</published><updated>2023-02-22T06:00:02+09:00</updated><id>http://localhost:4000/flutter/2023/02/22/Flutter%20VSCode%20%EA%B8%B0%EB%8A%A5</id><content type="html" xml:base="http://localhost:4000/flutter/2023/02/22/Flutter-VSCode-%EA%B8%B0%EB%8A%A5.html"><![CDATA[<h2 id="editorcodeactionsonsave">editor.codeActionsOnSave</h2>
+<hr />
+<p><img src="/assets/img/Flutter/flutter_craft_1.png" alt="image" width="50%" height="50%" /><br />
+VSCode로 Flutter를 하다보면 코드 아래 밑줄이 생기는 것을 볼 수 있다<br /><br />
+<img src="/assets/img/Flutter/flutter_craft_2.png" alt="image" /><br />
+커서를 올려보면 바뀌지 않는 값을 const로 지정해 주라는 뜻이다<br /><br />
+<img src="/assets/img/Flutter/flutter_craft_3.png" alt="image" width="50%" height="50%" /><br />
+VSCode좌하단 설정버튼→명령 팔레트 클릭 또는 <code class="language-plaintext highlighter-rouge">Ctrl + Shift + P</code> 후<br /><br />
+<img src="/assets/img/Flutter/flutter_craft_4.png" alt="image" /><br />
+<code class="language-plaintext highlighter-rouge">open user Settings</code>를 입력하면<br /><br />
+<img src="/assets/img/Flutter/flutter_craft_5.png" alt="image" /><br />
+settings.json 파일이 열린다<br /><br />
+<img src="/assets/img/Flutter/flutter_craft_6.png" alt="image" /><br />
+하단에 <code class="language-plaintext highlighter-rouge">"editor.codeActionsOnSave": {"source.fixAll": true},</code>를 입력해준다<br /><br />
+이제 코드 작업을 수행한 후 저장하면 밑줄이 생기던 코드가 자동으로 수정된다.</p>
+
+<h2 id="dartpreviewflutteruiguides">dart.previewFlutterUiGuides</h2>
+<hr />
+<p><img src="/assets/img/Flutter/flutter_craft_7.png" alt="image" /><br />
+위젯의 부모가 무엇인지 가이드라인을 시각적으로 보여주는 기능<br /><br />
+<img src="/assets/img/Flutter/flutter_craft_8.png" alt="image" /><br />
+settings.json파일 하단에 <code class="language-plaintext highlighter-rouge">"dart.previewFlutterUiGuides": true,</code> 를 입력후 저장하고 VSCode를 껏다 켜주면 적용된다.</p>
+
+<h2 id="code-actions">Code Actions</h2>
+<hr />
+<p>Code Actions: 코드를 간단한 방법으로 리팩토링 해주는 기능
+<img src="/assets/img/Flutter/flutter_craft_9.png" alt="image" width="50%" height="50%" /><br />
+만약 해당 Column을 Padding으로 감싸고 싶으면 Column을 클릭 후 왼쪽 노란 전구를 클릭해준다.<br /><br />
+<img src="/assets/img/Flutter/flutter_craft_10.png" alt="image" width="50%" height="50%" /><br />
+Wrap with Padding을 클릭해주면 <br /><br />
+<img src="/assets/img/Flutter/flutter_craft_11.png" alt="image" width="50%" height="50%" /><br />
+원래라면 복사 붙여넣기 해서 Padding을 추가했다면 클릭 한번으로 Padding으로 감쌀 수 있다.<br /><br />
+<img src="/assets/img/Flutter/flutter_craft_12.png" alt="image" width="50%" height="50%" /><br />
+Remove this widget을 클릭하면<br /><br />
+<img src="/assets/img/Flutter/flutter_craft_13.png" alt="image" width="50%" height="50%" /><br />
+해당 위젯이 사라지는것을 볼 수 있다.</p>]]></content><author><name>Mindol</name></author><category term="Flutter" /><category term="Flutter" /><category term="Dart" /><summary type="html"><![CDATA[코드 자동 수정, 가이드라인, 리팩토링]]></summary></entry><entry><title type="html">URP</title><link href="http://localhost:4000/unity/2023/02/08/URP.html" rel="alternate" type="text/html" title="URP" /><published>2023-02-08T07:00:00+09:00</published><updated>2023-02-08T07:00:00+09:00</updated><id>http://localhost:4000/unity/2023/02/08/URP</id><content type="html" xml:base="http://localhost:4000/unity/2023/02/08/URP.html"><![CDATA[<h2 id="urp">URP?</h2>
 <hr />
 <p>항상 유니티 vs 언리얼에서 유니티가 무시받던 것이 바로 그래픽 능력. 유니티에서 새로운 파이프라인을 만들어 제공했는데 기존에는 디폴트 파이프라인이었지만, 설정을 통해 새로운 파이프라인을 사용할 수 있다.<br /><br />
 Universal Render Pipeline (URP): Unity에서 제작한 사전 빌드된 스크립터블 렌더 파이프라인<br /><br />
@@ -1168,131 +1203,4 @@ super() ← 부모 클래스 생성자<br />
 <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">Horse</span> <span class="k">with</span> <span class="n">Strong</span><span class="p">,</span> <span class="n">QuickRunner</span><span class="p">{}</span>
-</code></pre></div></div>]]></content><author><name>Mindol</name></author><category term="Dart" /><category term="Dart" /><summary type="html"><![CDATA[Dart공부 - 클래스]]></summary></entry><entry><title type="html">Dart 기초 - 함수</title><link href="http://localhost:4000/dart/2023/01/08/Dart-%EA%B8%B0%EC%B4%88-%ED%95%A8%EC%88%98.html" rel="alternate" type="text/html" title="Dart 기초 - 함수" /><published>2023-01-08T06:00:01+09:00</published><updated>2023-01-08T06:00:01+09:00</updated><id>http://localhost:4000/dart/2023/01/08/Dart%20%EA%B8%B0%EC%B4%88-%ED%95%A8%EC%88%98</id><content type="html" xml:base="http://localhost:4000/dart/2023/01/08/Dart-%EA%B8%B0%EC%B4%88-%ED%95%A8%EC%88%98.html"><![CDATA[<h1 id="tmi">TMI</h1>
-<hr />
-<p>Flutter를 공부하기 위한 Dart 공부</p>
-
-<h1 id="함수">함수</h1>
-<hr />
-<p>dart의 시작은 main.dart&gt;main()에서 시작됨 (필수 요소)<br />
-dart의 출력문 print(’문자열’);<br />
-함수 선언은 다른 언어와 유사<br /></p>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">String</span> <span class="nf">Hello</span><span class="p">({</span><span class="kt">String</span><span class="o">?</span> <span class="n">name</span><span class="p">,</span> <span class="kt">int</span><span class="o">?</span> <span class="n">age</span><span class="p">,</span> <span class="kt">String</span><span class="o">?</span> <span class="n">country</span><span class="p">})</span>
-<span class="p">{</span>
-  <span class="k">return</span> <span class="s">"Hello </span><span class="si">$name</span><span class="s"> you are </span><span class="si">$age</span><span class="s"> and from </span><span class="si">$country</span><span class="s">"</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>만약 코드가 한줄 이면</p>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">String</span> <span class="nf">Hello</span><span class="p">({</span><span class="kt">String</span><span class="o">?</span> <span class="n">name</span><span class="p">,</span> <span class="kt">int</span><span class="o">?</span> <span class="n">age</span><span class="p">,</span> <span class="kt">String</span><span class="o">?</span> <span class="n">country</span><span class="p">})</span> <span class="o">=</span><span class="p">&gt;</span> 
-<span class="s">"Hello </span><span class="si">$name</span><span class="s"> you are </span><span class="si">$age</span><span class="s"> and from </span><span class="si">$country</span><span class="s">"</span><span class="p">;</span>
-</code></pre></div></div>
-<p>이렇게 줄일 수 있음<br />
-일반적으로 매개변수 있는 함수를 사용할 때는 Named Parameter를 사용하는 것을 지향(평소에 사용했던 매개변수 선언 순서에 맞는 호출 방법은 Positional parameter)<br />
-나중에 코드를 볼 때 이해가 쉽지 않기 때문도 있고, 특히 해당 함수가 같은 파일 내에 있지 않으면 어려움<br /></p>
-
-<h3 id="named-parameters">Named Parameters</h3>
-<hr />
-<p>함수 호출 시 매개변수 순서와 상관없이 변수에 지정해 주는 것 (함수 선언시 매개변수를 {}로 감싸야 함</p>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">String</span> <span class="nf">Hello</span><span class="p">({</span><span class="kt">String</span> <span class="n">name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">age</span><span class="p">,</span> <span class="kt">String</span> <span class="n">country</span><span class="p">})</span> <span class="o">=</span><span class="p">&gt;</span> <span class="s">"Hello </span><span class="si">$name</span><span class="s"> you are </span><span class="si">$age</span><span class="s"> and from </span><span class="si">$country</span><span class="s">"</span><span class="p">;</span>
-
-<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">print</span><span class="p">(</span><span class="n">Hello</span><span class="p">(</span><span class="nl">age:</span> <span class="mi">25</span><span class="p">,</span> <span class="nl">country:</span> <span class="s">"Korea"</span><span class="p">,</span> <span class="nl">name:</span> <span class="s">"Mindol"</span><span class="p">));</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>❓ 하지만 이렇게 하면 null safety 에러 발생
-고치는 방법은 세가지</p>
-<ol>
-  <li>디폴트 매개변수로 지정</li>
-  <li>required 키워드 사용 (null 값이 아니다 라는 것을 알려주는 키워드)</li>
-  <li>null safety 사용 (자료형? 변수명)</li>
-</ol>
-
-<p>디폴트 매개변수로 지정</p>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">String</span> <span class="nf">Hello</span><span class="p">({</span><span class="kt">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"who"</span><span class="p">,</span> <span class="kt">int</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="kt">String</span> <span class="n">country</span> <span class="o">=</span> <span class="s">"usa"</span><span class="p">})</span> <span class="o">=</span><span class="p">&gt;</span>
-    <span class="s">"Hello </span><span class="si">$name</span><span class="s"> you are </span><span class="si">$age</span><span class="s"> and from </span><span class="si">$country</span><span class="s">"</span><span class="p">;</span>
-
-<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">print</span><span class="p">(</span><span class="n">Hello</span><span class="p">());</span>
-  <span class="n">print</span><span class="p">(</span><span class="n">Hello</span><span class="p">(</span><span class="nl">age:</span> <span class="mi">25</span><span class="p">,</span> <span class="nl">country:</span> <span class="s">"Korea"</span><span class="p">,</span> <span class="nl">name:</span> <span class="s">"Mindol"</span><span class="p">));</span>
-<span class="p">}</span>
-
-<span class="c1">// 결과</span>
-<span class="n">Hello</span> <span class="n">who</span> <span class="n">you</span> <span class="n">are</span> <span class="mi">10</span> <span class="n">and</span> <span class="n">from</span> <span class="n">usa</span>
-<span class="n">Hello</span> <span class="n">Mindol</span> <span class="n">you</span> <span class="n">are</span> <span class="mi">25</span> <span class="n">and</span> <span class="n">from</span> <span class="n">Korea</span>
-<span class="n">Exited</span>
-</code></pre></div></div>
-
-<p>required 키워드 사용</p>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">String</span> <span class="nf">Hello</span><span class="p">(</span>
-        <span class="p">{</span><span class="kd">required</span> <span class="kt">String</span> <span class="n">name</span><span class="p">,</span> <span class="kd">required</span> <span class="kt">int</span> <span class="n">age</span><span class="p">,</span> <span class="kd">required</span> <span class="kt">String</span> <span class="n">country</span><span class="p">})</span> <span class="o">=</span><span class="p">&gt;</span>
-    <span class="s">"Hello </span><span class="si">$name</span><span class="s"> you are </span><span class="si">$age</span><span class="s"> and from </span><span class="si">$country</span><span class="s">"</span><span class="p">;</span>
-
-<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">print</span><span class="p">(</span><span class="n">Hello</span><span class="p">(</span><span class="nl">age:</span> <span class="mi">25</span><span class="p">,</span> <span class="nl">country:</span> <span class="s">"Korea"</span><span class="p">,</span> <span class="nl">name:</span> <span class="s">"Mindol"</span><span class="p">));</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>null safety 사용</p>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">String</span> <span class="nf">Hello</span><span class="p">({</span><span class="kt">String</span><span class="o">?</span> <span class="n">name</span><span class="p">,</span> <span class="kt">int</span><span class="o">?</span> <span class="n">age</span><span class="p">,</span> <span class="kt">String</span><span class="o">?</span> <span class="n">country</span><span class="p">})</span> <span class="o">=</span><span class="p">&gt;</span> <span class="s">"Hello </span><span class="si">$name</span><span class="s"> you are </span><span class="si">$age</span><span class="s"> and from </span><span class="si">$country</span><span class="s">"</span><span class="p">;</span>
-
-<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">print</span><span class="p">(</span><span class="n">Hello</span><span class="p">(</span><span class="nl">country:</span> <span class="s">"Korea"</span><span class="p">,</span> <span class="nl">name:</span> <span class="s">"Mindol"</span><span class="p">));</span>
-<span class="p">}</span>
-<span class="c1">// 결과</span>
-<span class="n">Hello</span> <span class="n">Mindol</span> <span class="n">you</span> <span class="n">are</span> <span class="kc">null</span> <span class="n">and</span> <span class="n">from</span> <span class="n">Korea</span>
-<span class="n">Exited</span>
-</code></pre></div></div>
-
-<h2 id="optional">Optional</h2>
-<hr />
-<p>named parameter를 적용하지 않고 특정 매개변수를 required하지 않게 하는 방법</p>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">String</span> <span class="nf">Hello</span><span class="p">(</span><span class="kt">String</span> <span class="n">name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">age</span><span class="p">,</span> <span class="p">[</span><span class="kt">String</span><span class="o">?</span> <span class="n">country</span> <span class="o">=</span> <span class="s">'Korea'</span><span class="p">])</span> <span class="o">=</span><span class="p">&gt;</span>
-    <span class="s">"Hello </span><span class="si">$name</span><span class="s"> you are </span><span class="si">$age</span><span class="s"> and from </span><span class="si">$country</span><span class="s">"</span><span class="p">;</span>
-
-<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">print</span><span class="p">(</span><span class="n">Hello</span><span class="p">(</span><span class="s">"Mindol"</span><span class="p">,</span> <span class="mi">25</span><span class="p">));</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h2 id="삼항-연산자">삼항 연산자</h2>
-<hr />
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">String</span> <span class="nf">capitalizeName</span><span class="p">(</span><span class="kt">String</span><span class="o">?</span> <span class="n">name</span><span class="p">)</span> <span class="o">=</span><span class="p">&gt;</span>
-    <span class="n">name</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">name</span><span class="o">.</span><span class="na">toUpperCase</span><span class="p">()</span> <span class="o">:</span> <span class="s">'NULL'</span><span class="p">;</span>
-<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">print</span><span class="p">(</span><span class="n">capitalizeName</span><span class="p">(</span><span class="kc">null</span><span class="p">));</span>
-  <span class="n">print</span><span class="p">(</span><span class="n">capitalizeName</span><span class="p">(</span><span class="s">"mindol"</span><span class="p">));</span>
-<span class="p">}</span>
-<span class="c1">// 결과</span>
-<span class="n">NULL</span>
-<span class="n">MINDOL</span>
-<span class="n">Exited</span>
-
-<span class="kt">String</span> <span class="nf">capitalizeName</span><span class="p">(</span><span class="kt">String</span><span class="o">?</span> <span class="n">name</span><span class="p">)</span> <span class="o">=</span><span class="p">&gt;</span> <span class="n">name</span><span class="o">?.</span><span class="na">toUpperCase</span><span class="p">()</span> <span class="o">??</span> <span class="s">'NULL'</span><span class="p">;</span>
-<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">print</span><span class="p">(</span><span class="n">capitalizeName</span><span class="p">(</span><span class="kc">null</span><span class="p">));</span>
-  <span class="n">print</span><span class="p">(</span><span class="n">capitalizeName</span><span class="p">(</span><span class="s">"mindol"</span><span class="p">));</span>
-<span class="p">}</span>
-<span class="c1">// 결과</span>
-<span class="n">NULL</span>
-<span class="n">MINDOL</span>
-<span class="n">Exited</span>
-</code></pre></div></div>
-<p>좌항 ?? 우항<br />
-좌항이 null이면 우항을 반환, 좌항이 null이 아니면 좌항을 반환<br />
-변수명 ??= 값 : 만약 변수가 null이면 값을 적용</p>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kt">String</span><span class="o">?</span> <span class="n">name</span><span class="p">;</span>
-  <span class="n">name</span> <span class="o">??=</span> <span class="s">'mindol'</span><span class="p">;</span>
-  <span class="n">name</span> <span class="o">??=</span> <span class="s">'Seok'</span><span class="p">;</span>
-  <span class="n">print</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="c1">// 결과</span>
-<span class="o">:</span> <span class="nl">Warning:</span> <span class="n">Operand</span> <span class="n">of</span> <span class="kc">null</span><span class="o">-</span><span class="n">aware</span> <span class="n">operation</span> <span class="s">'??='</span> <span class="n">has</span> <span class="n">type</span> <span class="s">'String'</span> <span class="n">which</span> <span class="n">excludes</span> <span class="kc">null</span><span class="p">.</span>
-<span class="n">main</span><span class="o">.</span><span class="na">dart</span><span class="o">:</span><span class="mi">4</span>
-  <span class="n">name</span> <span class="o">??=</span> <span class="s">'Seok'</span><span class="p">;</span>
-
-  <span class="o">^</span>
-<span class="n">mindol</span>
-<span class="n">Exited</span>
-</code></pre></div></div>
-<p>❓ 위의 경고는 3번째 줄 이후부터는 null일리 없다 라는 경고</p>]]></content><author><name>Mindol</name></author><category term="Dart" /><category term="Dart" /><summary type="html"><![CDATA[Dart공부 - 함수]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>Mindol</name></author><category term="Dart" /><category term="Dart" /><summary type="html"><![CDATA[Dart공부 - 클래스]]></summary></entry></feed>
