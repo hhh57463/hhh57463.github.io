@@ -17,7 +17,7 @@ permalink: /about/
             👶  1999년 11월 02일 출생<br><br>
             🏫  한국게임과학고등학교 졸업<br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2016.04. ~ 2018.02.)<br><br>
-            👨‍🎓  대전대학교 재학 중<br>
+            👨‍🎓  대전대학교 재학<br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2018.03 ~ 2024.02.)<br><br>
         </div>
         <div style="clear:both;"></div>
@@ -28,7 +28,6 @@ permalink: /about/
 ## 💡 Contact
 ---
 📭  hhh57463@naver.com<br>
-📞  010-9939-5152<br>
 📘  (Minseok Sim)<br>
 🌎  [Blog](http://hhh57463.github.io)<br>
 💻  [GitHub](https://github.com/hhh57463)<br>
@@ -39,9 +38,7 @@ permalink: /about/
 + C#
 + MySQL
 + Python
-+ Flutter
 + Android Stduio
-+ JAVA
 + C++
 + C
 + Git

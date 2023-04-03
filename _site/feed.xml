@@ -1,4 +1,162 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-02-22T12:13:02+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">[Flutter] - VSCode 편의기능</title><link href="http://localhost:4000/flutter/2023/02/22/Flutter-VSCode-%EA%B8%B0%EB%8A%A5.html" rel="alternate" type="text/html" title="[Flutter] - VSCode 편의기능" /><published>2023-02-22T06:00:02+09:00</published><updated>2023-02-22T06:00:02+09:00</updated><id>http://localhost:4000/flutter/2023/02/22/Flutter%20VSCode%20%EA%B8%B0%EB%8A%A5</id><content type="html" xml:base="http://localhost:4000/flutter/2023/02/22/Flutter-VSCode-%EA%B8%B0%EB%8A%A5.html"><![CDATA[<h2 id="editorcodeactionsonsave">editor.codeActionsOnSave</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-04-03T20:41:05+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">JsonUtility</title><link href="http://localhost:4000/unity/2023/04/03/JsonUtility.html" rel="alternate" type="text/html" title="JsonUtility" /><published>2023-04-03T06:00:01+09:00</published><updated>2023-04-03T06:00:01+09:00</updated><id>http://localhost:4000/unity/2023/04/03/JsonUtility</id><content type="html" xml:base="http://localhost:4000/unity/2023/04/03/JsonUtility.html"><![CDATA[<p>최근 RPG제작에 용이한 기능들을 제작하는 프로젝트 <a href="https://github.com/hhh57463/RPG_Helper">RPG_Helper</a>를 제작하던 중 인벤토리 구현에 필요한 DB연동 대신 JSON을 활용하던 중 알게된 부분을 정리한다.</p>
+
+<h2 id="json">JSON?</h2>
+<hr />
+<p>JavaScript Object Notaion의 약자로 직역하자면 자바 스크립트 객체 표기법으로 데이터를 쉽게 교환 및 저장하기 위한 텍스트 기반의 데이터 교환 표준이다.<br /><br /></p>
+
+<h3 id="json-구조">JSON 구조</h3>
+<p>자료형: string, number, true, false, null, object, array<br />
+기본적으로 <code class="language-plaintext highlighter-rouge">key: value</code> 형태의 구조를 가지며, <code class="language-plaintext highlighter-rouge">중괄호 {}</code>로 감싸게 됨<br />
+key 값은 문자열로 이루어져야하며, value에는 지원되는 자료형으로 이루어지면 된다<br /><br /></p>
+
+<pre><code class="language-JSON">{
+
+    "나이" : 25,                      // number
+    "이름" : "Mindol",                // string
+    "취미" : ["영화감상", "노래방"]   // array
+}
+</code></pre>
+
+<h3 id="json-장단점">JSON 장단점</h3>
+<ul>
+  <li>텍스트 기반으로 다양한 프로그래밍 언어에서 데이터를 읽고 사용이 가능</li>
+  <li>내용이 함축적으로 최소한의 정보만을 가짐</li>
+  <li>내용이 함축적이다 보니 의미 파악이 힘들 수 있음</li>
+</ul>
+
+<h2 id="jsonutility">JsonUtility</h2>
+<hr />
+<p>Unity에서 지원하는 JSON 데이터 작업을 위한 유틸리티 함수로, 데이터를 JSON형태로 저장 및 읽어올 수 있다.</p>
+
+<h2 id="example">Example</h2>
+<hr />
+<p>만약 게임이 종료될 때 플레이어의 위치를 저장하고 게임을 재시작하면 저장된 위치를 불러와야하는 기능을 구현하려면 어떻게 해야할까?</p>
+
+<h2 id="json-export">JSON export</h2>
+<hr />
+<p>우선 2D환경에서 CharactorController를 이용한 간단한 이동을 구현했다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">float</span> <span class="n">h</span> <span class="p">=&gt;</span> <span class="n">Input</span><span class="p">.</span><span class="nf">GetAxis</span><span class="p">(</span><span class="s">"Horizontal"</span><span class="p">);</span>
+<span class="kt">float</span> <span class="n">v</span> <span class="p">=&gt;</span> <span class="n">Input</span><span class="p">.</span><span class="nf">GetAxis</span><span class="p">(</span><span class="s">"Vertical"</span><span class="p">);</span>
+<span class="k">void</span> <span class="nf">Move</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Vector2</span> <span class="n">movement</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
+    <span class="n">movement</span> <span class="p">*=</span> <span class="p">(</span><span class="n">moveSpeed</span> <span class="p">*</span> <span class="n">Time</span><span class="p">.</span><span class="n">deltaTime</span><span class="p">);</span>
+    <span class="n">controller</span><span class="p">.</span><span class="nf">Move</span><span class="p">(</span><span class="n">movement</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>게임이 종료될 때 위치를 저장해야하니 OnApplicationQuit함수를 이용했다.<br /></p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">void</span> <span class="nf">OnApplicationQuit</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Vector2</span> <span class="n">savePos</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="n">path</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">.</span><span class="nf">Combine</span><span class="p">(</span><span class="n">Application</span><span class="p">.</span><span class="n">dataPath</span> <span class="p">+</span>
+                                        <span class="s">"/Json/"</span><span class="p">,</span> <span class="s">"playerdata.json"</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">File</span><span class="p">.</span><span class="nf">WriteAllText</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">JsonUtility</span><span class="p">.</span><span class="nf">ToJson</span><span class="p">(</span><span class="n">savePos</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h3 id="코드해석">코드해석</h3>
+<p>Vector2 savePos: 플레이어의 월드좌표를 저장하는 변수<br /><br />
+string path: JSON파일을 생성할 위치지정 Application.dataPath를 이용하여 현재 프로젝트 Assets폴더에 접근 가능하다. 최종적으로 <code class="language-plaintext highlighter-rouge">Assets/Json/playerdata.json</code>이라는 경로가 지정된다.<br /><br />
+JsonUtility.ToJson(savePos): JsonUtility.ToJson함수를 이용하여 객체를 JSON문법으로 변환하여 WriteAllText함수로 지정된 경로에 저장하였다.</p>
+
+<h3 id="jsonutilitytojson">JsonUtility.ToJson</h3>
+<p>매개변수로 들어온 객체를 JSON문법으로 변환해준다. Debug.Log함수를 이용하여 확인해보면<br />
+<img src="/assets/img/Unity/JsonUtility_1.png" alt="image" /><br />
+Vector2형식을 JSON형식으로 변환한 것을 볼 수 있다.</p>
+
+<h2 id="json-import">JSON import</h2>
+<hr />
+<p>이제 반대로 JSON파일에서 불러오는 작업을 수행해야하는데, JSON파일을 읽어오는 함수 LoadJson을 만들어준 후 플레이어 객체가 생성될 때 호출해야하므로 Start함수에서 호출해줬다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">void</span> <span class="nf">LoadJson</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">string</span> <span class="n">loadData</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">File</span><span class="p">.</span><span class="nf">ReadAllText</span><span class="p">(</span>
+                        <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">.</span><span class="nf">Combine</span><span class="p">(</span><span class="n">Application</span><span class="p">.</span><span class="n">dataPath</span> <span class="p">+</span> 
+                        <span class="s">"/Json/"</span><span class="p">,</span> <span class="s">"playerdata.json"</span><span class="p">));</span>
+    <span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">JsonUtility</span><span class="p">.</span><span class="n">FromJson</span><span class="p">&lt;</span><span class="n">Vector2</span><span class="p">&gt;(</span><span class="n">loadData</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h3 id="코드해석-1">코드해석</h3>
+<p>string loadData: playerdata.json을 ReadAllText함수를 이용하여 문자열로 저장해준다.<br /><br />
+JsonUtility.FromJson<Vector2>(loadData): 읽어온 JSON 데이터를 Vector2자료형으로 반환한다.<br /><br /></Vector2></p>
+
+<h3 id="jsonutilityfromjson">JsonUtility.FromJson</h3>
+<p>매개변수로 읽어온 JSON데이터(문자열)를 지정한 자료형으로 변환하여 반환한다.<br />
+<code class="language-plaintext highlighter-rouge">JsonUtility.FromJson&lt;자료형&gt;(문자열);</code></p>
+
+<h3 id="결과">결과</h3>
+<hr />
+<p><img src="/assets/img/Unity/JsonUtility_2.gif" alt="image" /><br />
+실행하여 플레이어를 이동시킨 후 재시작하면 종료했던 위치로 플레이어가 이동하는 것을 볼 수 있다.<br /></p>
+
+<h3 id="여러-데이터-json화-시키기">여러 데이터 JSON화 시키기</h3>
+<hr />
+<p>만약 플레이어의 위치 뿐만 아닌 여러 데이터를 JSON에 저장해야할 경우에는 배열로 저장하여 JSON에 저장해야한다.<br /></p>
+
+<p><a href="https://github.com/hhh57463/RPG_Helper">RPG_Helper</a> 제작 중 획득한 아이템 리스트를 JSON에 저장하였는데 아이템의 종류는 장착, 소비, 기타 이렇게 3개의 종류가 있다. 해당 아이템들을 각각의 리스트로 구현하였는데 이를 각자 다른 데이터로 저장해주었다.</p>
+
+<p>아래는 JSON파일에 들어갈 아이템의 구성 요소이다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">System</span><span class="p">.</span><span class="n">Serializable</span><span class="p">]</span>           <span class="c1">// 직렬화</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">ItemsData</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">name</span><span class="p">;</span>         <span class="c1">// 아이템 이름</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">info</span><span class="p">;</span>         <span class="c1">// 아이템 정보</span>
+    <span class="k">public</span> <span class="kt">int</span> <span class="n">count</span><span class="p">;</span>           <span class="c1">// 아이템 갯수</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">link</span><span class="p">;</span>         <span class="c1">// 아이템 이미지 링크</span>
+
+    <span class="c1">// 새로운 아이템을 획득할 때 사용하는 생성자</span>
+    <span class="k">public</span> <span class="nf">ItemsData</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="kt">string</span> <span class="n">info</span><span class="p">,</span> <span class="kt">int</span> <span class="n">count</span><span class="p">,</span> <span class="kt">string</span> <span class="n">link</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">name</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">info</span> <span class="p">=</span> <span class="n">info</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">count</span> <span class="p">=</span> <span class="n">count</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">link</span> <span class="p">=</span> <span class="n">link</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>아래는 아이템을 관리할 ItemDataMng클래스의 구성 요소이다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">System</span><span class="p">.</span><span class="n">Serializable</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">ItemDataMng</span>
+<span class="p">{</span>
+    <span class="c1">// 장착 아이템</span>
+    <span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ItemsData</span><span class="p">&gt;</span> <span class="n">equipItem</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ItemsData</span><span class="p">&gt;();</span>
+    <span class="c1">// 소비 아이템     </span>
+    <span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ItemsData</span><span class="p">&gt;</span> <span class="n">consumItem</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ItemsData</span><span class="p">&gt;();</span>
+    <span class="c1">// 기타 아이템</span>
+    <span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ItemsData</span><span class="p">&gt;</span> <span class="n">etcItem</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ItemsData</span><span class="p">&gt;();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>아래는 JSON 데이터를 변환하여 저장하는 소스코드들이다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">TextAsset</span> <span class="n">itemJson</span><span class="p">;</span>        <span class="c1">// JSON 데이터 파일</span>
+<span class="n">ItemDataMng</span> <span class="n">itemDatas</span><span class="p">;</span>     <span class="c1">// 아이템을 관리할 변수(인벤토리)</span>
+<span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// JSON파일을 읽어와 인벤토리에 데이터 저장</span>
+    <span class="n">itemDatas</span> <span class="p">=</span> <span class="n">JsonUtility</span><span class="p">.</span><span class="n">FromJson</span><span class="p">&lt;</span><span class="n">ItemDataMng</span><span class="p">&gt;(</span><span class="n">itemJson</span><span class="p">.</span><span class="n">text</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// 게임 종료시 가지고 있는 아이템 저장</span>
+<span class="k">void</span> <span class="nf">OnApplicationQuit</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">string</span> <span class="n">saveData</span> <span class="p">=</span> <span class="n">JsonUtility</span><span class="p">.</span><span class="nf">ToJson</span><span class="p">(</span><span class="n">itemDatas</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="n">fileName</span> <span class="p">=</span> <span class="s">"ItemData.json"</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="n">path</span> <span class="p">=</span> <span class="n">Application</span><span class="p">.</span><span class="n">dataPath</span> <span class="p">+</span> <span class="s">"/Inventory/Json/"</span> <span class="p">+</span> <span class="n">fileName</span><span class="p">;</span>
+    <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">File</span><span class="p">.</span><span class="nf">WriteAllText</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">saveData</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="결과-json-파일">결과 (JSON 파일)</h2>
+<hr />
+<p><img src="/assets/img/Unity/JsonUtility_3.png" alt="image" /><br />
+여러 데이터가 JSON 파일에 저장되는 것을 볼 수 있으며,<br /><br />
+<img src="/assets/img/Unity/JsonUtility_4.gif" alt="image" /><br />
+각각의 데이터에 맞는 요소들이 인벤토리에 저장되는 것을 볼 수 있다.(이미지 로드가 늦는 이유는 인터넷에서 받아오기에 속도차이가 있다.)</p>
+
+<h2 id="주의점">주의점</h2>
+<hr />
+<p>만약 JSON파일에서 내용을 읽어와 클래스나 구조체에 저장한다면 JSON의 이름과 해당 데이터를 저장하는 변수의 이름을 같게 지정해줘야한다.<br /><br />
+해당 포스팅의 내용을 보면 아이템의 종류를 나타내는 <code class="language-plaintext highlighter-rouge">equipItem, cousumItem, etcItem</code>이 JSON 내부의 데이터 이름과 같을걸 볼 수 있다.<br /><br />
+만약 서로 이름이 다르면 아래처럼 데이터가 잘 불러와지지 않거나, 에러가 발생한다.<br />
+<img src="/assets/img/Unity/JsonUtility_5.png" alt="image" /><br /></p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="unity" /><category term="study" /><summary type="html"><![CDATA[JsonUtility를 이용한 JSON 파싱]]></summary></entry><entry><title type="html">[Flutter] - VSCode 편의기능</title><link href="http://localhost:4000/flutter/2023/02/22/Flutter-VSCode-%EA%B8%B0%EB%8A%A5.html" rel="alternate" type="text/html" title="[Flutter] - VSCode 편의기능" /><published>2023-02-22T06:00:02+09:00</published><updated>2023-02-22T06:00:02+09:00</updated><id>http://localhost:4000/flutter/2023/02/22/Flutter%20VSCode%20%EA%B8%B0%EB%8A%A5</id><content type="html" xml:base="http://localhost:4000/flutter/2023/02/22/Flutter-VSCode-%EA%B8%B0%EB%8A%A5.html"><![CDATA[<h2 id="editorcodeactionsonsave">editor.codeActionsOnSave</h2>
 <hr />
 <p><img src="/assets/img/Flutter/flutter_craft_1.png" alt="image" width="50%" height="50%" /><br />
 VSCode로 Flutter를 하다보면 코드 아래 밑줄이 생기는 것을 볼 수 있다<br /><br />
@@ -868,339 +1026,4 @@ thread-safe는 운영체제에서 mutex나 세마포어 등으로 동시 접근�
 <p>평소에는 cin과 cout이 묶여 있어 “이름을 입력해 주세요 \n”가 먼저 출력된 후 이름을 입력할 수 있다. <code class="language-plaintext highlighter-rouge">cin.tie(0)</code>나 <code class="language-plaintext highlighter-rouge">cin.tie(null)</code> 코드를 추가해 주면, “이름을 입력해 주세요 \n”가 출력되기 전에 이름을 입력할  수 있다.<br /><br />
 <code class="language-plaintext highlighter-rouge">내부적으로 cin과 cout을 묶어주는 과정을 수행하지 않기 때문에 시간이 절약된다.</code></p>
 
-<p>물론 이름을 입력해달라는 문구가 나오기 전에 입력을 할 수 있는 것은 이상하지만, 알고리즘 문제를 풀 때는 크게 상관이 없고, 입출력 시간을 절약할 수 있기 때문에 <code class="language-plaintext highlighter-rouge">cin.tie(0)</code>을 많이 사용한다.</p>]]></content><author><name>Mindol</name></author><category term="Study" /><category term="study" /><category term="cpp" /><summary type="html"><![CDATA[백준 C++ 시간초과 해결]]></summary></entry><entry><title type="html">Dart 기초 - 클래스</title><link href="http://localhost:4000/dart/2023/01/10/Dart-%EA%B8%B0%EC%B4%88-%ED%81%B4%EB%9E%98%EC%8A%A4.html" rel="alternate" type="text/html" title="Dart 기초 - 클래스" /><published>2023-01-10T06:00:01+09:00</published><updated>2023-01-10T06:00:01+09:00</updated><id>http://localhost:4000/dart/2023/01/10/Dart%20%EA%B8%B0%EC%B4%88-%ED%81%B4%EB%9E%98%EC%8A%A4</id><content type="html" xml:base="http://localhost:4000/dart/2023/01/10/Dart-%EA%B8%B0%EC%B4%88-%ED%81%B4%EB%9E%98%EC%8A%A4.html"><![CDATA[<h1 id="tmi">TMI</h1>
-<hr />
-<p>Flutter를 공부하기 위한 Dart 공부</p>
-
-<h1 id="클래스">클래스</h1>
-<hr />
-<p>flutter는 클래스로 이루어져있음</p>
-
-<h2 id="클래스-선언">클래스 선언</h2>
-<hr />
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Player</span><span class="p">{</span>
-  <span class="kt">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">'민돌'</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">xp</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-
-  <span class="kt">void</span> <span class="n">hello</span><span class="p">(){</span>
-    <span class="n">print</span><span class="p">(</span><span class="s">"Hi my name is </span><span class="si">$name</span><span class="s">"</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h2 id="객체-생성">객체 생성</h2>
-<hr />
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
-  <span class="kd">var</span> <span class="n">player1</span> <span class="o">=</span> <span class="n">Player</span><span class="p">();</span>
-  <span class="n">Player</span> <span class="n">player2</span> <span class="o">=</span> <span class="n">Player</span><span class="p">();</span>
-
-  <span class="n">player1</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">'mindol'</span><span class="p">;</span>
-  <span class="n">player2</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">'민돌2'</span><span class="p">;</span>
-
-  <span class="n">print</span><span class="p">(</span><span class="n">player1</span><span class="o">.</span><span class="na">name</span><span class="p">);</span>
-  <span class="n">print</span><span class="p">(</span><span class="n">player2</span><span class="o">.</span><span class="na">name</span><span class="p">);</span>
-  <span class="n">player1</span><span class="o">.</span><span class="na">hello</span><span class="p">();</span>
-  <span class="n">player2</span><span class="o">.</span><span class="na">hello</span><span class="p">();</span>
-<span class="p">}</span>
-<span class="c1">// 결과</span>
-<span class="n">mindol</span>
-<span class="err">민돌</span><span class="mi">2</span>
-<span class="n">Hi</span> <span class="n">my</span> <span class="n">name</span> <span class="k">is</span> <span class="n">mindol</span>
-<span class="n">Hi</span> <span class="n">my</span> <span class="n">name</span> <span class="k">is</span> <span class="err">민돌</span><span class="mi">2</span>
-<span class="n">Exited</span>
-</code></pre></div></div>
-
-<h2 id="생성자">생성자</h2>
-<hr />
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Player</span><span class="p">{</span>
-  <span class="kd">late</span> <span class="kt">String</span> <span class="n">name</span><span class="p">;</span>
-  <span class="kd">late</span> <span class="kt">int</span> <span class="n">xp</span><span class="p">;</span>
-
-  <span class="n">Player</span><span class="p">(</span><span class="kt">String</span> <span class="n">name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">xp</span><span class="p">){</span>
-    <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
-    <span class="k">this</span><span class="o">.</span><span class="na">xp</span> <span class="o">=</span> <span class="n">xp</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="kt">void</span> <span class="n">hello</span><span class="p">(){</span>
-    <span class="n">print</span><span class="p">(</span><span class="s">"Hi my name is </span><span class="si">$name</span><span class="s">"</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
-  <span class="kd">var</span> <span class="n">player1</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="s">'mindol'</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
-  <span class="n">Player</span> <span class="n">player2</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="s">'민돌2'</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
-
-  <span class="n">print</span><span class="p">(</span><span class="n">player1</span><span class="o">.</span><span class="na">name</span><span class="p">);</span>
-  <span class="n">print</span><span class="p">(</span><span class="n">player2</span><span class="o">.</span><span class="na">name</span><span class="p">);</span>
-  <span class="n">player1</span><span class="o">.</span><span class="na">hello</span><span class="p">();</span>
-  <span class="n">player2</span><span class="o">.</span><span class="na">hello</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>기본 생성자 코드는 이렇지만 dart에서는 더 나은 방법을 추천</p>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Player</span><span class="p">{</span>
-  <span class="kt">String</span> <span class="n">name</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">xp</span><span class="p">;</span>
-
-  <span class="n">Player</span><span class="p">(</span><span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="p">,</span> <span class="k">this</span><span class="o">.</span><span class="na">xp</span><span class="p">);</span>
-
-  <span class="kt">void</span> <span class="n">hello</span><span class="p">(){</span>
-    <span class="n">print</span><span class="p">(</span><span class="s">"Hi my name is </span><span class="si">$name</span><span class="s">"</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>생성자의 매개변수를 this로 지정해주면 선언 순서에 따른 변수 지정이 가능<br />
-(첫번째 매개변수는 name으로, 두번째 매개변수는 xp로)</p>
-
-<h2 id="named-constructor-parameters">Named Constructor Parameters</h2>
-<hr />
-<p>함수에서 Named Parameter를 지정했던 것처럼 class에서도 Named Parameter를 지정할 수 있음</p>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Player</span><span class="p">{</span>
-  <span class="kt">String</span> <span class="n">name</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">xp</span><span class="p">;</span>
-
-  <span class="n">Player</span><span class="p">({</span><span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="p">,</span> <span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">xp</span><span class="p">});</span>
-
-  <span class="kt">void</span> <span class="n">hello</span><span class="p">(){</span>
-    <span class="n">print</span><span class="p">(</span><span class="s">"Hi my name is </span><span class="si">$name</span><span class="s">"</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
-  <span class="kd">var</span> <span class="n">player1</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="nl">name:</span> <span class="s">'mindol'</span><span class="p">,</span> <span class="nl">xp:</span> <span class="mi">100</span><span class="p">);</span>
-  <span class="n">Player</span> <span class="n">player2</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="nl">name:</span> <span class="s">'민돌2'</span><span class="p">,</span> <span class="nl">xp:</span> <span class="mi">1000</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>또다른 생성자 방법</p>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Player</span><span class="p">{</span>
-  <span class="kd">final</span> <span class="kt">String</span> <span class="n">name</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">xp</span><span class="p">,</span> <span class="n">age</span><span class="p">;</span>
-  <span class="kt">String</span> <span class="n">team</span><span class="p">;</span>
-
-  <span class="n">Player</span><span class="p">({</span><span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="p">,</span> <span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">xp</span><span class="p">,</span> <span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">team</span><span class="p">,</span> <span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">age</span><span class="p">,});</span>
-
-  <span class="n">Player</span><span class="o">.</span><span class="na">CreateBluePlayer</span><span class="p">({</span><span class="kd">required</span> <span class="kt">String</span> <span class="n">name</span><span class="p">,</span> <span class="kd">required</span> <span class="kt">int</span> <span class="n">age</span><span class="p">,})</span> <span class="o">:</span> 
-	<span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">,</span> <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="p">,</span> <span class="k">this</span><span class="o">.</span><span class="na">xp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="k">this</span><span class="o">.</span><span class="na">team</span> <span class="o">=</span> <span class="s">'blue'</span><span class="p">;</span>
-
-  <span class="n">Player</span><span class="o">.</span><span class="na">CreateRedPlayer</span><span class="p">({</span><span class="kd">required</span> <span class="kt">String</span> <span class="n">name</span><span class="p">,</span> <span class="kd">required</span> <span class="kt">int</span> <span class="n">age</span><span class="p">,})</span> <span class="o">:</span> 
-	<span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">,</span> <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="p">,</span> <span class="k">this</span><span class="o">.</span><span class="na">xp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="k">this</span><span class="o">.</span><span class="na">team</span> <span class="o">=</span> <span class="s">'red'</span><span class="p">;</span>
-
-  <span class="kt">void</span> <span class="n">hello</span><span class="p">(){</span>
-    <span class="n">print</span><span class="p">(</span><span class="s">"Hi my name is </span><span class="si">$name</span><span class="s">"</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
-  <span class="kd">var</span> <span class="n">BluePlayer</span> <span class="o">=</span> <span class="n">Player</span><span class="o">.</span><span class="na">CreateBluePlayer</span><span class="p">(</span><span class="nl">name:</span> <span class="s">'민돌'</span><span class="p">,</span> <span class="nl">age:</span> <span class="mi">25</span><span class="p">);</span>
-  <span class="n">Player</span> <span class="n">RedPlayer</span> <span class="o">=</span> <span class="n">Player</span><span class="o">.</span><span class="na">CreateBluePlayer</span><span class="p">(</span><span class="nl">name:</span> <span class="s">'민돌2'</span><span class="p">,</span> <span class="nl">age:</span> <span class="mi">25</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h2 id="클래스-프로퍼티에-jsondata-셋팅">클래스 프로퍼티에 JsonData 셋팅</h2>
-<hr />
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Player</span><span class="p">{</span>
-  <span class="kd">final</span> <span class="kt">String</span> <span class="n">name</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">xp</span><span class="p">;</span>
-  <span class="kt">String</span> <span class="n">team</span><span class="p">;</span>
-
-  <span class="n">Player</span><span class="o">.</span><span class="na">fromJson</span><span class="p">(</span><span class="kt">Map</span><span class="p">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kd">dynamic</span><span class="p">&gt;</span> <span class="n">playerJson</span><span class="p">)</span> <span class="o">:</span> 
-	<span class="n">name</span> <span class="o">=</span> <span class="n">playerJson</span><span class="p">[</span><span class="s">'name'</span><span class="p">],</span> <span class="n">xp</span> <span class="o">=</span> <span class="n">playerJson</span><span class="p">[</span><span class="s">'xp'</span><span class="p">],</span> <span class="n">team</span> <span class="o">=</span> <span class="n">playerJson</span><span class="p">[</span><span class="s">'team'</span><span class="p">];</span>
-
-  <span class="kt">void</span> <span class="n">hello</span><span class="p">(){</span>
-    <span class="n">print</span><span class="p">(</span><span class="s">"Hi my name is </span><span class="si">$name</span><span class="s">"</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
-  <span class="kd">var</span> <span class="n">apiData</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s">"name"</span> <span class="o">:</span> <span class="s">"민돌"</span><span class="p">,</span>
-      <span class="s">"team"</span> <span class="o">:</span> <span class="s">"red"</span><span class="p">,</span>
-      <span class="s">"xp"</span> <span class="o">:</span> <span class="mi">0</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s">"name"</span> <span class="o">:</span> <span class="s">"민돌2"</span><span class="p">,</span>
-      <span class="s">"team"</span> <span class="o">:</span> <span class="s">"blue"</span><span class="p">,</span>
-      <span class="s">"xp"</span> <span class="o">:</span> <span class="mi">0</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s">"name"</span> <span class="o">:</span> <span class="s">"민돌3"</span><span class="p">,</span>
-      <span class="s">"team"</span> <span class="o">:</span> <span class="s">"green"</span><span class="p">,</span>
-      <span class="s">"xp"</span> <span class="o">:</span> <span class="mi">0</span>
-    <span class="p">}</span>
-  <span class="p">];</span>
-
-	<span class="c1">// foreach문 List.forEach((변수){코드});</span>
-  <span class="n">apiData</span><span class="o">.</span><span class="na">forEach</span><span class="p">((</span><span class="n">JsonData</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="n">player</span> <span class="o">=</span> <span class="n">Player</span><span class="o">.</span><span class="na">fromJson</span><span class="p">(</span><span class="n">JsonData</span><span class="p">);</span>
-    <span class="n">player</span><span class="o">.</span><span class="na">hello</span><span class="p">();</span>
-  <span class="p">});</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h2 id="cascade-notation">Cascade Notation</h2>
-<hr />
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Player</span><span class="p">{</span>
-  <span class="kt">String</span> <span class="n">name</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">xp</span><span class="p">;</span>
-  <span class="kt">String</span> <span class="n">team</span><span class="p">;</span>
-
-  <span class="n">Player</span><span class="p">({</span><span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="p">,</span> <span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">xp</span><span class="p">,</span> <span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">team</span><span class="p">});</span>
-
-  <span class="kt">void</span> <span class="n">hello</span><span class="p">(){</span>
-    <span class="n">print</span><span class="p">(</span><span class="s">"Hi my name is </span><span class="si">$name</span><span class="s">"</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
-  <span class="kd">var</span> <span class="n">mindol</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="nl">name:</span> <span class="s">'민돌'</span><span class="p">,</span> <span class="nl">xp:</span> <span class="mi">1200</span><span class="p">,</span> <span class="nl">team:</span> <span class="s">'read'</span><span class="p">);</span>
-  <span class="n">mindol</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">'mindol'</span><span class="p">;</span>
-  <span class="n">mindol</span><span class="o">.</span><span class="na">xp</span> <span class="o">=</span> <span class="mi">120000</span><span class="p">;</span>
-  <span class="n">mindol</span><span class="o">.</span><span class="na">team</span> <span class="o">=</span> <span class="s">'blue'</span><span class="p">;</span>
-	<span class="n">mindol</span><span class="o">.</span><span class="na">hello</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>는</p>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Player</span><span class="p">{</span>
-  <span class="kt">String</span> <span class="n">name</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">xp</span><span class="p">;</span>
-  <span class="kt">String</span> <span class="n">team</span><span class="p">;</span>
-
-  <span class="n">Player</span><span class="p">({</span><span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="p">,</span> <span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">xp</span><span class="p">,</span> <span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">team</span><span class="p">});</span>
-
-  <span class="kt">void</span> <span class="n">hello</span><span class="p">(){</span>
-    <span class="n">print</span><span class="p">(</span><span class="s">"Hi my name is </span><span class="si">$name</span><span class="s">"</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
-  <span class="kd">var</span> <span class="n">mindol</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="nl">name:</span> <span class="s">'민돌'</span><span class="p">,</span> <span class="nl">xp:</span> <span class="mi">1200</span><span class="p">,</span> <span class="nl">team:</span> <span class="s">'read'</span><span class="p">)</span>
-  <span class="p">.</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">'mindol'</span>
-  <span class="p">.</span><span class="o">.</span><span class="na">xp</span> <span class="o">=</span> <span class="mi">120000</span>
-  <span class="p">.</span><span class="o">.</span><span class="na">team</span> <span class="o">=</span> <span class="s">'blue'</span>
-	<span class="p">.</span><span class="o">.</span><span class="na">hello</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>와 같은 역할이다<br />
-💡 ..name,  ..xp, ..team의 맨 앞에 붙는 .은 객체를 가르킴</p>
-
-<h3 id="enum">Enum</h3>
-<hr />
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">enum</span> <span class="n">Team</span> <span class="p">{</span> <span class="n">red</span><span class="p">,</span> <span class="n">blue</span><span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">Player</span><span class="p">{</span>
-  <span class="kt">String</span> <span class="n">name</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">xp</span><span class="p">;</span>
-  <span class="n">Team</span> <span class="n">team</span><span class="p">;</span>
-
-  <span class="n">Player</span><span class="p">({</span><span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="p">,</span> <span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">xp</span><span class="p">,</span> <span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">team</span><span class="p">});</span>
-
-  <span class="kt">void</span> <span class="n">hello</span><span class="p">(){</span>
-    <span class="n">print</span><span class="p">(</span><span class="s">"Hi my name is </span><span class="si">$name</span><span class="s">"</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
-  <span class="kd">var</span> <span class="n">mindol</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="nl">name:</span> <span class="s">'민돌'</span><span class="p">,</span> <span class="nl">xp:</span> <span class="mi">1200</span><span class="p">,</span> <span class="nl">team:</span> <span class="n">Team</span><span class="o">.</span><span class="na">red</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h2 id="추상화-메소드-abstract-method">추상화 메소드 (abstract method)</h2>
-<hr />
-<p>추상화 클래스 특징<br /></p>
-<ul>
-  <li>추상화 클래스로는 객체를 생성할 수 없음</li>
-  <li>추상화 클래스는 상속 받은 클래스들이 직접 구현해야하는 메소드를 모아 놓은 일종의 블루프린트</li>
-  <li>특정 메소드를 구현하도록 강제함</li>
-  <li>각 클래스들이 같은 함수에 다른 내용을 가질 수 있음
-```dart
-abstract class Human{     // 추상 클래스 선언
-void walk();
-}</li>
-</ul>
-
-<p>class Player extends Human{   // 추상 클래스 상속
-  String name;
-  int xp;
-  Team team;</p>
-
-<p>Player({required this.name, required this.xp, required this.team});</p>
-
-<p>void walk() =&gt; print(“I’m Walking”);    // 추상 클래스 메소드 구현</p>
-
-<p>void hello(){
-    print(“Hi my name is $name”);
-  }
-}</p>
-
-<p>class Coach extends Human{
-  void walk() =&gt; print(“coach is walk”);
-}</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-## 상속
---------------
-상속받은 클래스(자식클래스)는 부모 클래스 내의 모든 내용을 가져옴
-```dart
-class Human{
-  final String name;
-  Human({required this.name});
-  void sayHello() =&gt; print("Hi my name is $name");
-}
-
-enum Team{blue, red}
-
-class Player extends Human{
-  final Team team;
-  Player({required this. team, required String name}) : super(name: name);
-}
-
-void main(){
-  var player = Player(team: Team.red, name: 'mindol');
-}
-</code></pre></div></div>
-<p>💡 super 키워드를 통해 부모 클래스와 상호작용이 가능<br />
-super() ← 부모 클래스 생성자<br />
-부모 클래스의 메소드를 수정하고 싶을 경우 @override 키워드 사용</p>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Human</span><span class="p">{</span>
-  <span class="kd">final</span> <span class="kt">String</span> <span class="n">name</span><span class="p">;</span>
-  <span class="n">Human</span><span class="p">({</span><span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="p">});</span>
-  <span class="kt">void</span> <span class="n">sayHello</span><span class="p">()</span> <span class="o">=</span><span class="p">&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">"Hi my name is </span><span class="si">$name</span><span class="s">"</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">enum</span> <span class="n">Team</span><span class="p">{</span><span class="n">blue</span><span class="p">,</span> <span class="n">red</span><span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">Player</span> <span class="kd">extends</span> <span class="n">Human</span><span class="p">{</span>
-  <span class="kd">final</span> <span class="n">Team</span> <span class="n">team</span><span class="p">;</span>
-  <span class="n">Player</span><span class="p">({</span><span class="kd">required</span> <span class="k">this</span><span class="p">.</span> <span class="n">team</span><span class="p">,</span> <span class="kd">required</span> <span class="kt">String</span> <span class="n">name</span><span class="p">})</span> <span class="o">:</span> <span class="k">super</span><span class="p">(</span><span class="nl">name:</span> <span class="n">name</span><span class="p">);</span>
-  <span class="nd">@override</span>
-  <span class="kt">void</span> <span class="n">sayHello</span><span class="p">()</span>
-  <span class="p">{</span>
-    <span class="k">super</span><span class="o">.</span><span class="na">sayHello</span><span class="p">();</span>
-    <span class="n">print</span><span class="p">(</span><span class="s">"and I play for </span><span class="si">$team</span><span class="s">"</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h2 id="mixin-클래스">Mixin 클래스</h2>
-<hr />
-<p>Mixin : 생성자가 없는 클래스, 클래스에 프로퍼티들을 추가하거나 할 때 주로 사용<br />
-(다른 클래스의 프로퍼티와 메소드를 그냥 긁어오는 것 뿐, 상속과는 다른 개념(부모 클래스가 되지 않음)<br />
-여러 클래스에 사용이 가능하며, 생성자가 없어야 함</p>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Strong</span><span class="p">{</span>
-  <span class="kd">final</span> <span class="kt">double</span> <span class="n">strengthLevel</span> <span class="o">=</span> <span class="mf">1500.99</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">QuickRunner</span><span class="p">{</span>
-  <span class="kt">void</span> <span class="n">runQuick</span><span class="p">(){</span>
-    <span class="n">print</span><span class="p">(</span><span class="s">"ruuuuuun"</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">enum</span> <span class="n">Team</span><span class="p">{</span><span class="n">blue</span><span class="p">,</span> <span class="n">red</span><span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">Player</span> <span class="k">with</span> <span class="n">Strong</span><span class="p">,</span> <span class="n">QuickRunner</span><span class="p">{</span>
-  <span class="kd">final</span> <span class="n">Team</span> <span class="n">team</span><span class="p">;</span>
-  <span class="n">Player</span><span class="p">({</span> <span class="kd">required</span> <span class="k">this</span><span class="p">.</span> <span class="n">team</span><span class="p">,</span> <span class="kd">required</span> <span class="kt">String</span> <span class="n">name</span><span class="p">});</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">Horse</span> <span class="k">with</span> <span class="n">Strong</span><span class="p">,</span> <span class="n">QuickRunner</span><span class="p">{}</span>
-</code></pre></div></div>]]></content><author><name>Mindol</name></author><category term="Dart" /><category term="Dart" /><summary type="html"><![CDATA[Dart공부 - 클래스]]></summary></entry></feed>
+<p>물론 이름을 입력해달라는 문구가 나오기 전에 입력을 할 수 있는 것은 이상하지만, 알고리즘 문제를 풀 때는 크게 상관이 없고, 입출력 시간을 절약할 수 있기 때문에 <code class="language-plaintext highlighter-rouge">cin.tie(0)</code>을 많이 사용한다.</p>]]></content><author><name>Mindol</name></author><category term="Study" /><category term="study" /><category term="cpp" /><summary type="html"><![CDATA[백준 C++ 시간초과 해결]]></summary></entry></feed>

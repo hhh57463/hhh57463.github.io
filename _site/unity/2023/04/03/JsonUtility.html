@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>JsonUtility | Mindol</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="JsonUtility" />
+<meta name="author" content="Mindol" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="JsonUtility를 이용한 JSON 파싱" />
+<meta property="og:description" content="JsonUtility를 이용한 JSON 파싱" />
+<link rel="canonical" href="http://localhost:4000/unity/2023/04/03/JsonUtility.html" />
+<meta property="og:url" content="http://localhost:4000/unity/2023/04/03/JsonUtility.html" />
+<meta property="og:site_name" content="Mindol" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-04-03T06:00:01+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="JsonUtility" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-04-03T06:00:01+09:00","datePublished":"2023-04-03T06:00:01+09:00","description":"JsonUtility를 이용한 JSON 파싱","headline":"JsonUtility","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/unity/2023/04/03/JsonUtility.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/MinTa.png"},"name":"Mindol"},"url":"http://localhost:4000/unity/2023/04/03/JsonUtility.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Mindol" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+  <script>
+    const hour = (new Date()).getHours();
+    let filename = "";
+    if (hour >= 5 && hour < 7) {
+      filename = "/assets/css/skin-sunrise.css";
+    } else if (hour >= 7 && hour < 17) {
+      filename = "/assets/css/skin-daylight.css";
+    } else if (hour >= 17 && hour < 19) {
+      filename = "/assets/css/skin-sunset.css";
+    } else {
+      filename = "/assets/css/skin-midnight.css";
+    }
+    const elem = document.createElement("link");
+    elem.setAttribute("rel", "stylesheet");
+    elem.setAttribute("type", "text/css");
+    elem.setAttribute("href", filename);
+    document.getElementsByTagName("head")[0].appendChild(elem);
+  </script>
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">Mindol</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/assets/img/MinTa.png" class="author-avatar u-photo align-center" alt="Mindol">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Mindol</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:hhh57463@naver.com">hhh57463@naver.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <!-- <a href="/feed.xml"> -->
+    <a href="https://sly-lemonade-717.notion.site/d6f467dc95934f8581ef33fe4e84ad17">
+    <i class="sidebar-icon fas fa-rss"></i><span>Portfolio</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://github.com/hhh57463"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://instagram.com/hhh57463"><i class="fab fa-instagram fa-2x" title="Instagram"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">JsonUtility</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-04-03T06:00:01+09:00" itemprop="datePublished">
+        Apr 3, 2023
+      </time></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>최근 RPG제작에 용이한 기능들을 제작하는 프로젝트 <a href="https://github.com/hhh57463/RPG_Helper">RPG_Helper</a>를 제작하던 중 인벤토리 구현에 필요한 DB연동 대신 JSON을 활용하던 중 알게된 부분을 정리한다.</p>
+
+<h2 id="json">JSON?</h2>
+<hr />
+<p>JavaScript Object Notaion의 약자로 직역하자면 자바 스크립트 객체 표기법으로 데이터를 쉽게 교환 및 저장하기 위한 텍스트 기반의 데이터 교환 표준이다.<br /><br /></p>
+
+<h3 id="json-구조">JSON 구조</h3>
+<p>자료형: string, number, true, false, null, object, array<br />
+기본적으로 <code class="language-plaintext highlighter-rouge">key: value</code> 형태의 구조를 가지며, <code class="language-plaintext highlighter-rouge">중괄호 {}</code>로 감싸게 됨<br />
+key 값은 문자열로 이루어져야하며, value에는 지원되는 자료형으로 이루어지면 된다<br /><br /></p>
+
+<pre><code class="language-JSON">{
+
+    "나이" : 25,                      // number
+    "이름" : "Mindol",                // string
+    "취미" : ["영화감상", "노래방"]   // array
+}
+</code></pre>
+
+<h3 id="json-장단점">JSON 장단점</h3>
+<ul>
+  <li>텍스트 기반으로 다양한 프로그래밍 언어에서 데이터를 읽고 사용이 가능</li>
+  <li>내용이 함축적으로 최소한의 정보만을 가짐</li>
+  <li>내용이 함축적이다 보니 의미 파악이 힘들 수 있음</li>
+</ul>
+
+<h2 id="jsonutility">JsonUtility</h2>
+<hr />
+<p>Unity에서 지원하는 JSON 데이터 작업을 위한 유틸리티 함수로, 데이터를 JSON형태로 저장 및 읽어올 수 있다.</p>
+
+<h2 id="example">Example</h2>
+<hr />
+<p>만약 게임이 종료될 때 플레이어의 위치를 저장하고 게임을 재시작하면 저장된 위치를 불러와야하는 기능을 구현하려면 어떻게 해야할까?</p>
+
+<h2 id="json-export">JSON export</h2>
+<hr />
+<p>우선 2D환경에서 CharactorController를 이용한 간단한 이동을 구현했다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">float</span> <span class="n">h</span> <span class="p">=&gt;</span> <span class="n">Input</span><span class="p">.</span><span class="nf">GetAxis</span><span class="p">(</span><span class="s">"Horizontal"</span><span class="p">);</span>
+<span class="kt">float</span> <span class="n">v</span> <span class="p">=&gt;</span> <span class="n">Input</span><span class="p">.</span><span class="nf">GetAxis</span><span class="p">(</span><span class="s">"Vertical"</span><span class="p">);</span>
+<span class="k">void</span> <span class="nf">Move</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Vector2</span> <span class="n">movement</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
+    <span class="n">movement</span> <span class="p">*=</span> <span class="p">(</span><span class="n">moveSpeed</span> <span class="p">*</span> <span class="n">Time</span><span class="p">.</span><span class="n">deltaTime</span><span class="p">);</span>
+    <span class="n">controller</span><span class="p">.</span><span class="nf">Move</span><span class="p">(</span><span class="n">movement</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>게임이 종료될 때 위치를 저장해야하니 OnApplicationQuit함수를 이용했다.<br /></p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">void</span> <span class="nf">OnApplicationQuit</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Vector2</span> <span class="n">savePos</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="n">path</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">.</span><span class="nf">Combine</span><span class="p">(</span><span class="n">Application</span><span class="p">.</span><span class="n">dataPath</span> <span class="p">+</span>
+                                        <span class="s">"/Json/"</span><span class="p">,</span> <span class="s">"playerdata.json"</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">File</span><span class="p">.</span><span class="nf">WriteAllText</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">JsonUtility</span><span class="p">.</span><span class="nf">ToJson</span><span class="p">(</span><span class="n">savePos</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h3 id="코드해석">코드해석</h3>
+<p>Vector2 savePos: 플레이어의 월드좌표를 저장하는 변수<br /><br />
+string path: JSON파일을 생성할 위치지정 Application.dataPath를 이용하여 현재 프로젝트 Assets폴더에 접근 가능하다. 최종적으로 <code class="language-plaintext highlighter-rouge">Assets/Json/playerdata.json</code>이라는 경로가 지정된다.<br /><br />
+JsonUtility.ToJson(savePos): JsonUtility.ToJson함수를 이용하여 객체를 JSON문법으로 변환하여 WriteAllText함수로 지정된 경로에 저장하였다.</p>
+
+<h3 id="jsonutilitytojson">JsonUtility.ToJson</h3>
+<p>매개변수로 들어온 객체를 JSON문법으로 변환해준다. Debug.Log함수를 이용하여 확인해보면<br />
+<img src="/assets/img/Unity/JsonUtility_1.png" alt="image" /><br />
+Vector2형식을 JSON형식으로 변환한 것을 볼 수 있다.</p>
+
+<h2 id="json-import">JSON import</h2>
+<hr />
+<p>이제 반대로 JSON파일에서 불러오는 작업을 수행해야하는데, JSON파일을 읽어오는 함수 LoadJson을 만들어준 후 플레이어 객체가 생성될 때 호출해야하므로 Start함수에서 호출해줬다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">void</span> <span class="nf">LoadJson</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">string</span> <span class="n">loadData</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">File</span><span class="p">.</span><span class="nf">ReadAllText</span><span class="p">(</span>
+                        <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">.</span><span class="nf">Combine</span><span class="p">(</span><span class="n">Application</span><span class="p">.</span><span class="n">dataPath</span> <span class="p">+</span> 
+                        <span class="s">"/Json/"</span><span class="p">,</span> <span class="s">"playerdata.json"</span><span class="p">));</span>
+    <span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">JsonUtility</span><span class="p">.</span><span class="n">FromJson</span><span class="p">&lt;</span><span class="n">Vector2</span><span class="p">&gt;(</span><span class="n">loadData</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h3 id="코드해석-1">코드해석</h3>
+<p>string loadData: playerdata.json을 ReadAllText함수를 이용하여 문자열로 저장해준다.<br /><br />
+JsonUtility.FromJson<Vector2>(loadData): 읽어온 JSON 데이터를 Vector2자료형으로 반환한다.<br /><br /></Vector2></p>
+
+<h3 id="jsonutilityfromjson">JsonUtility.FromJson</h3>
+<p>매개변수로 읽어온 JSON데이터(문자열)를 지정한 자료형으로 변환하여 반환한다.<br />
+<code class="language-plaintext highlighter-rouge">JsonUtility.FromJson&lt;자료형&gt;(문자열);</code></p>
+
+<h3 id="결과">결과</h3>
+<hr />
+<p><img src="/assets/img/Unity/JsonUtility_2.gif" alt="image" /><br />
+실행하여 플레이어를 이동시킨 후 재시작하면 종료했던 위치로 플레이어가 이동하는 것을 볼 수 있다.<br /></p>
+
+<h3 id="여러-데이터-json화-시키기">여러 데이터 JSON화 시키기</h3>
+<hr />
+<p>만약 플레이어의 위치 뿐만 아닌 여러 데이터를 JSON에 저장해야할 경우에는 배열로 저장하여 JSON에 저장해야한다.<br /></p>
+
+<p><a href="https://github.com/hhh57463/RPG_Helper">RPG_Helper</a> 제작 중 획득한 아이템 리스트를 JSON에 저장하였는데 아이템의 종류는 장착, 소비, 기타 이렇게 3개의 종류가 있다. 해당 아이템들을 각각의 리스트로 구현하였는데 이를 각자 다른 데이터로 저장해주었다.</p>
+
+<p>아래는 JSON파일에 들어갈 아이템의 구성 요소이다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">System</span><span class="p">.</span><span class="n">Serializable</span><span class="p">]</span>           <span class="c1">// 직렬화</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">ItemsData</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">name</span><span class="p">;</span>         <span class="c1">// 아이템 이름</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">info</span><span class="p">;</span>         <span class="c1">// 아이템 정보</span>
+    <span class="k">public</span> <span class="kt">int</span> <span class="n">count</span><span class="p">;</span>           <span class="c1">// 아이템 갯수</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">link</span><span class="p">;</span>         <span class="c1">// 아이템 이미지 링크</span>
+
+    <span class="c1">// 새로운 아이템을 획득할 때 사용하는 생성자</span>
+    <span class="k">public</span> <span class="nf">ItemsData</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="kt">string</span> <span class="n">info</span><span class="p">,</span> <span class="kt">int</span> <span class="n">count</span><span class="p">,</span> <span class="kt">string</span> <span class="n">link</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">name</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">info</span> <span class="p">=</span> <span class="n">info</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">count</span> <span class="p">=</span> <span class="n">count</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">link</span> <span class="p">=</span> <span class="n">link</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>아래는 아이템을 관리할 ItemDataMng클래스의 구성 요소이다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">System</span><span class="p">.</span><span class="n">Serializable</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">ItemDataMng</span>
+<span class="p">{</span>
+    <span class="c1">// 장착 아이템</span>
+    <span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ItemsData</span><span class="p">&gt;</span> <span class="n">equipItem</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ItemsData</span><span class="p">&gt;();</span>
+    <span class="c1">// 소비 아이템     </span>
+    <span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ItemsData</span><span class="p">&gt;</span> <span class="n">consumItem</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ItemsData</span><span class="p">&gt;();</span>
+    <span class="c1">// 기타 아이템</span>
+    <span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ItemsData</span><span class="p">&gt;</span> <span class="n">etcItem</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ItemsData</span><span class="p">&gt;();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>아래는 JSON 데이터를 변환하여 저장하는 소스코드들이다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">TextAsset</span> <span class="n">itemJson</span><span class="p">;</span>        <span class="c1">// JSON 데이터 파일</span>
+<span class="n">ItemDataMng</span> <span class="n">itemDatas</span><span class="p">;</span>     <span class="c1">// 아이템을 관리할 변수(인벤토리)</span>
+<span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// JSON파일을 읽어와 인벤토리에 데이터 저장</span>
+    <span class="n">itemDatas</span> <span class="p">=</span> <span class="n">JsonUtility</span><span class="p">.</span><span class="n">FromJson</span><span class="p">&lt;</span><span class="n">ItemDataMng</span><span class="p">&gt;(</span><span class="n">itemJson</span><span class="p">.</span><span class="n">text</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// 게임 종료시 가지고 있는 아이템 저장</span>
+<span class="k">void</span> <span class="nf">OnApplicationQuit</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">string</span> <span class="n">saveData</span> <span class="p">=</span> <span class="n">JsonUtility</span><span class="p">.</span><span class="nf">ToJson</span><span class="p">(</span><span class="n">itemDatas</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="n">fileName</span> <span class="p">=</span> <span class="s">"ItemData.json"</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="n">path</span> <span class="p">=</span> <span class="n">Application</span><span class="p">.</span><span class="n">dataPath</span> <span class="p">+</span> <span class="s">"/Inventory/Json/"</span> <span class="p">+</span> <span class="n">fileName</span><span class="p">;</span>
+    <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">File</span><span class="p">.</span><span class="nf">WriteAllText</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">saveData</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="결과-json-파일">결과 (JSON 파일)</h2>
+<hr />
+<p><img src="/assets/img/Unity/JsonUtility_3.png" alt="image" /><br />
+여러 데이터가 JSON 파일에 저장되는 것을 볼 수 있으며,<br /><br />
+<img src="/assets/img/Unity/JsonUtility_4.gif" alt="image" /><br />
+각각의 데이터에 맞는 요소들이 인벤토리에 저장되는 것을 볼 수 있다.(이미지 로드가 늦는 이유는 인터넷에서 받아오기에 속도차이가 있다.)</p>
+
+<h2 id="주의점">주의점</h2>
+<hr />
+<p>만약 JSON파일에서 내용을 읽어와 클래스나 구조체에 저장한다면 JSON의 이름과 해당 데이터를 저장하는 변수의 이름을 같게 지정해줘야한다.<br /><br />
+해당 포스팅의 내용을 보면 아이템의 종류를 나타내는 <code class="language-plaintext highlighter-rouge">equipItem, cousumItem, etcItem</code>이 JSON 내부의 데이터 이름과 같을걸 볼 수 있다.<br /><br />
+만약 서로 이름이 다르면 아래처럼 데이터가 잘 불러와지지 않거나, 에러가 발생한다.<br />
+<img src="/assets/img/Unity/JsonUtility_5.png" alt="image" /><br /></p>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/categories/#unity">Unity</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#study">study</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#unity">unity</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/flutter/2023/02/22/Flutter-VSCode-%EA%B8%B0%EB%8A%A5.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> [Flutter] - VSCode 편의기능
+
+          </span>
+        </a>
+      
+
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+<script src="https://utteranc.es/client.js"
+        repo="hhh57463/hhh57463.github.io"
+        issue-term="url"
+        theme="gruvbox-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2017&nbsp;-&nbsp;2023 Mindol; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Mindol&#39;s Blog</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>
