@@ -46,15 +46,15 @@ permalink: /about/
 
 ## ⚒ 재학 중 진행 프로젝트
 ---
-+ [ZooHalla](https://www.notion.so/ZooHalla-4cef73e81af5444eb620a9160c315472)
-+ [대학교 출석 어플리케이션](https://www.notion.so/225de5084f0640d8b273c717625fa6b6)
-+ [1945 모작](https://www.notion.so/1945-802ab15c4c1a4b6e9ddf4d9ab3b04fab)
++ [ZooHalla](https://github.com/hhh57463/ZooHalla)
++ [대학교 출석 어플리케이션](https://github.com/hhh57463/GPS_Attendance)
++ [1945 모작](https://github.com/hhh57463/Graphics_HomeWork)
     
 ## 🛠 개인 프로젝트
 ---
-+ [Tiler](https://www.notion.so/Tiler-bef9cb28cc6948dcb1683fc34fa8983a)
-+ [LostWak](https://www.notion.so/LostWak-a06e241d439748f994c3f67ea84968bc)
-+ [대학교 출석 어플리케이션](https://www.notion.so/ab229d0a2511473db68eaa13dc4f4ae1)
++ [Tiler](https://github.com/hhh57463/Tiler-Client)
++ [LostWak](https://lostwak.github.io/)
++ [대학교 출석 어플리케이션](https://github.com/hhh57463/GPS_Attendance)
 
 # 😄 감사합니다.
 
