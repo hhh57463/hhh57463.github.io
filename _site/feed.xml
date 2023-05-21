@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-05-19T18:17:52+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">Shapefile Format</title><link href="http://localhost:4000/study/2023/05/19/%EA%B3%B5%EB%B6%80-Shapefile-Format.html" rel="alternate" type="text/html" title="Shapefile Format" /><published>2023-05-19T06:00:01+09:00</published><updated>2023-05-19T06:00:01+09:00</updated><id>http://localhost:4000/study/2023/05/19/%5B%EA%B3%B5%EB%B6%80%5DShapefile%20Format</id><content type="html" xml:base="http://localhost:4000/study/2023/05/19/%EA%B3%B5%EB%B6%80-Shapefile-Format.html"><![CDATA[<h1 id="tmi">TMI</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-05-21T23:15:07+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">Shapefile Format</title><link href="http://localhost:4000/study/2023/05/19/%EA%B3%B5%EB%B6%80-Shapefile-Format.html" rel="alternate" type="text/html" title="Shapefile Format" /><published>2023-05-19T06:00:01+09:00</published><updated>2023-05-19T06:00:01+09:00</updated><id>http://localhost:4000/study/2023/05/19/%5B%EA%B3%B5%EB%B6%80%5DShapefile%20Format</id><content type="html" xml:base="http://localhost:4000/study/2023/05/19/%EA%B3%B5%EB%B6%80-Shapefile-Format.html"><![CDATA[<h1 id="tmi">TMI</h1>
 <hr />
 <p>교내 연구실에서 연구 진행 중 Shapefile format 분석을 의뢰받아 정리하여 요약</p>
 
@@ -460,7 +460,7 @@
 
 <p>Byte 40부터는 개체 내에 실제로 포함된 점(Point)들을 담고 있는 것으로, 개체당 하나 이상의 점이 존재할 수 있으므로, NumPoints만큼의 Point가 나열됨.</p>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="n">MuliPoint</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="n">MultiPoint</span>
 <span class="p">{</span>
   <span class="kt">double</span> <span class="n">Box</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
   <span class="kt">int</span> <span class="n">NumPoints</span><span class="p">;</span>

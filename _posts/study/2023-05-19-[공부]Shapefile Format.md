@@ -205,7 +205,7 @@ Byte 36의 NumPoints는 개체가 가지는 점(Point)의 개수를 나타내며
 Byte 40부터는 개체 내에 실제로 포함된 점(Point)들을 담고 있는 것으로, 개체당 하나 이상의 점이 존재할 수 있으므로, NumPoints만큼의 Point가 나열됨.
 
 ```c
-struct MuliPoint
+struct MultiPoint
 {
   double Box[4];
   int NumPoints;
