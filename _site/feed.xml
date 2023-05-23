@@ -1,4 +1,85 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-05-21T23:15:07+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">Shapefile Format</title><link href="http://localhost:4000/study/2023/05/19/%EA%B3%B5%EB%B6%80-Shapefile-Format.html" rel="alternate" type="text/html" title="Shapefile Format" /><published>2023-05-19T06:00:01+09:00</published><updated>2023-05-19T06:00:01+09:00</updated><id>http://localhost:4000/study/2023/05/19/%5B%EA%B3%B5%EB%B6%80%5DShapefile%20Format</id><content type="html" xml:base="http://localhost:4000/study/2023/05/19/%EA%B3%B5%EB%B6%80-Shapefile-Format.html"><![CDATA[<h1 id="tmi">TMI</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-05-23T17:36:07+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">QGIS3 사용법</title><link href="http://localhost:4000/qgis/2023/05/23/QGIS3-%EC%82%AC%EC%9A%A9%EB%B2%95.html" rel="alternate" type="text/html" title="QGIS3 사용법" /><published>2023-05-23T06:00:01+09:00</published><updated>2023-05-23T06:00:01+09:00</updated><id>http://localhost:4000/qgis/2023/05/23/QGIS3%20%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/qgis/2023/05/23/QGIS3-%EC%82%AC%EC%9A%A9%EB%B2%95.html"><![CDATA[<h2 id="qgis란">QGIS란?</h2>
+
+<hr />
+
+<p>QGIS: 공간데이터 조회, 편집, 분석 기능을 제공하는 대표적인 오픈소스 데스크탑 지리정보시스템(GIS) 소프트웨어.</p>
+
+<p><a href="[https://www.qgis.org/ko/site/](https://www.qgis.org/ko/site/)">설치링크</a></p>
+
+<h2 id="tmi">TMI</h2>
+
+<hr />
+
+<p>해당 포스트는 국토지리정보원의 정밀 도로지도(NGII)를 예로 들고 있음.</p>
+
+<h2 id="qgis3-사용법">QGIS3 사용법</h2>
+
+<hr />
+
+<h3 id="레이어-추가제거">레이어 추가/제거</h3>
+
+<p>QGIS3를 실행하면 아래와 같은 화면이 시작된다.</p>
+
+<p><img src="/assets/img/QGIS3/useage_1.png" alt="Image" /></p>
+
+<p><img src="/assets/img/QGIS3/useage_2.png" alt="Image" /></p>
+
+<p>QGIS3에 Shapefile(.shp)을 올리고 싶으면 좌하단 레이어 탭에 Shapefile을 Drag&amp;Drop한다.</p>
+
+<p>특정 레이어를 제외하고 싶을 시 레이어 탭에서 해당 레이어의 이름 좌측 체크박스로 껏다 켤 수 있다.</p>
+
+<p><img src="/assets/img/QGIS3/useage_3.png" alt="Image" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">A2_LINK의 체크박스 해제 후 모습</code></p>
+
+<p><img src="/assets/img/QGIS3/useage_4.png" alt="Image" /></p>
+
+<p>특정 레이어를 제거하고 싶을 시 레이어 선택 후 레이어 탭 중 상단 바에서 우측에 있는 <code class="language-plaintext highlighter-rouge">레이어/그룹 제거</code> 버튼을 클릭하거나, Ctrl + D를 사용하여 제거할 수 있다.</p>
+
+<p>각 레이어의 심볼을 변경하고 싶을 경우 레이어 탭의 각 레이어를 더블클릭하여 수정할 수 있다.</p>
+
+<p>변경할 수 있는 심볼은 각 레이어의 Shape Type에 맞는 심볼이 나온다.</p>
+
+<p><img src="/assets/img/QGIS3/useage_5.png" alt="Image" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">Point Type의 Layer</code></p>
+
+<p><img src="/assets/img/QGIS3/useage_6.png" alt="Image" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">PolyLine의 Layer</code></p>
+
+<p>나는 각 레이어 식별을 쉽게하기 위해 색을 조정했다.</p>
+
+<p><img src="/assets/img/QGIS3/useage_7.png" alt="Image" /></p>
+
+<h3 id="데이터-조회">데이터 조회</h3>
+
+<p>특정 데이터의 정보를 확인하기 위해서는 상단 바에서 객체 식별을 선택 후 확인해야한다.</p>
+
+<p><img src="/assets/img/QGIS3/useage_8.png" alt="Image" /></p>
+
+<p>‘A1_NODE’의 데이터를 확인하고 싶을 시, 레이어 탭에서 A1_NODE레이어를 선택 후 확인해야한다.</p>
+
+<p><img src="/assets/img/QGIS3/useage_9.png" alt="Image" /></p>
+
+<p>선택한 데이터는 식별 결과 탭에서 확인 가능하다.</p>
+
+<p>특정 데이터의 속성을 검색하고 싶을 시 상단 바에서 <code class="language-plaintext highlighter-rouge">속성테이블 열기</code>를 클릭하거나 F6를 눌러 속성테이블을 켤 수 있다.</p>
+
+<p><img src="/assets/img/QGIS3/useage_10.png" alt="Image" /></p>
+
+<p><img src="/assets/img/QGIS3/useage_13.png" alt="Image" /></p>
+
+<p>‘A1_NODE’의 속성 테이블</p>
+
+<p><img src="/assets/img/QGIS3/useage_11.png" alt="Image" /></p>
+
+<p>속성테이블의 상단 바에서 <code class="language-plaintext highlighter-rouge">서식을 이용해서 객체 선택/필터링</code> 을 선택하거나 Ctrl + F를 입력하여 검색란을 열 수 있다.</p>
+
+<p><img src="/assets/img/QGIS3/useage_12.png" alt="Image" />
+검색하려는 속성의 우측 <code class="language-plaintext highlighter-rouge">필드제외</code> 콤보박스를 클릭하면 검색 조건을 변경할 수 있다.</p>
+
+<p>검색하려는 속성을 입력한 후 아래의 검색 방법 버튼을 클릭하여 특정 속성을 검색할 수 있다.</p>]]></content><author><name>Mindol</name></author><category term="QGIS" /><category term="QGIS" /><category term="shapefile" /><summary type="html"><![CDATA[QGIS3 useage]]></summary></entry><entry><title type="html">Shapefile Format</title><link href="http://localhost:4000/study/2023/05/19/%EA%B3%B5%EB%B6%80-Shapefile-Format.html" rel="alternate" type="text/html" title="Shapefile Format" /><published>2023-05-19T06:00:01+09:00</published><updated>2023-05-19T06:00:01+09:00</updated><id>http://localhost:4000/study/2023/05/19/%5B%EA%B3%B5%EB%B6%80%5DShapefile%20Format</id><content type="html" xml:base="http://localhost:4000/study/2023/05/19/%EA%B3%B5%EB%B6%80-Shapefile-Format.html"><![CDATA[<h1 id="tmi">TMI</h1>
 <hr />
 <p>교내 연구실에서 연구 진행 중 Shapefile format 분석을 의뢰받아 정리하여 요약</p>
 
@@ -1535,98 +1616,4 @@ scaffold의 기능: navigation bar 구현, bottom tab bar, 화면 중앙 정렬 
 
 <h2 id="구성-요소">구성 요소</h2>
 <hr />
-<p>클래스에 커서를 올려 놓으면 클래스의 구성이 나오는데, 그것으로 무엇을 할 수 있는지 유추해 볼 수 있음, 자주 사용하도록 하자</p>]]></content><author><name>Mindol</name></author><category term="Flutter" /><category term="Flutter" /><category term="Dart" /><summary type="html"><![CDATA[플러터의 기초 공부]]></summary></entry><entry><title type="html">[jekyll] - markdown파일로 포스팅</title><link href="http://localhost:4000/web/2023/01/26/markdown%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%ED%8F%AC%EC%8A%A4%ED%8C%85.html" rel="alternate" type="text/html" title="[jekyll] - markdown파일로 포스팅" /><published>2023-01-26T06:00:01+09:00</published><updated>2023-01-26T06:00:01+09:00</updated><id>http://localhost:4000/web/2023/01/26/markdown%EC%9D%84%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%ED%8F%AC%EC%8A%A4%ED%8C%85</id><content type="html" xml:base="http://localhost:4000/web/2023/01/26/markdown%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%ED%8F%AC%EC%8A%A4%ED%8C%85.html"><![CDATA[<h2 id="markdown이란">Markdown이란?</h2>
-<hr />
-<p>마크다운(Markdown)은 일반 텍스트 기반의 경량 마크업 언어.<br /><br />
-일반 텍스트로 서식이 있는 문서를 작성하는 데 사용되며, 일반 마크업 언어에 비해 문법이 쉽고 간단한 것이 특징이다.<br /></p>
-
-<h2 id="포스팅을-하기-전">포스팅을 하기 전</h2>
-<hr />
-<p>Mardown을 지원하는 에디터를 준비해야합니다, 나는 Visual Studio Code를 사용중.</p>
-
-<h2 id="_posts">_posts</h2>
-<hr />
-<p>블로그 디렉토리를 들어가면 대략적으로 이런 형식으로 구성.<br /><br />
-<img src="/assets/img/jekyll/jekyll_post_1.png" alt="image" width="50%" height="50%" /><br />
-포스팅을 하기위해서는 _posts 디렉터리에 markdown파일을 만들어야하며. 만약 _posts 디렉터리가 존재하지 않을 시 _posts라는 디렉터리를 생성.<br />
-<code class="language-plaintext highlighter-rouge">모든 포스트 파일은 _posts 디렉터리 내 위치</code></p>
-
-<h2 id="markdown-파일-생성">Markdown 파일 생성</h2>
-<hr />
-<p>마크다운 파일 생성. 파일 명은 <code class="language-plaintext highlighter-rouge">yyyy-mm-dd-포스트 제목.md</code> 형식으로 만들어야 함.
-<img src="/assets/img/jekyll/jekyll_post_2.png" alt="image" width="100%" height="100%" /><br /></p>
-
-<h2 id="머릿말front-matter-작성">머릿말(Front-Matter) 작성</h2>
-<hr />
-<p>준비했던 에디터로 해당 파일을 열어준 후, 맨 위에 아래처럼 작성한다.</p>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
-<span class="na">layout</span><span class="pi">:</span> <span class="s">post</span>
-<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">포스팅</span><span class="nv"> </span><span class="s">이름"</span>
-<span class="na">excerpt</span><span class="pi">:</span> <span class="s2">"</span><span class="s">소개글"</span>
-<span class="na">categories</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">Category1</span><span class="pi">]</span>
-<span class="na">tag</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">tag1</span><span class="pi">,</span> <span class="nv">tag2</span><span class="pi">,</span> <span class="nv">tag3</span><span class="pi">]</span>
-<span class="na">date</span><span class="pi">:</span> <span class="s">2023-01-26 00:00:00 +0300</span>
-<span class="nn">---</span>
-</code></pre></div></div>
-<p>머릿말은 두개의 <code class="language-plaintext highlighter-rouge">---</code> 사이에 영역을 구분해줘야 한다.<br /><br />
-title: 포스트의 제목을 큰 따옴표로 적어 준다. title을 적어주지 않을 시, 생성한 파일의 포스트 제목 부분이 제목으로 업로드 된다.<br /><br />
-excerpt: 포스트 목록에 보여지는 간단한 소개글.<br />
-<img src="/assets/img/jekyll/jekyll_post_3.png" alt="image" width="20%" height="20%" /><br /><br />
-categories: 포스트의 카테고리<br /><br />
-tags: 카테고리와의 차이로 카테고리는 sub url이 붙는 페이지가 있지만 태그는 없다, 카테고리보다 좀 더 세부적으로 나눌 수 있다.<br /><br />
-date: 포스팅 날짜</p>
-
-<h2 id="포스트-내용-확인">포스트 내용 확인</h2>
-<hr />
-<p>나는 포스트 내용을 확인할 때 두가지 방법을 사용한다.<br /><br />
-첫째로 Visual Studio Code에서 지원하는 Preview기능으로, 마크다운 파일의 내용을 확인할 수 있다.<br />
-<img src="/assets/img/jekyll/jekyll_post_4.png" alt="image" width="100%" height="100%" /><br />
-에디터의 상단 UI중 빨간 네모 버튼을 눌러주면<br />
-<img src="/assets/img/jekyll/jekyll_post_5.png" alt="image" width="50%" height="50%" /><br />
-이렇게 마크다운 형식의 파일 내용을 확인할 수 있다.<br /><br />
-두번째로 로컬 서버를 열어 블로그에 적용될 모습을 확인하는 방법이다.<br />
-cmd로 블로그 디렉터리로 이동 후 <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code>명령어를 입력 하면 로컬 환경에서 jekyll 서버를 가동할 수 있다.<br />
-url에 <code class="language-plaintext highlighter-rouge">127.0.0.1:4000</code>이나 <code class="language-plaintext highlighter-rouge">localhost:4000</code>을 입력하여 블로그에 접속할 수 있다.<br />
-<img src="/assets/img/jekyll/jekyll_post_6.png" alt="image" width="50%" height="50%" /><br /></p>
-
-<h2 id="간단한-markdown-문법">간단한 Markdown 문법</h2>
-<hr />
-<p><code class="language-plaintext highlighter-rouge">#</code>,<code class="language-plaintext highlighter-rouge">##</code>,<code class="language-plaintext highlighter-rouge">###</code>: HTML의 <code class="language-plaintext highlighter-rouge">&lt;h1&gt;</code>,<code class="language-plaintext highlighter-rouge">&lt;h2&gt;</code>,<code class="language-plaintext highlighter-rouge">&lt;h3&gt;</code> 태그와 같다 주로 하나의 소제목이나,<br />
-어떠한 글을 강조할 때 사용한다<br /><br /></p>
-
-<p><code class="language-plaintext highlighter-rouge">[text](url)</code>: HTML의 <code class="language-plaintext highlighter-rouge">&lt;a href:"url"&gt;text&lt;/a&gt;</code>와 같은 역할을 한다.<br />
-text에 링크를 걸 수 있다.<br />
-주로 하이퍼링크나, 파일 다운로드에 사용된다.<br />
-ex) <a href="https://hhh57463.github.io">블로그주소</a><br /><br /></p>
-
-<p><code class="language-plaintext highlighter-rouge">![image](이미지 파일 위치)</code>: 이미지를 삽입할 때 사용한다.<br />
-나는 블로그 디렉터리 내의 assets파일 내<br />
-img디렉터리를 생성하여 이미지를 관리한다.<br />
-<code class="language-plaintext highlighter-rouge">![image](이미지 파일){: width="50%" height="50%"}</code><br />
-이런식으로 이미지의 크기를 조절할 수 있다. (위의 예시는 이미지 크기 50%)<br /><br /></p>
-
-<p><code class="language-plaintext highlighter-rouge">+ 내용</code>, <code class="language-plaintext highlighter-rouge">- 내용</code>: HTML의 <code class="language-plaintext highlighter-rouge">&lt;li&gt;</code> 태그와 같은 역할, 주로 리스트를 표시할 때 사용한다.<br /></p>
-
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sb">` `</span>: 두개의 <span class="err">`</span> 사이의 어떠한 텍스트를 작성하면 해당 텍스트를 강조할 수 있다
-</code></pre></div></div>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">: 두 개의 ``` 사이를 코드블럭으로 만든다.
-</span><span class="sb">첫 ```다음 언어 이름을 적으면 해당 언어의 코드블럭으로 만든다.
-</span></code></pre></div></div>
-<p>```python을 사용한 예시</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-
-<span class="k">def</span> <span class="nf">min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
-
-<span class="k">def</span> <span class="nf">mul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
-
-<span class="k">def</span> <span class="nf">div</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
-</code></pre></div></div>
-
-<p><code class="language-plaintext highlighter-rouge">&lt;br&gt;</code>: 줄바꿈 태그, Enter키로 2칸의 공백을 만들면 <code class="language-plaintext highlighter-rouge">&lt;br&gt;</code>로 간주된다.<br /><br /></p>
-
-<p>💡 마크다운 내에서는 이모지를 사용할 수 있으며, HTML의 태그를 사용할 수 있다.<br />
-나는 주로 <a href="https://www.emojiengine.com/ko/">링크</a>에서 이모지를 가져와 사용한다.<br /></p>]]></content><author><name>Mindol</name></author><category term="web" /><category term="jekyll" /><category term="web" /><category term="markdown" /><category term="github" /><summary type="html"><![CDATA[마크다운파일을 이용한 블로그 포스팅]]></summary></entry></feed>
+<p>클래스에 커서를 올려 놓으면 클래스의 구성이 나오는데, 그것으로 무엇을 할 수 있는지 유추해 볼 수 있음, 자주 사용하도록 하자</p>]]></content><author><name>Mindol</name></author><category term="Flutter" /><category term="Flutter" /><category term="Dart" /><summary type="html"><![CDATA[플러터의 기초 공부]]></summary></entry></feed>
