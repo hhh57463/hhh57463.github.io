@@ -7,23 +7,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>QGIS3 사용법 | Mindol</title>
+<title>QGIS3를 이용한 Shapefile 편집 | Mindol</title>
 <meta name="generator" content="Jekyll v3.9.2" />
-<meta property="og:title" content="QGIS3 사용법" />
+<meta property="og:title" content="QGIS3를 이용한 Shapefile 편집" />
 <meta name="author" content="Mindol" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="QGIS3 useage" />
-<meta property="og:description" content="QGIS3 useage" />
-<link rel="canonical" href="http://localhost:4000/qgis/2023/05/23/QGIS3-%EC%82%AC%EC%9A%A9%EB%B2%95.html" />
-<meta property="og:url" content="http://localhost:4000/qgis/2023/05/23/QGIS3-%EC%82%AC%EC%9A%A9%EB%B2%95.html" />
+<meta name="description" content="Shapefile edit" />
+<meta property="og:description" content="Shapefile edit" />
+<link rel="canonical" href="http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html" />
+<meta property="og:url" content="http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html" />
 <meta property="og:site_name" content="Mindol" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-05-23T06:00:01+09:00" />
+<meta property="article:published_time" content="2023-05-24T06:00:01+09:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="QGIS3 사용법" />
+<meta property="twitter:title" content="QGIS3를 이용한 Shapefile 편집" />
 <meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-05-23T06:00:01+09:00","datePublished":"2023-05-23T06:00:01+09:00","description":"QGIS3 useage","headline":"QGIS3 사용법","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/qgis/2023/05/23/QGIS3-%EC%82%AC%EC%9A%A9%EB%B2%95.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/MinTa.png"},"name":"Mindol"},"url":"http://localhost:4000/qgis/2023/05/23/QGIS3-%EC%82%AC%EC%9A%A9%EB%B2%95.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-05-24T06:00:01+09:00","datePublished":"2023-05-24T06:00:01+09:00","description":"Shapefile edit","headline":"QGIS3를 이용한 Shapefile 편집","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/MinTa.png"},"name":"Mindol"},"url":"http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -166,96 +166,143 @@
 
   <header class="post-header">
 
-    <h1 class="post-title p-name" itemprop="name headline">QGIS3 사용법</h1>
-    <p class="post-meta"><time class="dt-published" datetime="2023-05-23T06:00:01+09:00" itemprop="datePublished">
-        May 23, 2023
+    <h1 class="post-title p-name" itemprop="name headline">QGIS3를 이용한 Shapefile 편집</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-05-24T06:00:01+09:00" itemprop="datePublished">
+        May 24, 2023
       </time></p>
 
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="qgis란">QGIS란?</h2>
+    <h2 id="tmi">TMI</h2>
 
 <hr />
 
-<p>QGIS: 공간데이터 조회, 편집, 분석 기능을 제공하는 대표적인 오픈소스 데스크탑 지리정보시스템(GIS) 소프트웨어.</p>
+<p>해당 포스트는 국토지리정보원의 정밀 도로지도(NGII)를 예로 들고 있음.<br /><br />
+<a href="https://hhh57463.github.io/qgis/2023/05/22/QGIS3-%EC%82%AC%EC%9A%A9%EB%B2%95.html">QGIS3 사용법</a></p>
 
-<p><a href="[https://www.qgis.org/ko/site/](https://www.qgis.org/ko/site/)">설치링크</a></p>
-
-<h2 id="tmi">TMI</h2>
-
-<hr />
-
-<p>해당 포스트는 국토지리정보원의 정밀 도로지도(NGII)를 예로 들고 있음.</p>
-
-<h2 id="qgis3-사용법">QGIS3 사용법</h2>
+<h2 id="shapefile-편집">Shapefile 편집</h2>
 
 <hr />
 
-<h3 id="레이어-추가제거">레이어 추가/제거</h3>
+<h3 id="편집모드">편집모드</h3>
 
-<p>QGIS3를 실행하면 아래와 같은 화면이 시작된다.</p>
+<p>shapefile을 수정할 때는 항상 편집모드가 켜져야한다. 이는 QGIS3의 상단바에 <code class="language-plaintext highlighter-rouge">편집 모드 전환</code> 을 이용하여 켤 수 있다.</p>
 
-<p><img src="/assets/img/QGIS3/useage_1.png" alt="Image" /></p>
+<p><img src="/assets/img/QGIS3/edit_1.png" alt="Image" /></p>
 
-<p><img src="/assets/img/QGIS3/useage_2.png" alt="Image" /></p>
+<p>편집 모드를 켜면 특정 기능들을 사용할 수 있게 버튼들이 활성화 된다.</p>
 
-<p>QGIS3에 Shapefile(.shp)을 올리고 싶으면 좌하단 레이어 탭에 Shapefile을 Drag&amp;Drop한다.</p>
+<p><img src="/assets/img/QGIS3/edit_2.png" alt="Image" /></p>
 
-<p>특정 레이어를 제외하고 싶을 시 레이어 탭에서 해당 레이어의 이름 좌측 체크박스로 껏다 켤 수 있다.</p>
+<table>
+  <thead>
+    <tr>
+      <th>기능</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>레이어 편집 내용 저장</td>
+      <td>해당 레이어에서 변경된 점을 저장한다.</td>
+    </tr>
+    <tr>
+      <td>객체 추가</td>
+      <td>해당 레이어에 맞는 Shape Type을 추가한다.</td>
+    </tr>
+    <tr>
+      <td>꼭짓점 도구</td>
+      <td>현재 있는 객체의 꼭짓점을 기준으로 객체를 수정한다.</td>
+    </tr>
+    <tr>
+      <td>선택한 모든 객체의 속성을 동시에 수정</td>
+      <td>선택한 모든 객체를 동일한 값으로 수정할 수 있다.</td>
+    </tr>
+    <tr>
+      <td>선택 삭제</td>
+      <td>선택한 객체를 제거한다.</td>
+    </tr>
+    <tr>
+      <td>잘라내기</td>
+      <td>선택한 객체를 잘라낸다.</td>
+    </tr>
+    <tr>
+      <td>객체 복사</td>
+      <td>선택한 객체를 복사한다.</td>
+    </tr>
+    <tr>
+      <td>객체 붙여넣기</td>
+      <td>복사한 객체를 붙여넣는다.</td>
+    </tr>
+  </tbody>
+</table>
 
-<p><img src="/assets/img/QGIS3/useage_3.png" alt="Image" /></p>
+<h2 id="데이터-수정">데이터 수정</h2>
 
-<p><code class="language-plaintext highlighter-rouge">A2_LINK의 체크박스 해제 후 모습</code></p>
+<hr />
 
-<p><img src="/assets/img/QGIS3/useage_4.png" alt="Image" /></p>
+<h3 id="데이터-속성값-수정">데이터 속성값 수정</h3>
 
-<p>특정 레이어를 제거하고 싶을 시 레이어 선택 후 레이어 탭 중 상단 바에서 우측에 있는 <code class="language-plaintext highlighter-rouge">레이어/그룹 제거</code> 버튼을 클릭하거나, Ctrl + D를 사용하여 제거할 수 있다.</p>
+<p><code class="language-plaintext highlighter-rouge">이는 .shp를 수정하는 것이 아닌 .dbf의 요소를 수정하는 작업이다.</code></p>
 
-<p>각 레이어의 심볼을 변경하고 싶을 경우 레이어 탭의 각 레이어를 더블클릭하여 수정할 수 있다.</p>
+<p>편집 모드가 켜진 상태에서 객체를 식별해준다.</p>
 
-<p>변경할 수 있는 심볼은 각 레이어의 Shape Type에 맞는 심볼이 나온다.</p>
+<p><img src="/assets/img/QGIS3/edit_3.png" alt="Image" /></p>
 
-<p><img src="/assets/img/QGIS3/useage_5.png" alt="Image" /></p>
+<p>식별 결과 탭에 상단에 있는 <code class="language-plaintext highlighter-rouge">객체 양식 편집</code> 버튼을 선택하여 객체 속성을 수정할 수 있다.</p>
 
-<p><code class="language-plaintext highlighter-rouge">Point Type의 Layer</code></p>
+<p><img src="/assets/img/QGIS3/edit_4.png" alt="Image" /></p>
 
-<p><img src="/assets/img/QGIS3/useage_6.png" alt="Image" /></p>
+<h2 id="shapefile-수정">Shapefile 수정</h2>
 
-<p><code class="language-plaintext highlighter-rouge">PolyLine의 Layer</code></p>
+<hr />
 
-<p>나는 각 레이어 식별을 쉽게하기 위해 색을 조정했다.</p>
+<h3 id="데이터-수정-1">데이터 수정</h3>
 
-<p><img src="/assets/img/QGIS3/useage_7.png" alt="Image" /></p>
+<p>상단 바 중 <code class="language-plaintext highlighter-rouge">영역 또는 단일 클릭으로 객체 선택</code> 버튼을 선택한다.</p>
 
-<h3 id="데이터-조회">데이터 조회</h3>
+<p><img src="/assets/img/QGIS3/edit_5.png" alt="Image" /></p>
 
-<p>특정 데이터의 정보를 확인하기 위해서는 상단 바에서 객체 식별을 선택 후 확인해야한다.</p>
+<p><img src="/assets/img/QGIS3/edit_6.png" alt="Image" /></p>
 
-<p><img src="/assets/img/QGIS3/useage_8.png" alt="Image" /></p>
+<p>해당 상태로 객체를 선택해주면 객체 위에 X표시가 나타난다</p>
 
-<p>‘A1_NODE’의 데이터를 확인하고 싶을 시, 레이어 탭에서 A1_NODE레이어를 선택 후 확인해야한다.</p>
+<p>상단 탭의 <code class="language-plaintext highlighter-rouge">꼭짓점 도구</code> 를 선택하여 Drag &amp; Drop 하면 해당 꼭짓점의 객체를 이동시킬 수 있다.</p>
 
-<p><img src="/assets/img/QGIS3/useage_9.png" alt="Image" /></p>
+<p><img src="/assets/img/QGIS3/shapefile_edit_1.gif" alt="Image" /></p>
 
-<p>선택한 데이터는 식별 결과 탭에서 확인 가능하다.</p>
+<p><code class="language-plaintext highlighter-rouge">Point형의 객체를 선택하면 해당 Point를 이동시킬 수 있다.</code></p>
 
-<p>특정 데이터의 속성을 검색하고 싶을 시 상단 바에서 <code class="language-plaintext highlighter-rouge">속성테이블 열기</code>를 클릭하거나 F6를 눌러 속성테이블을 켤 수 있다.</p>
+<p>만약 PolyLine의 Point(지점)을 제거하고 싶다면 객체를 선택한 후 x표시가 나타난 상태에서 해당 객체를 우클릭하면 <code class="language-plaintext highlighter-rouge">꼭짓점 편집기</code> 가 켜진다.</p>
 
-<p><img src="/assets/img/QGIS3/useage_10.png" alt="Image" /></p>
+<p><img src="/assets/img/QGIS3/edit_7.png" alt="Image" /></p>
 
-<p><img src="/assets/img/QGIS3/useage_13.png" alt="Image" /></p>
+<p>꼭짓점 편집기에서 특정 튜플을 선택하면 객체에도 표시가 되는데 이 상태에서 <code class="language-plaintext highlighter-rouge">Delete</code> 키를 눌러주면 해당 꼭짓점을 삭제할 수 있다.</p>
 
-<p>‘A1_NODE’의 속성 테이블</p>
+<h3 id="데이터-삽입">데이터 삽입</h3>
 
-<p><img src="/assets/img/QGIS3/useage_11.png" alt="Image" /></p>
+<p>편집 모드 전환을 선택한 상태로 상단바의 <code class="language-plaintext highlighter-rouge">객체 추가</code> 버튼을 선택한다.</p>
 
-<p>속성테이블의 상단 바에서 <code class="language-plaintext highlighter-rouge">서식을 이용해서 객체 선택/필터링</code> 을 선택하거나 Ctrl + F를 입력하여 검색란을 열 수 있다.</p>
+<p><img src="/assets/img/QGIS3/shapefile_edit_2.gif" alt="Image" /></p>
 
-<p><img src="/assets/img/QGIS3/useage_12.png" alt="Image" />
-검색하려는 속성의 우측 <code class="language-plaintext highlighter-rouge">필드제외</code> 콤보박스를 클릭하면 검색 조건을 변경할 수 있다.</p>
+<p>마우스 좌클릭으로 꼭짓점을 지정한 후 마우스 우클릭으로 완료해준다.</p>
 
-<p>검색하려는 속성을 입력한 후 아래의 검색 방법 버튼을 클릭하여 특정 속성을 검색할 수 있다.</p>
+<p><code class="language-plaintext highlighter-rouge">현재는 선택한 레이어가 PolyLine Type이기 때문에 꼭짓점을 지정해주어야 한다, 선택한 레이어가 Point Type일 시 Point의 위치를 지정해주면 된다.</code></p>
+
+<p>.shp 데이터를 추가했으니 .dbf에 맞는 속성도 정의해 준 후 확인 버튼을 클릭하면 데이터가 추가된다.</p>
+
+<p><img src="/assets/img/QGIS3/edit_8.png" alt="Image" /></p>
+
+<p>해당 객체를 식별 해보면 입력한 속성 값이 들어간 것을 볼 수 있다.</p>
+
+<h2 id="데이터-저장">데이터 저장</h2>
+
+<hr />
+
+<p>모든 편집이 종료되면 레이어 편집 내용 저장을 통해 변경된 내용을 저장해야 한다.</p>
+
+<p><img src="/assets/img/QGIS3/edit_9.png" alt="Image" /></p>
 
   </div>
 
@@ -297,23 +344,15 @@
 
     <nav class="post-pagination" role="navigation">
       
-        <a class="post-previous" href="/study/2023/05/19/%EA%B3%B5%EB%B6%80-Shapefile-Format.html">
+        <a class="post-previous" href="/qgis/2023/05/23/QGIS3-%EC%82%AC%EC%9A%A9%EB%B2%95.html">
           <h4 class="post-pagination-label">Prev</h4>
           <span class="post-pagination-title">
-            <i class="fas fa-arrow-left"></i> Shapefile Format
+            <i class="fas fa-arrow-left"></i> QGIS3 사용법
 
           </span>
         </a>
       
 
-      
-        <a class="post-next" href="/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html">
-          <h4 class="post-pagination-label">Next</h4>
-          <span class="post-pagination-title">
-            QGIS3를 이용한 Shapefile 편집
- <i class="fas fa-arrow-right"></i>
-          </span>
-        </a>
       
     </nav>
   </footer>
