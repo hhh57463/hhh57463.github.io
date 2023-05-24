@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-05-24T17:07:20+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">QGIS3를 이용한 Shapefile 편집</title><link href="http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html" rel="alternate" type="text/html" title="QGIS3를 이용한 Shapefile 편집" /><published>2023-05-24T06:00:01+09:00</published><updated>2023-05-24T06:00:01+09:00</updated><id>http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20Shapefile%20%ED%8E%B8%EC%A7%91</id><content type="html" xml:base="http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html"><![CDATA[<h2 id="tmi">TMI</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-05-24T17:15:34+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">QGIS3를 이용한 Shapefile 편집</title><link href="http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html" rel="alternate" type="text/html" title="QGIS3를 이용한 Shapefile 편집" /><published>2023-05-24T06:00:01+09:00</published><updated>2023-05-24T06:00:01+09:00</updated><id>http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20Shapefile%20%ED%8E%B8%EC%A7%91</id><content type="html" xml:base="http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html"><![CDATA[<h2 id="tmi">TMI</h2>
 
 <hr />
 
@@ -22,40 +22,49 @@
 <table>
   <thead>
     <tr>
+      <th>아이콘</th>
       <th>기능</th>
       <th>설명</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td><img src="/assets/img/QGIS3/Icon/save.png" alt="Image" /></td>
       <td>레이어 편집 내용 저장</td>
       <td>해당 레이어에서 변경된 점을 저장한다.</td>
     </tr>
     <tr>
+      <td><img src="/assets/img/QGIS3/Icon/add.png" alt="Image" /></td>
       <td>객체 추가</td>
       <td>해당 레이어에 맞는 Shape Type을 추가한다.</td>
     </tr>
     <tr>
+      <td><img src="/assets/img/QGIS3/Icon/compass.png" alt="Image" /></td>
       <td>꼭짓점 도구</td>
       <td>현재 있는 객체의 꼭짓점을 기준으로 객체를 수정한다.</td>
     </tr>
     <tr>
+      <td><img src="/assets/img/QGIS3/Icon/alledit.png" alt="Image" /></td>
       <td>선택한 모든 객체의 속성을 동시에 수정</td>
       <td>선택한 모든 객체를 동일한 값으로 수정할 수 있다.</td>
     </tr>
     <tr>
+      <td><img src="/assets/img/QGIS3/Icon/delete.png" alt="Image" /></td>
       <td>선택 삭제</td>
       <td>선택한 객체를 제거한다.</td>
     </tr>
     <tr>
+      <td><img src="/assets/img/QGIS3/Icon/cut.png" alt="Image" /></td>
       <td>잘라내기</td>
       <td>선택한 객체를 잘라낸다.</td>
     </tr>
     <tr>
+      <td><img src="/assets/img/QGIS3/Icon/copy.png" alt="Image" /></td>
       <td>객체 복사</td>
       <td>선택한 객체를 복사한다.</td>
     </tr>
     <tr>
+      <td><img src="/assets/img/QGIS3/Icon/paste.png" alt="Image" /></td>
       <td>객체 붙여넣기</td>
       <td>복사한 객체를 붙여넣는다.</td>
     </tr>

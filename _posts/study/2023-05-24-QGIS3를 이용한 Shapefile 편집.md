@@ -28,16 +28,16 @@ shapefile을 수정할 때는 항상 편집모드가 켜져야한다. 이는 QGI
 
 ![Image](/assets/img/QGIS3/edit_2.png)
 
-| 기능 | 설명 |
-| --- | --- |
-| 레이어 편집 내용 저장 | 해당 레이어에서 변경된 점을 저장한다. |
-| 객체 추가 | 해당 레이어에 맞는 Shape Type을 추가한다. |
-| 꼭짓점 도구 | 현재 있는 객체의 꼭짓점을 기준으로 객체를 수정한다. |
-| 선택한 모든 객체의 속성을 동시에 수정 | 선택한 모든 객체를 동일한 값으로 수정할 수 있다. |
-| 선택 삭제 | 선택한 객체를 제거한다. |
-| 잘라내기 | 선택한 객체를 잘라낸다. |
-| 객체 복사 | 선택한 객체를 복사한다. |
-| 객체 붙여넣기 | 복사한 객체를 붙여넣는다. |
+| 아이콘 | 기능 | 설명 |
+| --- | --- | --- |
+| ![Image](/assets/img/QGIS3/Icon/save.png) | 레이어 편집 내용 저장 | 해당 레이어에서 변경된 점을 저장한다. |
+| ![Image](/assets/img/QGIS3/Icon/add.png) | 객체 추가 | 해당 레이어에 맞는 Shape Type을 추가한다. |
+| ![Image](/assets/img/QGIS3/Icon/compass.png) | 꼭짓점 도구 | 현재 있는 객체의 꼭짓점을 기준으로 객체를 수정한다. |
+| ![Image](/assets/img/QGIS3/Icon/alledit.png) | 선택한 모든 객체의 속성을 동시에 수정 | 선택한 모든 객체를 동일한 값으로 수정할 수 있다. |
+| ![Image](/assets/img/QGIS3/Icon/delete.png) | 선택 삭제 | 선택한 객체를 제거한다. |
+| ![Image](/assets/img/QGIS3/Icon/cut.png) | 잘라내기 | 선택한 객체를 잘라낸다. |
+| ![Image](/assets/img/QGIS3/Icon/copy.png) | 객체 복사 | 선택한 객체를 복사한다. |
+| ![Image](/assets/img/QGIS3/Icon/paste.png) | 객체 붙여넣기 | 복사한 객체를 붙여넣는다. |
 
 ## 데이터 수정
 
