@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-05-24T17:15:34+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">QGIS3를 이용한 Shapefile 편집</title><link href="http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html" rel="alternate" type="text/html" title="QGIS3를 이용한 Shapefile 편집" /><published>2023-05-24T06:00:01+09:00</published><updated>2023-05-24T06:00:01+09:00</updated><id>http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20Shapefile%20%ED%8E%B8%EC%A7%91</id><content type="html" xml:base="http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html"><![CDATA[<h2 id="tmi">TMI</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-03T03:38:23+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">QGIS3를 이용한 Shapefile 편집</title><link href="http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html" rel="alternate" type="text/html" title="QGIS3를 이용한 Shapefile 편집" /><published>2023-05-24T06:00:01+09:00</published><updated>2023-05-24T06:00:01+09:00</updated><id>http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20Shapefile%20%ED%8E%B8%EC%A7%91</id><content type="html" xml:base="http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html"><![CDATA[<h2 id="tmi">TMI</h2>
 
 <hr />
 
@@ -242,7 +242,7 @@
 
 <ul>
   <li>.shp - 피처의 지오메트리(형상)을 저장하는 기본파일</li>
-  <li>.shp - 피처의 기하학의 색인을 저장하는 인덱스 파일</li>
+  <li>.shx - 피처의 기하학의 색인을 저장하는 인덱스 파일</li>
   <li>.dbf - 피처의 속성 정보를 저장하는 dBASE 테이블</li>
 </ul>
 
