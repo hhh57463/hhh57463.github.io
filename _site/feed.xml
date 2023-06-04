@@ -1,4 +1,311 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-03T03:38:23+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">QGIS3를 이용한 Shapefile 편집</title><link href="http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html" rel="alternate" type="text/html" title="QGIS3를 이용한 Shapefile 편집" /><published>2023-05-24T06:00:01+09:00</published><updated>2023-05-24T06:00:01+09:00</updated><id>http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20Shapefile%20%ED%8E%B8%EC%A7%91</id><content type="html" xml:base="http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html"><![CDATA[<h2 id="tmi">TMI</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-05T02:02:46+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">데이터 모델링</title><link href="http://localhost:4000/database/2023/06/04/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%AA%A8%EB%8D%B8%EB%A7%81.html" rel="alternate" type="text/html" title="데이터 모델링" /><published>2023-06-04T06:00:01+09:00</published><updated>2023-06-04T06:00:01+09:00</updated><id>http://localhost:4000/database/2023/06/04/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%AA%A8%EB%8D%B8%EB%A7%81</id><content type="html" xml:base="http://localhost:4000/database/2023/06/04/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%AA%A8%EB%8D%B8%EB%A7%81.html"><![CDATA[<h2 id="데이터-모델링">데이터 모델링</h2>
+
+<hr />
+
+<p>현실 세계를 데이터베이스로 표현하기 위해 추상화하는 작업</p>
+
+<h3 id="데이터-모델링의-특징">데이터 모델링의 특징</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>특징</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>추상화(Abstraction)</td>
+      <td>현실 세계를 간략하게 표현한다.</td>
+    </tr>
+    <tr>
+      <td>단순화(Simplification)</td>
+      <td>누구나 쉽게 이해할 수 있도록 표현한다.</td>
+    </tr>
+    <tr>
+      <td>명확성(Clarity)</td>
+      <td>명확하게 의미가 해석되어야 하고 한 가지 의미를 가져야 한다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="데이터-모델링-단계">데이터 모델링 단계</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>데이터 모델링 단계</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>개념적 모델링</td>
+      <td>- 전사적 관점에서 기업의 데이터를 모델링<br />- 추상화 수준이 가장 높은 수준의 모델링<br />- 계층형 데이터 모델, 네트워크 모델, 관계형 모델에 관계없이 업무 측면에서 모델링</td>
+    </tr>
+    <tr>
+      <td>논리적 모델링</td>
+      <td>- 특정 데이터베이스 모델에 종속<br />- 식별자를 정의하고 관계, 속성 등을 모두 표현<br />- 정규화를 통해 재사용성을 높임</td>
+    </tr>
+    <tr>
+      <td>물리적 모델링</td>
+      <td>- 구축할 데이터베이스 관리 시스템에 테이블, 인덱스 등을 생성하는 단계<br />- 성능, 보안, 가용성 등을 고려하여 데이터베이스 구축</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="데이터-모델링-관점">데이터 모델링 관점</h3>
+
+<ul>
+  <li>데이터: 비즈니스 프로세스에서 사용되는 데이터</li>
+  <li>프로세스: 비즈니스 프로세스에서 수행하는 작업</li>
+  <li>데이터와 프로세스: 프로세스와 데이터 간의 관계</li>
+</ul>
+
+<h3 id="erd-작성-절차">ERD 작성 절차</h3>
+
+<ol>
+  <li>엔터티를 도출하고 그림</li>
+  <li>엔터티를 배치</li>
+  <li>엔터티 간의 관계 설정</li>
+  <li>관계명 서술</li>
+  <li>관계 참여도 표현</li>
+  <li>관계의 필수 여부 표현</li>
+</ol>
+
+<h3 id="3층-스키마-구조">3층 스키마 구조</h3>
+
+<ul>
+  <li>외부 스키마: 사용자 관점으로 응용 프로그램이 접근하는 데이터베이스 정의</li>
+  <li>개념 스키마: 설계자 관점으로 통합 데이터베이스 구조</li>
+  <li>내부 스키마: 개발자 관점으로 데이터베이스의 물리적 저장 구조</li>
+</ul>
+
+<h3 id="엔터티-특징">엔터티 특징</h3>
+
+<ul>
+  <li>식별자: 엔터티는 유일한 식별자가 있어야 한다.</li>
+  <li>인스턴스 집합: 2개 이상의 인스턴스가 있어야 한다.</li>
+  <li>속성: 엔터티는 반드시 속성을 가지고 있다.</li>
+  <li>관계: 엔터티는 다른 엔터티와 최소한 한 개 이상 관계가 있어야 한다.</li>
+  <li>업무: 엔터티는 업무에서 관리되어야 하는 집합이다.</li>
+</ul>
+
+<h2 id="엔터티-종류">엔터티 종류</h2>
+
+<hr />
+
+<p>엔터티의 종류는 유형, 무형에 따른 종류, 엔터티가 발생하는 시점에 따른 종류로 나누어 짐</p>
+
+<h3 id="유형과-무형에-따른-엔터티">유형과 무형에 따른 엔터티</h3>
+
+<ul>
+  <li>유형 엔터티: 업무에서 도출되며 지속적으로 사용되는 엔터티</li>
+  <li>개념 엔터티: 유형 엔터티는 물리적 형태가 있지만, 개념 엔터티는 물리적 형태가 없음</li>
+  <li>사건 엔터티: 비즈니스 프로세스를 실행하면서 생성되는 엔터티</li>
+</ul>
+
+<h3 id="발생-시점에-따른-엔터티-종류">발생 시점에 따른 엔터티 종류</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>종류</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>기본 엔터티</td>
+      <td>-키 엔터티<br />- 다른 엔터티로부터 영향을 받지 않고 독립적으로 생성되는 엔터티</td>
+    </tr>
+    <tr>
+      <td>중심 엔터티</td>
+      <td>- 기본 엔터티와 행위 엔터티 간의 중간에 있는 것<br />- 기본 엔터티로부터 발생되고 행위 엔터티를 생성하는 것</td>
+    </tr>
+    <tr>
+      <td>행위 엔터티</td>
+      <td>- 2개 이상의 엔터티로부터 발생</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="속성attribute">속성(Attribute)</h2>
+
+<hr />
+
+<p>엔터티가 가지는 항목</p>
+
+<h3 id="특징">특징</h3>
+
+<ul>
+  <li>업무에서 관리되는 정보</li>
+  <li>하나의 값만 가짐</li>
+  <li>주식별자에게 함수적으로 종속(기본키 변경시 속성 값도 변경)</li>
+</ul>
+
+<h3 id="종류">종류</h3>
+
+<h3 id="분해-여부에-따른-속성의-종류">분해 여부에 따른 속성의 종류</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>종류</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>단일 속성</td>
+      <td>하나의 의미로 구성된 것</td>
+    </tr>
+    <tr>
+      <td>복합 속성</td>
+      <td>여러 개의 의미가 있는 것</td>
+    </tr>
+    <tr>
+      <td>다중값 속성</td>
+      <td>속성에 여러 개의 값을 가질 수 있는 것</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="특성에-따른-속성의-종류">특성에 따른 속성의 종류</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>종류</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>기본 속성</td>
+      <td>비즈니스 프로세스에서 도출되는 본래의 속성</td>
+    </tr>
+    <tr>
+      <td>설계 속성</td>
+      <td>데이터 모델링 과정에서 발생되는 속성, 유일한 값을 부여</td>
+    </tr>
+    <tr>
+      <td>파생 속성</td>
+      <td>다른 속성에 의해서 만들어지는 속성</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="language-plaintext highlighter-rouge">도메인: 속성이 가질 수 있는 값의 범위</code></p>
+
+<h2 id="관계relationship">관계(Relationship)</h2>
+
+<hr />
+
+<p>엔터티 간의 관련성</p>
+
+<h3 id="관계의-종류">관계의 종류</h3>
+
+<ul>
+  <li>존재 관계: 엔터티 간의 상태를 의미</li>
+  <li>행위 관계: 엔터티 간에 어떠한 행위가 있는 것</li>
+</ul>
+
+<h3 id="관계-차수">관계 차수</h3>
+
+<p>두 개의 엔터티 간에 관계에 참여하는 수를 의미</p>
+
+<h3 id="관계-차수-종류">관계 차수 종류</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>종류</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1대1 관계</td>
+      <td>완전 1대1: 하나의 엔터티에 관계되는 엔터티의 관계가 하나인 경우로, 반드시 존재<br />선택적 1대1: 하나의 엔터티에 관계되는 엔터티의 관계가 하나이거나 없을 수도 있음</td>
+    </tr>
+    <tr>
+      <td>1대N 관계</td>
+      <td>엔터티에 행이 하나 있을 때 다른 엔터티의 값이 여러 개 있는 관계</td>
+    </tr>
+    <tr>
+      <td>M대N 관계</td>
+      <td>두 개 엔터티가 서로 여러 개의 관계를 가지고 있는 것</td>
+    </tr>
+    <tr>
+      <td>필수적, 선택적 관계</td>
+      <td>필수적 관계: 반드시 하나가 있어야 하는 관계<br />선택적 관계: 없을 수도 있는 관계</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="식별-관계와-비식별-관계">식별 관계와 비식별 관계</h3>
+
+<p>식별 관계: 강한 개체의 기본키를 다른 엔터티의 기본키로 가지는 것</p>
+
+<p>강한 개체(Strong Entity)</p>
+<ul>
+  <li>어떤 다른 엔터티에게 의존하지 않고 독립적으로 존재</li>
+  <li>다른 엔터티와 관계를 가질 때 다른 엔터티에게 기본키를 공유함</li>
+  <li>식별 관계로 표현</li>
+  <li>기본키 값이 변경되면 식별 관계(기본키를 공유받은)에 있는 엔터티의 값도 변경</li>
+  <li>강한 텐터티와 관계를 갖는 엔터티는 약한 개체(Weak Entity)가 됨</li>
+</ul>
+
+<p>비식별 관계: 강한 개체의 기본키를 다른 엔터티의 기본키가 아닌 일반 칼럼으로 관계를 가지는 것</p>
+
+<h2 id="엔터티-식별자">엔터티 식별자</h2>
+<hr />
+<p>엔터티를 대표할 수 있는 유일성을 만족하는 속성</p>
+
+<h3 id="키의-종류">키의 종류</h3>
+<ul>
+  <li>기본키(Primary key): 후보키 중에서 엔터티를 대표할 수 있는 키</li>
+  <li>후보키(Candidate key): 유일성과 최소성을 만족하는 키</li>
+  <li>슈퍼키(Super key): 유일성은 만족하지만 최소성을 만족하지 않는 키</li>
+  <li>대체키(Alternate key): 여러 개의 후보키 중에서 기본키를 선정하고 남은 키</li>
+  <li>외래키(Foreign key): 하나 혹은 다수의 다른 테이블의 기본 키 필드를 가리키는 것으로 참조 무결성을 확인하기 위해 사용되는 키</li>
+</ul>
+
+<h3 id="주식별자기본키-primary-key">주식별자(기본키, Primary key)</h3>
+<ul>
+  <li>최소성: 최소성을 만족하는 키</li>
+  <li>대표성: 엔터티를 대표할 수 있어야 함</li>
+  <li>유일성: 엔터티의 인스턴스를 유일하게 식별 가능</li>
+  <li>불변성: 자주 변경되지 않아야 함</li>
+</ul>
+
+<h3 id="실별자의-종류">실별자의 종류</h3>
+<p>식별자는 대표성, 생성 여부, 속성의 수, 대체 여부로 분류</p>
+
+<h3 id="대표성-여부에-따른-식별자의-종류">대표성 여부에 따른 식별자의 종류</h3>
+<ul>
+  <li>주식별자: 유일성과 최소성을 만족하면서 엔터티를 대표하는 식별자로, 다른 엔터티와 참조 관계로 연결될 수 있음</li>
+  <li>보조 식별자: 유일성과 최소성은 만족하지만 대표성을 만족하지 못하는 식별자</li>
+</ul>
+
+<h3 id="생성-여부에-따른-식별자의-종류">생성 여부에 따른 식별자의 종류</h3>
+<ul>
+  <li>내부 식별자: 엔터티 내부에서 스스로 생성되는 식별자</li>
+  <li>외부 식별자: 다른 엔터티와의 관계로 인해 만들어지는 식별자</li>
+</ul>
+
+<h3 id="속성의-수에-따른-식별자의-종류">속성의 수에 따른 식별자의 종류</h3>
+<ul>
+  <li>단일 식별자: 하나의 속성으로 구성</li>
+  <li>복합 식별자: 두 개 이상의 속성으로 구성</li>
+</ul>
+
+<h3 id="대체-여부에-따른-식별자의-종류">대체 여부에 따른 식별자의 종류</h3>
+<ul>
+  <li>본질 식별자: 비즈니스 프로세스에서 만들어지는 식별자</li>
+  <li>인조 식별자: 인위적으로 만들어지는 식별자</li>
+</ul>]]></content><author><name>Mindol</name></author><category term="Database" /><category term="Database" /><category term="study" /><summary type="html"><![CDATA[데이터 모델링 개념]]></summary></entry><entry><title type="html">QGIS3를 이용한 Shapefile 편집</title><link href="http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html" rel="alternate" type="text/html" title="QGIS3를 이용한 Shapefile 편집" /><published>2023-05-24T06:00:01+09:00</published><updated>2023-05-24T06:00:01+09:00</updated><id>http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20Shapefile%20%ED%8E%B8%EC%A7%91</id><content type="html" xml:base="http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html"><![CDATA[<h2 id="tmi">TMI</h2>
 
 <hr />
 
@@ -1516,187 +1823,4 @@ Synchronize Layer Weights 애니메이션 동기화 횟수인것 같음<br /></p
       <td>연속</td>
     </tr>
   </tbody>
-</table>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="unity" /><category term="network" /><summary type="html"><![CDATA[Photon-PUN]]></summary></entry><entry><title type="html">[Flutter] - UI</title><link href="http://localhost:4000/flutter/2023/01/29/Flutter-%EA%B8%B0%EC%B4%88-UI.html" rel="alternate" type="text/html" title="[Flutter] - UI" /><published>2023-01-29T06:00:01+09:00</published><updated>2023-01-29T06:00:01+09:00</updated><id>http://localhost:4000/flutter/2023/01/29/Flutter%20%EA%B8%B0%EC%B4%88-UI</id><content type="html" xml:base="http://localhost:4000/flutter/2023/01/29/Flutter-%EA%B8%B0%EC%B4%88-UI.html"><![CDATA[<h2 id="시작하기-전">시작하기 전…</h2>
-<hr />
-<p><img src="/assets/img/Flutter/flutter_UI_1.png" alt="image" width="50%" height="50%" /><br />
-클래스에 커서를 올려서 확인해보면 nullsafety가 되어있는 필드들은 꼭 필요하지 않다는것 같음.<br />
-(근데 나머진 다 디폴트로 들어가있는데…? 아직 잘 모르겠음)<br /></p>
-
-<h2 id="color">Color</h2>
-<hr />
-<p>Colors.색상 다음 .을 입력하면 색조를 고를 수 있음 (얼마나 어두워질것인지)<br />
-<img src="/assets/img/Flutter/flutter_UI_2.png" alt="image" width="50%" height="50%" /><br />
-Color(0xFF색상코드)로 색상지정이 가능<br />
-<img src="/assets/img/Flutter/flutter_UI_3.png" alt="image" width="50%" height="50%" /><br />
-색상.Opacity()로 투명도를 조정할 수 있다<br />
-<img src="/assets/img/Flutter/flutter_UI_4.png" alt="image" width="50%" height="50%" /><br /></p>
-
-<h2 id="column">Column</h2>
-<hr />
-<p>자식으로 다른 위젯을 넣으려면 Column 클래스 이용<br />
-하나의 Column에 두개의 Text를 넣는 예제<br /></p>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">home:</span> <span class="n">Scaffold</span><span class="p">(</span>
-        <span class="nl">backgroundColor:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">black</span><span class="p">,</span>
-        <span class="nl">body:</span> <span class="n">Column</span><span class="p">(</span>
-          <span class="nl">children:</span> <span class="p">[</span>
-            <span class="n">Row</span><span class="p">(</span>
-              <span class="nl">children:</span> <span class="p">[</span>
-              <span class="n">Column</span><span class="p">(</span>
-                  <span class="nl">children:</span> <span class="p">[</span>
-                    <span class="n">Text</span><span class="p">(</span>
-                      <span class="s">'Hey, Mindol'</span><span class="p">,</span>
-                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
-                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
-                      <span class="p">),</span>
-                    <span class="p">),</span>
-                    <span class="n">Text</span><span class="p">(</span>
-                      <span class="s">'Welcom Back'</span><span class="p">,</span>
-                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
-                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
-                        <span class="p">),</span>
-                    <span class="p">),</span>
-                  <span class="p">],</span>
-                <span class="p">)</span>
-              <span class="p">]</span>
-            <span class="p">)</span>
-          <span class="p">],</span>
-        <span class="p">)</span>
-      <span class="p">),</span>
-</code></pre></div></div>
-<p>결과<br />
-<img src="/assets/img/Flutter/flutter_UI_5.png" alt="image" width="50%" height="50%" /><br />
-너무 위에 있어 아래로 좀 내려야 할듯함 그럴때 사용하는게 SizedBox<br /></p>
-
-<h2 id="sizedbox">SizedBox</h2>
-<hr />
-<p>크기가 있는 박스, 공간을 만들때 사용</p>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">body:</span> <span class="n">Column</span><span class="p">(</span>
-          <span class="nl">children:</span> <span class="p">[</span>
-            <span class="n">SizedBox</span><span class="p">(</span>
-              <span class="nl">height:</span> <span class="mi">80</span><span class="p">,</span>
-            <span class="p">),</span>
-            <span class="n">Row</span><span class="p">(</span>
-              <span class="nl">children:</span> <span class="p">[</span>
-              <span class="n">Column</span><span class="p">(</span>
-                  <span class="nl">children:</span> <span class="p">[</span>
-                    <span class="n">Text</span><span class="p">(</span>
-                      <span class="s">'Hey, Mindol'</span><span class="p">,</span>
-                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
-                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
-                      <span class="p">),</span>
-                    <span class="p">),</span>
-                    <span class="n">Text</span><span class="p">(</span>
-                      <span class="s">'Welcom Back'</span><span class="p">,</span>
-                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
-                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
-                        <span class="p">),</span>
-                    <span class="p">),</span>
-                  <span class="p">],</span>
-                <span class="p">)</span>
-              <span class="p">]</span>
-            <span class="p">)</span>
-          <span class="p">],</span>
-        <span class="p">)</span>
-</code></pre></div></div>
-<p>Column안에 SizedBox의 높이를 80으로 지정해주고 두개의 Text를 넣어준 예제<br /><br />
-결과<br />
-<img src="/assets/img/Flutter/flutter_UI_6.png" alt="image" width="50%" height="50%" /><br />
-위에 SizedBox가 생긴 후 Text가 그려지는것을 볼 수 있다<br />
-이제 텍스트를 오른쪽으로 옮겨보자<br /></p>
-
-<h2 id="alignment정렬">Alignment(정렬)</h2>
-<hr />
-<p>Row의 MainAxisAlignment은 수평방향이지만<br />
-Column의 MainAxisAlignment은 수직방향 <br /></p>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">home:</span> <span class="n">Scaffold</span><span class="p">(</span>
-        <span class="nl">backgroundColor:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">black</span><span class="p">,</span>
-        <span class="nl">body:</span> <span class="n">Column</span><span class="p">(</span>
-          <span class="nl">children:</span> <span class="p">[</span>
-            <span class="n">SizedBox</span><span class="p">(</span>
-              <span class="nl">height:</span> <span class="mi">80</span><span class="p">,</span>
-            <span class="p">),</span>
-            <span class="n">Row</span><span class="p">(</span>
-              <span class="nl">mainAxisAlignment:</span> <span class="n">MainAxisAlignment</span><span class="o">.</span><span class="na">end</span><span class="p">,</span> <span class="c1">// &lt;- Row의 정렬 속성 변경</span>
-              <span class="nl">children:</span> <span class="p">[</span>
-              <span class="n">Column</span><span class="p">(</span>
-                  <span class="nl">children:</span> <span class="p">[</span>
-                    <span class="n">Text</span><span class="p">(</span>
-                      <span class="s">'Hey, Mindol'</span><span class="p">,</span>
-                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
-                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
-                      <span class="p">),</span>
-                    <span class="p">),</span>
-                    <span class="n">Text</span><span class="p">(</span>
-                      <span class="s">'Welcom Back'</span><span class="p">,</span>
-                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
-                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
-                        <span class="p">),</span>
-                    <span class="p">),</span>
-                  <span class="p">],</span>
-                <span class="p">)</span>
-              <span class="p">]</span>
-            <span class="p">)</span>
-          <span class="p">],</span>
-        <span class="p">)</span>
-      <span class="p">),</span>
-</code></pre></div></div>
-<p>Row클래스의 mainAxisAlignment를 start에서 end로 변경해주었다<br /><br />
-결과<br />
-<img src="/assets/img/Flutter/flutter_UI_7.png" alt="image" width="50%" height="50%" /><br />
-이제 Text의 크기를 변경해줄 것이다<br /></p>
-
-<h2 id="text">Text</h2>
-<hr />
-<p>첫번째 텍스트의 크기를 더 크고, 진하게 할 것이다<br /></p>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">body:</span> <span class="n">Column</span><span class="p">(</span>
-          <span class="nl">children:</span> <span class="p">[</span>
-            <span class="n">SizedBox</span><span class="p">(</span>
-              <span class="nl">height:</span> <span class="mi">80</span><span class="p">,</span>
-            <span class="p">),</span>
-            <span class="n">Row</span><span class="p">(</span>
-              <span class="nl">mainAxisAlignment:</span> <span class="n">MainAxisAlignment</span><span class="o">.</span><span class="na">end</span><span class="p">,</span>
-              <span class="nl">children:</span> <span class="p">[</span>
-              <span class="n">Column</span><span class="p">(</span>
-                  <span class="nl">children:</span> <span class="p">[</span>
-                    <span class="n">Text</span><span class="p">(</span>
-                      <span class="s">'Hey, Mindol'</span><span class="p">,</span>
-                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
-                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
-                        <span class="nl">fontSize:</span> <span class="mi">38</span><span class="p">,</span>
-                        <span class="nl">fontWeight:</span> <span class="n">FontWeight</span><span class="o">.</span><span class="na">w600</span><span class="p">,</span>
-                      <span class="p">),</span>
-                    <span class="p">),</span>
-                    <span class="n">Text</span><span class="p">(</span>
-                      <span class="s">'Welcom Back'</span><span class="p">,</span>
-                      <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span>
-                        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">white</span><span class="p">,</span>
-                        <span class="p">),</span>
-                    <span class="p">),</span>
-                  <span class="p">],</span>
-                <span class="p">)</span>
-              <span class="p">]</span>
-            <span class="p">)</span>
-          <span class="p">],</span>
-        <span class="p">)</span>
-</code></pre></div></div>
-<p>fontSize로 폰트의 크기를 정해고, fontWeight로 더 진하게 해줄 것이다<br /><br />
-결과<br />
-<img src="/assets/img/Flutter/flutter_UI_8.png" alt="image" width="50%" height="50%" /><br />
-현재 텍스트는 가운데 정렬을 하고있지만 모든 텍스트를 오른쪽에 붙이고 싶다<br />
-하지만 Column의 MainAxis는 수직이고, CrossAxis는 수평이다(Row와 반대)<br />
-Column 클래스의 crossAxisAlignment값을 CrossAxisAlignment.end로 변경<br /><br />
-결과<br />
-<img src="/assets/img/Flutter/flutter_UI_9.png" alt="image" width="50%" height="50%" /><br />
-잘 정렬되는 것을 볼 수 있다.<br />
-하지만 너무 오른쪽에 붙어 있는것 같아 공백을 조금 주고 싶다<br /></p>
-
-<h2 id="padding">Padding</h2>
-<hr />
-<p>지금까지 만들었던 Column을 Padding으로 감싸서 전체적으로 공백을 주려한다.<br />
-padding을 사용할때는 padding을 명시해야하는데,<br />
-padding클래스에<code class="language-plaintext highlighter-rouge">padding: EdgeInsets</code>를 입력하면 알 수 있다.<br /></p>
-<ul>
-  <li>EdgeInsets.all(): 값만큼 화면의 상하좌우 모두 padding을 줌<br /></li>
-  <li>EdgeInsets.only(): 상하좌우 중 한 가지를 구체적으로 정할 수 있음<br /></li>
-  <li>EdgeInsets.symmetric(): 수직 padding과 수평 padding을 지정할 수 있음<br /></li>
-</ul>]]></content><author><name>Mindol</name></author><category term="Flutter" /><category term="Flutter" /><category term="Dart" /><summary type="html"><![CDATA[플러터의 기초 공부]]></summary></entry></feed>
+</table>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="unity" /><category term="network" /><summary type="html"><![CDATA[Photon-PUN]]></summary></entry></feed>
