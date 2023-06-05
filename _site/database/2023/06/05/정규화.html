@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>정규화 | Mindol</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="정규화" />
+<meta name="author" content="Mindol" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="데이터 베이스 정규화 작업" />
+<meta property="og:description" content="데이터 베이스 정규화 작업" />
+<link rel="canonical" href="http://localhost:4000/database/2023/06/05/%EC%A0%95%EA%B7%9C%ED%99%94.html" />
+<meta property="og:url" content="http://localhost:4000/database/2023/06/05/%EC%A0%95%EA%B7%9C%ED%99%94.html" />
+<meta property="og:site_name" content="Mindol" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-06-05T06:00:01+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="정규화" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-06-05T06:00:01+09:00","datePublished":"2023-06-05T06:00:01+09:00","description":"데이터 베이스 정규화 작업","headline":"정규화","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/database/2023/06/05/%EC%A0%95%EA%B7%9C%ED%99%94.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/MinTa.png"},"name":"Mindol"},"url":"http://localhost:4000/database/2023/06/05/%EC%A0%95%EA%B7%9C%ED%99%94.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Mindol" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+  <script>
+    const hour = (new Date()).getHours();
+    let filename = "";
+    if (hour >= 5 && hour < 7) {
+      filename = "/assets/css/skin-sunrise.css";
+    } else if (hour >= 7 && hour < 17) {
+      filename = "/assets/css/skin-daylight.css";
+    } else if (hour >= 17 && hour < 19) {
+      filename = "/assets/css/skin-sunset.css";
+    } else {
+      filename = "/assets/css/skin-midnight.css";
+    }
+    const elem = document.createElement("link");
+    elem.setAttribute("rel", "stylesheet");
+    elem.setAttribute("type", "text/css");
+    elem.setAttribute("href", filename);
+    document.getElementsByTagName("head")[0].appendChild(elem);
+  </script>
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">Mindol</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/assets/img/MinTa.png" class="author-avatar u-photo align-center" alt="Mindol">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Mindol</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:hhh57463@naver.com">hhh57463@naver.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <!-- <a href="/feed.xml"> -->
+    <a href="https://sly-lemonade-717.notion.site/d6f467dc95934f8581ef33fe4e84ad17">
+    <i class="sidebar-icon fas fa-rss"></i><span>Portfolio</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://github.com/hhh57463"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://instagram.com/hhh57463"><i class="fab fa-instagram fa-2x" title="Instagram"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">정규화</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-06-05T06:00:01+09:00" itemprop="datePublished">
+        Jun 5, 2023
+      </time></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="정규화normalization">정규화(Normalization)</h2>
+
+<hr />
+
+<ul>
+  <li>데이터의 일관성, 최소한의 데이터 중복, 최대한의 데이터 유연성을 위한 방법이며 데이터를 분해하는 과정</li>
+  <li>중복을 제거하고 데이터 모델의 독립성을 확보하기 위한 방법</li>
+  <li>테이블을 분해해서 데이터 중복을 제거하기 때문에 데이터 모델의 유연성을 높임</li>
+  <li>정규화 수행시 비즈니스에 변화가 발생하여도 데이터 모델의 변경을 최소화할 수 있음</li>
+  <li>제1정규화부터 제5정규화까지 있지만, 실질적으로 제3정규화까지만 수행</li>
+</ul>
+
+<h3 id="정규화-절차">정규화 절차</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>정규화 절차</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>제1정규화</td>
+      <td>- 속성의 원자성 확보<br />- 기본키 설정</td>
+    </tr>
+    <tr>
+      <td>제2정규화</td>
+      <td>- 기본키가 2개 이상의 속성으로 이루어진 경우, 부분 함수 종속성을 제거(분해)<br />- 기본키가 하나의 칼럼으로 이루어지면 제2정규화는 생략</td>
+    </tr>
+    <tr>
+      <td>제3정규화</td>
+      <td>- 기본키를 제외한 칼럼 간에 종속성을 제거<br />- 이행 함수 종속성을 제거</td>
+    </tr>
+    <tr>
+      <td>BCNF</td>
+      <td>기본키를 제외하고 후보키가 있는 경우, 후보키가 기본키를 종속시키면 분해</td>
+    </tr>
+    <tr>
+      <td>제4정규화</td>
+      <td>여러 칼럼들이 하나의 칼럼을 종속시키는 경우 분해하여 다중값 종속성 제거</td>
+    </tr>
+    <tr>
+      <td>제5정규화</td>
+      <td>조인에 의해 종속성이 발생되는 경우 분해</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="language-plaintext highlighter-rouge">정규화의 문제점: 정규화는 데이터 조회(SELECT) 시에 조인(Join)을 유발하기에 CPU와 메모리를 많이 사용.</code></p>
+
+<h2 id="반정규화de-normalization">반정규화(De-Normalization)</h2>
+
+<hr />
+
+<p>데이터베이스의 성능 향상을 위해 데티어 중복을 허용하고 조인을 줄이는 데이터베이스 성능 향상 방법</p>
+
+<p>조회(SELECT) 속도를 향상하지만, 데이터 모델의 유연성은 낮아짐</p>
+
+<h3 id="반정규화를-수행하는-경우">반정규화를 수행하는 경우</h3>
+
+<ul>
+  <li>정규화에 충실하면 종속성, 활용성은 향상되지만 숙도가 느려지는 경우</li>
+  <li>다량의 범위를 자주 처리해야 하는 경우</li>
+  <li>특정 범위의 데이터만 자주 처리하는 경우</li>
+  <li>요약/집계 정보가 자주 요구되는 경우</li>
+</ul>
+
+<h3 id="반정규화-절차">반정규화 절차</h3>
+
+<ul>
+  <li>대상 조사 및 검토: 데이터 처리 범위, 통계성 등을 확인해서 반정규화 대상 조사</li>
+  <li>다른 방법 검토: 반정규화를 수행하기 전에 다른 방법이 있는지 검토(클러스터링, 뷰, 인덱스 튜닝, 응용프로그램, 파티션 검토)</li>
+  <li>반정규화 수행: 테이블, 속성, 관계 등을 반정규화</li>
+</ul>
+
+<h3 id="반정규화-기법">반정규화 기법</h3>
+
+<ul>
+  <li>계산된 칼럼 추가</li>
+  <li>테이블 수직 분할: 하나의 테이블을 두 개 이상의 테이블로 분할 (칼럼을 분할하여 새로운 테이블 생성)</li>
+  <li>테이블 수평 분할: 하나의 테이블에 있는 값을 기준으로 테이블 분할</li>
+  <li>테이블 병합: 테이블을 하나의 테이블로 병합하여 성능 향상</li>
+</ul>
+
+<h3 id="파티션partition-기법">파티션(Partition) 기법</h3>
+
+<p>데이터베이스에서 파티션을 사용하여 테이블을 분할할 수 있음.</p>
+
+<p>파티션을 사용하면 논리적으로는 하나의 테이블이지만 여러 개의 데이터 파일에 분산되어 저장됨.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>기법</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Range Partition</td>
+      <td>데이터 값의 범위를 기준으로 파티션 수행</td>
+    </tr>
+    <tr>
+      <td>List Partition</td>
+      <td>특정한 값을 지정하여 파티션 수행</td>
+    </tr>
+    <tr>
+      <td>Hash Partition</td>
+      <td>해시 함수를 적용하여 파티션 수행</td>
+    </tr>
+    <tr>
+      <td>Composite Partition</td>
+      <td>범위와 해시를 복합적으로 사용하여 파티션 수행</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>파티션 테이블의 장점</p>
+
+<ul>
+  <li>데이터 조회 시 액세스 범위가 줄어들기에 성능 향상</li>
+  <li>데이터가 분할되어 있기에 I/O(Input/Output)의 성능 향상</li>
+  <li>각 파티션을 독립적으로 백업 및 복구 가능</li>
+</ul>
+
+<h3 id="테이블-병합">테이블 병합</h3>
+
+<ul>
+  <li>1대1 관계의 테이블을 하나의 테이블로 병합하여 성능 향상</li>
+  <li>1대N 관계의 테이블을 병합하여 성능 향상, 많은 양의 데이터 중복이 발생</li>
+  <li>슈퍼 타입과 서브 타입 관계가 발생하면 테이블을 통합하여 성능 향상</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">Super Type, Sub Type: 엔터티에 중복되는 값을 상속 Super Type은 부모, Sub Type은 자식으로 생각하면 됨</code></p>
+
+<h3 id="슈퍼-타입-및-서브-타입-변환-방법">슈퍼 타입 및 서브 타입 변환 방법</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>변환 방법</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>OneToOne Type</td>
+      <td>- 슈퍼 타입과 서브 타입을 개별 테이블로 도출<br />- 테이블의 수가 많아서 조인이 많이 발생하고 관리가 어려움</td>
+    </tr>
+    <tr>
+      <td>Plus Type</td>
+      <td>- 슈퍼 타입과 서브 타입 테이블로 도출<br />- 조인이 발생하고 관리가 어려움</td>
+    </tr>
+    <tr>
+      <td>Single Type</td>
+      <td>- 슈퍼 타입과 서브 타입을 하나의 테이블로 도출<br />- 조인 성능이 좋고 관리가 편하지만, 입출력 성능이 나쁨</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="분산-데이터베이스">분산 데이터베이스</h2>
+
+<hr />
+
+<ul>
+  <li>중앙 집중형 데이터베이스: 한 대의 물리적 시스템에 DBMS를 설치하고 여러 명의 사용자가 DBMS에 접속하여 데이터베이스를 사용하는 구조</li>
+  <li>분산 데이터베이스: 물리적으로 떨어진 데이터베이스에 네트워크로 연결하여 단일 데이터베이스 이미지를 보여 주고 분산된 작업 처리를 수행하는 데이터베이스</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">DBMS: 데이터베이스 관리 시스템</code></p>
+
+<h3 id="분산-데이터베이스의-투명성">분산 데이터베이스의 투명성</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>투명성</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>분할 투명성</td>
+      <td>고객은 하나의 논리적 릴레이션이 여러 단편으로 분할되어 각 단편의 사본이 여러 시스템에 저장되어 있을을 인식할 필요가 없음</td>
+    </tr>
+    <tr>
+      <td>위치 투명성</td>
+      <td>- 고객이 사용하려는 데이터의 저장 장소를 명시할 필요가 없음<br />- 고객은 데이터가 어느 위치에 있더라도 동일한 명령을 사용하여 데이터에 접근할 수 있어야 함</td>
+    </tr>
+    <tr>
+      <td>지역 사상 투명성</td>
+      <td>지역 DBMS와 물리적 데이터베이스 사이의 사상이 보장됨에 따라 각 지역 시스템 이름과 무관한 이름이 사용 가능</td>
+    </tr>
+    <tr>
+      <td>중복 투명성</td>
+      <td>데이터베이스 객체가 여러 시스템에 중복되어 존재함에도 고객과는 무관하게 데이터 일관성이 유지</td>
+    </tr>
+    <tr>
+      <td>장애 투명성</td>
+      <td>데이터베이스가 분산되어 있는 각 지역의 시스템이나 통신망에 이상이 발생해도, 데이터의 무결성은 보장</td>
+    </tr>
+    <tr>
+      <td>병행 투명성</td>
+      <td>여러 고객의 응용 프로그램이 동시에 분산 데이터베이스에 대한 트랜잭션을 수행하는 경우에도 결과에 이상이 없음</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="분산-데이터베이스-설계-방식">분산 데이터베이스 설계 방식</h3>
+
+<ul>
+  <li>상향식 설계 방식: 지역 스키마 작성 후 향후 전역 스키마를 작성하여 분산 데이터베이스 구축</li>
+  <li>하향식 설계 방식: 전역 스키마 작성 후 해당 지역 사상 스키마를 작성하여 분산 데이터베이스 구축</li>
+</ul>
+
+<h3 id="분산-데이터베이스-장점과-단점">분산 데이터베이스 장점과 단점</h3>
+
+<p>장점</p>
+
+<ul>
+  <li>데이터베이스 신뢰성과 가용성이 높음</li>
+  <li>분산 데이터베이스가 병렬 처리를 수행하기에 빠른 응답 가능</li>
+  <li>분산 데이터베이스를 추가하여 시스템 용량 확장이 쉬움</li>
+</ul>
+
+<p>단점</p>
+
+<ul>
+  <li>데이터베이스가 여러 네트워크를 통해 분리되어 있기에 관리와 통제가 어려움</li>
+  <li>보안관리가 어려움</li>
+  <li>데이터 무결성 관리가 어려움</li>
+  <li>데이터베이스 설계가 복잡</li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/categories/#database">Database</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#database">database</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#study">study</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/database/2023/06/04/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%AA%A8%EB%8D%B8%EB%A7%81.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> 데이터 모델링
+
+          </span>
+        </a>
+      
+
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+<script src="https://utteranc.es/client.js"
+        repo="hhh57463/hhh57463.github.io"
+        issue-term="url"
+        theme="gruvbox-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2017&nbsp;-&nbsp;2023 Mindol; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Mindol&#39;s Blog</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

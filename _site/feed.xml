@@ -1,4 +1,237 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-05T02:02:46+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">데이터 모델링</title><link href="http://localhost:4000/database/2023/06/04/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%AA%A8%EB%8D%B8%EB%A7%81.html" rel="alternate" type="text/html" title="데이터 모델링" /><published>2023-06-04T06:00:01+09:00</published><updated>2023-06-04T06:00:01+09:00</updated><id>http://localhost:4000/database/2023/06/04/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%AA%A8%EB%8D%B8%EB%A7%81</id><content type="html" xml:base="http://localhost:4000/database/2023/06/04/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%AA%A8%EB%8D%B8%EB%A7%81.html"><![CDATA[<h2 id="데이터-모델링">데이터 모델링</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-06T00:24:29+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">정규화</title><link href="http://localhost:4000/database/2023/06/05/%EC%A0%95%EA%B7%9C%ED%99%94.html" rel="alternate" type="text/html" title="정규화" /><published>2023-06-05T06:00:01+09:00</published><updated>2023-06-05T06:00:01+09:00</updated><id>http://localhost:4000/database/2023/06/05/%EC%A0%95%EA%B7%9C%ED%99%94</id><content type="html" xml:base="http://localhost:4000/database/2023/06/05/%EC%A0%95%EA%B7%9C%ED%99%94.html"><![CDATA[<h2 id="정규화normalization">정규화(Normalization)</h2>
+
+<hr />
+
+<ul>
+  <li>데이터의 일관성, 최소한의 데이터 중복, 최대한의 데이터 유연성을 위한 방법이며 데이터를 분해하는 과정</li>
+  <li>중복을 제거하고 데이터 모델의 독립성을 확보하기 위한 방법</li>
+  <li>테이블을 분해해서 데이터 중복을 제거하기 때문에 데이터 모델의 유연성을 높임</li>
+  <li>정규화 수행시 비즈니스에 변화가 발생하여도 데이터 모델의 변경을 최소화할 수 있음</li>
+  <li>제1정규화부터 제5정규화까지 있지만, 실질적으로 제3정규화까지만 수행</li>
+</ul>
+
+<h3 id="정규화-절차">정규화 절차</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>정규화 절차</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>제1정규화</td>
+      <td>- 속성의 원자성 확보<br />- 기본키 설정</td>
+    </tr>
+    <tr>
+      <td>제2정규화</td>
+      <td>- 기본키가 2개 이상의 속성으로 이루어진 경우, 부분 함수 종속성을 제거(분해)<br />- 기본키가 하나의 칼럼으로 이루어지면 제2정규화는 생략</td>
+    </tr>
+    <tr>
+      <td>제3정규화</td>
+      <td>- 기본키를 제외한 칼럼 간에 종속성을 제거<br />- 이행 함수 종속성을 제거</td>
+    </tr>
+    <tr>
+      <td>BCNF</td>
+      <td>기본키를 제외하고 후보키가 있는 경우, 후보키가 기본키를 종속시키면 분해</td>
+    </tr>
+    <tr>
+      <td>제4정규화</td>
+      <td>여러 칼럼들이 하나의 칼럼을 종속시키는 경우 분해하여 다중값 종속성 제거</td>
+    </tr>
+    <tr>
+      <td>제5정규화</td>
+      <td>조인에 의해 종속성이 발생되는 경우 분해</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="language-plaintext highlighter-rouge">정규화의 문제점: 정규화는 데이터 조회(SELECT) 시에 조인(Join)을 유발하기에 CPU와 메모리를 많이 사용.</code></p>
+
+<h2 id="반정규화de-normalization">반정규화(De-Normalization)</h2>
+
+<hr />
+
+<p>데이터베이스의 성능 향상을 위해 데티어 중복을 허용하고 조인을 줄이는 데이터베이스 성능 향상 방법</p>
+
+<p>조회(SELECT) 속도를 향상하지만, 데이터 모델의 유연성은 낮아짐</p>
+
+<h3 id="반정규화를-수행하는-경우">반정규화를 수행하는 경우</h3>
+
+<ul>
+  <li>정규화에 충실하면 종속성, 활용성은 향상되지만 숙도가 느려지는 경우</li>
+  <li>다량의 범위를 자주 처리해야 하는 경우</li>
+  <li>특정 범위의 데이터만 자주 처리하는 경우</li>
+  <li>요약/집계 정보가 자주 요구되는 경우</li>
+</ul>
+
+<h3 id="반정규화-절차">반정규화 절차</h3>
+
+<ul>
+  <li>대상 조사 및 검토: 데이터 처리 범위, 통계성 등을 확인해서 반정규화 대상 조사</li>
+  <li>다른 방법 검토: 반정규화를 수행하기 전에 다른 방법이 있는지 검토(클러스터링, 뷰, 인덱스 튜닝, 응용프로그램, 파티션 검토)</li>
+  <li>반정규화 수행: 테이블, 속성, 관계 등을 반정규화</li>
+</ul>
+
+<h3 id="반정규화-기법">반정규화 기법</h3>
+
+<ul>
+  <li>계산된 칼럼 추가</li>
+  <li>테이블 수직 분할: 하나의 테이블을 두 개 이상의 테이블로 분할 (칼럼을 분할하여 새로운 테이블 생성)</li>
+  <li>테이블 수평 분할: 하나의 테이블에 있는 값을 기준으로 테이블 분할</li>
+  <li>테이블 병합: 테이블을 하나의 테이블로 병합하여 성능 향상</li>
+</ul>
+
+<h3 id="파티션partition-기법">파티션(Partition) 기법</h3>
+
+<p>데이터베이스에서 파티션을 사용하여 테이블을 분할할 수 있음.</p>
+
+<p>파티션을 사용하면 논리적으로는 하나의 테이블이지만 여러 개의 데이터 파일에 분산되어 저장됨.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>기법</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Range Partition</td>
+      <td>데이터 값의 범위를 기준으로 파티션 수행</td>
+    </tr>
+    <tr>
+      <td>List Partition</td>
+      <td>특정한 값을 지정하여 파티션 수행</td>
+    </tr>
+    <tr>
+      <td>Hash Partition</td>
+      <td>해시 함수를 적용하여 파티션 수행</td>
+    </tr>
+    <tr>
+      <td>Composite Partition</td>
+      <td>범위와 해시를 복합적으로 사용하여 파티션 수행</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>파티션 테이블의 장점</p>
+
+<ul>
+  <li>데이터 조회 시 액세스 범위가 줄어들기에 성능 향상</li>
+  <li>데이터가 분할되어 있기에 I/O(Input/Output)의 성능 향상</li>
+  <li>각 파티션을 독립적으로 백업 및 복구 가능</li>
+</ul>
+
+<h3 id="테이블-병합">테이블 병합</h3>
+
+<ul>
+  <li>1대1 관계의 테이블을 하나의 테이블로 병합하여 성능 향상</li>
+  <li>1대N 관계의 테이블을 병합하여 성능 향상, 많은 양의 데이터 중복이 발생</li>
+  <li>슈퍼 타입과 서브 타입 관계가 발생하면 테이블을 통합하여 성능 향상</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">Super Type, Sub Type: 엔터티에 중복되는 값을 상속 Super Type은 부모, Sub Type은 자식으로 생각하면 됨</code></p>
+
+<h3 id="슈퍼-타입-및-서브-타입-변환-방법">슈퍼 타입 및 서브 타입 변환 방법</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>변환 방법</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>OneToOne Type</td>
+      <td>- 슈퍼 타입과 서브 타입을 개별 테이블로 도출<br />- 테이블의 수가 많아서 조인이 많이 발생하고 관리가 어려움</td>
+    </tr>
+    <tr>
+      <td>Plus Type</td>
+      <td>- 슈퍼 타입과 서브 타입 테이블로 도출<br />- 조인이 발생하고 관리가 어려움</td>
+    </tr>
+    <tr>
+      <td>Single Type</td>
+      <td>- 슈퍼 타입과 서브 타입을 하나의 테이블로 도출<br />- 조인 성능이 좋고 관리가 편하지만, 입출력 성능이 나쁨</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="분산-데이터베이스">분산 데이터베이스</h2>
+
+<hr />
+
+<ul>
+  <li>중앙 집중형 데이터베이스: 한 대의 물리적 시스템에 DBMS를 설치하고 여러 명의 사용자가 DBMS에 접속하여 데이터베이스를 사용하는 구조</li>
+  <li>분산 데이터베이스: 물리적으로 떨어진 데이터베이스에 네트워크로 연결하여 단일 데이터베이스 이미지를 보여 주고 분산된 작업 처리를 수행하는 데이터베이스</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">DBMS: 데이터베이스 관리 시스템</code></p>
+
+<h3 id="분산-데이터베이스의-투명성">분산 데이터베이스의 투명성</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>투명성</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>분할 투명성</td>
+      <td>고객은 하나의 논리적 릴레이션이 여러 단편으로 분할되어 각 단편의 사본이 여러 시스템에 저장되어 있을을 인식할 필요가 없음</td>
+    </tr>
+    <tr>
+      <td>위치 투명성</td>
+      <td>- 고객이 사용하려는 데이터의 저장 장소를 명시할 필요가 없음<br />- 고객은 데이터가 어느 위치에 있더라도 동일한 명령을 사용하여 데이터에 접근할 수 있어야 함</td>
+    </tr>
+    <tr>
+      <td>지역 사상 투명성</td>
+      <td>지역 DBMS와 물리적 데이터베이스 사이의 사상이 보장됨에 따라 각 지역 시스템 이름과 무관한 이름이 사용 가능</td>
+    </tr>
+    <tr>
+      <td>중복 투명성</td>
+      <td>데이터베이스 객체가 여러 시스템에 중복되어 존재함에도 고객과는 무관하게 데이터 일관성이 유지</td>
+    </tr>
+    <tr>
+      <td>장애 투명성</td>
+      <td>데이터베이스가 분산되어 있는 각 지역의 시스템이나 통신망에 이상이 발생해도, 데이터의 무결성은 보장</td>
+    </tr>
+    <tr>
+      <td>병행 투명성</td>
+      <td>여러 고객의 응용 프로그램이 동시에 분산 데이터베이스에 대한 트랜잭션을 수행하는 경우에도 결과에 이상이 없음</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="분산-데이터베이스-설계-방식">분산 데이터베이스 설계 방식</h3>
+
+<ul>
+  <li>상향식 설계 방식: 지역 스키마 작성 후 향후 전역 스키마를 작성하여 분산 데이터베이스 구축</li>
+  <li>하향식 설계 방식: 전역 스키마 작성 후 해당 지역 사상 스키마를 작성하여 분산 데이터베이스 구축</li>
+</ul>
+
+<h3 id="분산-데이터베이스-장점과-단점">분산 데이터베이스 장점과 단점</h3>
+
+<p>장점</p>
+
+<ul>
+  <li>데이터베이스 신뢰성과 가용성이 높음</li>
+  <li>분산 데이터베이스가 병렬 처리를 수행하기에 빠른 응답 가능</li>
+  <li>분산 데이터베이스를 추가하여 시스템 용량 확장이 쉬움</li>
+</ul>
+
+<p>단점</p>
+
+<ul>
+  <li>데이터베이스가 여러 네트워크를 통해 분리되어 있기에 관리와 통제가 어려움</li>
+  <li>보안관리가 어려움</li>
+  <li>데이터 무결성 관리가 어려움</li>
+  <li>데이터베이스 설계가 복잡</li>
+</ul>]]></content><author><name>Mindol</name></author><category term="Database" /><category term="Database" /><category term="study" /><summary type="html"><![CDATA[데이터 베이스 정규화 작업]]></summary></entry><entry><title type="html">데이터 모델링</title><link href="http://localhost:4000/database/2023/06/04/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%AA%A8%EB%8D%B8%EB%A7%81.html" rel="alternate" type="text/html" title="데이터 모델링" /><published>2023-06-04T06:00:01+09:00</published><updated>2023-06-04T06:00:01+09:00</updated><id>http://localhost:4000/database/2023/06/04/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%AA%A8%EB%8D%B8%EB%A7%81</id><content type="html" xml:base="http://localhost:4000/database/2023/06/04/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%AA%A8%EB%8D%B8%EB%A7%81.html"><![CDATA[<h2 id="데이터-모델링">데이터 모델링</h2>
 
 <hr />
 
@@ -1612,215 +1845,4 @@ Soft Zone(소프트존)
 <img src="/assets/img/Unity/Platform_5.png" alt="image" width="50%" height="50%" /><br /><br />
 Platform을 Android로 변경한 후 다시 실행시켜보면 Android가 출력되는 것을 볼 수 있다.<br />
 <img src="/assets/img/Unity/Platform_6.png" alt="image" width="50%" height="50%" /><br /><br />
-<img src="/assets/img/Unity/Platform_7.png" alt="image" width="50%" height="50%" /></p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="unity" /><category term="study" /><summary type="html"><![CDATA[Unity 플랫폼 의존 컴파일]]></summary></entry><entry><title type="html">Unity Photon 주요 기능</title><link href="http://localhost:4000/unity/2023/01/30/Photon.html" rel="alternate" type="text/html" title="Unity Photon 주요 기능" /><published>2023-01-30T06:00:01+09:00</published><updated>2023-01-30T06:00:01+09:00</updated><id>http://localhost:4000/unity/2023/01/30/Photon</id><content type="html" xml:base="http://localhost:4000/unity/2023/01/30/Photon.html"><![CDATA[<h2 id="photon의-개념">Photon의 개념</h2>
-<hr />
-
-<p><img src="/assets/img/Photon/Photon_1.png" alt="image" width="50%" height="50%" /><br />
-Photon 연결할 때 App ID를 입력하고 연결하면 생기는 셋팅<br />
-이 중 App ID가 같을 때는 같은 네트워크를 사용한다는 뜻<br /></p>
-<ul>
-  <li>포톤 서버에는 룸과 로비의 개념이 있음</li>
-  <li>룸은 네트워크 게임을 실행할 수 있는 논리적인 공간</li>
-  <li>룸에 입장해야만 해당 룸에 접속한 다른 유저와 통신이 가능</li>
-  <li>로비에 입장하려면 로비 입장 함수를 호출해야 로비에 입장 가능</li>
-  <li>로비는 현재 룸이 생성되었는지에 대한 정보를 수신받을 수 있음</li>
-  <li>룸이 목록을 받아와 특정 룸에 입장이 가능</li>
-</ul>
-
-<h2 id="photon-통신을-위한-콜백함수">Photon 통신을 위한 콜백함수</h2>
-<hr />
-
-<table>
-  <thead>
-    <tr>
-      <th>함수 이름</th>
-      <th>호출 조건</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>OnConnectedToMaster()</td>
-      <td>포톤 서버에 접속 후 호출되는 콜백 함수</td>
-    </tr>
-    <tr>
-      <td>OnJoinedLobby()</td>
-      <td>로비에 접속 후 호출되는 콜백 함수</td>
-    </tr>
-    <tr>
-      <td>OnJoinRandomFailed(short returnCode, string message)</td>
-      <td>랜덤 룸 입장 실패했을 때 호출되는 콜백 함수</td>
-    </tr>
-    <tr>
-      <td>OnCreatedRoom()</td>
-      <td>룸 생성이 완료된 후 호출되는 콜백 함수</td>
-    </tr>
-    <tr>
-      <td>OnJoinedRoom()</td>
-      <td>룸에 입장한 후 호출되는 콜백 함수</td>
-    </tr>
-    <tr>
-      <td>OnDisconnected(DisconnectCause cause)</td>
-      <td>연결이 끊겼을때 호출되는 콜백 함수</td>
-    </tr>
-    <tr>
-      <td>OnPlayerEnteredRoom(Player newPlayer)</td>
-      <td>현재 룸에 새로운 유저가 들어왔을때 호출되는 콜백 함수</td>
-    </tr>
-    <tr>
-      <td>OnPlayerLeftRoom(Player otherPlayer)</td>
-      <td>현재 룸에 유저가 나갔을때 호출되는 콜백 함수</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="photon-주요-메소드-프로퍼티">Photon 주요 메소드, 프로퍼티</h2>
-<hr />
-
-<table>
-  <thead>
-    <tr>
-      <th>이름</th>
-      <th>종류</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>PhotonNetwork.AutomaticallySyncScene</td>
-      <td>프로퍼티</td>
-      <td>같은 룸의 유저들에게 자동으로 씬을 로딩할 것인지</td>
-    </tr>
-    <tr>
-      <td>PhotonNetwork.GameVersion</td>
-      <td>프로퍼티</td>
-      <td>게임 접속 버전 ( 같은 버전의 유저끼리 접속 허용)</td>
-    </tr>
-    <tr>
-      <td>PhotonNetwork.NickName</td>
-      <td>프로퍼티</td>
-      <td>객체의 닉네임</td>
-    </tr>
-    <tr>
-      <td>PhotonNetwork.SendRate</td>
-      <td>프로퍼티</td>
-      <td>포톤 서버와 통신 횟수</td>
-    </tr>
-    <tr>
-      <td>PhotonNetwork.ConnectUsingSettings()</td>
-      <td>메소드</td>
-      <td>서버 접속</td>
-    </tr>
-    <tr>
-      <td>PhotonNetwork.JoinLobby()</td>
-      <td>메소드</td>
-      <td>로비 입장</td>
-    </tr>
-    <tr>
-      <td>PhotonNetwork.JoinRandomRoom()</td>
-      <td>메소드</td>
-      <td>랜덤 매치메이킹</td>
-    </tr>
-    <tr>
-      <td>PhotonNetwork.CreateRoom(“룸 이름”, 룸 속성(Default: null))</td>
-      <td>메소드</td>
-      <td>속성을 가진 룸 생성</td>
-    </tr>
-    <tr>
-      <td>PhotonNetwork.JoinRoom(“룸 이름”)</td>
-      <td>메소드</td>
-      <td>해당 이름을 가진 룸에 입장</td>
-    </tr>
-    <tr>
-      <td>PhotonNetwork.InLobby</td>
-      <td>프로퍼티</td>
-      <td>로비에 접속 되었는지</td>
-    </tr>
-    <tr>
-      <td>PhotonNetwork.CurrentRoom</td>
-      <td>프로퍼티</td>
-      <td>현재 룸의 정보</td>
-    </tr>
-    <tr>
-      <td>PhotonNetwork.InRoom</td>
-      <td>프로퍼티</td>
-      <td>룸에 접속 되었는지</td>
-    </tr>
-    <tr>
-      <td>PhotonNetwork.Instantiate(“Prefab 이름”, position, rotation, 0)</td>
-      <td>함수</td>
-      <td>포톤 Instantiate</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="photon-view-스크립트">Photon View 스크립트</h2>
-<hr />
-
-<p>네트워크에 접속한 플레이어간 데이터를 송수신해주는 통신 모듈로, 동일한 룸에 입장한 다른 플레이어에게 자신의 위치와 회전 정보를 동기화 해주며, 특정한 데이터를 송수신 가능하며 네트워크 개체당 한개만 사용할 것을 권장. (네트워크 대역폭과 성능상의 이유로)<br />
-<img src="/assets/img/Photon/Photon_2.png" alt="image" width="50%" height="50%" /><br /></p>
-
-<p>Synchronization: 동기화 처리를 어떻게 할 것인지 기능에 따라 성능이 달라짐</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>속성</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Off</td>
-      <td>동기화 처리 X. RPC 호출만을 위한 PhotonView에 적합 (RPC: 원격 프로시저 호출 물리적으로 떨어져있는 다른 디바이스간의 함수를 호출하는 기능)</td>
-    </tr>
-    <tr>
-      <td>Reliable Delta Compressed</td>
-      <td>마지막 데이터가 변경되지 않았을 때 데이터 송신 X</td>
-    </tr>
-    <tr>
-      <td>Unreliable</td>
-      <td>패킷의 수신 여부를 확인 X</td>
-    </tr>
-    <tr>
-      <td>Unreliable On Change</td>
-      <td>UnReliable과 동일하며 변경사항이 발생했을 때만 송신</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="phton-transform-view-스크립트">Phton Transform View 스크립트</h2>
-<hr />
-<p><img src="/assets/img/Photon/Photon_3.png" alt="image" width="50%" height="50%" /><br />
-플레이어의 위치, 회전값을 동기화하기 위한 모듈<br /><br />
-Synchronize Options: 체크되어있는 옵션을 동기화해라<br />
-Use Local: 동기화하는 데이터가 Local 기준인지<br /></p>
-
-<h2 id="photon-animator-view">Photon Animator View</h2>
-<hr />
-<p><img src="/assets/img/Photon/Photon_4.png" alt="image" width="50%" height="50%" /><br />
-애니메이터 컴포넌트를 동기화해주는 모듈<br />
-애니메이터 정보를 읽어 레이어와 파라미터 값을 자동으로 동기화 해줌<br /><br />
-Synchronize Layer Weights 애니메이션 동기화 횟수인것 같음<br /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>속성</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Disabled</td>
-      <td>안함</td>
-    </tr>
-    <tr>
-      <td>Discrete</td>
-      <td>이산</td>
-    </tr>
-    <tr>
-      <td>Continuous</td>
-      <td>연속</td>
-    </tr>
-  </tbody>
-</table>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="unity" /><category term="network" /><summary type="html"><![CDATA[Photon-PUN]]></summary></entry></feed>
+<img src="/assets/img/Unity/Platform_7.png" alt="image" width="50%" height="50%" /></p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="unity" /><category term="study" /><summary type="html"><![CDATA[Unity 플랫폼 의존 컴파일]]></summary></entry></feed>
