@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>DDL | Mindol</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="DDL" />
+<meta name="author" content="Mindol" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="[SQL 기본]-DDL" />
+<meta property="og:description" content="[SQL 기본]-DDL" />
+<link rel="canonical" href="http://localhost:4000/database/2023/06/06/SQL-%EA%B8%B0%EB%B3%B8-DDL.html" />
+<meta property="og:url" content="http://localhost:4000/database/2023/06/06/SQL-%EA%B8%B0%EB%B3%B8-DDL.html" />
+<meta property="og:site_name" content="Mindol" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-06-06T06:00:01+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="DDL" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-06-06T06:00:01+09:00","datePublished":"2023-06-06T06:00:01+09:00","description":"[SQL 기본]-DDL","headline":"DDL","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/database/2023/06/06/SQL-%EA%B8%B0%EB%B3%B8-DDL.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/MinTa.png"},"name":"Mindol"},"url":"http://localhost:4000/database/2023/06/06/SQL-%EA%B8%B0%EB%B3%B8-DDL.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Mindol" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+  <script>
+    const hour = (new Date()).getHours();
+    let filename = "";
+    if (hour >= 5 && hour < 7) {
+      filename = "/assets/css/skin-sunrise.css";
+    } else if (hour >= 7 && hour < 17) {
+      filename = "/assets/css/skin-daylight.css";
+    } else if (hour >= 17 && hour < 19) {
+      filename = "/assets/css/skin-sunset.css";
+    } else {
+      filename = "/assets/css/skin-midnight.css";
+    }
+    const elem = document.createElement("link");
+    elem.setAttribute("rel", "stylesheet");
+    elem.setAttribute("type", "text/css");
+    elem.setAttribute("href", filename);
+    document.getElementsByTagName("head")[0].appendChild(elem);
+  </script>
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">Mindol</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/assets/img/MinTa.png" class="author-avatar u-photo align-center" alt="Mindol">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Mindol</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:hhh57463@naver.com">hhh57463@naver.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <!-- <a href="/feed.xml"> -->
+    <a href="https://sly-lemonade-717.notion.site/d6f467dc95934f8581ef33fe4e84ad17">
+    <i class="sidebar-icon fas fa-rss"></i><span>Portfolio</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://github.com/hhh57463"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://instagram.com/hhh57463"><i class="fab fa-instagram fa-2x" title="Instagram"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">DDL</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-06-06T06:00:01+09:00" itemprop="datePublished">
+        Jun 6, 2023
+      </time></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="sql-기본">SQL 기본</h2>
+
+<hr />
+
+<h3 id="sql의-종류">SQL의 종류</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>종류</th>
+      <th>설명</th>
+      <th>구문</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DDL(Data Definition Language)</td>
+      <td>관계형 데이터베이스의 구조를 정의하는 언어</td>
+      <td>CREATE, ALTER, DROP, RENAME, TRUNCATE</td>
+    </tr>
+    <tr>
+      <td>DML(Data Manipulation Language)</td>
+      <td>테이블에서 데이터를 입력, 수정, 삭제, 조회</td>
+      <td>INSERT, UPDATE, DELETE, SELECT</td>
+    </tr>
+    <tr>
+      <td>DCL(Data Control Language)</td>
+      <td>데이터베이스 사용자에게 권한을 부여하거나 회수</td>
+      <td>GRANT, REVOKE</td>
+    </tr>
+    <tr>
+      <td>TCL(Transaction Control Language)</td>
+      <td>트랜잭션을 제어하는 명령어</td>
+      <td>COMMIT, ROLLBACK, SAVEPOINT</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="트랜잭션">트랜잭션</h3>
+
+<p>데이터베이스의 작업을 처리하는 단위</p>
+
+<h3 id="특징">특징</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>특징</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>원자성(Atomicity)</td>
+      <td>- 트랜잭션은 데이터베이스 연산의 전부가 실행되거나 전혀 실행되지 않아야 함<br />- 트랜잭션의 처리가 완전히 끝나지 않았을 경우는 실행되지 않은 상태와 같아야 함</td>
+    </tr>
+    <tr>
+      <td>일관성(Consistency)</td>
+      <td>- 트랜잭션 실행 결과로 데이터베이스의 상태가 모순되지 않아야 함<br />- 트랜잭션 실행 후에도 일관성이 유지되어야 함</td>
+    </tr>
+    <tr>
+      <td>고립성(Isolation)</td>
+      <td>- 트랜잭션 실행 중에 생성하는 연산의 중간결과는 다른 트랜잭션이 접근할 수 없음<br />- 부분적인 실행 결과를 다른 트랜잭션이 볼 수 없음</td>
+    </tr>
+    <tr>
+      <td>영속성(Durability)</td>
+      <td>트랜잭션이 실행을 성공적으로 완료하면 그 결과는 영구적 보장</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="sql-실행-순서">SQL 실행 순서</h3>
+
+<ul>
+  <li>파싱(Parsing): SQL문의 문법을 확인하고 구문을 분석함(구문 분석한 SQL문은 Library Cache에 저장)</li>
+  <li>실행(Execution): 옵티마이저가 수립한 실행 계획에 따라 SQL 실행</li>
+  <li>인출(Fetch): 데이터를 읽어서 전송</li>
+</ul>
+
+<h2 id="테이블-생성">테이블 생성</h2>
+
+<hr />
+
+<h3 id="기본적인-테이블-생성">기본적인 테이블 생성</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">Create</span> <span class="k">Table</span> <span class="n">EMP</span>
+<span class="p">(</span>
+	<span class="n">empno</span> <span class="n">number</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span>   <span class="o">//</span> <span class="n">empno</span><span class="err">은</span> <span class="err">최대</span> <span class="mi">10</span><span class="err">자리</span> <span class="err">숫자로</span> <span class="err">기본키이다</span>
+	<span class="n">ename</span> <span class="n">varchar2</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>    <span class="o">//</span> <span class="n">ename</span><span class="err">은</span> <span class="err">최대</span> <span class="mi">20</span><span class="err">자리의</span> <span class="err">가변</span> <span class="err">길이</span> <span class="err">문자로</span> <span class="err">공백</span> <span class="err">허용</span><span class="n">X</span>
+	<span class="n">sal</span> <span class="n">number</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>                  <span class="o">//</span> <span class="n">sal</span><span class="err">은</span> <span class="err">최대</span> <span class="mi">6</span><span class="err">자리</span> <span class="err">숫자</span>
+	<span class="n">createdate</span> <span class="nb">date</span> <span class="k">default</span> <span class="n">sysdate</span> <span class="o">//</span> <span class="n">createdate</span><span class="err">는</span> <span class="err">날짜를</span> <span class="err">입력받으며</span> <span class="err">기본값으로</span> <span class="err">현재</span> <span class="err">날짜</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="제약조건">제약조건</h2>
+
+<hr />
+
+<p><code class="language-plaintext highlighter-rouge">제약조건은 기본키, 외래키, 기본값, not null을 테이블을 생성할 때 지정할 수 있음</code></p>
+
+<h3 id="기본키-지정">기본키 지정</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">constraint</span> <span class="err">키이름</span> <span class="k">primary</span> <span class="k">key</span><span class="p">(</span><span class="err">키이름</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="외래키-지정">외래키 지정</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">constraint</span> <span class="err">외래키</span> <span class="k">foreign</span> <span class="k">key</span><span class="p">(</span><span class="err">키이름</span><span class="p">)</span> <span class="k">references</span> <span class="err">테이블</span><span class="p">(</span><span class="err">키이름</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="cascade">CASCADE</h3>
+
+<p>CASCADE 옵션은 참조 관계가 있을 경우 참조되는 데이터를 자동으로 반영할 수 있음</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">constraint</span> <span class="err">외래키</span> <span class="k">foreign</span> <span class="k">key</span><span class="p">(</span><span class="err">키이름</span><span class="p">)</span> <span class="k">references</span> <span class="err">테이블</span><span class="p">(</span><span class="err">키이름</span><span class="p">)</span> <span class="k">ON</span> <span class="k">DELETE</span> <span class="k">CASCADE</span>
+</code></pre></div></div>
+
+<p>위의 쿼리문은 자신이 참조하는 테이블의 데이터가 삭제되면 자동으로 자신도 삭제되는 옵션</p>
+
+<h2 id="테이블-수정">테이블 수정</h2>
+
+<hr />
+
+<p>ALTER TABLE문을 통해 테이블명 변경, 칼럼 추가, 변경, 삭제 등을 할 수 있다.</p>
+
+<h3 id="테이블명-변경">테이블명 변경</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="err">기존테이블명</span> <span class="k">TO</span> <span class="err">새로운테이블명</span>
+</code></pre></div></div>
+
+<h3 id="칼럼-추가">칼럼 추가</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="err">테이블명</span> <span class="k">ADD</span><span class="p">(</span><span class="err">칼럼명</span> <span class="err">자료형</span> <span class="err">조건</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="칼럼-변경">칼럼 변경</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="err">테이블명</span> <span class="k">MODIFY</span><span class="p">(</span><span class="err">칼럼명</span> <span class="err">자료형</span> <span class="err">조건</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="칼럼-삭제">칼럼 삭제</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="err">테이블명</span> <span class="k">DROP</span> <span class="k">COLUMN</span> <span class="err">칼럼명</span>
+</code></pre></div></div>
+
+<h3 id="칼럼명-변경">칼럼명 변경</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="err">테이블명</span> <span class="k">RENAME</span> <span class="k">COLUMN</span> <span class="err">칼럼명</span> <span class="k">to</span> <span class="err">새로운칼럼명</span>
+</code></pre></div></div>
+
+<h2 id="테이블-삭제">테이블 삭제</h2>
+
+<hr />
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="err">테이블명</span>
+</code></pre></div></div>
+
+<h2 id="뷰view-생성과-삭제">뷰(VIEW) 생성과 삭제</h2>
+
+<hr />
+
+<ul>
+  <li>뷰는 테이블로부터 유도된 가상의 테이블</li>
+  <li>실제 데이터를 가지고 있지 않고테이블을 참조해 원하는 칼럼만을 조죄할 수 있음</li>
+  <li>뷰는 데이터 딕셔너리(Data Dictionary)에 SQL문 형태로 저장하되 실행 시 참조됨</li>
+</ul>
+
+<h3 id="뷰의-특징">뷰의 특징</h3>
+
+<ul>
+  <li>참조한 테이블이 변경되면 뷰도 변경됨</li>
+  <li>뷰의 검색은 참조한 테이블과 동일하게 할 수 있지만, 뷰에 대한 입력, 수정, 삭제에는 제약이 있음</li>
+  <li>특정 칼럼만 조회시켜 보안성을 향상시킴</li>
+  <li>한번 생성된 뷰는 변경할 수  없고 변경을 원하면 삭제 후 재생성해야 함</li>
+  <li>ALTER문을 사용하여 뷰를 변경할 수 없음</li>
+</ul>
+
+<h3 id="생성">생성</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">VIEW</span> <span class="err">뷰이름</span> <span class="k">AS</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">테이블</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">뷰의 조회는 SELECT문을 사용하여 일반 테이블처럼 조회함</code></p>
+
+<h3 id="삭제">삭제</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">VIEW</span> <span class="err">뷰이름</span>
+</code></pre></div></div>
+
+<h3 id="장점">장점</h3>
+
+<ul>
+  <li>특정 칼럼만 조회할 수 있기에 보안 기능이 있음</li>
+  <li>데이터 관리가 간단</li>
+  <li>SELECT문이 간단해짐</li>
+  <li>하나의 테이블에 여러 뷰를 생성할 수 있음</li>
+</ul>
+
+<h3 id="단점">단점</h3>
+
+<ul>
+  <li>뷰는 독자적인 인덱스를 만들 수 없음</li>
+  <li>삽입, 수정, 삭제 연산이 제약됨</li>
+  <li>데이터 구조를 변경할 수 없음</li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/categories/#database">Database</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#database">database</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#study">study</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/database/2023/06/05/%EC%A0%95%EA%B7%9C%ED%99%94.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> 정규화
+
+          </span>
+        </a>
+      
+
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+<script src="https://utteranc.es/client.js"
+        repo="hhh57463/hhh57463.github.io"
+        issue-term="url"
+        theme="gruvbox-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2017&nbsp;-&nbsp;2023 Mindol; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Mindol&#39;s Blog</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>
