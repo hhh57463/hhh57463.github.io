@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>DDL | Mindol</title>
+<title>DDL(Data Definition Language) | Mindol</title>
 <meta name="generator" content="Jekyll v3.9.2" />
-<meta property="og:title" content="DDL" />
+<meta property="og:title" content="DDL(Data Definition Language)" />
 <meta name="author" content="Mindol" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="[SQL 기본]-DDL" />
@@ -20,10 +20,10 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-06-06T06:00:01+09:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="DDL" />
+<meta property="twitter:title" content="DDL(Data Definition Language)" />
 <meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-06-06T06:00:01+09:00","datePublished":"2023-06-06T06:00:01+09:00","description":"[SQL 기본]-DDL","headline":"DDL","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/database/2023/06/06/SQL-%EA%B8%B0%EB%B3%B8-DDL.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/MinTa.png"},"name":"Mindol"},"url":"http://localhost:4000/database/2023/06/06/SQL-%EA%B8%B0%EB%B3%B8-DDL.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-06-06T06:00:01+09:00","datePublished":"2023-06-06T06:00:01+09:00","description":"[SQL 기본]-DDL","headline":"DDL(Data Definition Language)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/database/2023/06/06/SQL-%EA%B8%B0%EB%B3%B8-DDL.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/MinTa.png"},"name":"Mindol"},"url":"http://localhost:4000/database/2023/06/06/SQL-%EA%B8%B0%EB%B3%B8-DDL.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -166,7 +166,7 @@
 
   <header class="post-header">
 
-    <h1 class="post-title p-name" itemprop="name headline">DDL</h1>
+    <h1 class="post-title p-name" itemprop="name headline">DDL(Data Definition Language)</h1>
     <p class="post-meta"><time class="dt-published" datetime="2023-06-06T06:00:01+09:00" itemprop="datePublished">
         Jun 6, 2023
       </time></p>
@@ -261,10 +261,10 @@
 
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">Create</span> <span class="k">Table</span> <span class="n">EMP</span>
 <span class="p">(</span>
-	<span class="n">empno</span> <span class="n">number</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span>   <span class="o">//</span> <span class="n">empno</span><span class="err">은</span> <span class="err">최대</span> <span class="mi">10</span><span class="err">자리</span> <span class="err">숫자로</span> <span class="err">기본키이다</span>
-	<span class="n">ename</span> <span class="n">varchar2</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>    <span class="o">//</span> <span class="n">ename</span><span class="err">은</span> <span class="err">최대</span> <span class="mi">20</span><span class="err">자리의</span> <span class="err">가변</span> <span class="err">길이</span> <span class="err">문자로</span> <span class="err">공백</span> <span class="err">허용</span><span class="n">X</span>
-	<span class="n">sal</span> <span class="n">number</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>                  <span class="o">//</span> <span class="n">sal</span><span class="err">은</span> <span class="err">최대</span> <span class="mi">6</span><span class="err">자리</span> <span class="err">숫자</span>
-	<span class="n">createdate</span> <span class="nb">date</span> <span class="k">default</span> <span class="n">sysdate</span> <span class="o">//</span> <span class="n">createdate</span><span class="err">는</span> <span class="err">날짜를</span> <span class="err">입력받으며</span> <span class="err">기본값으로</span> <span class="err">현재</span> <span class="err">날짜</span>
+  <span class="n">empno</span> <span class="n">number</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span>   <span class="o">//</span> <span class="n">empno</span><span class="err">은</span> <span class="err">최대</span> <span class="mi">10</span><span class="err">자리</span> <span class="err">숫자로</span> <span class="err">기본키이다</span>
+  <span class="n">ename</span> <span class="n">varchar2</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>    <span class="o">//</span> <span class="n">ename</span><span class="err">은</span> <span class="err">최대</span> <span class="mi">20</span><span class="err">자리의</span> <span class="err">가변</span> <span class="err">길이</span> <span class="err">문자로</span> <span class="err">공백</span> <span class="err">허용</span><span class="n">X</span>
+  <span class="n">sal</span> <span class="n">number</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>                  <span class="o">//</span> <span class="n">sal</span><span class="err">은</span> <span class="err">최대</span> <span class="mi">6</span><span class="err">자리</span> <span class="err">숫자</span>
+  <span class="n">createdate</span> <span class="nb">date</span> <span class="k">default</span> <span class="n">sysdate</span> <span class="o">//</span> <span class="n">createdate</span><span class="err">는</span> <span class="err">날짜를</span> <span class="err">입력받으며</span> <span class="err">기본값으로</span> <span class="err">현재</span> <span class="err">날짜</span>
 <span class="p">)</span>
 </code></pre></div></div>
 
@@ -429,6 +429,14 @@
         </a>
       
 
+      
+        <a class="post-next" href="/database/2023/06/07/SQL-%EA%B8%B0%EB%B3%B8-DML.html">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            DML(Data Manipulation Language)
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
       
     </nav>
   </footer>

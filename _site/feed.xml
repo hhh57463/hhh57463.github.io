@@ -1,4 +1,652 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-07T01:27:05+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">DDL</title><link href="http://localhost:4000/database/2023/06/06/SQL-%EA%B8%B0%EB%B3%B8-DDL.html" rel="alternate" type="text/html" title="DDL" /><published>2023-06-06T06:00:01+09:00</published><updated>2023-06-06T06:00:01+09:00</updated><id>http://localhost:4000/database/2023/06/06/%5BSQL%20%EA%B8%B0%EB%B3%B8%5DDDL</id><content type="html" xml:base="http://localhost:4000/database/2023/06/06/SQL-%EA%B8%B0%EB%B3%B8-DDL.html"><![CDATA[<h2 id="sql-기본">SQL 기본</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-08T06:18:35+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">DML(Data Manipulation Language)</title><link href="http://localhost:4000/database/2023/06/07/SQL-%EA%B8%B0%EB%B3%B8-DML.html" rel="alternate" type="text/html" title="DML(Data Manipulation Language)" /><published>2023-06-07T06:00:01+09:00</published><updated>2023-06-07T06:00:01+09:00</updated><id>http://localhost:4000/database/2023/06/07/%5BSQL%20%EA%B8%B0%EB%B3%B8%5DDML</id><content type="html" xml:base="http://localhost:4000/database/2023/06/07/SQL-%EA%B8%B0%EB%B3%B8-DML.html"><![CDATA[<h2 id="insert">INSERT</h2>
+
+<hr />
+
+<p>테이블에 데이터를 입력하는 DML문</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="err">테이블</span><span class="p">(</span><span class="err">칼럼</span><span class="mi">1</span><span class="p">,</span> <span class="err">칼럼</span><span class="mi">2</span><span class="p">,</span> <span class="p">...)</span> <span class="k">VALUES</span><span class="p">(</span><span class="err">값</span><span class="mi">1</span><span class="p">,</span> <span class="err">값</span><span class="mi">2</span><span class="p">,</span> <span class="p">...)</span>
+</code></pre></div></div>
+
+<p>칼럼명은 생략이 가능하다 (칼럼의 순서를 맞춰야함)</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="err">테이블</span> <span class="k">VALUES</span><span class="p">(</span><span class="err">값</span><span class="mi">1</span><span class="p">,</span> <span class="err">값</span><span class="mi">2</span><span class="p">,</span> <span class="p">...)</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">문자열을 입력하는 경우 작은따옴표(' ')를 사용해야 한다</code></p>
+
+<p>INSERT문을 실행했다고 데이터 파일에 저장되는 것은 아님. 최종적으로 TCL문인 <code class="language-plaintext highlighter-rouge">Commit</code>을 실행해야 함</p>
+
+<h2 id="update">UPDATE</h2>
+
+<hr />
+
+<p>입력된 데이터의 값을 수정할 수 있음</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">UPDATE</span> <span class="err">테이블</span> <span class="k">SET</span> <span class="err">칼럼</span><span class="o">=</span><span class="err">값</span> <span class="k">WHERE</span> <span class="err">조건</span>
+</code></pre></div></div>
+
+<p>위의 쿼리는 조건에 맞는 ROW의 칼럽을 수정하는 쿼리이다</p>
+
+<h2 id="delete">DELETE</h2>
+
+<hr />
+
+<p>원하는 조건을 검색하여 해당 ROW를 삭제할 수 있음</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DELETE</span> <span class="k">FROM</span> <span class="err">테이블</span> <span class="k">WHERE</span> <span class="err">조건</span>
+</code></pre></div></div>
+
+<h3 id="테이블의-모든-데이터-삭제">테이블의 모든 데이터 삭제</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>DELETE FROM 테이블</th>
+      <th>TRUNCATE TABLE 테이블</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>테이블의 모든 데이터를 삭제</td>
+      <td>테이블의 모든 데이터 삭제</td>
+    </tr>
+    <tr>
+      <td>데이터가 삭제되어도 테이블의 용량 감소 X</td>
+      <td>데이터가 삭제되면 테이블의 용량은 초기화</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="select">SELECT</h2>
+
+<hr />
+
+<p>테이블에 입력된 데이터 조회</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">테이블</span>
+</code></pre></div></div>
+
+<p>위의 쿼리는 해당 테이블의 모든 데이터를 조회한다</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">테이블</span> <span class="k">WHERE</span> <span class="err">조건</span>
+</code></pre></div></div>
+
+<p>위의 쿼리는 해당 테이블에서 조건이 맞는 모든 데이터를 조회한다</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="err">칼럼</span><span class="mi">1</span><span class="p">,</span> <span class="err">칼럼</span><span class="mi">2</span> <span class="k">FROM</span> <span class="err">테이블</span>
+</code></pre></div></div>
+
+<p>위의 쿼리는 해당 테이블에서 모든 데이터의 칼럼1과 2만 조회한다</p>
+
+<p><code class="language-plaintext highlighter-rouge">DISTINCT는 칼럼명 앞에 지정하며 중복된 데이터를 한 번만 조회함</code></p>
+
+<h2 id="where">WHERE</h2>
+
+<hr />
+
+<p>WHERE문은 비교 연산자, 부정 비교 연산자, 논리 연산자, SQL 연산자, 부정 SQL 연산자를 사용할 수 있다</p>
+
+<h3 id="비교-연산자">비교 연산자</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>비교 연산자</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>=</td>
+      <td>같은 것을 조회</td>
+    </tr>
+    <tr>
+      <td>&lt;</td>
+      <td>작은 것을 조회</td>
+    </tr>
+    <tr>
+      <td>&lt;=</td>
+      <td>작거나 같은 것을 조회</td>
+    </tr>
+    <tr>
+      <td>&gt;</td>
+      <td>큰 것을 조회</td>
+    </tr>
+    <tr>
+      <td>&gt;=</td>
+      <td>크거나 같은 것을 조회</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="부정-비교-연산자">부정 비교 연산자</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>부정 비교 연산자</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>!=</td>
+      <td>같지 않은 것을 조회</td>
+    </tr>
+    <tr>
+      <td>^=</td>
+      <td>같지 않은 것을 조회</td>
+    </tr>
+    <tr>
+      <td>&lt;&gt;</td>
+      <td>같지 않은 것을 조회</td>
+    </tr>
+    <tr>
+      <td>NOT 칼럼명 =</td>
+      <td>같지 않은 것을 조회</td>
+    </tr>
+    <tr>
+      <td>NOT 칼럼명 &gt;</td>
+      <td>크지 않은 것을 조회</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="논리-연산자">논리 연산자</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>논리 연산자</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AND</td>
+      <td>조건을 모두 만족해야 참(True)</td>
+    </tr>
+    <tr>
+      <td>OR</td>
+      <td>조건 중 하나만 만족해도 참(True)</td>
+    </tr>
+    <tr>
+      <td>NOT</td>
+      <td>참이면 거짓(False)으로 바꾸고 거짓이면 참(True)로 바꿈</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="sql-연산자">SQL 연산자</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>SQL 연산자</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LIKE ‘%비교 문자열%’</td>
+      <td>비교 문자열 조회 (%는 모든 값을 의미하는 와일드 카드)</td>
+    </tr>
+    <tr>
+      <td>BETWEEN A AND B</td>
+      <td>A와 B 사이의 값 조회</td>
+    </tr>
+    <tr>
+      <td>IN (list)</td>
+      <td>OR을 의미하며 list 값 중 하나만 일치해도 조회</td>
+    </tr>
+    <tr>
+      <td>IS NULL</td>
+      <td>NULL 값 조회</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="부정-sql-연산자">부정 SQL 연산자</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>부정 SQL 연산자</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NOT BETWEEN A AND B</td>
+      <td>A와 B 사이의 해당되지 않는 값 조회</td>
+    </tr>
+    <tr>
+      <td>NOT IN (list)</td>
+      <td>list와 불일치한 것 조회</td>
+    </tr>
+    <tr>
+      <td>IS NOT NULL</td>
+      <td>NULL 값이 아닌 것 조회</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="와일드-카드">와일드 카드</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>와일드 카드</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>%</td>
+      <td>어떤 문자를 포함한 모든 것 조회</td>
+    </tr>
+    <tr>
+      <td>_</td>
+      <td>한 개인 단일 문자</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="null-관련-함수">NULL 관련 함수</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>NULL 함수</th>
+      <th>DBMS</th>
+      <th>사용법</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NVL</td>
+      <td>Oracle</td>
+      <td>NVL(칼럼, 값)</td>
+      <td>칼럼이 NULL이면 다른 값으로 바꾸는 함수<br />예에서 칼럼이 NULL이면 값 반환</td>
+    </tr>
+    <tr>
+      <td>NVL2</td>
+      <td>Oracle</td>
+      <td>NVL2(칼럼, 값1, 값2)</td>
+      <td>칼럼이 NULL이 아니면 값1, NULL이면 값2 반환</td>
+    </tr>
+    <tr>
+      <td>NULLIF</td>
+      <td>Oracle, MS-SQL, MySQL</td>
+      <td>NULLIF(값1, 값2)</td>
+      <td>두개의 값이 같으면 NULL을, 같지 않으면 첫 번째 값 반환</td>
+    </tr>
+    <tr>
+      <td>COALESCE</td>
+      <td>Oracle, MS-SQL</td>
+      <td>COALESCE(값1, 값2, … )</td>
+      <td>NULL이 아닌 최초의 값 반환</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="group-연산">GROUP 연산</h2>
+
+<hr />
+
+<h3 id="group-by">GROUP BY</h3>
+
+<ul>
+  <li>테이블에서 소규모 행을 그룹화하여 합계, 평균, 최댓값, 최솟값 등을 계산할 수 있음</li>
+  <li>HAVING 절에 조건문을 사용</li>
+  <li>Grouping된 결과에 대한 조건문 사용</li>
+  <li>ORDER BY를 사용하여 정렬 가능</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">DEPTNO</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">SAL</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">EMP</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">DEPTNO</span>
+</code></pre></div></div>
+
+<p>위의 쿼리는 DEPTNO로 그룹을 만들어 <code class="language-plaintext highlighter-rouge">SUM(SAL)</code> 을 이용해 그룹별 합계를 계산함</p>
+
+<h3 id="having">HAVING</h3>
+
+<p>GROUP BY에 조건을 사용하기 위해선 HAVING을 사용해야 함</p>
+
+<p>만약 WHERE절에 조건문을 사용하면 조건을 충족하지 못하는 데이터들은 GROUP BY 대상에서 제외</p>
+
+<h3 id="집계함수">집계함수</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>집계함수</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>COUNT()</td>
+      <td>행 수 계산</td>
+    </tr>
+    <tr>
+      <td>SUM()</td>
+      <td>합계 계산</td>
+    </tr>
+    <tr>
+      <td>AVG()</td>
+      <td>평균 계산</td>
+    </tr>
+    <tr>
+      <td>MAX()</td>
+      <td>최댓값 계산</td>
+    </tr>
+    <tr>
+      <td>MIN()</td>
+      <td>최솟값 계산</td>
+    </tr>
+    <tr>
+      <td>STDDEV()</td>
+      <td>표준편차 계산</td>
+    </tr>
+    <tr>
+      <td>VARIANCE()</td>
+      <td>분산 계산</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="데이터-조회-실행-순서">데이터 조회 실행 순서</h3>
+
+<ol>
+  <li>SELECT</li>
+  <li>FROM</li>
+  <li>WHERE</li>
+  <li>GROUP BY</li>
+  <li>HAVING</li>
+  <li>ORDER BY</li>
+</ol>
+
+<h2 id="형변환">형변환</h2>
+
+<hr />
+
+<p>두 개의 데이터의 데이터 타입이 일치하도록 변환하는 것</p>
+
+<p>명시적(Explicit) 형변환과 암시적(Implicit) 형변환이 있음</p>
+
+<h3 id="형변환-함수">형변환 함수</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>함수</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TO_NUMBER(문자열)</td>
+      <td>문자열을 숫자로 변환</td>
+    </tr>
+    <tr>
+      <td>TO_CHAR(숫자 혹은 날짜, FORMAT)</td>
+      <td>숫자 혹은 날짜를 지정된 FORMAT의 문자로 변환</td>
+    </tr>
+    <tr>
+      <td>TO_DATE(문자열, FORMAT)</td>
+      <td>문자열을 지정된 FORMAT의 날짜형으로 변환</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="내장형-함수">내장형 함수</h2>
+
+<hr />
+
+<h3 id="dual-테이블">DUAL 테이블</h3>
+
+<p>Oracle 데이터베이스에 의해 자동으로 생성되는 테이블</p>
+
+<h3 id="문자열-함수">문자열 함수</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>함수</th>
+      <th>DBMS</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ASCII(문자)</td>
+      <td> </td>
+      <td>문자 혹은 숫자를 ASCII 코드값으로 변환</td>
+    </tr>
+    <tr>
+      <td>CHR(ASCII코드)</td>
+      <td>Oracle</td>
+      <td>ASCII 코드값을 문자로 변환</td>
+    </tr>
+    <tr>
+      <td>CHAR(ASCII코드)</td>
+      <td>MS-SQL, MySQL</td>
+      <td>ASCII 코드값을 문자로 변환</td>
+    </tr>
+    <tr>
+      <td>SUBSTR(문자열, m, n)</td>
+      <td> </td>
+      <td>문자열에서 m번째 위치부터 n개 자름</td>
+    </tr>
+    <tr>
+      <td>CONCAT(문자열1, 문자열2)</td>
+      <td> </td>
+      <td>문자열1과 문자열2를 결합한다</td>
+    </tr>
+    <tr>
+      <td>LOWER(문자열)</td>
+      <td> </td>
+      <td>영문자를 소문자로 변환</td>
+    </tr>
+    <tr>
+      <td>UPPER(문자열)</td>
+      <td> </td>
+      <td>영문자를 대문자로 변환</td>
+    </tr>
+    <tr>
+      <td>LENGTH</td>
+      <td> </td>
+      <td>공백을 포함한 문자열의 길이 반환</td>
+    </tr>
+    <tr>
+      <td>LEN(문자열)</td>
+      <td> </td>
+      <td>공백을 포함한 문자열의 길이 반환</td>
+    </tr>
+    <tr>
+      <td>LTRIM(문자열, 지정문자)</td>
+      <td> </td>
+      <td>왼쪽에서 지정된 문자를 삭제 (지정 문자를 생략시 공백 제거)</td>
+    </tr>
+    <tr>
+      <td>RTRIM(문자열, 지정문자)</td>
+      <td> </td>
+      <td>오른쪽에서 지정된 문자를 삭제 (지정 문자를 생략시 공백 제거)</td>
+    </tr>
+    <tr>
+      <td>TRIM(문자열, 지정문자)</td>
+      <td> </td>
+      <td>왼쪽 및 오른쪽에서 지정된 문자를 삭제 (지정 문자를 생략시 공백 제거)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="language-plaintext highlighter-rouge">DBMS의 공백은 모든 DBMS가 지원하는 함수</code></p>
+
+<h3 id="날짜형-함수">날짜형 함수</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>함수</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SYSDATE</td>
+      <td>현재 날짜를 날짜 타입으로 반환</td>
+    </tr>
+    <tr>
+      <td>EXTRACT(’YEAR’ | ‘MONTH’ | ‘DAY’ from dual)</td>
+      <td>날짜에서 년, 월, 일을 조회</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="숫자형-함수">숫자형 함수</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>함수</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABS(숫자)</td>
+      <td>절댓값 반환</td>
+    </tr>
+    <tr>
+      <td>SIGN(숫자)</td>
+      <td>양수, 음수, 0을 구별</td>
+    </tr>
+    <tr>
+      <td>MOD(숫자1, 숫자2)</td>
+      <td>숫자1을 숫자2로 나누어 나머지 계산(%를 사용해도 됨)</td>
+    </tr>
+    <tr>
+      <td>CEIL(숫자)</td>
+      <td>숫자보다 크거나 같은 최소의 정수 반환</td>
+    </tr>
+    <tr>
+      <td>CEILING(숫자)</td>
+      <td>숫자보다 크거나 같은 최소의 정수 반환</td>
+    </tr>
+    <tr>
+      <td>FLOOR(숫자)</td>
+      <td>숫자보다 작거나 같은 최대의 정수 반환</td>
+    </tr>
+    <tr>
+      <td>ROUND(숫자, m)</td>
+      <td>소수점 m 자리에서 반올림 (m 생략 시 0 지정)</td>
+    </tr>
+    <tr>
+      <td>TRUNC(숫자, m)</td>
+      <td>소수점 m 자리에서 절삭 (m 생략 시 0 지정)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="decode">DECODE</h2>
+
+<hr />
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DECODE</span><span class="p">(</span><span class="err">칼럼</span><span class="p">,</span> <span class="err">값</span><span class="p">,</span> <span class="err">값</span><span class="mi">1</span><span class="p">,</span> <span class="err">값</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>칼럼과 값이 같으면(참) 값1을, 같지 않으면(거짓) 값2를 반환</p>
+
+<h2 id="case">CASE</h2>
+
+<hr />
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">CASE</span>
+	<span class="k">WHEN</span> <span class="err">조건</span><span class="mi">1</span> <span class="k">THEN</span> <span class="err">값</span><span class="mi">1</span>
+	<span class="k">WHEN</span> <span class="err">조건</span><span class="mi">2</span> <span class="k">THEN</span> <span class="err">값</span><span class="mi">2</span>
+	<span class="k">ELSE</span> <span class="err">값</span><span class="mi">3</span>
+	<span class="k">END</span>
+<span class="k">FROM</span> <span class="err">테이블</span>
+</code></pre></div></div>
+
+<p>위의 쿼리는 테이블에서 맞는 조건에 따른 값 반환과 조건이 맞지 않을 시 값3을 출력한다</p>
+
+<h2 id="rownum">ROWNUM</h2>
+
+<hr />
+
+<ul>
+  <li>Oracle 데이터베이스의 SELECT문 결과에 대해 논리적인 일련번호를 부여함</li>
+  <li>조회되는 행 수를 제한할 때 많이 사용됨</li>
+  <li>화면에 데이터를 출력할 때 부여되는 논리적 순번</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">인라인 뷰(Inline view): SELCET문에서 FROM 절에 사용되는 서브쿼리(Sub Query)를 의미</code></p>
+
+<h2 id="rowid">ROWID</h2>
+
+<hr />
+
+<ul>
+  <li>Oracle 데이터베이스 내에서 데이터를 구불할 수 있는 유일한 값</li>
+  <li>“SELECT ROWID, 갈럼 FROM 테이블” 처럼 SELECT문으로 확인할 수 있음</li>
+  <li>데이터가 어떤 데이터 파일, 어느 블록에 저장되어 있는지 알 수 있음</li>
+</ul>
+
+<h3 id="rowid-구조">ROWID 구조</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>구조</th>
+      <th>길이</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>오브젝트 번호</td>
+      <td>1~6</td>
+      <td>오브젝트 별로 유일한 값을 가지고 있으며, 해당 오브젝트가 속한 값</td>
+    </tr>
+    <tr>
+      <td>상대 파일 번호</td>
+      <td>7~9</td>
+      <td>테이블스페이스에 속해 있는 데이터 파일에 대한 상대 파일 번호</td>
+    </tr>
+    <tr>
+      <td>블록 번호</td>
+      <td>10~15</td>
+      <td>데이터 파일 내부에서 어느 블록에 데이터가 있는지 알려줌</td>
+    </tr>
+    <tr>
+      <td>데이터 번호</td>
+      <td>16~18</td>
+      <td>데이터 블록에 데이터가 저장되어 있는 순서</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="with">WITH</h2>
+
+<hr />
+
+<ul>
+  <li>서브쿼리(Subquery)를 사용하여 임시 테이블이나 뷰처럼 사용할 수 있는 구문</li>
+  <li>서브쿼리 블록에 별칭을 지정할 수 있음</li>
+  <li>옵티마이저는 SQL을 인라인 뷰나 임시 테이블로 판단</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">WITH</span> <span class="err">임시테이블명</span> <span class="k">AS</span>
+<span class="p">(</span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">테이블</span>
+<span class="k">UNION</span> <span class="k">ALL</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">테이블</span><span class="p">)</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">임시테이블명</span> <span class="k">WHERE</span> <span class="err">조건</span>
+</code></pre></div></div>
+
+<p>위의 쿼리는 WITH구문의 예</p>]]></content><author><name>Mindol</name></author><category term="Database" /><category term="Database" /><category term="study" /><summary type="html"><![CDATA[[SQL 기본]-DML]]></summary></entry><entry><title type="html">DDL(Data Definition Language)</title><link href="http://localhost:4000/database/2023/06/06/SQL-%EA%B8%B0%EB%B3%B8-DDL.html" rel="alternate" type="text/html" title="DDL(Data Definition Language)" /><published>2023-06-06T06:00:01+09:00</published><updated>2023-06-06T06:00:01+09:00</updated><id>http://localhost:4000/database/2023/06/06/%5BSQL%20%EA%B8%B0%EB%B3%B8%5DDDL</id><content type="html" xml:base="http://localhost:4000/database/2023/06/06/SQL-%EA%B8%B0%EB%B3%B8-DDL.html"><![CDATA[<h2 id="sql-기본">SQL 기본</h2>
 
 <hr />
 
@@ -85,10 +733,10 @@
 
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">Create</span> <span class="k">Table</span> <span class="n">EMP</span>
 <span class="p">(</span>
-	<span class="n">empno</span> <span class="n">number</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span>   <span class="o">//</span> <span class="n">empno</span><span class="err">은</span> <span class="err">최대</span> <span class="mi">10</span><span class="err">자리</span> <span class="err">숫자로</span> <span class="err">기본키이다</span>
-	<span class="n">ename</span> <span class="n">varchar2</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>    <span class="o">//</span> <span class="n">ename</span><span class="err">은</span> <span class="err">최대</span> <span class="mi">20</span><span class="err">자리의</span> <span class="err">가변</span> <span class="err">길이</span> <span class="err">문자로</span> <span class="err">공백</span> <span class="err">허용</span><span class="n">X</span>
-	<span class="n">sal</span> <span class="n">number</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>                  <span class="o">//</span> <span class="n">sal</span><span class="err">은</span> <span class="err">최대</span> <span class="mi">6</span><span class="err">자리</span> <span class="err">숫자</span>
-	<span class="n">createdate</span> <span class="nb">date</span> <span class="k">default</span> <span class="n">sysdate</span> <span class="o">//</span> <span class="n">createdate</span><span class="err">는</span> <span class="err">날짜를</span> <span class="err">입력받으며</span> <span class="err">기본값으로</span> <span class="err">현재</span> <span class="err">날짜</span>
+  <span class="n">empno</span> <span class="n">number</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span>   <span class="o">//</span> <span class="n">empno</span><span class="err">은</span> <span class="err">최대</span> <span class="mi">10</span><span class="err">자리</span> <span class="err">숫자로</span> <span class="err">기본키이다</span>
+  <span class="n">ename</span> <span class="n">varchar2</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>    <span class="o">//</span> <span class="n">ename</span><span class="err">은</span> <span class="err">최대</span> <span class="mi">20</span><span class="err">자리의</span> <span class="err">가변</span> <span class="err">길이</span> <span class="err">문자로</span> <span class="err">공백</span> <span class="err">허용</span><span class="n">X</span>
+  <span class="n">sal</span> <span class="n">number</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>                  <span class="o">//</span> <span class="n">sal</span><span class="err">은</span> <span class="err">최대</span> <span class="mi">6</span><span class="err">자리</span> <span class="err">숫자</span>
+  <span class="n">createdate</span> <span class="nb">date</span> <span class="k">default</span> <span class="n">sysdate</span> <span class="o">//</span> <span class="n">createdate</span><span class="err">는</span> <span class="err">날짜를</span> <span class="err">입력받으며</span> <span class="err">기본값으로</span> <span class="err">현재</span> <span class="err">날짜</span>
 <span class="p">)</span>
 </code></pre></div></div>
 
@@ -742,7 +1390,7 @@
 <ul>
   <li>본질 식별자: 비즈니스 프로세스에서 만들어지는 식별자</li>
   <li>인조 식별자: 인위적으로 만들어지는 식별자</li>
-</ul>]]></content><author><name>Mindol</name></author><category term="Database" /><category term="Database" /><category term="study" /><summary type="html"><![CDATA[데이터 모델링 개념]]></summary></entry><entry><title type="html">QGIS3를 이용한 Shapefile 편집</title><link href="http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html" rel="alternate" type="text/html" title="QGIS3를 이용한 Shapefile 편집" /><published>2023-05-24T06:00:01+09:00</published><updated>2023-05-24T06:00:01+09:00</updated><id>http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20Shapefile%20%ED%8E%B8%EC%A7%91</id><content type="html" xml:base="http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html"><![CDATA[<h2 id="tmi">TMI</h2>
+</ul>]]></content><author><name>Mindol</name></author><category term="Database" /><category term="Database" /><category term="study" /><summary type="html"><![CDATA[데이터 모델링 개념]]></summary></entry><entry><title type="html">QGIS3를 이용한 Shapefile 편집</title><link href="http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html" rel="alternate" type="text/html" title="QGIS3를 이용한 Shapefile 편집" /><published>2023-05-24T06:00:01+09:00</published><updated>2023-05-24T06:00:01+09:00</updated><id>http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20Shapefile%20%ED%8E%B8%EC%A7%91</id><content type="html" xml:base="http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html"><![CDATA[<h2 id="개요">개요</h2>
 
 <hr />
 
@@ -879,19 +1527,19 @@
 
 <p>모든 편집이 종료되면 레이어 편집 내용 저장을 통해 변경된 내용을 저장해야 한다.</p>
 
-<p><img src="/assets/img/QGIS3/edit_9.png" alt="Image" /></p>]]></content><author><name>Mindol</name></author><category term="QGIS" /><category term="QGIS" /><category term="shapefile" /><summary type="html"><![CDATA[Shapefile edit]]></summary></entry><entry><title type="html">QGIS3 사용법</title><link href="http://localhost:4000/qgis/2023/05/23/QGIS3-%EC%82%AC%EC%9A%A9%EB%B2%95.html" rel="alternate" type="text/html" title="QGIS3 사용법" /><published>2023-05-23T06:00:01+09:00</published><updated>2023-05-23T06:00:01+09:00</updated><id>http://localhost:4000/qgis/2023/05/23/QGIS3%20%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/qgis/2023/05/23/QGIS3-%EC%82%AC%EC%9A%A9%EB%B2%95.html"><![CDATA[<h2 id="qgis란">QGIS란?</h2>
+<p><img src="/assets/img/QGIS3/edit_9.png" alt="Image" /></p>]]></content><author><name>Mindol</name></author><category term="QGIS" /><category term="QGIS" /><category term="shapefile" /><summary type="html"><![CDATA[Shapefile edit]]></summary></entry><entry><title type="html">QGIS3 사용법</title><link href="http://localhost:4000/qgis/2023/05/23/QGIS3-%EC%82%AC%EC%9A%A9%EB%B2%95.html" rel="alternate" type="text/html" title="QGIS3 사용법" /><published>2023-05-23T06:00:01+09:00</published><updated>2023-05-23T06:00:01+09:00</updated><id>http://localhost:4000/qgis/2023/05/23/QGIS3%20%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/qgis/2023/05/23/QGIS3-%EC%82%AC%EC%9A%A9%EB%B2%95.html"><![CDATA[<h2 id="개요">개요</h2>
+
+<hr />
+
+<p>해당 포스트는 국토지리정보원의 정밀 도로지도(NGII)를 예로 들고 있음.</p>
+
+<h2 id="qgis란">QGIS란?</h2>
 
 <hr />
 
 <p>QGIS: 공간데이터 조회, 편집, 분석 기능을 제공하는 대표적인 오픈소스 데스크탑 지리정보시스템(GIS) 소프트웨어.</p>
 
 <p><a href="[https://www.qgis.org/ko/site/](https://www.qgis.org/ko/site/)">설치링크</a></p>
-
-<h2 id="tmi">TMI</h2>
-
-<hr />
-
-<p>해당 포스트는 국토지리정보원의 정밀 도로지도(NGII)를 예로 들고 있음.</p>
 
 <h2 id="qgis3-사용법">QGIS3 사용법</h2>
 
@@ -960,7 +1608,7 @@
 <p><img src="/assets/img/QGIS3/useage_12.png" alt="Image" />
 검색하려는 속성의 우측 <code class="language-plaintext highlighter-rouge">필드제외</code> 콤보박스를 클릭하면 검색 조건을 변경할 수 있다.</p>
 
-<p>검색하려는 속성을 입력한 후 아래의 검색 방법 버튼을 클릭하여 특정 속성을 검색할 수 있다.</p>]]></content><author><name>Mindol</name></author><category term="QGIS" /><category term="QGIS" /><category term="shapefile" /><summary type="html"><![CDATA[QGIS3 useage]]></summary></entry><entry><title type="html">Shapefile Format</title><link href="http://localhost:4000/study/2023/05/19/%EA%B3%B5%EB%B6%80-Shapefile-Format.html" rel="alternate" type="text/html" title="Shapefile Format" /><published>2023-05-19T06:00:01+09:00</published><updated>2023-05-19T06:00:01+09:00</updated><id>http://localhost:4000/study/2023/05/19/%5B%EA%B3%B5%EB%B6%80%5DShapefile%20Format</id><content type="html" xml:base="http://localhost:4000/study/2023/05/19/%EA%B3%B5%EB%B6%80-Shapefile-Format.html"><![CDATA[<h1 id="tmi">TMI</h1>
+<p>검색하려는 속성을 입력한 후 아래의 검색 방법 버튼을 클릭하여 특정 속성을 검색할 수 있다.</p>]]></content><author><name>Mindol</name></author><category term="QGIS" /><category term="QGIS" /><category term="shapefile" /><summary type="html"><![CDATA[QGIS3 useage]]></summary></entry><entry><title type="html">Shapefile Format</title><link href="http://localhost:4000/study/2023/05/19/%EA%B3%B5%EB%B6%80-Shapefile-Format.html" rel="alternate" type="text/html" title="Shapefile Format" /><published>2023-05-19T06:00:01+09:00</published><updated>2023-05-19T06:00:01+09:00</updated><id>http://localhost:4000/study/2023/05/19/%5B%EA%B3%B5%EB%B6%80%5DShapefile%20Format</id><content type="html" xml:base="http://localhost:4000/study/2023/05/19/%EA%B3%B5%EB%B6%80-Shapefile-Format.html"><![CDATA[<h1 id="개요">개요</h1>
 <hr />
 <p>교내 연구실에서 연구 진행 중 Shapefile format 분석을 의뢰받아 정리하여 요약</p>
 
@@ -1606,7 +2254,9 @@
 
 <p><a href="https://endofcap.tistory.com/3">[SHPViewer 강좌 1] SHP 포맷 분석 1</a></p>
 
-<p><a href="https://docs.fileformat.com/gis/shp/">SHP - ESRI Shapefile</a></p>]]></content><author><name>Mindol</name></author><category term="Study" /><category term="study" /><category term="shapefile" /><summary type="html"><![CDATA[shapefile format]]></summary></entry><entry><title type="html">JsonUtility</title><link href="http://localhost:4000/unity/2023/04/03/JsonUtility.html" rel="alternate" type="text/html" title="JsonUtility" /><published>2023-04-03T06:00:01+09:00</published><updated>2023-04-03T06:00:01+09:00</updated><id>http://localhost:4000/unity/2023/04/03/JsonUtility</id><content type="html" xml:base="http://localhost:4000/unity/2023/04/03/JsonUtility.html"><![CDATA[<p>최근 RPG제작에 용이한 기능들을 제작하는 프로젝트 <a href="https://github.com/hhh57463/RPG_Helper">RPG_Helper</a>를 제작하던 중 인벤토리 구현에 필요한 DB연동 대신 JSON을 활용하던 중 알게된 부분을 정리한다.</p>
+<p><a href="https://docs.fileformat.com/gis/shp/">SHP - ESRI Shapefile</a></p>]]></content><author><name>Mindol</name></author><category term="Study" /><category term="study" /><category term="shapefile" /><summary type="html"><![CDATA[shapefile format]]></summary></entry><entry><title type="html">JsonUtility</title><link href="http://localhost:4000/unity/2023/04/03/JsonUtility.html" rel="alternate" type="text/html" title="JsonUtility" /><published>2023-04-03T06:00:01+09:00</published><updated>2023-04-03T06:00:01+09:00</updated><id>http://localhost:4000/unity/2023/04/03/JsonUtility</id><content type="html" xml:base="http://localhost:4000/unity/2023/04/03/JsonUtility.html"><![CDATA[<h1 id="개요">개요</h1>
+<hr />
+<p>최근 RPG제작에 용이한 기능들을 제작하는 프로젝트 <a href="https://github.com/hhh57463/RPG_Helper">RPG_Helper</a>를 제작하던 중 인벤토리 구현에 필요한 DB연동 대신 JSON을 활용하던 중 알게된 부분을 정리한다.</p>
 
 <h2 id="json">JSON?</h2>
 <hr />
@@ -1872,126 +2522,4 @@ Material의 Shader가 Universal Render Pipeline/Lit으로 설정되어있다.<br
       <td>전역 조명을 샘플링하는 옵션이 있는 조명없는 셰이더, Unity의 스톡 언릿 셰이더 대체</td>
     </tr>
   </tbody>
-</table>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="unity" /><category term="study" /><summary type="html"><![CDATA[Unity URP]]></summary></entry><entry><title type="html">Cinemachine</title><link href="http://localhost:4000/unity/2023/02/07/Cinemachine.html" rel="alternate" type="text/html" title="Cinemachine" /><published>2023-02-07T06:00:01+09:00</published><updated>2023-02-07T06:00:01+09:00</updated><id>http://localhost:4000/unity/2023/02/07/Cinemachine</id><content type="html" xml:base="http://localhost:4000/unity/2023/02/07/Cinemachine.html"><![CDATA[<h2 id="시네머신">시네머신?</h2>
-<hr />
-<p>영화 촬영을 하는 것처럼 씬을 촬영하여 게임 화면상에 비추어주는 유니티 패키지.<br /><br />
-기본적으로 카메라 오브젝트를 생성하지 않고 가상 카메라를 이용.<br /><br />
-가상 카메라는 원래 있는 카메라 오브젝트를 이용하여 여러 환경에서 비추어줄 씬을 보여주도록 도와줌.<br /><br />
-가상 카메라는 서로에게 영향을 끼치지 않으며, 유니티 카메라에도 영향을 받지 않아 자유로운 카메라 구성이 가능.</p>
-
-<h2 id="패키지-추가">패키지 추가</h2>
-<hr />
-
-<p><img src="/assets/img/Unity/Cinemachine_1.png" alt="image" /><br />
-Window→Package Manager<br /><br />
-<img src="/assets/img/Unity/Cinemachine_2.png" alt="image" /><br />
-Packages를 Unity Registry로 변경 후 Cinemachine을 찾아 install<br /><br />
-<img src="/assets/img/Unity/Cinemachine_3.png" alt="image" /><br />
-Packages 디렉터리에 Cinemachine이 생긴것을 볼 수 있다<br /><br />
-<img src="/assets/img/Unity/Cinemachine_4.png" alt="image" /><br />
-Hierachy에서 시네머신 카메라를 생성할 수 있다.<br /><br /></p>
-
-<h2 id="종류">종류</h2>
-<hr />
-
-<table>
-  <thead>
-    <tr>
-      <th>카메라</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Virtual Camera</td>
-      <td>기본적인 카메라, 유니티 카메라를 조정하듯 자유롭게 활용 가능</td>
-    </tr>
-    <tr>
-      <td>FreeLook Camera</td>
-      <td>오브젝트를 중심으로 원형의 링을 생성하여 그 구간 안에서 타깃을 관찰하는 카메라</td>
-    </tr>
-    <tr>
-      <td>Blend List Camera</td>
-      <td>할당된 버추얼 카메라들을 정해진 블랜드 방식에 따라 순차적으로 전환하는 카메라</td>
-    </tr>
-    <tr>
-      <td>State-Driven Camera</td>
-      <td>타겟 애니메이션의 상태별로 활성화/비활성화 시킬 수 있는 카메라</td>
-    </tr>
-    <tr>
-      <td>ClearShot Camera</td>
-      <td>플레이어의 충돌/트리거 상태에 따라 활성화/비활성화 시킬 수 있는 카메라</td>
-    </tr>
-    <tr>
-      <td>Dolly Camera</td>
-      <td>트랙을 깔아 해당 트랙에 따라 움직이는 카메라, Dolly Track과 함께 사용</td>
-    </tr>
-    <tr>
-      <td>Target Group Camera</td>
-      <td>그룹으로 묶인 카메라들을 자동으로 계산해 한 화면에 보여주는 카메라</td>
-    </tr>
-    <tr>
-      <td>Mixing Camera</td>
-      <td>Child Camera Weight 값에 따라 활성화/비활성화 해주는 카메라</td>
-    </tr>
-    <tr>
-      <td>2D Camera</td>
-      <td>직교 뷰로 사용되는 카메라</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="프로퍼티-설명">프로퍼티 설명</h2>
-<hr />
-<p>💡 가장 기본적인 Virtual Camera의 설명<br />
-<img src="/assets/img/Unity/Cinemachine_5.png" alt="image" /><br /><br />
-Save During Play: 에디터 Play 중 내용을 변경해도 설정 저장<br /><br />
-Priority: 카메라 우선도<br /><br />
-Follow: 따라다닐 오브젝트<br /><br />
-Look At: 바라볼 오브젝트<br /><br />
-Standby Update: Live 상태가 아닌 카메라의 업데이트 빈도</p>
-<ul>
-  <li>Never: 항상</li>
-  <li>Always: Live 일때만</li>
-  <li>Round Robine: 정기적으로</li>
-</ul>
-
-<p>Transitions: 카메라 사이 이동시 씬 전환 효과<br /><br />
-Body: 카메라의 위치<br /><br />
-Aim: 카메라의 각도<br /></p>
-
-<h2 id="body">Body</h2>
-<hr />
-<p><img src="/assets/img/Unity/Cinemachine_6.png" alt="image" /><br /><br />
-Follow Offset: 카메라와 대상의 거리<br /><br />
-Damping(제동): 값의 급격한 변화를 꺾어 부드럽게 이어주는 비율, 값이 커질 수록 부드러워져 민감도가 줄어듬</p>
-
-<h2 id="aim">Aim</h2>
-<hr />
-<p><img src="/assets/img/Unity/Cinemachine_7.png" alt="image" /><br /><br />
-Tracked Object Offset: 대상에서 얼마나 더 떨어진 곳에서 바라볼지 (y값을 늘리면 대상보다 높은 곳을 조준한다)<br /><br />
-Damping: 회전 속도에 대한 제동값<br /><br />
-Dead Zone: 데드존의 크기<br /><br />
-Soft Zone: 소프트존의 크기<br /></p>
-
-<h2 id="soft-zone-dead-zone">Soft Zone, Dead Zone</h2>
-<hr />
-<p><img src="/assets/img/Unity/Cinemachine_8.png" alt="image" /><br /><br />
-<span style="color:red">
-Dead Zone(데드존)
-</span>: 대상이 데드존 내에서 움직이는 동안에는 카메라가 회전하지 않는다<br /><br />
-<span style="color:blue">
-Soft Zone(소프트존)
-</span>: 대상이 소프트존 내에 있다면 카메라가 부드럽게 회전하여 대상이 데드존 안으로 들어가게 한다<br /><br />
-<span style="color:yellow">
-하드리밋
-</span>: 소프트존보다 바깥에 있어 더 빠르고 격한 속도로 회전하며 대상이 데드존 안으로 들어가게 함<br /><br /></p>
-
-<p><code class="language-plaintext highlighter-rouge">데드존이 클 수록 화면은 느리고 부드럽게 움직이며, 데드존이 작을수록 화면은 빠르고 격하게 움직임</code></p>
-
-<h2 id="테스트">테스트</h2>
-<hr />
-<p>오브젝트를 생성하여 상하좌우로 움직이는 코드를 구현한 후 시네머신의 Follow, Look At에 연결해주었다.<br />
-<img src="/assets/img/Unity/Cinemachine_9.gif" alt="image" /><br /><br /></p>
-
-<p>카메라가 회전하여 오브젝트가 데드존으로 들어가게 하는 것을 볼 수 있다.</p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="unity" /><category term="study" /><summary type="html"><![CDATA[Unity Cinemachine]]></summary></entry></feed>
+</table>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="unity" /><category term="study" /><summary type="html"><![CDATA[Unity URP]]></summary></entry></feed>

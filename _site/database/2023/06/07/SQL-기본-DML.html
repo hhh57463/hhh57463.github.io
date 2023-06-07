@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>DML(Data Manipulation Language) | Mindol</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="DML(Data Manipulation Language)" />
+<meta name="author" content="Mindol" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="[SQL 기본]-DML" />
+<meta property="og:description" content="[SQL 기본]-DML" />
+<link rel="canonical" href="http://localhost:4000/database/2023/06/07/SQL-%EA%B8%B0%EB%B3%B8-DML.html" />
+<meta property="og:url" content="http://localhost:4000/database/2023/06/07/SQL-%EA%B8%B0%EB%B3%B8-DML.html" />
+<meta property="og:site_name" content="Mindol" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-06-07T06:00:01+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="DML(Data Manipulation Language)" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-06-07T06:00:01+09:00","datePublished":"2023-06-07T06:00:01+09:00","description":"[SQL 기본]-DML","headline":"DML(Data Manipulation Language)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/database/2023/06/07/SQL-%EA%B8%B0%EB%B3%B8-DML.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/MinTa.png"},"name":"Mindol"},"url":"http://localhost:4000/database/2023/06/07/SQL-%EA%B8%B0%EB%B3%B8-DML.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Mindol" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+  <script>
+    const hour = (new Date()).getHours();
+    let filename = "";
+    if (hour >= 5 && hour < 7) {
+      filename = "/assets/css/skin-sunrise.css";
+    } else if (hour >= 7 && hour < 17) {
+      filename = "/assets/css/skin-daylight.css";
+    } else if (hour >= 17 && hour < 19) {
+      filename = "/assets/css/skin-sunset.css";
+    } else {
+      filename = "/assets/css/skin-midnight.css";
+    }
+    const elem = document.createElement("link");
+    elem.setAttribute("rel", "stylesheet");
+    elem.setAttribute("type", "text/css");
+    elem.setAttribute("href", filename);
+    document.getElementsByTagName("head")[0].appendChild(elem);
+  </script>
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">Mindol</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/assets/img/MinTa.png" class="author-avatar u-photo align-center" alt="Mindol">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Mindol</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:hhh57463@naver.com">hhh57463@naver.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <!-- <a href="/feed.xml"> -->
+    <a href="https://sly-lemonade-717.notion.site/d6f467dc95934f8581ef33fe4e84ad17">
+    <i class="sidebar-icon fas fa-rss"></i><span>Portfolio</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://github.com/hhh57463"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://instagram.com/hhh57463"><i class="fab fa-instagram fa-2x" title="Instagram"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">DML(Data Manipulation Language)</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-06-07T06:00:01+09:00" itemprop="datePublished">
+        Jun 7, 2023
+      </time></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="insert">INSERT</h2>
+
+<hr />
+
+<p>테이블에 데이터를 입력하는 DML문</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="err">테이블</span><span class="p">(</span><span class="err">칼럼</span><span class="mi">1</span><span class="p">,</span> <span class="err">칼럼</span><span class="mi">2</span><span class="p">,</span> <span class="p">...)</span> <span class="k">VALUES</span><span class="p">(</span><span class="err">값</span><span class="mi">1</span><span class="p">,</span> <span class="err">값</span><span class="mi">2</span><span class="p">,</span> <span class="p">...)</span>
+</code></pre></div></div>
+
+<p>칼럼명은 생략이 가능하다 (칼럼의 순서를 맞춰야함)</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="err">테이블</span> <span class="k">VALUES</span><span class="p">(</span><span class="err">값</span><span class="mi">1</span><span class="p">,</span> <span class="err">값</span><span class="mi">2</span><span class="p">,</span> <span class="p">...)</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">문자열을 입력하는 경우 작은따옴표(' ')를 사용해야 한다</code></p>
+
+<p>INSERT문을 실행했다고 데이터 파일에 저장되는 것은 아님. 최종적으로 TCL문인 <code class="language-plaintext highlighter-rouge">Commit</code>을 실행해야 함</p>
+
+<h2 id="update">UPDATE</h2>
+
+<hr />
+
+<p>입력된 데이터의 값을 수정할 수 있음</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">UPDATE</span> <span class="err">테이블</span> <span class="k">SET</span> <span class="err">칼럼</span><span class="o">=</span><span class="err">값</span> <span class="k">WHERE</span> <span class="err">조건</span>
+</code></pre></div></div>
+
+<p>위의 쿼리는 조건에 맞는 ROW의 칼럽을 수정하는 쿼리이다</p>
+
+<h2 id="delete">DELETE</h2>
+
+<hr />
+
+<p>원하는 조건을 검색하여 해당 ROW를 삭제할 수 있음</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DELETE</span> <span class="k">FROM</span> <span class="err">테이블</span> <span class="k">WHERE</span> <span class="err">조건</span>
+</code></pre></div></div>
+
+<h3 id="테이블의-모든-데이터-삭제">테이블의 모든 데이터 삭제</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>DELETE FROM 테이블</th>
+      <th>TRUNCATE TABLE 테이블</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>테이블의 모든 데이터를 삭제</td>
+      <td>테이블의 모든 데이터 삭제</td>
+    </tr>
+    <tr>
+      <td>데이터가 삭제되어도 테이블의 용량 감소 X</td>
+      <td>데이터가 삭제되면 테이블의 용량은 초기화</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="select">SELECT</h2>
+
+<hr />
+
+<p>테이블에 입력된 데이터 조회</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">테이블</span>
+</code></pre></div></div>
+
+<p>위의 쿼리는 해당 테이블의 모든 데이터를 조회한다</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">테이블</span> <span class="k">WHERE</span> <span class="err">조건</span>
+</code></pre></div></div>
+
+<p>위의 쿼리는 해당 테이블에서 조건이 맞는 모든 데이터를 조회한다</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="err">칼럼</span><span class="mi">1</span><span class="p">,</span> <span class="err">칼럼</span><span class="mi">2</span> <span class="k">FROM</span> <span class="err">테이블</span>
+</code></pre></div></div>
+
+<p>위의 쿼리는 해당 테이블에서 모든 데이터의 칼럼1과 2만 조회한다</p>
+
+<p><code class="language-plaintext highlighter-rouge">DISTINCT는 칼럼명 앞에 지정하며 중복된 데이터를 한 번만 조회함</code></p>
+
+<h2 id="where">WHERE</h2>
+
+<hr />
+
+<p>WHERE문은 비교 연산자, 부정 비교 연산자, 논리 연산자, SQL 연산자, 부정 SQL 연산자를 사용할 수 있다</p>
+
+<h3 id="비교-연산자">비교 연산자</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>비교 연산자</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>=</td>
+      <td>같은 것을 조회</td>
+    </tr>
+    <tr>
+      <td>&lt;</td>
+      <td>작은 것을 조회</td>
+    </tr>
+    <tr>
+      <td>&lt;=</td>
+      <td>작거나 같은 것을 조회</td>
+    </tr>
+    <tr>
+      <td>&gt;</td>
+      <td>큰 것을 조회</td>
+    </tr>
+    <tr>
+      <td>&gt;=</td>
+      <td>크거나 같은 것을 조회</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="부정-비교-연산자">부정 비교 연산자</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>부정 비교 연산자</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>!=</td>
+      <td>같지 않은 것을 조회</td>
+    </tr>
+    <tr>
+      <td>^=</td>
+      <td>같지 않은 것을 조회</td>
+    </tr>
+    <tr>
+      <td>&lt;&gt;</td>
+      <td>같지 않은 것을 조회</td>
+    </tr>
+    <tr>
+      <td>NOT 칼럼명 =</td>
+      <td>같지 않은 것을 조회</td>
+    </tr>
+    <tr>
+      <td>NOT 칼럼명 &gt;</td>
+      <td>크지 않은 것을 조회</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="논리-연산자">논리 연산자</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>논리 연산자</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AND</td>
+      <td>조건을 모두 만족해야 참(True)</td>
+    </tr>
+    <tr>
+      <td>OR</td>
+      <td>조건 중 하나만 만족해도 참(True)</td>
+    </tr>
+    <tr>
+      <td>NOT</td>
+      <td>참이면 거짓(False)으로 바꾸고 거짓이면 참(True)로 바꿈</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="sql-연산자">SQL 연산자</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>SQL 연산자</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LIKE ‘%비교 문자열%’</td>
+      <td>비교 문자열 조회 (%는 모든 값을 의미하는 와일드 카드)</td>
+    </tr>
+    <tr>
+      <td>BETWEEN A AND B</td>
+      <td>A와 B 사이의 값 조회</td>
+    </tr>
+    <tr>
+      <td>IN (list)</td>
+      <td>OR을 의미하며 list 값 중 하나만 일치해도 조회</td>
+    </tr>
+    <tr>
+      <td>IS NULL</td>
+      <td>NULL 값 조회</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="부정-sql-연산자">부정 SQL 연산자</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>부정 SQL 연산자</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NOT BETWEEN A AND B</td>
+      <td>A와 B 사이의 해당되지 않는 값 조회</td>
+    </tr>
+    <tr>
+      <td>NOT IN (list)</td>
+      <td>list와 불일치한 것 조회</td>
+    </tr>
+    <tr>
+      <td>IS NOT NULL</td>
+      <td>NULL 값이 아닌 것 조회</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="와일드-카드">와일드 카드</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>와일드 카드</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>%</td>
+      <td>어떤 문자를 포함한 모든 것 조회</td>
+    </tr>
+    <tr>
+      <td>_</td>
+      <td>한 개인 단일 문자</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="null-관련-함수">NULL 관련 함수</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>NULL 함수</th>
+      <th>DBMS</th>
+      <th>사용법</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NVL</td>
+      <td>Oracle</td>
+      <td>NVL(칼럼, 값)</td>
+      <td>칼럼이 NULL이면 다른 값으로 바꾸는 함수<br />예에서 칼럼이 NULL이면 값 반환</td>
+    </tr>
+    <tr>
+      <td>NVL2</td>
+      <td>Oracle</td>
+      <td>NVL2(칼럼, 값1, 값2)</td>
+      <td>칼럼이 NULL이 아니면 값1, NULL이면 값2 반환</td>
+    </tr>
+    <tr>
+      <td>NULLIF</td>
+      <td>Oracle, MS-SQL, MySQL</td>
+      <td>NULLIF(값1, 값2)</td>
+      <td>두개의 값이 같으면 NULL을, 같지 않으면 첫 번째 값 반환</td>
+    </tr>
+    <tr>
+      <td>COALESCE</td>
+      <td>Oracle, MS-SQL</td>
+      <td>COALESCE(값1, 값2, … )</td>
+      <td>NULL이 아닌 최초의 값 반환</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="group-연산">GROUP 연산</h2>
+
+<hr />
+
+<h3 id="group-by">GROUP BY</h3>
+
+<ul>
+  <li>테이블에서 소규모 행을 그룹화하여 합계, 평균, 최댓값, 최솟값 등을 계산할 수 있음</li>
+  <li>HAVING 절에 조건문을 사용</li>
+  <li>Grouping된 결과에 대한 조건문 사용</li>
+  <li>ORDER BY를 사용하여 정렬 가능</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">DEPTNO</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">SAL</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">EMP</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">DEPTNO</span>
+</code></pre></div></div>
+
+<p>위의 쿼리는 DEPTNO로 그룹을 만들어 <code class="language-plaintext highlighter-rouge">SUM(SAL)</code> 을 이용해 그룹별 합계를 계산함</p>
+
+<h3 id="having">HAVING</h3>
+
+<p>GROUP BY에 조건을 사용하기 위해선 HAVING을 사용해야 함</p>
+
+<p>만약 WHERE절에 조건문을 사용하면 조건을 충족하지 못하는 데이터들은 GROUP BY 대상에서 제외</p>
+
+<h3 id="집계함수">집계함수</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>집계함수</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>COUNT()</td>
+      <td>행 수 계산</td>
+    </tr>
+    <tr>
+      <td>SUM()</td>
+      <td>합계 계산</td>
+    </tr>
+    <tr>
+      <td>AVG()</td>
+      <td>평균 계산</td>
+    </tr>
+    <tr>
+      <td>MAX()</td>
+      <td>최댓값 계산</td>
+    </tr>
+    <tr>
+      <td>MIN()</td>
+      <td>최솟값 계산</td>
+    </tr>
+    <tr>
+      <td>STDDEV()</td>
+      <td>표준편차 계산</td>
+    </tr>
+    <tr>
+      <td>VARIANCE()</td>
+      <td>분산 계산</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="데이터-조회-실행-순서">데이터 조회 실행 순서</h3>
+
+<ol>
+  <li>SELECT</li>
+  <li>FROM</li>
+  <li>WHERE</li>
+  <li>GROUP BY</li>
+  <li>HAVING</li>
+  <li>ORDER BY</li>
+</ol>
+
+<h2 id="형변환">형변환</h2>
+
+<hr />
+
+<p>두 개의 데이터의 데이터 타입이 일치하도록 변환하는 것</p>
+
+<p>명시적(Explicit) 형변환과 암시적(Implicit) 형변환이 있음</p>
+
+<h3 id="형변환-함수">형변환 함수</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>함수</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TO_NUMBER(문자열)</td>
+      <td>문자열을 숫자로 변환</td>
+    </tr>
+    <tr>
+      <td>TO_CHAR(숫자 혹은 날짜, FORMAT)</td>
+      <td>숫자 혹은 날짜를 지정된 FORMAT의 문자로 변환</td>
+    </tr>
+    <tr>
+      <td>TO_DATE(문자열, FORMAT)</td>
+      <td>문자열을 지정된 FORMAT의 날짜형으로 변환</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="내장형-함수">내장형 함수</h2>
+
+<hr />
+
+<h3 id="dual-테이블">DUAL 테이블</h3>
+
+<p>Oracle 데이터베이스에 의해 자동으로 생성되는 테이블</p>
+
+<h3 id="문자열-함수">문자열 함수</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>함수</th>
+      <th>DBMS</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ASCII(문자)</td>
+      <td> </td>
+      <td>문자 혹은 숫자를 ASCII 코드값으로 변환</td>
+    </tr>
+    <tr>
+      <td>CHR(ASCII코드)</td>
+      <td>Oracle</td>
+      <td>ASCII 코드값을 문자로 변환</td>
+    </tr>
+    <tr>
+      <td>CHAR(ASCII코드)</td>
+      <td>MS-SQL, MySQL</td>
+      <td>ASCII 코드값을 문자로 변환</td>
+    </tr>
+    <tr>
+      <td>SUBSTR(문자열, m, n)</td>
+      <td> </td>
+      <td>문자열에서 m번째 위치부터 n개 자름</td>
+    </tr>
+    <tr>
+      <td>CONCAT(문자열1, 문자열2)</td>
+      <td> </td>
+      <td>문자열1과 문자열2를 결합한다</td>
+    </tr>
+    <tr>
+      <td>LOWER(문자열)</td>
+      <td> </td>
+      <td>영문자를 소문자로 변환</td>
+    </tr>
+    <tr>
+      <td>UPPER(문자열)</td>
+      <td> </td>
+      <td>영문자를 대문자로 변환</td>
+    </tr>
+    <tr>
+      <td>LENGTH</td>
+      <td> </td>
+      <td>공백을 포함한 문자열의 길이 반환</td>
+    </tr>
+    <tr>
+      <td>LEN(문자열)</td>
+      <td> </td>
+      <td>공백을 포함한 문자열의 길이 반환</td>
+    </tr>
+    <tr>
+      <td>LTRIM(문자열, 지정문자)</td>
+      <td> </td>
+      <td>왼쪽에서 지정된 문자를 삭제 (지정 문자를 생략시 공백 제거)</td>
+    </tr>
+    <tr>
+      <td>RTRIM(문자열, 지정문자)</td>
+      <td> </td>
+      <td>오른쪽에서 지정된 문자를 삭제 (지정 문자를 생략시 공백 제거)</td>
+    </tr>
+    <tr>
+      <td>TRIM(문자열, 지정문자)</td>
+      <td> </td>
+      <td>왼쪽 및 오른쪽에서 지정된 문자를 삭제 (지정 문자를 생략시 공백 제거)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="language-plaintext highlighter-rouge">DBMS의 공백은 모든 DBMS가 지원하는 함수</code></p>
+
+<h3 id="날짜형-함수">날짜형 함수</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>함수</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SYSDATE</td>
+      <td>현재 날짜를 날짜 타입으로 반환</td>
+    </tr>
+    <tr>
+      <td>EXTRACT(’YEAR’ | ‘MONTH’ | ‘DAY’ from dual)</td>
+      <td>날짜에서 년, 월, 일을 조회</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="숫자형-함수">숫자형 함수</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>함수</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABS(숫자)</td>
+      <td>절댓값 반환</td>
+    </tr>
+    <tr>
+      <td>SIGN(숫자)</td>
+      <td>양수, 음수, 0을 구별</td>
+    </tr>
+    <tr>
+      <td>MOD(숫자1, 숫자2)</td>
+      <td>숫자1을 숫자2로 나누어 나머지 계산(%를 사용해도 됨)</td>
+    </tr>
+    <tr>
+      <td>CEIL(숫자)</td>
+      <td>숫자보다 크거나 같은 최소의 정수 반환</td>
+    </tr>
+    <tr>
+      <td>CEILING(숫자)</td>
+      <td>숫자보다 크거나 같은 최소의 정수 반환</td>
+    </tr>
+    <tr>
+      <td>FLOOR(숫자)</td>
+      <td>숫자보다 작거나 같은 최대의 정수 반환</td>
+    </tr>
+    <tr>
+      <td>ROUND(숫자, m)</td>
+      <td>소수점 m 자리에서 반올림 (m 생략 시 0 지정)</td>
+    </tr>
+    <tr>
+      <td>TRUNC(숫자, m)</td>
+      <td>소수점 m 자리에서 절삭 (m 생략 시 0 지정)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="decode">DECODE</h2>
+
+<hr />
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DECODE</span><span class="p">(</span><span class="err">칼럼</span><span class="p">,</span> <span class="err">값</span><span class="p">,</span> <span class="err">값</span><span class="mi">1</span><span class="p">,</span> <span class="err">값</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>칼럼과 값이 같으면(참) 값1을, 같지 않으면(거짓) 값2를 반환</p>
+
+<h2 id="case">CASE</h2>
+
+<hr />
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">CASE</span>
+	<span class="k">WHEN</span> <span class="err">조건</span><span class="mi">1</span> <span class="k">THEN</span> <span class="err">값</span><span class="mi">1</span>
+	<span class="k">WHEN</span> <span class="err">조건</span><span class="mi">2</span> <span class="k">THEN</span> <span class="err">값</span><span class="mi">2</span>
+	<span class="k">ELSE</span> <span class="err">값</span><span class="mi">3</span>
+	<span class="k">END</span>
+<span class="k">FROM</span> <span class="err">테이블</span>
+</code></pre></div></div>
+
+<p>위의 쿼리는 테이블에서 맞는 조건에 따른 값 반환과 조건이 맞지 않을 시 값3을 출력한다</p>
+
+<h2 id="rownum">ROWNUM</h2>
+
+<hr />
+
+<ul>
+  <li>Oracle 데이터베이스의 SELECT문 결과에 대해 논리적인 일련번호를 부여함</li>
+  <li>조회되는 행 수를 제한할 때 많이 사용됨</li>
+  <li>화면에 데이터를 출력할 때 부여되는 논리적 순번</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">인라인 뷰(Inline view): SELCET문에서 FROM 절에 사용되는 서브쿼리(Sub Query)를 의미</code></p>
+
+<h2 id="rowid">ROWID</h2>
+
+<hr />
+
+<ul>
+  <li>Oracle 데이터베이스 내에서 데이터를 구불할 수 있는 유일한 값</li>
+  <li>“SELECT ROWID, 갈럼 FROM 테이블” 처럼 SELECT문으로 확인할 수 있음</li>
+  <li>데이터가 어떤 데이터 파일, 어느 블록에 저장되어 있는지 알 수 있음</li>
+</ul>
+
+<h3 id="rowid-구조">ROWID 구조</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>구조</th>
+      <th>길이</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>오브젝트 번호</td>
+      <td>1~6</td>
+      <td>오브젝트 별로 유일한 값을 가지고 있으며, 해당 오브젝트가 속한 값</td>
+    </tr>
+    <tr>
+      <td>상대 파일 번호</td>
+      <td>7~9</td>
+      <td>테이블스페이스에 속해 있는 데이터 파일에 대한 상대 파일 번호</td>
+    </tr>
+    <tr>
+      <td>블록 번호</td>
+      <td>10~15</td>
+      <td>데이터 파일 내부에서 어느 블록에 데이터가 있는지 알려줌</td>
+    </tr>
+    <tr>
+      <td>데이터 번호</td>
+      <td>16~18</td>
+      <td>데이터 블록에 데이터가 저장되어 있는 순서</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="with">WITH</h2>
+
+<hr />
+
+<ul>
+  <li>서브쿼리(Subquery)를 사용하여 임시 테이블이나 뷰처럼 사용할 수 있는 구문</li>
+  <li>서브쿼리 블록에 별칭을 지정할 수 있음</li>
+  <li>옵티마이저는 SQL을 인라인 뷰나 임시 테이블로 판단</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">WITH</span> <span class="err">임시테이블명</span> <span class="k">AS</span>
+<span class="p">(</span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">테이블</span>
+<span class="k">UNION</span> <span class="k">ALL</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">테이블</span><span class="p">)</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">임시테이블명</span> <span class="k">WHERE</span> <span class="err">조건</span>
+</code></pre></div></div>
+
+<p>위의 쿼리는 WITH구문의 예</p>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/categories/#database">Database</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#database">database</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#study">study</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/database/2023/06/06/SQL-%EA%B8%B0%EB%B3%B8-DDL.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> DDL(Data Definition Language)
+
+          </span>
+        </a>
+      
+
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+<script src="https://utteranc.es/client.js"
+        repo="hhh57463/hhh57463.github.io"
+        issue-term="url"
+        theme="gruvbox-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2017&nbsp;-&nbsp;2023 Mindol; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Mindol&#39;s Blog</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>
