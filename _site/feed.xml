@@ -1,4 +1,114 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-08T06:18:35+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">DML(Data Manipulation Language)</title><link href="http://localhost:4000/database/2023/06/07/SQL-%EA%B8%B0%EB%B3%B8-DML.html" rel="alternate" type="text/html" title="DML(Data Manipulation Language)" /><published>2023-06-07T06:00:01+09:00</published><updated>2023-06-07T06:00:01+09:00</updated><id>http://localhost:4000/database/2023/06/07/%5BSQL%20%EA%B8%B0%EB%B3%B8%5DDML</id><content type="html" xml:base="http://localhost:4000/database/2023/06/07/SQL-%EA%B8%B0%EB%B3%B8-DML.html"><![CDATA[<h2 id="insert">INSERT</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-09T02:14:46+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">DCL(Data Control Language)</title><link href="http://localhost:4000/database/2023/06/08/SQL-%EA%B8%B0%EB%B3%B8-DCL.html" rel="alternate" type="text/html" title="DCL(Data Control Language)" /><published>2023-06-08T06:00:01+09:00</published><updated>2023-06-08T06:00:01+09:00</updated><id>http://localhost:4000/database/2023/06/08/%5BSQL%20%EA%B8%B0%EB%B3%B8%5DDCL</id><content type="html" xml:base="http://localhost:4000/database/2023/06/08/SQL-%EA%B8%B0%EB%B3%B8-DCL.html"><![CDATA[<h2 id="grant">GRANT</h2>
+
+<hr />
+
+<p>데이터베이스 사용자에게 권한을 부여함</p>
+
+<p><code class="language-plaintext highlighter-rouge">데이터베이스 사용을 위해서는 권한이 필요하며 연결, 입력, 수정, 삭제, 조회를 할 수 있음</code></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">GRANT</span> <span class="err">권한</span> <span class="k">ON</span> <span class="err">테이블</span> <span class="k">TO</span> <span class="err">사용자</span>
+</code></pre></div></div>
+
+<h3 id="권한">권한</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>권한</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SELECT</td>
+      <td>지정된 테이블에 대해 SELCET 권한 부여</td>
+    </tr>
+    <tr>
+      <td>INSERT</td>
+      <td>지정된 테이블에 대해 INSERT 권한 부여</td>
+    </tr>
+    <tr>
+      <td>UPDATE</td>
+      <td>지정된 테이블에 대해 UPDATE 권한 부여</td>
+    </tr>
+    <tr>
+      <td>DELETE</td>
+      <td>지정된 테이블에 대해 DELETE 권한 부여</td>
+    </tr>
+    <tr>
+      <td>REFERENCES</td>
+      <td>지정된 테이블을 참조하는 제약조건을 생성하는 권한 부여</td>
+    </tr>
+    <tr>
+      <td>ALTER</td>
+      <td>지정된 테이블에 대해 ALTER 권한 부여</td>
+    </tr>
+    <tr>
+      <td>INDEX</td>
+      <td>지정된 테이블에 대해 인덱스를 생성할 수 있는 권한 부여</td>
+    </tr>
+    <tr>
+      <td>ALL</td>
+      <td>지정된 테이블에 대한 모든 권한 부여</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="with-grant-option">WITH GRANT OPTION</h3>
+
+<ul>
+  <li>특정 사용자에게 권한을 부여할 수 있는 권한 부여</li>
+  <li>권한을 A 사용자가 B에 부여하고 B가 C에게 권한을 부여한 후 권한을 취소하면 모든 권한이 회수됨</li>
+</ul>
+
+<h3 id="with-admin-option">WITH ADMIN OPTION</h3>
+
+<ul>
+  <li>테이블에 대한 모든 권한 부여</li>
+  <li>권한을 A 사용자가 B에 부여하고 B가 C에게 권한을 부여한 후 권한을 취소하면 B 사용자에 대한 권한만 회수됨</li>
+</ul>
+
+<h2 id="revoke">REVOKE</h2>
+
+<hr />
+
+<p>데이터베이스 사용자에게 부여된 권한을 회수 함</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">REVOKE</span> <span class="err">권한</span> <span class="k">ON</span> <span class="err">테이블</span> <span class="k">FROM</span> <span class="err">사용자</span>
+</code></pre></div></div>]]></content><author><name>Mindol</name></author><category term="Database" /><category term="Database" /><category term="study" /><summary type="html"><![CDATA[[SQL 기본]-DCL]]></summary></entry><entry><title type="html">TCL(Transaction Control Language)</title><link href="http://localhost:4000/database/2023/06/08/SQL-%EA%B8%B0%EB%B3%B8-TCL.html" rel="alternate" type="text/html" title="TCL(Transaction Control Language)" /><published>2023-06-08T06:00:01+09:00</published><updated>2023-06-08T06:00:01+09:00</updated><id>http://localhost:4000/database/2023/06/08/%5BSQL%20%EA%B8%B0%EB%B3%B8%5DTCL</id><content type="html" xml:base="http://localhost:4000/database/2023/06/08/SQL-%EA%B8%B0%EB%B3%B8-TCL.html"><![CDATA[<h2 id="commit">COMMIT</h2>
+
+<hr />
+
+<ul>
+  <li>INSERT, UPDATE, DELETE문으로 변경한 데이터를 데이터베이스에 반영</li>
+  <li>변경 이전 데이터는 잃어버림</li>
+  <li>다른 모든 데이터베이스 사용자는 변경된 데이터를 볼 수 있음</li>
+  <li>COMMIT이 완료되면 데이터베이스 변경으로 인한 LOCK이 해제(UNLOCK)됨</li>
+  <li>COMMIT이 완료되면 다른 모든 데이터베이스 사용자는 변경된 데이터를 조작할 수 있음</li>
+  <li>COMMIT을 실행하면 하나의 트랜잭션 과정을 종료함</li>
+</ul>
+
+<h2 id="rollback">ROLLBACK</h2>
+
+<hr />
+
+<ul>
+  <li>데이터에 대한 변경 사용을 모두 취소하고 트랜잭션을 종료</li>
+  <li>INSERT, UPDATE, DELETE문의 작업을 모두 취소</li>
+  <li>이전에 COMMIT한 곳까지만 복구 됨</li>
+  <li>ROLLBACK을 실행하면 LOCK이 해제되고 다른 사용자도 데이터베이스를 조작할 수 있음</li>
+</ul>
+
+<h2 id="savepoint">SAVEPOINT</h2>
+
+<hr />
+
+<ul>
+  <li>트랜잭션을 작게 분할하여 관리하는 것으로 SAVEPOINT를 사용하면 지정된 위치 이후의 트랜잭션만 ROLLBACK할 수 있음</li>
+  <li><code class="language-plaintext highlighter-rouge">SAVEPOINT 포인트명</code> 으로 지정할 수 있음</li>
+  <li>지정된 SAVEPOINT까지의 데이터 변경을 취소하고 싶을 경우 <code class="language-plaintext highlighter-rouge">ROLLBACK TO 포인트명</code> 을 실행</li>
+  <li>ROLLBACK을 실행하면 SAVEPOINT와 관계없이 데이터의 모든 변경사항을 저장하지 않음</li>
+</ul>]]></content><author><name>Mindol</name></author><category term="Database" /><category term="Database" /><category term="study" /><summary type="html"><![CDATA[[SQL 기본]-TCL]]></summary></entry><entry><title type="html">DML(Data Manipulation Language)</title><link href="http://localhost:4000/database/2023/06/07/SQL-%EA%B8%B0%EB%B3%B8-DML.html" rel="alternate" type="text/html" title="DML(Data Manipulation Language)" /><published>2023-06-07T06:00:01+09:00</published><updated>2023-06-07T06:00:01+09:00</updated><id>http://localhost:4000/database/2023/06/07/%5BSQL%20%EA%B8%B0%EB%B3%B8%5DDML</id><content type="html" xml:base="http://localhost:4000/database/2023/06/07/SQL-%EA%B8%B0%EB%B3%B8-DML.html"><![CDATA[<h2 id="insert">INSERT</h2>
 
 <hr />
 
@@ -2414,112 +2524,4 @@ JsonUtility.FromJson<Vector2>(loadData): 읽어온 JSON 데이터를 Vector2자�
 <p>만약 JSON파일에서 내용을 읽어와 클래스나 구조체에 저장한다면 JSON의 이름과 해당 데이터를 저장하는 변수의 이름을 같게 지정해줘야한다.<br /><br />
 해당 포스팅의 내용을 보면 아이템의 종류를 나타내는 <code class="language-plaintext highlighter-rouge">equipItem, cousumItem, etcItem</code>이 JSON 내부의 데이터 이름과 같을걸 볼 수 있다.<br /><br />
 만약 서로 이름이 다르면 아래처럼 데이터가 잘 불러와지지 않거나, 에러가 발생한다.<br />
-<img src="/assets/img/Unity/JsonUtility_5.png" alt="image" /><br /></p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="unity" /><category term="study" /><summary type="html"><![CDATA[JsonUtility를 이용한 JSON 파싱]]></summary></entry><entry><title type="html">[Flutter] - VSCode 편의기능</title><link href="http://localhost:4000/flutter/2023/02/22/Flutter-VSCode-%EA%B8%B0%EB%8A%A5.html" rel="alternate" type="text/html" title="[Flutter] - VSCode 편의기능" /><published>2023-02-22T06:00:02+09:00</published><updated>2023-02-22T06:00:02+09:00</updated><id>http://localhost:4000/flutter/2023/02/22/Flutter%20VSCode%20%EA%B8%B0%EB%8A%A5</id><content type="html" xml:base="http://localhost:4000/flutter/2023/02/22/Flutter-VSCode-%EA%B8%B0%EB%8A%A5.html"><![CDATA[<h2 id="editorcodeactionsonsave">editor.codeActionsOnSave</h2>
-<hr />
-<p><img src="/assets/img/Flutter/flutter_craft_1.png" alt="image" width="50%" height="50%" /><br />
-VSCode로 Flutter를 하다보면 코드 아래 밑줄이 생기는 것을 볼 수 있다<br /><br />
-<img src="/assets/img/Flutter/flutter_craft_2.png" alt="image" /><br />
-커서를 올려보면 바뀌지 않는 값을 const로 지정해 주라는 뜻이다<br /><br />
-<img src="/assets/img/Flutter/flutter_craft_3.png" alt="image" width="50%" height="50%" /><br />
-VSCode좌하단 설정버튼→명령 팔레트 클릭 또는 <code class="language-plaintext highlighter-rouge">Ctrl + Shift + P</code> 후<br /><br />
-<img src="/assets/img/Flutter/flutter_craft_4.png" alt="image" /><br />
-<code class="language-plaintext highlighter-rouge">open user Settings</code>를 입력하면<br /><br />
-<img src="/assets/img/Flutter/flutter_craft_5.png" alt="image" /><br />
-settings.json 파일이 열린다<br /><br />
-<img src="/assets/img/Flutter/flutter_craft_6.png" alt="image" /><br />
-하단에 <code class="language-plaintext highlighter-rouge">"editor.codeActionsOnSave": {"source.fixAll": true},</code>를 입력해준다<br /><br />
-이제 코드 작업을 수행한 후 저장하면 밑줄이 생기던 코드가 자동으로 수정된다.</p>
-
-<h2 id="dartpreviewflutteruiguides">dart.previewFlutterUiGuides</h2>
-<hr />
-<p><img src="/assets/img/Flutter/flutter_craft_7.png" alt="image" /><br />
-위젯의 부모가 무엇인지 가이드라인을 시각적으로 보여주는 기능<br /><br />
-<img src="/assets/img/Flutter/flutter_craft_8.png" alt="image" /><br />
-settings.json파일 하단에 <code class="language-plaintext highlighter-rouge">"dart.previewFlutterUiGuides": true,</code> 를 입력후 저장하고 VSCode를 껏다 켜주면 적용된다.</p>
-
-<h2 id="code-actions">Code Actions</h2>
-<hr />
-<p>Code Actions: 코드를 간단한 방법으로 리팩토링 해주는 기능
-<img src="/assets/img/Flutter/flutter_craft_9.png" alt="image" width="50%" height="50%" /><br />
-만약 해당 Column을 Padding으로 감싸고 싶으면 Column을 클릭 후 왼쪽 노란 전구를 클릭해준다.<br /><br />
-<img src="/assets/img/Flutter/flutter_craft_10.png" alt="image" width="50%" height="50%" /><br />
-Wrap with Padding을 클릭해주면 <br /><br />
-<img src="/assets/img/Flutter/flutter_craft_11.png" alt="image" width="50%" height="50%" /><br />
-원래라면 복사 붙여넣기 해서 Padding을 추가했다면 클릭 한번으로 Padding으로 감쌀 수 있다.<br /><br />
-<img src="/assets/img/Flutter/flutter_craft_12.png" alt="image" width="50%" height="50%" /><br />
-Remove this widget을 클릭하면<br /><br />
-<img src="/assets/img/Flutter/flutter_craft_13.png" alt="image" width="50%" height="50%" /><br />
-해당 위젯이 사라지는것을 볼 수 있다.</p>]]></content><author><name>Mindol</name></author><category term="Flutter" /><category term="Flutter" /><category term="Dart" /><summary type="html"><![CDATA[코드 자동 수정, 가이드라인, 리팩토링]]></summary></entry><entry><title type="html">URP</title><link href="http://localhost:4000/unity/2023/02/08/URP.html" rel="alternate" type="text/html" title="URP" /><published>2023-02-08T07:00:00+09:00</published><updated>2023-02-08T07:00:00+09:00</updated><id>http://localhost:4000/unity/2023/02/08/URP</id><content type="html" xml:base="http://localhost:4000/unity/2023/02/08/URP.html"><![CDATA[<h2 id="urp">URP?</h2>
-<hr />
-<p>항상 유니티 vs 언리얼에서 유니티가 무시받던 것이 바로 그래픽 능력. 유니티에서 새로운 파이프라인을 만들어 제공했는데 기존에는 디폴트 파이프라인이었지만, 설정을 통해 새로운 파이프라인을 사용할 수 있다.<br /><br />
-Universal Render Pipeline (URP): Unity에서 제작한 사전 빌드된 스크립터블 렌더 파이프라인<br /><br />
-URP는 아티스트 친화적 워크플로를 통해 모바일, 고사양 콘솔, PC 등 다양한 플랫폼에서 최적화된 그래픽스를 쉽고 빠르게 구현하도록 도와준다.</p>
-
-<h2 id="urp-설정">URP 설정</h2>
-<hr />
-<p><img src="/assets/img/Unity/URP_1.png" alt="image" /><br />
-Window→Package Manager<br /><br />
-<img src="/assets/img/Unity/URP_2.png" alt="image" /><br />
-Packages를 Unity Registry로 변경 후 Universal RP를 찾아 install<br /><br />
-<img src="/assets/img/Unity/URP_3.png" alt="image" /><br />
-Packages 디렉터리에 Universal RP가 생긴것을 볼 수 있다<br /><br />
-Render Pipeline을 기존 디폴트에서 URP로 변경해줘야한다.<br /><br />
-<img src="/assets/img/Unity/URP_4.png" alt="image" /><br />
-Create→Rendering→URP Asset (with Universal Renderer)<br /><br />
-<img src="/assets/img/Unity/URP_5.png" alt="image" /><br />
-두개의 파일이 생성된다.<br /><br />
-두 파일 중 Universal Render Pipeline Asset을 적용시켜줘야한다.<br /><br />
-<img src="/assets/img/Unity/URP_6.png" alt="image" /><br />
-Project Settings→Graphics→Scriptable Render Pipeline Settings에 Universal Render Pipeline Asset을 연결해준다.</p>
-
-<h2 id="material">Material</h2>
-<hr />
-<p><img src="/assets/img/Unity/URP_7.png" alt="image" /><br />
-Material의 Shader가 Universal Render Pipeline/Lit으로 설정되어있다.<br /><br />
-파이프라인이 변경되어 셰이더를 URP에 있는 것들만 사용해야 한다.</p>
-
-<h2 id="shader">Shader</h2>
-<hr />
-
-<table>
-  <thead>
-    <tr>
-      <th>셰이더</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>2D</td>
-      <td>2D 프로젝트 개발시 사용</td>
-    </tr>
-    <tr>
-      <td>Autodesk Interactive</td>
-      <td>AutoDesk 응용 프로그램과 조정할 때 사용</td>
-    </tr>
-    <tr>
-      <td>Nature</td>
-      <td>Speed Tree에 특화된 셰이더 포함</td>
-    </tr>
-    <tr>
-      <td>Particle</td>
-      <td>이펙트 제작에 사용 (파티클 시스템)</td>
-    </tr>
-    <tr>
-      <td>Baked Lit</td>
-      <td>라이트 맵과 라이트 프로브를 통해 베이크된 조명만 필요한 스타일화 된 게임이나 앱에 사용<br /><br />물리적 기반 셰이딩을 사용하지 않으며 실시간 조명이 없어 실시관 관련 셰이더 키워브 및 변형이 셰이더 코드에서 제거되어 계산 속도가 빠르다<br /><br />미리 라이트 관련된 것들을 실시간으로 계산하지 않을때 사용</td>
-    </tr>
-    <tr>
-      <td>Lit</td>
-      <td>실제 표면을 사실적인 품질로 렌더링 시켜줌. 무거우며 디폴트로 설정되어있음</td>
-    </tr>
-    <tr>
-      <td>Simple Lit</td>
-      <td>성능이 좋지만 리얼한 셰이더 느낌이 아님, Lit을 사용하기엔 무겁고 Baked Lit을 할 줄 모른다면 사용</td>
-    </tr>
-    <tr>
-      <td>Unlit</td>
-      <td>전역 조명을 샘플링하는 옵션이 있는 조명없는 셰이더, Unity의 스톡 언릿 셰이더 대체</td>
-    </tr>
-  </tbody>
-</table>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="unity" /><category term="study" /><summary type="html"><![CDATA[Unity URP]]></summary></entry></feed>
+<img src="/assets/img/Unity/JsonUtility_5.png" alt="image" /><br /></p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="unity" /><category term="study" /><summary type="html"><![CDATA[JsonUtility를 이용한 JSON 파싱]]></summary></entry></feed>

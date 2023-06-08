@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>DCL(Data Control Language) | Mindol</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="DCL(Data Control Language)" />
+<meta name="author" content="Mindol" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="[SQL 기본]-DCL" />
+<meta property="og:description" content="[SQL 기본]-DCL" />
+<link rel="canonical" href="http://localhost:4000/database/2023/06/08/SQL-%EA%B8%B0%EB%B3%B8-DCL.html" />
+<meta property="og:url" content="http://localhost:4000/database/2023/06/08/SQL-%EA%B8%B0%EB%B3%B8-DCL.html" />
+<meta property="og:site_name" content="Mindol" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-06-08T06:00:01+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="DCL(Data Control Language)" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-06-08T06:00:01+09:00","datePublished":"2023-06-08T06:00:01+09:00","description":"[SQL 기본]-DCL","headline":"DCL(Data Control Language)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/database/2023/06/08/SQL-%EA%B8%B0%EB%B3%B8-DCL.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/MinTa.png"},"name":"Mindol"},"url":"http://localhost:4000/database/2023/06/08/SQL-%EA%B8%B0%EB%B3%B8-DCL.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Mindol" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+  <script>
+    const hour = (new Date()).getHours();
+    let filename = "";
+    if (hour >= 5 && hour < 7) {
+      filename = "/assets/css/skin-sunrise.css";
+    } else if (hour >= 7 && hour < 17) {
+      filename = "/assets/css/skin-daylight.css";
+    } else if (hour >= 17 && hour < 19) {
+      filename = "/assets/css/skin-sunset.css";
+    } else {
+      filename = "/assets/css/skin-midnight.css";
+    }
+    const elem = document.createElement("link");
+    elem.setAttribute("rel", "stylesheet");
+    elem.setAttribute("type", "text/css");
+    elem.setAttribute("href", filename);
+    document.getElementsByTagName("head")[0].appendChild(elem);
+  </script>
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">Mindol</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/assets/img/MinTa.png" class="author-avatar u-photo align-center" alt="Mindol">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Mindol</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:hhh57463@naver.com">hhh57463@naver.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <!-- <a href="/feed.xml"> -->
+    <a href="https://sly-lemonade-717.notion.site/d6f467dc95934f8581ef33fe4e84ad17">
+    <i class="sidebar-icon fas fa-rss"></i><span>Portfolio</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://github.com/hhh57463"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://instagram.com/hhh57463"><i class="fab fa-instagram fa-2x" title="Instagram"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">DCL(Data Control Language)</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-06-08T06:00:01+09:00" itemprop="datePublished">
+        Jun 8, 2023
+      </time></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="grant">GRANT</h2>
+
+<hr />
+
+<p>데이터베이스 사용자에게 권한을 부여함</p>
+
+<p><code class="language-plaintext highlighter-rouge">데이터베이스 사용을 위해서는 권한이 필요하며 연결, 입력, 수정, 삭제, 조회를 할 수 있음</code></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">GRANT</span> <span class="err">권한</span> <span class="k">ON</span> <span class="err">테이블</span> <span class="k">TO</span> <span class="err">사용자</span>
+</code></pre></div></div>
+
+<h3 id="권한">권한</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>권한</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SELECT</td>
+      <td>지정된 테이블에 대해 SELCET 권한 부여</td>
+    </tr>
+    <tr>
+      <td>INSERT</td>
+      <td>지정된 테이블에 대해 INSERT 권한 부여</td>
+    </tr>
+    <tr>
+      <td>UPDATE</td>
+      <td>지정된 테이블에 대해 UPDATE 권한 부여</td>
+    </tr>
+    <tr>
+      <td>DELETE</td>
+      <td>지정된 테이블에 대해 DELETE 권한 부여</td>
+    </tr>
+    <tr>
+      <td>REFERENCES</td>
+      <td>지정된 테이블을 참조하는 제약조건을 생성하는 권한 부여</td>
+    </tr>
+    <tr>
+      <td>ALTER</td>
+      <td>지정된 테이블에 대해 ALTER 권한 부여</td>
+    </tr>
+    <tr>
+      <td>INDEX</td>
+      <td>지정된 테이블에 대해 인덱스를 생성할 수 있는 권한 부여</td>
+    </tr>
+    <tr>
+      <td>ALL</td>
+      <td>지정된 테이블에 대한 모든 권한 부여</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="with-grant-option">WITH GRANT OPTION</h3>
+
+<ul>
+  <li>특정 사용자에게 권한을 부여할 수 있는 권한 부여</li>
+  <li>권한을 A 사용자가 B에 부여하고 B가 C에게 권한을 부여한 후 권한을 취소하면 모든 권한이 회수됨</li>
+</ul>
+
+<h3 id="with-admin-option">WITH ADMIN OPTION</h3>
+
+<ul>
+  <li>테이블에 대한 모든 권한 부여</li>
+  <li>권한을 A 사용자가 B에 부여하고 B가 C에게 권한을 부여한 후 권한을 취소하면 B 사용자에 대한 권한만 회수됨</li>
+</ul>
+
+<h2 id="revoke">REVOKE</h2>
+
+<hr />
+
+<p>데이터베이스 사용자에게 부여된 권한을 회수 함</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">REVOKE</span> <span class="err">권한</span> <span class="k">ON</span> <span class="err">테이블</span> <span class="k">FROM</span> <span class="err">사용자</span>
+</code></pre></div></div>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/categories/#database">Database</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#database">database</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#study">study</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/database/2023/06/07/SQL-%EA%B8%B0%EB%B3%B8-DML.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> DML(Data Manipulation Language)
+
+          </span>
+        </a>
+      
+
+      
+        <a class="post-next" href="/database/2023/06/08/SQL-%EA%B8%B0%EB%B3%B8-TCL.html">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            TCL(Transaction Control Language)
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+<script src="https://utteranc.es/client.js"
+        repo="hhh57463/hhh57463.github.io"
+        issue-term="url"
+        theme="gruvbox-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2017&nbsp;-&nbsp;2023 Mindol; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Mindol&#39;s Blog</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>
