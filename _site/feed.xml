@@ -1,4 +1,515 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-09T02:14:46+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">DCL(Data Control Language)</title><link href="http://localhost:4000/database/2023/06/08/SQL-%EA%B8%B0%EB%B3%B8-DCL.html" rel="alternate" type="text/html" title="DCL(Data Control Language)" /><published>2023-06-08T06:00:01+09:00</published><updated>2023-06-08T06:00:01+09:00</updated><id>http://localhost:4000/database/2023/06/08/%5BSQL%20%EA%B8%B0%EB%B3%B8%5DDCL</id><content type="html" xml:base="http://localhost:4000/database/2023/06/08/SQL-%EA%B8%B0%EB%B3%B8-DCL.html"><![CDATA[<h2 id="grant">GRANT</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-10T03:29:52+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">SQL 활용</title><link href="http://localhost:4000/database/2023/06/09/SQL-%ED%99%9C%EC%9A%A9.html" rel="alternate" type="text/html" title="SQL 활용" /><published>2023-06-09T06:00:01+09:00</published><updated>2023-06-09T06:00:01+09:00</updated><id>http://localhost:4000/database/2023/06/09/SQL%20%ED%99%9C%EC%9A%A9</id><content type="html" xml:base="http://localhost:4000/database/2023/06/09/SQL-%ED%99%9C%EC%9A%A9.html"><![CDATA[<h1 id="sql-활용">SQL 활용</h1>
+
+<hr />
+
+<h2 id="조인join">조인(JOIN)</h2>
+
+<hr />
+
+<h3 id="equi-join등가-조인">EQUI JOIN(등가 조인)</h3>
+
+<ul>
+  <li>조인은 여러 개의 릴레이션을 사용하여 새로운 릴레이션을 만드는 과정</li>
+  <li>조인의 가장 기본은 테이블 간에 교집합을 만드는 것</li>
+  <li>두 개의 테이블 간에 일치하는 것을 조인</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">EMP</span><span class="p">,</span> <span class="n">DEPT</span> <span class="k">WHERE</span> <span class="n">EMP</span><span class="p">.</span><span class="n">DEPTNO</span> <span class="o">=</span> <span class="n">DEPT</span><span class="p">.</span><span class="n">DEPTNO</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">EQUI JOIN은 '='을 사용하여 두 개의 테이블을 연결하며, 추가 조건 및 정렬 가능</code></p>
+
+<h3 id="inner-join">INNER JOIN</h3>
+
+<p>EQUI JOIN과 마찬가지로 ISO 표준 SQL로 INNER JOIN이 있음, INNER JOIN은 ON문을 사용하여 테이블 연결</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">EMP</span> <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">DEPT</span> <span class="k">ON</span> <span class="n">EMP</span><span class="p">.</span><span class="n">DEPTNO</span> <span class="o">=</span> <span class="n">DEPT</span><span class="p">.</span><span class="n">DEPTNO</span>
+</code></pre></div></div>
+
+<h3 id="hash-join해시-조인">HASH JOIN(해시 조인)</h3>
+
+<ul>
+  <li>해시 조인은 먼저 선행 테이블을 결정하고 선행 테이블에서 주어진 조건에 해당하는 행을 선택</li>
+  <li>해당 행이 선택되면 조인 키(JOIN Key)를 기준으로 해시 함수를 사용하여 해시 테이블인 메인 메모리에 생성하고 후행 테이블에서 주어진 조건에 만족하는 행을 찾음</li>
+  <li>후행 테이블의 조인 키를 사용하여 해시 함수를 적용하여 해당 버킷을 검색</li>
+</ul>
+
+<h3 id="intersect-연산">INTERSECT 연산</h3>
+
+<p>두 개의 테이블에서 교집합을 조회(공통된 값 조회)</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">DEPTNO</span> <span class="k">FROM</span> <span class="n">EMP</span>
+<span class="k">INTERSECT</span>
+<span class="k">SELECT</span> <span class="n">DEPTNO</span> <span class="k">FROM</span> <span class="n">DEPT</span>
+</code></pre></div></div>
+
+<h3 id="non-equi-join비등가-조인">Non-EQUI JOIN(비등가 조인)</h3>
+
+<ul>
+  <li>Non-DQUI는 두 개의 테이블 간에 조인하는 경우 ‘=’을 사용하지 않고 (&gt;, &lt;, ≥, ≤)등을 사용</li>
+  <li>정확하게 일치하지 않는 것을 조인</li>
+</ul>
+
+<h3 id="outer-join">OUTER JOIN</h3>
+
+<ul>
+  <li>두 개의 테이블 간에 교집합(EQUI JOIN)을 조회하고 한쪽 테이블에만 있는 데이터도 포함시켜 조회</li>
+  <li>왼쪽 테이블에만 있는 행을 포함하려면 <code class="language-plaintext highlighter-rouge">LEFT OUTER JOIN</code> , 오른쪽 테이블의 행을 포함하려면 <code class="language-plaintext highlighter-rouge">RIGHT OUTER JOIN</code> 을 사용</li>
+  <li><code class="language-plaintext highlighter-rouge">FULL OUTER JOIN</code> 은 <code class="language-plaintext highlighter-rouge">LEFT OUTER JOIN</code> 과 <code class="language-plaintext highlighter-rouge">RIGHT OUTER JOIN</code> 모두를 하는 것</li>
+  <li>Oacle 데이터베이스는 OUTER JOIN을 할 때 “(+)”기호를 사용</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">DEPT</span><span class="p">,</span> <span class="n">EMP</span> <span class="k">WHERE</span> <span class="n">EMP</span><span class="p">.</span><span class="n">DEPTNO</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span><span class="o">=</span> <span class="n">DEPT</span><span class="p">.</span><span class="n">DEPTNO</span>
+</code></pre></div></div>
+
+<p>위의 쿼리는 Oracle 데이터베이스의 OUTER JOIN 방법</p>
+
+<h3 id="cross-join">CROSS JOIN</h3>
+
+<ul>
+  <li>조인 조건구 없이 2개의 테이블을 하나로 조인</li>
+  <li>조인구가 없기에 카테시안 곱 발생</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">EMP</span> <span class="k">CROSS</span> <span class="k">JOIN</span> <span class="n">DEPT</span>
+</code></pre></div></div>
+
+<h3 id="union">UNION</h3>
+
+<ul>
+  <li>두 개의 테이블을 하나로 만드는 연산(2개의 테이블을 하나로 합치는 것)</li>
+  <li>두 개의 테이블의 칼럼 수, 칼럼의 데이터 형식 모두가 일치해야 함</li>
+  <li>UNION 연산이 사용될 때 칼럼 수 혹은 데이터 형식이 다르면 오류 발생</li>
+  <li>테이블을 합치면서 중복된 데이터 제거</li>
+  <li>정렬 과정 발생</li>
+</ul>
+
+<h3 id="union-all">UNION ALL</h3>
+
+<ul>
+  <li>두 개의 테이블을 하나로 만드는 연산</li>
+  <li>중복을 제거하거나 정렬을 유발하지 않음</li>
+</ul>
+
+<h3 id="minus">MINUS</h3>
+
+<ul>
+  <li>두 개의 테이블에서 차집합을 조회</li>
+  <li>MS-SQL에서는 EXCEPT 사용</li>
+</ul>
+
+<h2 id="계층형-조회connect-by">계층형 조회(CONNECT BY)</h2>
+
+<hr />
+
+<ul>
+  <li>Oracle 데이터베이스에서 지원하며, 계층형으로 데이터를 조회할 수 있음</li>
+  <li>트리(Tree) 형태의 구조로 질의를 수행</li>
+  <li>START WITH는 시작 조건을 의미</li>
+  <li>CONNECT BY PRIOR는 조인 조건을 의미</li>
+  <li>Root 노드로부터 하위 노드의 질의를 실행</li>
+  <li>MAX(LEVEL)을 사용하여 최대 계층 수를 구할 수 있음</li>
+</ul>
+
+<h3 id="connect-by-키워드">CONNECT BY 키워드</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>키워드</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LEVEL</td>
+      <td>검색 항목의 깊이를 의미(최상위 레벨은 1)</td>
+    </tr>
+    <tr>
+      <td>CONNECT_BY_ROOT</td>
+      <td>계층 구조에서 가장 최상위 값을 표시</td>
+    </tr>
+    <tr>
+      <td>CONNECT_BY_ISLEAF</td>
+      <td>계층 구조에서 가장 최하위를 표시</td>
+    </tr>
+    <tr>
+      <td>SYS_CONNECT_BY_PATH</td>
+      <td>계층 구조의 전체 전개 경로 표시</td>
+    </tr>
+    <tr>
+      <td>NOCYCLE</td>
+      <td>순환 구조가 발생지점까지만 전개</td>
+    </tr>
+    <tr>
+      <td>CONNECT_BY_ISCYCLE</td>
+      <td>순환 구조 발생 지점 표시</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="계층형-조회-키워드">계층형 조회 키워드</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>키워드</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>START WITH 조건</td>
+      <td>계층 전개의 시작 위치를 지정</td>
+    </tr>
+    <tr>
+      <td>PRIOR 자식 = 부모</td>
+      <td>부모에서 자식방향으로 검색을 수행하는 순방향 전개</td>
+    </tr>
+    <tr>
+      <td>PRIOR 부모 = 자식</td>
+      <td>자식에서 부모방향으로 검색을 수행하는 역방향 전개</td>
+    </tr>
+    <tr>
+      <td>NOCYCLE</td>
+      <td>데이터를 전개하면서 이미 조회한 데이터를 조회하면 CYCLE이 형성되는데, 사이클이 발생되지 않게 함</td>
+    </tr>
+    <tr>
+      <td>Order siblings by 칼럼</td>
+      <td>동일한 LEVEL인 형제노드 사이에서 정렬을 수행</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="서브쿼리subquery">서브쿼리(Subquery)</h2>
+
+<hr />
+
+<ul>
+  <li>SELECT문 내에 다시 SELECT문을 사용하는 SQL문</li>
+  <li>FROM구에 SELECT문을 사용하면 인라인 뷰(Inline View)라고 함</li>
+  <li>SELECT문에 서브쿼리를 사용하면 스칼라 서브쿼리(Scala Subquery)라고 함</li>
+  <li>WHERE구에 SELECT문을 사용하면 서브쿼리라고 함</li>
+  <li>서브쿼리 밖에 있는 SELECT문은 메인쿼리라고 함</li>
+  <li>서브쿼리내에서 메인쿼리 내 칼럼을 사용하면 연관 서브쿼리(Correlated Subquery)라고 함</li>
+</ul>
+
+<h3 id="단일-행-서브쿼리와-다중-행-서브쿼리">단일 행 서브쿼리와 다중 행 서브쿼리</h3>
+
+<ul>
+  <li>단일 행 서브쿼리는 단 하나의 행만 반환하며, 비교 연산자(=, &lt;, ≤, &gt;, ≥, &lt;&gt;)를 사용</li>
+  <li>다중 행 서브쿼리는 여러 행을 반환하며, IN, ANY, ALL, EXISTS를 사용</li>
+</ul>
+
+<h3 id="다중-행-비교-연산자">다중 행 비교 연산자</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>연산</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IN</td>
+      <td>메인쿼리의 비교조건이 서브쿼리의 결과 중 하나만 동일하면 참</td>
+    </tr>
+    <tr>
+      <td>ALL</td>
+      <td>- 메인쿼리와 서브쿼리의 결과가 모두 동일하면 참<br />- &lt; ALL: 최솟값 반환<br />- &gt; ALL: 최댓값 반환</td>
+    </tr>
+    <tr>
+      <td>ANY</td>
+      <td>- 메인쿼리의 비교조건이 서브쿼리의 결과 중 하나 이상 동일하면 참<br />- &lt; ANY: 하나라도 크면 참<br />- &gt; ANY: 하나라도 작으면 참</td>
+    </tr>
+    <tr>
+      <td>EXISTS</td>
+      <td>메인쿼리와 서브쿼리의 결과가 하나라도 존재하면 참</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="그룹-함수group-function">그룹 함수(Group Function)</h2>
+
+<hr />
+
+<h3 id="rollup-함수">ROLLUP 함수</h3>
+
+<ul>
+  <li>GROUP BY의 칼럼에 대해 Subtotal을 만듦</li>
+  <li>ROLLUP을 할 때 GROUP BY구에 칼럼이 두 개 이상 올 시 순서에 따라 결과가 달라짐</li>
+</ul>
+
+<h3 id="grouping-함수">GROUPING 함수</h3>
+
+<ul>
+  <li>GROUPING 함수는 ROLLUP, CUBE, GROUPING SETS에서 생성되는 합계값을 구분할 수 있음</li>
+  <li>GROUPING 함수의 기능을 사용하면 사용자가 필요로 하는 데이터를 SELECT문으로 작성하여 제공할 수 있음</li>
+</ul>
+
+<h3 id="grouping-sets-함수">GROUPING SETS 함수</h3>
+
+<ul>
+  <li>GROUP BY에 나오는 칼럼의 순서와 관계없이 다양한 소계를 만들 수 있음</li>
+  <li>GROUP BY에 나오는 칼럼의 순서와 관계없이 개별적으로 모두 처리</li>
+</ul>
+
+<h3 id="cube-함수">CUBE 함수</h3>
+
+<ul>
+  <li>제시한 칼럼에 대해 결합 가능한 모든 집계 계산</li>
+  <li>다차원 집계를 제공하여 다양하게 데이터를 분석할 수 있음</li>
+  <li>조합할 수 있는 경우의 수가 모두 조합되는 것</li>
+</ul>
+
+<h2 id="윈도우-함수window-function">윈도우 함수(Window Function)</h2>
+
+<hr />
+
+<ul>
+  <li>행과 행 간의 관계를 정의하기 위해 제공되는 함수</li>
+  <li>순위, 합계, 평군, 행 위치 등을 조작할 수 있음</li>
+</ul>
+
+<h3 id="윈도우-함수-구조">윈도우 함수 구조</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">WINDOW_FUNCTION</span><span class="p">(</span><span class="n">ARGUMENTS</span><span class="p">)</span>
+<span class="n">OVER</span> <span class="p">(</span><span class="k">PARTITION</span> <span class="k">BY</span> <span class="err">칼럼</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">WINDOWING</span><span class="err">절</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="err">테이블</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>구조</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ARGUMENTS(인수)</td>
+      <td>윈도우 함수에 따라 0~N개의 인수 설정</td>
+    </tr>
+    <tr>
+      <td>PARTITION BY</td>
+      <td>전체 집합을 기준에 의해 소그룹으로 나눔</td>
+    </tr>
+    <tr>
+      <td>ORDER BY</td>
+      <td>어떤 항목에 대해 정렬</td>
+    </tr>
+    <tr>
+      <td>WINDOWING</td>
+      <td>행 기준의 범위 지정 (추후 설명)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="windowing">WINDOWING</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>구조</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ROWS</td>
+      <td>부분집합인 윈도우 크기를 물리적 단위로 행의 집합 지정</td>
+    </tr>
+    <tr>
+      <td>RANGE</td>
+      <td>논리적인 주소에 의해 행 집합 지정</td>
+    </tr>
+    <tr>
+      <td>BETWEEN~AND</td>
+      <td>윈도우의 시작과 끝의 위치를 지정</td>
+    </tr>
+    <tr>
+      <td>UNBOUNDED PRECEDING</td>
+      <td>윈도우의 시작 위치가 첫 번째 행임을 의미</td>
+    </tr>
+    <tr>
+      <td>UNBOUNDED FOLLOWING</td>
+      <td>윈도우 마지막 위치가 마지막 행임을 의미</td>
+    </tr>
+    <tr>
+      <td>CURRENT ROW</td>
+      <td>윈도우 시작 위치가 현재 행임을 의미</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="순위-함수rank-function">순위 함수(RANK Function)</h2>
+
+<hr />
+
+<p>특정 항목과 파티션에 대해 순위를 계산할 수 있는 함수</p>
+
+<h3 id="순위-관련-윈도우-함수">순위 관련 윈도우 함수</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>함수</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RANK</td>
+      <td>특정 항목 및 파티션에 대해 순위 계산(동일한 순위는 동일한 값 부여)</td>
+    </tr>
+    <tr>
+      <td>DENSE_RANK</td>
+      <td>동일한 순위를 하나의 건수로 계산</td>
+    </tr>
+    <tr>
+      <td>ROW_NUMBER</td>
+      <td>동일한 순위에 대해 고유의 순위 부여</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="집계-함수aggregate-function">집계 함수(AGGREGATE Function)</h2>
+
+<hr />
+
+<h3 id="집계-관련-윈도우-함수">집계 관련 윈도우 함수</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>함수</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SUM</td>
+      <td>파티션 별로 합계 계산</td>
+    </tr>
+    <tr>
+      <td>AVG</td>
+      <td>파티션 별로 평균 계산</td>
+    </tr>
+    <tr>
+      <td>COUNT</td>
+      <td>파티션 별로 행 수 계산</td>
+    </tr>
+    <tr>
+      <td>MAX</td>
+      <td>파티션 별로 최댓값 계산</td>
+    </tr>
+    <tr>
+      <td>MIN</td>
+      <td>파티션 별로 최솟값 계산</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="행-순서-관련-함수">행 순서 관련 함수</h2>
+
+<hr />
+
+<ul>
+  <li>상위 행의 값을 하위에 출력하거나 하위 행의 값을 상위 행에 출력 할 수 있음</li>
+  <li>특정 위치의 행을 출력할 수 있음</li>
+</ul>
+
+<h3 id="행-순서-관련-윈도우-함수">행 순서 관련 윈도우 함수</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>행 순서</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FIRST_VALUE</td>
+      <td>- 파티션에서 가장 처음에 나오는 값을 구함<br />- MIN 함수를 사용해서 같은 결과를 구할 수 있음</td>
+    </tr>
+    <tr>
+      <td>LAST_VALUE</td>
+      <td>- 파티션에서 가장 나중에 나오는 값을 구함<br />- MAX 함수를 사용해서 같은 결과를 구할 수 있음</td>
+    </tr>
+    <tr>
+      <td>LAG</td>
+      <td>이전 행을 가져옴</td>
+    </tr>
+    <tr>
+      <td>LEAD</td>
+      <td>윈도우에서 특정 위치의 행을 가져옴(기본값: 1)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="비율-관련-함수">비율 관련 함수</h2>
+
+<hr />
+
+<h3 id="비율-관련-윈도우-함수">비율 관련 윈도우 함수</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>함수</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CUME_DIST</td>
+      <td>파티션 전체 건수에서 현재 행보다 작거나 같은 건수에 대한 누적 백분율 조회(0~1 사이의 값)</td>
+    </tr>
+    <tr>
+      <td>PERCENT_RANK</td>
+      <td>파티션에서 제일 먼저 나온 것을 0으로 제일 늦게 나온 것을 1로 하여 값이 아닌 행의 순서별 백분율 조회</td>
+    </tr>
+    <tr>
+      <td>NTILE</td>
+      <td>파티션별로 전체 건수를 ARGUMENT 값으로 N등분 한 결과 조회</td>
+    </tr>
+    <tr>
+      <td>RATIO_TO_REPORT</td>
+      <td>파티션 내에 전체 SUM(칼럼)에 대한 행 별 칼럼 값의 백분율을 소수점까지 조회</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="테이블-파티션table-partition">테이블 파티션(Table Partition)</h2>
+
+<hr />
+
+<ul>
+  <li>파티션은 대용량의 테이블을 여러 개의 데이터 파일에 분리하여 저장하는 기능</li>
+  <li>테이블의 데이터가 물리적으로 분리된 데이터 파일에 저장되면 입력, 수정, 삭제, 조회 성능이 향상</li>
+  <li>각각의 파티션 별로 독립적으로 괄리될 수 있음(파티션 별로 백업하고 복구가 가능하면 파티션 전용 인덱스 생성도 가능)</li>
+  <li>데이터를 조회할 때 데이터의 범위를 줄여 성능 향상</li>
+</ul>
+
+<h3 id="파티션-기법">파티션 기법</h3>
+
+<ul>
+  <li>Range Partition: 테이블의 칼럼 중 값의 범위를 기준으로 여러 파티션으로 데이터를 나누어 저장하는 방법</li>
+  <li>List Partition: 특정 값을 기준으로 분할하는 방법</li>
+  <li>Hash Partition: DBMS가 내부적으로 해시 함수를 사용하여 데이터를 분할</li>
+  <li>Composite Partition: 여러 개의 파티션 기법을 조합하여 사용하는 방법</li>
+</ul>
+
+<h3 id="파티션-인덱스">파티션 인덱스</h3>
+
+<ul>
+  <li>Global Index: 여러 개의 파티션에서 하나의 인덱스 사용</li>
+  <li>Local Index: 파티션 별로 각자의 인덱스 사용</li>
+  <li>Prefixed Index: 파티션 키와 인덱스 키가 동일</li>
+  <li>Non Prefixed Index: 파티션 키와 인덱스 키가 다름</li>
+</ul>]]></content><author><name>Mindol</name></author><category term="Database" /><category term="Database" /><category term="study" /><summary type="html"><![CDATA[[SQL 활용]-Join, Window Function]]></summary></entry><entry><title type="html">DCL(Data Control Language)</title><link href="http://localhost:4000/database/2023/06/08/SQL-%EA%B8%B0%EB%B3%B8-DCL.html" rel="alternate" type="text/html" title="DCL(Data Control Language)" /><published>2023-06-08T06:00:01+09:00</published><updated>2023-06-08T06:00:01+09:00</updated><id>http://localhost:4000/database/2023/06/08/%5BSQL%20%EA%B8%B0%EB%B3%B8%5DDCL</id><content type="html" xml:base="http://localhost:4000/database/2023/06/08/SQL-%EA%B8%B0%EB%B3%B8-DCL.html"><![CDATA[<h2 id="grant">GRANT</h2>
 
 <hr />
 
@@ -2364,164 +2875,4 @@
 
 <p><a href="https://endofcap.tistory.com/3">[SHPViewer 강좌 1] SHP 포맷 분석 1</a></p>
 
-<p><a href="https://docs.fileformat.com/gis/shp/">SHP - ESRI Shapefile</a></p>]]></content><author><name>Mindol</name></author><category term="Study" /><category term="study" /><category term="shapefile" /><summary type="html"><![CDATA[shapefile format]]></summary></entry><entry><title type="html">JsonUtility</title><link href="http://localhost:4000/unity/2023/04/03/JsonUtility.html" rel="alternate" type="text/html" title="JsonUtility" /><published>2023-04-03T06:00:01+09:00</published><updated>2023-04-03T06:00:01+09:00</updated><id>http://localhost:4000/unity/2023/04/03/JsonUtility</id><content type="html" xml:base="http://localhost:4000/unity/2023/04/03/JsonUtility.html"><![CDATA[<h1 id="개요">개요</h1>
-<hr />
-<p>최근 RPG제작에 용이한 기능들을 제작하는 프로젝트 <a href="https://github.com/hhh57463/RPG_Helper">RPG_Helper</a>를 제작하던 중 인벤토리 구현에 필요한 DB연동 대신 JSON을 활용하던 중 알게된 부분을 정리한다.</p>
-
-<h2 id="json">JSON?</h2>
-<hr />
-<p>JavaScript Object Notaion의 약자로 직역하자면 자바 스크립트 객체 표기법으로 데이터를 쉽게 교환 및 저장하기 위한 텍스트 기반의 데이터 교환 표준이다.<br /><br /></p>
-
-<h3 id="json-구조">JSON 구조</h3>
-<p>자료형: string, number, true, false, null, object, array<br />
-기본적으로 <code class="language-plaintext highlighter-rouge">key: value</code> 형태의 구조를 가지며, <code class="language-plaintext highlighter-rouge">중괄호 {}</code>로 감싸게 됨<br />
-key 값은 문자열로 이루어져야하며, value에는 지원되는 자료형으로 이루어지면 된다<br /><br /></p>
-
-<pre><code class="language-JSON">{
-
-    "나이" : 25,                      // number
-    "이름" : "Mindol",                // string
-    "취미" : ["영화감상", "노래방"]   // array
-}
-</code></pre>
-
-<h3 id="json-장단점">JSON 장단점</h3>
-<ul>
-  <li>텍스트 기반으로 다양한 프로그래밍 언어에서 데이터를 읽고 사용이 가능</li>
-  <li>내용이 함축적으로 최소한의 정보만을 가짐</li>
-  <li>내용이 함축적이다 보니 의미 파악이 힘들 수 있음</li>
-</ul>
-
-<h2 id="jsonutility">JsonUtility</h2>
-<hr />
-<p>Unity에서 지원하는 JSON 데이터 작업을 위한 유틸리티 함수로, 데이터를 JSON형태로 저장 및 읽어올 수 있다.</p>
-
-<h2 id="example">Example</h2>
-<hr />
-<p>만약 게임이 종료될 때 플레이어의 위치를 저장하고 게임을 재시작하면 저장된 위치를 불러와야하는 기능을 구현하려면 어떻게 해야할까?</p>
-
-<h2 id="json-export">JSON export</h2>
-<hr />
-<p>우선 2D환경에서 CharactorController를 이용한 간단한 이동을 구현했다.</p>
-<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">float</span> <span class="n">h</span> <span class="p">=&gt;</span> <span class="n">Input</span><span class="p">.</span><span class="nf">GetAxis</span><span class="p">(</span><span class="s">"Horizontal"</span><span class="p">);</span>
-<span class="kt">float</span> <span class="n">v</span> <span class="p">=&gt;</span> <span class="n">Input</span><span class="p">.</span><span class="nf">GetAxis</span><span class="p">(</span><span class="s">"Vertical"</span><span class="p">);</span>
-<span class="k">void</span> <span class="nf">Move</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">Vector2</span> <span class="n">movement</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
-    <span class="n">movement</span> <span class="p">*=</span> <span class="p">(</span><span class="n">moveSpeed</span> <span class="p">*</span> <span class="n">Time</span><span class="p">.</span><span class="n">deltaTime</span><span class="p">);</span>
-    <span class="n">controller</span><span class="p">.</span><span class="nf">Move</span><span class="p">(</span><span class="n">movement</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>게임이 종료될 때 위치를 저장해야하니 OnApplicationQuit함수를 이용했다.<br /></p>
-<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">void</span> <span class="nf">OnApplicationQuit</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">Vector2</span> <span class="n">savePos</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
-    <span class="kt">string</span> <span class="n">path</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">.</span><span class="nf">Combine</span><span class="p">(</span><span class="n">Application</span><span class="p">.</span><span class="n">dataPath</span> <span class="p">+</span>
-                                        <span class="s">"/Json/"</span><span class="p">,</span> <span class="s">"playerdata.json"</span><span class="p">);</span>
-    <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">File</span><span class="p">.</span><span class="nf">WriteAllText</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">JsonUtility</span><span class="p">.</span><span class="nf">ToJson</span><span class="p">(</span><span class="n">savePos</span><span class="p">));</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<h3 id="코드해석">코드해석</h3>
-<p>Vector2 savePos: 플레이어의 월드좌표를 저장하는 변수<br /><br />
-string path: JSON파일을 생성할 위치지정 Application.dataPath를 이용하여 현재 프로젝트 Assets폴더에 접근 가능하다. 최종적으로 <code class="language-plaintext highlighter-rouge">Assets/Json/playerdata.json</code>이라는 경로가 지정된다.<br /><br />
-JsonUtility.ToJson(savePos): JsonUtility.ToJson함수를 이용하여 객체를 JSON문법으로 변환하여 WriteAllText함수로 지정된 경로에 저장하였다.</p>
-
-<h3 id="jsonutilitytojson">JsonUtility.ToJson</h3>
-<p>매개변수로 들어온 객체를 JSON문법으로 변환해준다. Debug.Log함수를 이용하여 확인해보면<br />
-<img src="/assets/img/Unity/JsonUtility_1.png" alt="image" /><br />
-Vector2형식을 JSON형식으로 변환한 것을 볼 수 있다.</p>
-
-<h2 id="json-import">JSON import</h2>
-<hr />
-<p>이제 반대로 JSON파일에서 불러오는 작업을 수행해야하는데, JSON파일을 읽어오는 함수 LoadJson을 만들어준 후 플레이어 객체가 생성될 때 호출해야하므로 Start함수에서 호출해줬다.</p>
-<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">void</span> <span class="nf">LoadJson</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">string</span> <span class="n">loadData</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">File</span><span class="p">.</span><span class="nf">ReadAllText</span><span class="p">(</span>
-                        <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">.</span><span class="nf">Combine</span><span class="p">(</span><span class="n">Application</span><span class="p">.</span><span class="n">dataPath</span> <span class="p">+</span> 
-                        <span class="s">"/Json/"</span><span class="p">,</span> <span class="s">"playerdata.json"</span><span class="p">));</span>
-    <span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">JsonUtility</span><span class="p">.</span><span class="n">FromJson</span><span class="p">&lt;</span><span class="n">Vector2</span><span class="p">&gt;(</span><span class="n">loadData</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<h3 id="코드해석-1">코드해석</h3>
-<p>string loadData: playerdata.json을 ReadAllText함수를 이용하여 문자열로 저장해준다.<br /><br />
-JsonUtility.FromJson<Vector2>(loadData): 읽어온 JSON 데이터를 Vector2자료형으로 반환한다.<br /><br /></Vector2></p>
-
-<h3 id="jsonutilityfromjson">JsonUtility.FromJson</h3>
-<p>매개변수로 읽어온 JSON데이터(문자열)를 지정한 자료형으로 변환하여 반환한다.<br />
-<code class="language-plaintext highlighter-rouge">JsonUtility.FromJson&lt;자료형&gt;(문자열);</code></p>
-
-<h3 id="결과">결과</h3>
-<hr />
-<p><img src="/assets/img/Unity/JsonUtility_2.gif" alt="image" /><br />
-실행하여 플레이어를 이동시킨 후 재시작하면 종료했던 위치로 플레이어가 이동하는 것을 볼 수 있다.<br /></p>
-
-<h3 id="여러-데이터-json화-시키기">여러 데이터 JSON화 시키기</h3>
-<hr />
-<p>만약 플레이어의 위치 뿐만 아닌 여러 데이터를 JSON에 저장해야할 경우에는 배열로 저장하여 JSON에 저장해야한다.<br /></p>
-
-<p><a href="https://github.com/hhh57463/RPG_Helper">RPG_Helper</a> 제작 중 획득한 아이템 리스트를 JSON에 저장하였는데 아이템의 종류는 장착, 소비, 기타 이렇게 3개의 종류가 있다. 해당 아이템들을 각각의 리스트로 구현하였는데 이를 각자 다른 데이터로 저장해주었다.</p>
-
-<p>아래는 JSON파일에 들어갈 아이템의 구성 요소이다.</p>
-<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">System</span><span class="p">.</span><span class="n">Serializable</span><span class="p">]</span>           <span class="c1">// 직렬화</span>
-<span class="k">public</span> <span class="k">class</span> <span class="nc">ItemsData</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="kt">string</span> <span class="n">name</span><span class="p">;</span>         <span class="c1">// 아이템 이름</span>
-    <span class="k">public</span> <span class="kt">string</span> <span class="n">info</span><span class="p">;</span>         <span class="c1">// 아이템 정보</span>
-    <span class="k">public</span> <span class="kt">int</span> <span class="n">count</span><span class="p">;</span>           <span class="c1">// 아이템 갯수</span>
-    <span class="k">public</span> <span class="kt">string</span> <span class="n">link</span><span class="p">;</span>         <span class="c1">// 아이템 이미지 링크</span>
-
-    <span class="c1">// 새로운 아이템을 획득할 때 사용하는 생성자</span>
-    <span class="k">public</span> <span class="nf">ItemsData</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="kt">string</span> <span class="n">info</span><span class="p">,</span> <span class="kt">int</span> <span class="n">count</span><span class="p">,</span> <span class="kt">string</span> <span class="n">link</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">name</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="n">info</span> <span class="p">=</span> <span class="n">info</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="n">count</span> <span class="p">=</span> <span class="n">count</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="n">link</span> <span class="p">=</span> <span class="n">link</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>아래는 아이템을 관리할 ItemDataMng클래스의 구성 요소이다.</p>
-<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">System</span><span class="p">.</span><span class="n">Serializable</span><span class="p">]</span>
-<span class="k">public</span> <span class="k">class</span> <span class="nc">ItemDataMng</span>
-<span class="p">{</span>
-    <span class="c1">// 장착 아이템</span>
-    <span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ItemsData</span><span class="p">&gt;</span> <span class="n">equipItem</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ItemsData</span><span class="p">&gt;();</span>
-    <span class="c1">// 소비 아이템     </span>
-    <span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ItemsData</span><span class="p">&gt;</span> <span class="n">consumItem</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ItemsData</span><span class="p">&gt;();</span>
-    <span class="c1">// 기타 아이템</span>
-    <span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ItemsData</span><span class="p">&gt;</span> <span class="n">etcItem</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ItemsData</span><span class="p">&gt;();</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>아래는 JSON 데이터를 변환하여 저장하는 소스코드들이다.</p>
-<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">TextAsset</span> <span class="n">itemJson</span><span class="p">;</span>        <span class="c1">// JSON 데이터 파일</span>
-<span class="n">ItemDataMng</span> <span class="n">itemDatas</span><span class="p">;</span>     <span class="c1">// 아이템을 관리할 변수(인벤토리)</span>
-<span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="c1">// JSON파일을 읽어와 인벤토리에 데이터 저장</span>
-    <span class="n">itemDatas</span> <span class="p">=</span> <span class="n">JsonUtility</span><span class="p">.</span><span class="n">FromJson</span><span class="p">&lt;</span><span class="n">ItemDataMng</span><span class="p">&gt;(</span><span class="n">itemJson</span><span class="p">.</span><span class="n">text</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="c1">// 게임 종료시 가지고 있는 아이템 저장</span>
-<span class="k">void</span> <span class="nf">OnApplicationQuit</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">string</span> <span class="n">saveData</span> <span class="p">=</span> <span class="n">JsonUtility</span><span class="p">.</span><span class="nf">ToJson</span><span class="p">(</span><span class="n">itemDatas</span><span class="p">);</span>
-    <span class="kt">string</span> <span class="n">fileName</span> <span class="p">=</span> <span class="s">"ItemData.json"</span><span class="p">;</span>
-    <span class="kt">string</span> <span class="n">path</span> <span class="p">=</span> <span class="n">Application</span><span class="p">.</span><span class="n">dataPath</span> <span class="p">+</span> <span class="s">"/Inventory/Json/"</span> <span class="p">+</span> <span class="n">fileName</span><span class="p">;</span>
-    <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">File</span><span class="p">.</span><span class="nf">WriteAllText</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">saveData</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h2 id="결과-json-파일">결과 (JSON 파일)</h2>
-<hr />
-<p><img src="/assets/img/Unity/JsonUtility_3.png" alt="image" /><br />
-여러 데이터가 JSON 파일에 저장되는 것을 볼 수 있으며,<br /><br />
-<img src="/assets/img/Unity/JsonUtility_4.gif" alt="image" /><br />
-각각의 데이터에 맞는 요소들이 인벤토리에 저장되는 것을 볼 수 있다.(이미지 로드가 늦는 이유는 인터넷에서 받아오기에 속도차이가 있다.)</p>
-
-<h2 id="주의점">주의점</h2>
-<hr />
-<p>만약 JSON파일에서 내용을 읽어와 클래스나 구조체에 저장한다면 JSON의 이름과 해당 데이터를 저장하는 변수의 이름을 같게 지정해줘야한다.<br /><br />
-해당 포스팅의 내용을 보면 아이템의 종류를 나타내는 <code class="language-plaintext highlighter-rouge">equipItem, cousumItem, etcItem</code>이 JSON 내부의 데이터 이름과 같을걸 볼 수 있다.<br /><br />
-만약 서로 이름이 다르면 아래처럼 데이터가 잘 불러와지지 않거나, 에러가 발생한다.<br />
-<img src="/assets/img/Unity/JsonUtility_5.png" alt="image" /><br /></p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="unity" /><category term="study" /><summary type="html"><![CDATA[JsonUtility를 이용한 JSON 파싱]]></summary></entry></feed>
+<p><a href="https://docs.fileformat.com/gis/shp/">SHP - ESRI Shapefile</a></p>]]></content><author><name>Mindol</name></author><category term="Study" /><category term="study" /><category term="shapefile" /><summary type="html"><![CDATA[shapefile format]]></summary></entry></feed>

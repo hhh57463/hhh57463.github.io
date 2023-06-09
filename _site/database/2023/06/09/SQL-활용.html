@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>SQL 활용 | Mindol</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="SQL 활용" />
+<meta name="author" content="Mindol" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="[SQL 활용]-Join, Window Function" />
+<meta property="og:description" content="[SQL 활용]-Join, Window Function" />
+<link rel="canonical" href="http://localhost:4000/database/2023/06/09/SQL-%ED%99%9C%EC%9A%A9.html" />
+<meta property="og:url" content="http://localhost:4000/database/2023/06/09/SQL-%ED%99%9C%EC%9A%A9.html" />
+<meta property="og:site_name" content="Mindol" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-06-09T06:00:01+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="SQL 활용" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-06-09T06:00:01+09:00","datePublished":"2023-06-09T06:00:01+09:00","description":"[SQL 활용]-Join, Window Function","headline":"SQL 활용","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/database/2023/06/09/SQL-%ED%99%9C%EC%9A%A9.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/MinTa.png"},"name":"Mindol"},"url":"http://localhost:4000/database/2023/06/09/SQL-%ED%99%9C%EC%9A%A9.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Mindol" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+  <script>
+    const hour = (new Date()).getHours();
+    let filename = "";
+    if (hour >= 5 && hour < 7) {
+      filename = "/assets/css/skin-sunrise.css";
+    } else if (hour >= 7 && hour < 17) {
+      filename = "/assets/css/skin-daylight.css";
+    } else if (hour >= 17 && hour < 19) {
+      filename = "/assets/css/skin-sunset.css";
+    } else {
+      filename = "/assets/css/skin-midnight.css";
+    }
+    const elem = document.createElement("link");
+    elem.setAttribute("rel", "stylesheet");
+    elem.setAttribute("type", "text/css");
+    elem.setAttribute("href", filename);
+    document.getElementsByTagName("head")[0].appendChild(elem);
+  </script>
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">Mindol</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/assets/img/MinTa.png" class="author-avatar u-photo align-center" alt="Mindol">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Mindol</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:hhh57463@naver.com">hhh57463@naver.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <!-- <a href="/feed.xml"> -->
+    <a href="https://sly-lemonade-717.notion.site/d6f467dc95934f8581ef33fe4e84ad17">
+    <i class="sidebar-icon fas fa-rss"></i><span>Portfolio</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://github.com/hhh57463"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://instagram.com/hhh57463"><i class="fab fa-instagram fa-2x" title="Instagram"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">SQL 활용</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-06-09T06:00:01+09:00" itemprop="datePublished">
+        Jun 9, 2023
+      </time></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="sql-활용">SQL 활용</h1>
+
+<hr />
+
+<h2 id="조인join">조인(JOIN)</h2>
+
+<hr />
+
+<h3 id="equi-join등가-조인">EQUI JOIN(등가 조인)</h3>
+
+<ul>
+  <li>조인은 여러 개의 릴레이션을 사용하여 새로운 릴레이션을 만드는 과정</li>
+  <li>조인의 가장 기본은 테이블 간에 교집합을 만드는 것</li>
+  <li>두 개의 테이블 간에 일치하는 것을 조인</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">EMP</span><span class="p">,</span> <span class="n">DEPT</span> <span class="k">WHERE</span> <span class="n">EMP</span><span class="p">.</span><span class="n">DEPTNO</span> <span class="o">=</span> <span class="n">DEPT</span><span class="p">.</span><span class="n">DEPTNO</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">EQUI JOIN은 '='을 사용하여 두 개의 테이블을 연결하며, 추가 조건 및 정렬 가능</code></p>
+
+<h3 id="inner-join">INNER JOIN</h3>
+
+<p>EQUI JOIN과 마찬가지로 ISO 표준 SQL로 INNER JOIN이 있음, INNER JOIN은 ON문을 사용하여 테이블 연결</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">EMP</span> <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">DEPT</span> <span class="k">ON</span> <span class="n">EMP</span><span class="p">.</span><span class="n">DEPTNO</span> <span class="o">=</span> <span class="n">DEPT</span><span class="p">.</span><span class="n">DEPTNO</span>
+</code></pre></div></div>
+
+<h3 id="hash-join해시-조인">HASH JOIN(해시 조인)</h3>
+
+<ul>
+  <li>해시 조인은 먼저 선행 테이블을 결정하고 선행 테이블에서 주어진 조건에 해당하는 행을 선택</li>
+  <li>해당 행이 선택되면 조인 키(JOIN Key)를 기준으로 해시 함수를 사용하여 해시 테이블인 메인 메모리에 생성하고 후행 테이블에서 주어진 조건에 만족하는 행을 찾음</li>
+  <li>후행 테이블의 조인 키를 사용하여 해시 함수를 적용하여 해당 버킷을 검색</li>
+</ul>
+
+<h3 id="intersect-연산">INTERSECT 연산</h3>
+
+<p>두 개의 테이블에서 교집합을 조회(공통된 값 조회)</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">DEPTNO</span> <span class="k">FROM</span> <span class="n">EMP</span>
+<span class="k">INTERSECT</span>
+<span class="k">SELECT</span> <span class="n">DEPTNO</span> <span class="k">FROM</span> <span class="n">DEPT</span>
+</code></pre></div></div>
+
+<h3 id="non-equi-join비등가-조인">Non-EQUI JOIN(비등가 조인)</h3>
+
+<ul>
+  <li>Non-DQUI는 두 개의 테이블 간에 조인하는 경우 ‘=’을 사용하지 않고 (&gt;, &lt;, ≥, ≤)등을 사용</li>
+  <li>정확하게 일치하지 않는 것을 조인</li>
+</ul>
+
+<h3 id="outer-join">OUTER JOIN</h3>
+
+<ul>
+  <li>두 개의 테이블 간에 교집합(EQUI JOIN)을 조회하고 한쪽 테이블에만 있는 데이터도 포함시켜 조회</li>
+  <li>왼쪽 테이블에만 있는 행을 포함하려면 <code class="language-plaintext highlighter-rouge">LEFT OUTER JOIN</code> , 오른쪽 테이블의 행을 포함하려면 <code class="language-plaintext highlighter-rouge">RIGHT OUTER JOIN</code> 을 사용</li>
+  <li><code class="language-plaintext highlighter-rouge">FULL OUTER JOIN</code> 은 <code class="language-plaintext highlighter-rouge">LEFT OUTER JOIN</code> 과 <code class="language-plaintext highlighter-rouge">RIGHT OUTER JOIN</code> 모두를 하는 것</li>
+  <li>Oacle 데이터베이스는 OUTER JOIN을 할 때 “(+)”기호를 사용</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">DEPT</span><span class="p">,</span> <span class="n">EMP</span> <span class="k">WHERE</span> <span class="n">EMP</span><span class="p">.</span><span class="n">DEPTNO</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span><span class="o">=</span> <span class="n">DEPT</span><span class="p">.</span><span class="n">DEPTNO</span>
+</code></pre></div></div>
+
+<p>위의 쿼리는 Oracle 데이터베이스의 OUTER JOIN 방법</p>
+
+<h3 id="cross-join">CROSS JOIN</h3>
+
+<ul>
+  <li>조인 조건구 없이 2개의 테이블을 하나로 조인</li>
+  <li>조인구가 없기에 카테시안 곱 발생</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">EMP</span> <span class="k">CROSS</span> <span class="k">JOIN</span> <span class="n">DEPT</span>
+</code></pre></div></div>
+
+<h3 id="union">UNION</h3>
+
+<ul>
+  <li>두 개의 테이블을 하나로 만드는 연산(2개의 테이블을 하나로 합치는 것)</li>
+  <li>두 개의 테이블의 칼럼 수, 칼럼의 데이터 형식 모두가 일치해야 함</li>
+  <li>UNION 연산이 사용될 때 칼럼 수 혹은 데이터 형식이 다르면 오류 발생</li>
+  <li>테이블을 합치면서 중복된 데이터 제거</li>
+  <li>정렬 과정 발생</li>
+</ul>
+
+<h3 id="union-all">UNION ALL</h3>
+
+<ul>
+  <li>두 개의 테이블을 하나로 만드는 연산</li>
+  <li>중복을 제거하거나 정렬을 유발하지 않음</li>
+</ul>
+
+<h3 id="minus">MINUS</h3>
+
+<ul>
+  <li>두 개의 테이블에서 차집합을 조회</li>
+  <li>MS-SQL에서는 EXCEPT 사용</li>
+</ul>
+
+<h2 id="계층형-조회connect-by">계층형 조회(CONNECT BY)</h2>
+
+<hr />
+
+<ul>
+  <li>Oracle 데이터베이스에서 지원하며, 계층형으로 데이터를 조회할 수 있음</li>
+  <li>트리(Tree) 형태의 구조로 질의를 수행</li>
+  <li>START WITH는 시작 조건을 의미</li>
+  <li>CONNECT BY PRIOR는 조인 조건을 의미</li>
+  <li>Root 노드로부터 하위 노드의 질의를 실행</li>
+  <li>MAX(LEVEL)을 사용하여 최대 계층 수를 구할 수 있음</li>
+</ul>
+
+<h3 id="connect-by-키워드">CONNECT BY 키워드</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>키워드</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LEVEL</td>
+      <td>검색 항목의 깊이를 의미(최상위 레벨은 1)</td>
+    </tr>
+    <tr>
+      <td>CONNECT_BY_ROOT</td>
+      <td>계층 구조에서 가장 최상위 값을 표시</td>
+    </tr>
+    <tr>
+      <td>CONNECT_BY_ISLEAF</td>
+      <td>계층 구조에서 가장 최하위를 표시</td>
+    </tr>
+    <tr>
+      <td>SYS_CONNECT_BY_PATH</td>
+      <td>계층 구조의 전체 전개 경로 표시</td>
+    </tr>
+    <tr>
+      <td>NOCYCLE</td>
+      <td>순환 구조가 발생지점까지만 전개</td>
+    </tr>
+    <tr>
+      <td>CONNECT_BY_ISCYCLE</td>
+      <td>순환 구조 발생 지점 표시</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="계층형-조회-키워드">계층형 조회 키워드</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>키워드</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>START WITH 조건</td>
+      <td>계층 전개의 시작 위치를 지정</td>
+    </tr>
+    <tr>
+      <td>PRIOR 자식 = 부모</td>
+      <td>부모에서 자식방향으로 검색을 수행하는 순방향 전개</td>
+    </tr>
+    <tr>
+      <td>PRIOR 부모 = 자식</td>
+      <td>자식에서 부모방향으로 검색을 수행하는 역방향 전개</td>
+    </tr>
+    <tr>
+      <td>NOCYCLE</td>
+      <td>데이터를 전개하면서 이미 조회한 데이터를 조회하면 CYCLE이 형성되는데, 사이클이 발생되지 않게 함</td>
+    </tr>
+    <tr>
+      <td>Order siblings by 칼럼</td>
+      <td>동일한 LEVEL인 형제노드 사이에서 정렬을 수행</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="서브쿼리subquery">서브쿼리(Subquery)</h2>
+
+<hr />
+
+<ul>
+  <li>SELECT문 내에 다시 SELECT문을 사용하는 SQL문</li>
+  <li>FROM구에 SELECT문을 사용하면 인라인 뷰(Inline View)라고 함</li>
+  <li>SELECT문에 서브쿼리를 사용하면 스칼라 서브쿼리(Scala Subquery)라고 함</li>
+  <li>WHERE구에 SELECT문을 사용하면 서브쿼리라고 함</li>
+  <li>서브쿼리 밖에 있는 SELECT문은 메인쿼리라고 함</li>
+  <li>서브쿼리내에서 메인쿼리 내 칼럼을 사용하면 연관 서브쿼리(Correlated Subquery)라고 함</li>
+</ul>
+
+<h3 id="단일-행-서브쿼리와-다중-행-서브쿼리">단일 행 서브쿼리와 다중 행 서브쿼리</h3>
+
+<ul>
+  <li>단일 행 서브쿼리는 단 하나의 행만 반환하며, 비교 연산자(=, &lt;, ≤, &gt;, ≥, &lt;&gt;)를 사용</li>
+  <li>다중 행 서브쿼리는 여러 행을 반환하며, IN, ANY, ALL, EXISTS를 사용</li>
+</ul>
+
+<h3 id="다중-행-비교-연산자">다중 행 비교 연산자</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>연산</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IN</td>
+      <td>메인쿼리의 비교조건이 서브쿼리의 결과 중 하나만 동일하면 참</td>
+    </tr>
+    <tr>
+      <td>ALL</td>
+      <td>- 메인쿼리와 서브쿼리의 결과가 모두 동일하면 참<br />- &lt; ALL: 최솟값 반환<br />- &gt; ALL: 최댓값 반환</td>
+    </tr>
+    <tr>
+      <td>ANY</td>
+      <td>- 메인쿼리의 비교조건이 서브쿼리의 결과 중 하나 이상 동일하면 참<br />- &lt; ANY: 하나라도 크면 참<br />- &gt; ANY: 하나라도 작으면 참</td>
+    </tr>
+    <tr>
+      <td>EXISTS</td>
+      <td>메인쿼리와 서브쿼리의 결과가 하나라도 존재하면 참</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="그룹-함수group-function">그룹 함수(Group Function)</h2>
+
+<hr />
+
+<h3 id="rollup-함수">ROLLUP 함수</h3>
+
+<ul>
+  <li>GROUP BY의 칼럼에 대해 Subtotal을 만듦</li>
+  <li>ROLLUP을 할 때 GROUP BY구에 칼럼이 두 개 이상 올 시 순서에 따라 결과가 달라짐</li>
+</ul>
+
+<h3 id="grouping-함수">GROUPING 함수</h3>
+
+<ul>
+  <li>GROUPING 함수는 ROLLUP, CUBE, GROUPING SETS에서 생성되는 합계값을 구분할 수 있음</li>
+  <li>GROUPING 함수의 기능을 사용하면 사용자가 필요로 하는 데이터를 SELECT문으로 작성하여 제공할 수 있음</li>
+</ul>
+
+<h3 id="grouping-sets-함수">GROUPING SETS 함수</h3>
+
+<ul>
+  <li>GROUP BY에 나오는 칼럼의 순서와 관계없이 다양한 소계를 만들 수 있음</li>
+  <li>GROUP BY에 나오는 칼럼의 순서와 관계없이 개별적으로 모두 처리</li>
+</ul>
+
+<h3 id="cube-함수">CUBE 함수</h3>
+
+<ul>
+  <li>제시한 칼럼에 대해 결합 가능한 모든 집계 계산</li>
+  <li>다차원 집계를 제공하여 다양하게 데이터를 분석할 수 있음</li>
+  <li>조합할 수 있는 경우의 수가 모두 조합되는 것</li>
+</ul>
+
+<h2 id="윈도우-함수window-function">윈도우 함수(Window Function)</h2>
+
+<hr />
+
+<ul>
+  <li>행과 행 간의 관계를 정의하기 위해 제공되는 함수</li>
+  <li>순위, 합계, 평군, 행 위치 등을 조작할 수 있음</li>
+</ul>
+
+<h3 id="윈도우-함수-구조">윈도우 함수 구조</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">WINDOW_FUNCTION</span><span class="p">(</span><span class="n">ARGUMENTS</span><span class="p">)</span>
+<span class="n">OVER</span> <span class="p">(</span><span class="k">PARTITION</span> <span class="k">BY</span> <span class="err">칼럼</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">WINDOWING</span><span class="err">절</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="err">테이블</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>구조</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ARGUMENTS(인수)</td>
+      <td>윈도우 함수에 따라 0~N개의 인수 설정</td>
+    </tr>
+    <tr>
+      <td>PARTITION BY</td>
+      <td>전체 집합을 기준에 의해 소그룹으로 나눔</td>
+    </tr>
+    <tr>
+      <td>ORDER BY</td>
+      <td>어떤 항목에 대해 정렬</td>
+    </tr>
+    <tr>
+      <td>WINDOWING</td>
+      <td>행 기준의 범위 지정 (추후 설명)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="windowing">WINDOWING</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>구조</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ROWS</td>
+      <td>부분집합인 윈도우 크기를 물리적 단위로 행의 집합 지정</td>
+    </tr>
+    <tr>
+      <td>RANGE</td>
+      <td>논리적인 주소에 의해 행 집합 지정</td>
+    </tr>
+    <tr>
+      <td>BETWEEN~AND</td>
+      <td>윈도우의 시작과 끝의 위치를 지정</td>
+    </tr>
+    <tr>
+      <td>UNBOUNDED PRECEDING</td>
+      <td>윈도우의 시작 위치가 첫 번째 행임을 의미</td>
+    </tr>
+    <tr>
+      <td>UNBOUNDED FOLLOWING</td>
+      <td>윈도우 마지막 위치가 마지막 행임을 의미</td>
+    </tr>
+    <tr>
+      <td>CURRENT ROW</td>
+      <td>윈도우 시작 위치가 현재 행임을 의미</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="순위-함수rank-function">순위 함수(RANK Function)</h2>
+
+<hr />
+
+<p>특정 항목과 파티션에 대해 순위를 계산할 수 있는 함수</p>
+
+<h3 id="순위-관련-윈도우-함수">순위 관련 윈도우 함수</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>함수</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RANK</td>
+      <td>특정 항목 및 파티션에 대해 순위 계산(동일한 순위는 동일한 값 부여)</td>
+    </tr>
+    <tr>
+      <td>DENSE_RANK</td>
+      <td>동일한 순위를 하나의 건수로 계산</td>
+    </tr>
+    <tr>
+      <td>ROW_NUMBER</td>
+      <td>동일한 순위에 대해 고유의 순위 부여</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="집계-함수aggregate-function">집계 함수(AGGREGATE Function)</h2>
+
+<hr />
+
+<h3 id="집계-관련-윈도우-함수">집계 관련 윈도우 함수</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>함수</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SUM</td>
+      <td>파티션 별로 합계 계산</td>
+    </tr>
+    <tr>
+      <td>AVG</td>
+      <td>파티션 별로 평균 계산</td>
+    </tr>
+    <tr>
+      <td>COUNT</td>
+      <td>파티션 별로 행 수 계산</td>
+    </tr>
+    <tr>
+      <td>MAX</td>
+      <td>파티션 별로 최댓값 계산</td>
+    </tr>
+    <tr>
+      <td>MIN</td>
+      <td>파티션 별로 최솟값 계산</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="행-순서-관련-함수">행 순서 관련 함수</h2>
+
+<hr />
+
+<ul>
+  <li>상위 행의 값을 하위에 출력하거나 하위 행의 값을 상위 행에 출력 할 수 있음</li>
+  <li>특정 위치의 행을 출력할 수 있음</li>
+</ul>
+
+<h3 id="행-순서-관련-윈도우-함수">행 순서 관련 윈도우 함수</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>행 순서</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FIRST_VALUE</td>
+      <td>- 파티션에서 가장 처음에 나오는 값을 구함<br />- MIN 함수를 사용해서 같은 결과를 구할 수 있음</td>
+    </tr>
+    <tr>
+      <td>LAST_VALUE</td>
+      <td>- 파티션에서 가장 나중에 나오는 값을 구함<br />- MAX 함수를 사용해서 같은 결과를 구할 수 있음</td>
+    </tr>
+    <tr>
+      <td>LAG</td>
+      <td>이전 행을 가져옴</td>
+    </tr>
+    <tr>
+      <td>LEAD</td>
+      <td>윈도우에서 특정 위치의 행을 가져옴(기본값: 1)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="비율-관련-함수">비율 관련 함수</h2>
+
+<hr />
+
+<h3 id="비율-관련-윈도우-함수">비율 관련 윈도우 함수</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>함수</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CUME_DIST</td>
+      <td>파티션 전체 건수에서 현재 행보다 작거나 같은 건수에 대한 누적 백분율 조회(0~1 사이의 값)</td>
+    </tr>
+    <tr>
+      <td>PERCENT_RANK</td>
+      <td>파티션에서 제일 먼저 나온 것을 0으로 제일 늦게 나온 것을 1로 하여 값이 아닌 행의 순서별 백분율 조회</td>
+    </tr>
+    <tr>
+      <td>NTILE</td>
+      <td>파티션별로 전체 건수를 ARGUMENT 값으로 N등분 한 결과 조회</td>
+    </tr>
+    <tr>
+      <td>RATIO_TO_REPORT</td>
+      <td>파티션 내에 전체 SUM(칼럼)에 대한 행 별 칼럼 값의 백분율을 소수점까지 조회</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="테이블-파티션table-partition">테이블 파티션(Table Partition)</h2>
+
+<hr />
+
+<ul>
+  <li>파티션은 대용량의 테이블을 여러 개의 데이터 파일에 분리하여 저장하는 기능</li>
+  <li>테이블의 데이터가 물리적으로 분리된 데이터 파일에 저장되면 입력, 수정, 삭제, 조회 성능이 향상</li>
+  <li>각각의 파티션 별로 독립적으로 괄리될 수 있음(파티션 별로 백업하고 복구가 가능하면 파티션 전용 인덱스 생성도 가능)</li>
+  <li>데이터를 조회할 때 데이터의 범위를 줄여 성능 향상</li>
+</ul>
+
+<h3 id="파티션-기법">파티션 기법</h3>
+
+<ul>
+  <li>Range Partition: 테이블의 칼럼 중 값의 범위를 기준으로 여러 파티션으로 데이터를 나누어 저장하는 방법</li>
+  <li>List Partition: 특정 값을 기준으로 분할하는 방법</li>
+  <li>Hash Partition: DBMS가 내부적으로 해시 함수를 사용하여 데이터를 분할</li>
+  <li>Composite Partition: 여러 개의 파티션 기법을 조합하여 사용하는 방법</li>
+</ul>
+
+<h3 id="파티션-인덱스">파티션 인덱스</h3>
+
+<ul>
+  <li>Global Index: 여러 개의 파티션에서 하나의 인덱스 사용</li>
+  <li>Local Index: 파티션 별로 각자의 인덱스 사용</li>
+  <li>Prefixed Index: 파티션 키와 인덱스 키가 동일</li>
+  <li>Non Prefixed Index: 파티션 키와 인덱스 키가 다름</li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/categories/#database">Database</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#database">database</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#study">study</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/database/2023/06/08/SQL-%EA%B8%B0%EB%B3%B8-TCL.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> TCL(Transaction Control Language)
+
+          </span>
+        </a>
+      
+
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+<script src="https://utteranc.es/client.js"
+        repo="hhh57463/hhh57463.github.io"
+        issue-term="url"
+        theme="gruvbox-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2017&nbsp;-&nbsp;2023 Mindol; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Mindol&#39;s Blog</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>
