@@ -222,7 +222,7 @@
 <h3 id="non-equi-join비등가-조인">Non-EQUI JOIN(비등가 조인)</h3>
 
 <ul>
-  <li>Non-DQUI는 두 개의 테이블 간에 조인하는 경우 ‘=’을 사용하지 않고 (&gt;, &lt;, ≥, ≤)등을 사용</li>
+  <li>Non-EQUI는 두 개의 테이블 간에 조인하는 경우 ‘=’을 사용하지 않고 (&gt;, &lt;, &gt;=, &lt;=)등을 사용</li>
   <li>정확하게 일치하지 않는 것을 조인</li>
 </ul>
 
@@ -373,7 +373,7 @@
 <h3 id="단일-행-서브쿼리와-다중-행-서브쿼리">단일 행 서브쿼리와 다중 행 서브쿼리</h3>
 
 <ul>
-  <li>단일 행 서브쿼리는 단 하나의 행만 반환하며, 비교 연산자(=, &lt;, ≤, &gt;, ≥, &lt;&gt;)를 사용</li>
+  <li>단일 행 서브쿼리는 단 하나의 행만 반환하며, 비교 연산자(=, &lt;, &lt;=, &gt;, &gt;=, &lt;&gt;)를 사용</li>
   <li>다중 행 서브쿼리는 여러 행을 반환하며, IN, ANY, ALL, EXISTS를 사용</li>
 </ul>
 
@@ -536,15 +536,15 @@
   </thead>
   <tbody>
     <tr>
-      <td>RANK</td>
+      <td>RANK()</td>
       <td>특정 항목 및 파티션에 대해 순위 계산(동일한 순위는 동일한 값 부여)</td>
     </tr>
     <tr>
-      <td>DENSE_RANK</td>
+      <td>DENSE_RANK()</td>
       <td>동일한 순위를 하나의 건수로 계산</td>
     </tr>
     <tr>
-      <td>ROW_NUMBER</td>
+      <td>ROW_NUMBER()</td>
       <td>동일한 순위에 대해 고유의 순위 부여</td>
     </tr>
   </tbody>
@@ -565,23 +565,23 @@
   </thead>
   <tbody>
     <tr>
-      <td>SUM</td>
+      <td>SUM()</td>
       <td>파티션 별로 합계 계산</td>
     </tr>
     <tr>
-      <td>AVG</td>
+      <td>AVG()</td>
       <td>파티션 별로 평균 계산</td>
     </tr>
     <tr>
-      <td>COUNT</td>
+      <td>COUNT()</td>
       <td>파티션 별로 행 수 계산</td>
     </tr>
     <tr>
-      <td>MAX</td>
+      <td>MAX()</td>
       <td>파티션 별로 최댓값 계산</td>
     </tr>
     <tr>
-      <td>MIN</td>
+      <td>MIN()</td>
       <td>파티션 별로 최솟값 계산</td>
     </tr>
   </tbody>
@@ -607,19 +607,19 @@
   </thead>
   <tbody>
     <tr>
-      <td>FIRST_VALUE</td>
+      <td>FIRST_VALUE()</td>
       <td>- 파티션에서 가장 처음에 나오는 값을 구함<br />- MIN 함수를 사용해서 같은 결과를 구할 수 있음</td>
     </tr>
     <tr>
-      <td>LAST_VALUE</td>
+      <td>LAST_VALUE()</td>
       <td>- 파티션에서 가장 나중에 나오는 값을 구함<br />- MAX 함수를 사용해서 같은 결과를 구할 수 있음</td>
     </tr>
     <tr>
-      <td>LAG</td>
+      <td>LAG()</td>
       <td>이전 행을 가져옴</td>
     </tr>
     <tr>
-      <td>LEAD</td>
+      <td>LEAD()</td>
       <td>윈도우에서 특정 위치의 행을 가져옴(기본값: 1)</td>
     </tr>
   </tbody>
@@ -640,19 +640,19 @@
   </thead>
   <tbody>
     <tr>
-      <td>CUME_DIST</td>
+      <td>CUME_DIST()</td>
       <td>파티션 전체 건수에서 현재 행보다 작거나 같은 건수에 대한 누적 백분율 조회(0~1 사이의 값)</td>
     </tr>
     <tr>
-      <td>PERCENT_RANK</td>
+      <td>PERCENT_RANK()</td>
       <td>파티션에서 제일 먼저 나온 것을 0으로 제일 늦게 나온 것을 1로 하여 값이 아닌 행의 순서별 백분율 조회</td>
     </tr>
     <tr>
-      <td>NTILE</td>
+      <td>NTILE()</td>
       <td>파티션별로 전체 건수를 ARGUMENT 값으로 N등분 한 결과 조회</td>
     </tr>
     <tr>
-      <td>RATIO_TO_REPORT</td>
+      <td>RATIO_TO_REPORT()</td>
       <td>파티션 내에 전체 SUM(칼럼)에 대한 행 별 칼럼 값의 백분율을 소수점까지 조회</td>
     </tr>
   </tbody>
