@@ -1,4 +1,316 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-11T06:48:47+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">SQL 최적화</title><link href="http://localhost:4000/database/2023/06/10/SQL-%EC%B5%9C%EC%A0%81%ED%99%94.html" rel="alternate" type="text/html" title="SQL 최적화" /><published>2023-06-10T06:00:01+09:00</published><updated>2023-06-10T06:00:01+09:00</updated><id>http://localhost:4000/database/2023/06/10/SQL%20%EC%B5%9C%EC%A0%81%ED%99%94</id><content type="html" xml:base="http://localhost:4000/database/2023/06/10/SQL-%EC%B5%9C%EC%A0%81%ED%99%94.html"><![CDATA[<h2 id="옵티마이저optimizer">옵티마이저(Optimizer)</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-17T17:04:13+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">Navigation</title><link href="http://localhost:4000/unity/2023/06/16/Navigation.html" rel="alternate" type="text/html" title="Navigation" /><published>2023-06-16T07:00:00+09:00</published><updated>2023-06-16T07:00:00+09:00</updated><id>http://localhost:4000/unity/2023/06/16/Navigation</id><content type="html" xml:base="http://localhost:4000/unity/2023/06/16/Navigation.html"><![CDATA[<h2 id="navigation">Navigation?</h2>
+
+<hr />
+
+<p>특정 영역의 길을 AI가 최단 경로를 찾아 목적지에 도달하게 도와주는 기능</p>
+
+<h2 id="navigation-설정">Navigation 설정</h2>
+
+<hr />
+
+<p>Navigation을 사용하기 위해서는 이동 가능한 경로를 지정하는 작업이 필요하다.</p>
+
+<p><img src="/assets/img/Unity/Navigation_1.png" alt="image" /></p>
+
+<p>Window → AI → Navigation (Obsolete)</p>
+
+<p><img src="/assets/img/Unity/Navigation_2.png" alt="image" /></p>
+
+<p>Navigation 경로를 지정할 수 있는 탭이 켜진다.</p>
+
+<p><img src="/assets/img/Unity/Navigation_3.png" alt="image" /></p>
+
+<p>이동할 바닥, 장애물을 모두 선택한 후(Mesh Renderer가 있는 오브젝트)</p>
+
+<p><img src="/assets/img/Unity/Navigation_4.png" alt="image" /></p>
+
+<p>Navigation Static을 체크 해준다.</p>
+
+<h3 id="object">Object</h3>
+
+<ul>
+  <li>Scene Filter: 캐릭터가 이동할 수 있는 영역을 선택 (Mesh renderer와 Terrain이 존재하는 오브젝트만 지정 가능)</li>
+  <li>Navigation Static: 해당 오브젝트를 캐릭터가 기을 찾을 수 있는 표면으로 지정</li>
+  <li>Generate OffMeshLinks:  Off Mesh Link를 생성함</li>
+  <li>Navigation Area: 해당 오브젝트의 영역 타입 설정 (Walkable, Not Walkable, Jump)</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">Off Mesh Link: 걸을 수 있는 내비게이션 메시 표면 외 지나갈 수 있는 경로를 만들 수 있음 (장애물 점프, 지나가기 전 문열기 등)</code></p>
+
+<h3 id="areas">Areas</h3>
+
+<p><img src="/assets/img/Unity/Navigation_5.png" alt="image" /></p>
+
+<p>Areas는 캐릭터가 지날 수 있는 영역의 비용을 지정할 수 있다.</p>
+
+<h3 id="bake">Bake</h3>
+
+<p>오브젝트들의 설정이 끝났으면 Bake 탭에서 경로를 구워줘야 한다.</p>
+
+<p><img src="/assets/img/Unity/Navigation_6.png" alt="image" /></p>
+
+<p>하단의 Bake 버튼을 눌러주면</p>
+
+<p><img src="/assets/img/Unity/Navigation_7.png" alt="image" /></p>
+
+<p>맵 오브젝트 바닥에 파란색이 칠해지는 것을 볼 수 있다.</p>
+
+<p>이는 캐릭터가 이동할 수 있는 경로가 칠해진 것이다.</p>
+
+<h2 id="캐릭터-이동">캐릭터 이동</h2>
+
+<hr />
+
+<p><img src="/assets/img/Unity/Navigation_8.png" alt="image" /></p>
+
+<p>캐릭터에게 Nav Mesh Agent 컴포넌트를 추가한다.</p>
+
+<h3 id="프로퍼티">프로퍼티</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>프로퍼티</th>
+      <th>기능</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Agent Type</td>
+      <td>저장된 에이전트 선택</td>
+    </tr>
+    <tr>
+      <td>Base Offset</td>
+      <td>캐릭터의 충돌 위치</td>
+    </tr>
+    <tr>
+      <td>Speed</td>
+      <td>최대 이동 속도</td>
+    </tr>
+    <tr>
+      <td>Angular Speed</td>
+      <td>최대 회전 속도</td>
+    </tr>
+    <tr>
+      <td>Acceleration</td>
+      <td>최대 가속</td>
+    </tr>
+    <tr>
+      <td>Stopping Distance</td>
+      <td>도착 위치에서 얼마나 떨어진 위치에서 멈출지 지정</td>
+    </tr>
+    <tr>
+      <td>Auto Braking</td>
+      <td>도착 위치에 다다를 때 속도를 줄임</td>
+    </tr>
+    <tr>
+      <td>Radius</td>
+      <td>캐릭터의 충돌 범위</td>
+    </tr>
+    <tr>
+      <td>Height</td>
+      <td>캐릭터의 충돌 높이</td>
+    </tr>
+    <tr>
+      <td>Quality</td>
+      <td>장애물 회피 품질</td>
+    </tr>
+    <tr>
+      <td>Priority</td>
+      <td>해당 숫자보다 큰 숫자를 가진 오브젝트는 회피 대상에서 제외</td>
+    </tr>
+    <tr>
+      <td>Auto Traverse Off Mesh Link</td>
+      <td>Off Mesh Link 횡단 방법<br />- True: 자동으로 횡단<br />- Fasle: 특정 방법으로 횡단</td>
+    </tr>
+    <tr>
+      <td>Auto Repath</td>
+      <td>경로의 끝에 도달하면 경로 재탐색</td>
+    </tr>
+    <tr>
+      <td>Area Mask</td>
+      <td>어떠한 영역 타입을 이동할 것인지 (캐릭터 마다 이동 영역을 다르게 할 수 있음)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>코드로 바닥에 우클릭을 클릭하면 해당 위치로 이동하는 코드를 구현한다.</p>
+
+<h3 id="이동">이동</h3>
+
+<p>마우스 우클릭을 한 위치로 플레이어가 이동하는 코드를 구현해 주었다.</p>
+
+<p><img src="/assets/img/Unity/nav_gif1.gif" alt="image" /></p>
+
+<p>지정한 위치로 이동하는 것을 볼 수 있지만 경로가 나타나지 않아 보기 어려워 경로와 도착지를 표시해 주겠다.</p>
+
+<p><img src="/assets/img/Unity/nav_gif2.gif" alt="image" /></p>
+
+<p>지정된 경로로 이동하는 것을 볼 수 있다.</p>
+
+<h2 id="카메라-이동">카메라 이동</h2>
+
+<hr />
+
+<p>고정된 카메라로 경로를 지정하려니 불편하여 카메라를 이동하는 코드를 적용하였다.</p>
+
+<p><img src="/assets/img/Unity/nav_gif3.gif" alt="image" /></p>
+
+<p>지정된 키를 눌러 이동 키를 눌러 카메라를 이동할 수 있다..</p>
+
+<h2 id="nav-mesh-obstacle">Nav Mesh Obstacle</h2>
+
+<hr />
+
+<p>경로 위 장애물을 추가할 수 있다.</p>
+
+<p><img src="/assets/img/Unity/Navigation_9.png" alt="image" /></p>
+
+<p>장애물을 하나 만든 후 Nav Mesh Obstacle 컴포넌트를 추가해 주었다.</p>
+
+<h3 id="프로퍼티-1">프로퍼티</h3>
+
+<ul>
+  <li>Shpe: 장애물의 형태를 지정. (Capsule, Cube)</li>
+  <li>Center: 장애물의 충돌 범위 위치를 지정.</li>
+  <li>Size: 장애물의 충돌 범위 크기를 지정.</li>
+  <li>Carve: 경로상에 장애물이 있을 시 장애물을 피해 경로를 지정할 여부를 지정.</li>
+</ul>
+
+<p><img src="/assets/img/Unity/Navigation_10.png" alt="image" /></p>
+
+<p>Carve를 True로 지정하면 다시 Bake를 하지 않아도 캐릭터의 이동 경로가 제한되는 것을 볼 수 있다.</p>
+
+<h3 id="carve-false">Carve: False</h3>
+
+<p><img src="/assets/img/Unity/nav_gif4.gif" alt="image" /></p>
+
+<h3 id="carve-true">Carve: True</h3>
+
+<p><img src="/assets/img/Unity/nav_gif5.gif" alt="image" /></p>
+
+<p>Carve의 여부에 따라 이동 경로가 차이나는 것을 볼 수 있다.</p>
+
+<h2 id="캐릭터-카메라-이동-코드">캐릭터, 카메라 이동 코드</h2>
+
+<hr />
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine.AI</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Move</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="c1">////////////////// Player ///////////////////////////////////</span>
+    <span class="n">NavMeshAgent</span> <span class="n">agent</span><span class="p">;</span>
+    <span class="n">Animator</span> <span class="n">anime</span><span class="p">;</span>
+    <span class="n">LineRenderer</span> <span class="n">lr</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span> <span class="n">Transform</span> <span class="n">point</span><span class="p">;</span>
+    <span class="n">Coroutine</span> <span class="n">path</span><span class="p">;</span>
+
+    <span class="c1">////////////////// Camera ///////////////////////////////////</span>
+    <span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span> <span class="n">KeyCode</span> <span class="n">camMoveSwap</span> <span class="p">=</span> <span class="n">KeyCode</span><span class="p">.</span><span class="n">Space</span><span class="p">;</span>
+    <span class="n">Vector3</span> <span class="n">camMoveDir</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">camSpeed</span><span class="p">;</span>
+
+    <span class="kt">float</span> <span class="n">viewDirX</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">viewDirY</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">rotSpeed</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="n">camMove</span><span class="p">;</span>
+
+    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">agent</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">NavMeshAgent</span><span class="p">&gt;();</span>
+        <span class="n">anime</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Animator</span><span class="p">&gt;();</span>
+        <span class="n">lr</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">LineRenderer</span><span class="p">&gt;();</span>
+
+        <span class="n">rotSpeed</span> <span class="p">=</span> <span class="m">3.0f</span><span class="p">;</span>
+        <span class="n">camSpeed</span> <span class="p">=</span> <span class="m">1.5f</span><span class="p">;</span>
+        <span class="n">camMove</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+
+        <span class="n">lr</span><span class="p">.</span><span class="n">startWidth</span> <span class="p">=</span> <span class="m">0.1f</span><span class="p">;</span>
+        <span class="n">lr</span><span class="p">.</span><span class="n">endWidth</span> <span class="p">=</span> <span class="m">0.1f</span><span class="p">;</span>
+        <span class="n">lr</span><span class="p">.</span><span class="n">material</span><span class="p">.</span><span class="n">color</span> <span class="p">=</span> <span class="n">Color</span><span class="p">.</span><span class="n">green</span><span class="p">;</span>
+        <span class="n">lr</span><span class="p">.</span><span class="n">enabled</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">void</span> <span class="nf">Update</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nf">PlayerMove</span><span class="p">();</span>
+        <span class="nf">CameraMove</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kt">float</span> <span class="n">h</span> <span class="p">=&gt;</span> <span class="n">Input</span><span class="p">.</span><span class="nf">GetAxis</span><span class="p">(</span><span class="s">"Horizontal"</span><span class="p">);</span>
+    <span class="kt">float</span> <span class="n">v</span> <span class="p">=&gt;</span> <span class="n">Input</span><span class="p">.</span><span class="nf">GetAxis</span><span class="p">(</span><span class="s">"Vertical"</span><span class="p">);</span>
+    <span class="k">void</span> <span class="nf">CameraMove</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="nf">GetKeyDown</span><span class="p">(</span><span class="n">camMoveSwap</span><span class="p">))</span>
+            <span class="n">camMove</span> <span class="p">=</span> <span class="p">!</span><span class="n">camMove</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">camMove</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">camMoveDir</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="m">0f</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
+            <span class="n">camMoveDir</span> <span class="p">=</span> <span class="n">Camera</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="nf">TransformDirection</span><span class="p">(</span><span class="n">camMoveDir</span><span class="p">);</span>
+            <span class="n">Camera</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">+=</span> <span class="n">camMoveDir</span> <span class="p">*</span> <span class="n">camSpeed</span><span class="p">;</span>
+            <span class="n">viewDirX</span> <span class="p">+=</span> <span class="n">Input</span><span class="p">.</span><span class="nf">GetAxis</span><span class="p">(</span><span class="s">"Mouse X"</span><span class="p">)</span> <span class="p">*</span> <span class="n">rotSpeed</span><span class="p">;</span>
+            <span class="n">viewDirY</span> <span class="p">+=</span> <span class="n">Input</span><span class="p">.</span><span class="nf">GetAxis</span><span class="p">(</span><span class="s">"Mouse Y"</span><span class="p">)</span> <span class="p">*</span> <span class="p">-</span><span class="n">rotSpeed</span><span class="p">;</span>
+            <span class="n">Camera</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">rotation</span> <span class="p">=</span> <span class="n">Quaternion</span><span class="p">.</span><span class="nf">Euler</span><span class="p">(</span><span class="n">viewDirY</span><span class="p">,</span> <span class="n">viewDirX</span><span class="p">,</span> <span class="m">0f</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">void</span> <span class="nf">PlayerMove</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="nf">GetMouseButtonDown</span><span class="p">(</span><span class="m">1</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">Ray</span> <span class="n">ray</span> <span class="p">=</span> <span class="n">Camera</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="nf">ScreenPointToRay</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">mousePosition</span><span class="p">);</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">Physics</span><span class="p">.</span><span class="nf">Raycast</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span> <span class="k">out</span> <span class="n">RaycastHit</span> <span class="n">hit</span><span class="p">))</span>
+            <span class="p">{</span>
+                <span class="n">agent</span><span class="p">.</span><span class="nf">SetDestination</span><span class="p">(</span><span class="n">hit</span><span class="p">.</span><span class="n">point</span><span class="p">);</span>
+                <span class="n">anime</span><span class="p">.</span><span class="nf">SetFloat</span><span class="p">(</span><span class="s">"Speed"</span><span class="p">,</span> <span class="m">2.0f</span><span class="p">);</span>
+                <span class="n">point</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="nf">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+                <span class="n">point</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">hit</span><span class="p">.</span><span class="n">point</span><span class="p">;</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="n">path</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+                    <span class="nf">StopCoroutine</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+                <span class="n">path</span> <span class="p">=</span> <span class="nf">StartCoroutine</span><span class="p">(</span><span class="nf">DrawPath</span><span class="p">());</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">agent</span><span class="p">.</span><span class="n">remainingDistance</span> <span class="p">&lt;</span> <span class="m">0.1f</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">anime</span><span class="p">.</span><span class="nf">SetFloat</span><span class="p">(</span><span class="s">"Speed"</span><span class="p">,</span> <span class="m">0.0f</span><span class="p">);</span>
+            <span class="n">point</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="nf">SetActive</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+            <span class="n">lr</span><span class="p">.</span><span class="n">enabled</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">path</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+                <span class="nf">StopCoroutine</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">IEnumerator</span> <span class="nf">DrawPath</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">lr</span><span class="p">.</span><span class="n">enabled</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+        <span class="k">yield</span> <span class="k">return</span> <span class="k">null</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">cnt</span> <span class="p">=</span> <span class="n">agent</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">corners</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
+            <span class="n">lr</span><span class="p">.</span><span class="n">positionCount</span> <span class="p">=</span> <span class="n">cnt</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">cnt</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+            <span class="p">{</span>
+                <span class="n">lr</span><span class="p">.</span><span class="nf">SetPosition</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">agent</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">corners</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+            <span class="p">}</span>
+            <span class="k">yield</span> <span class="k">return</span> <span class="k">null</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="참고">참고</h2>
+
+<hr />
+
+<p><a href="https://docs.unity3d.com/kr/2021.3/Manual/class-NavMeshAgent.html">내비메시 에이전트 - Unity 매뉴얼</a></p>
+
+<p><a href="https://www.youtube.com/watch?v=ILefNAZGVFY">오늘코딩-Navigation</a></p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="unity" /><category term="study" /><summary type="html"><![CDATA[유니티 Navigation]]></summary></entry><entry><title type="html">SQL 최적화</title><link href="http://localhost:4000/database/2023/06/10/SQL-%EC%B5%9C%EC%A0%81%ED%99%94.html" rel="alternate" type="text/html" title="SQL 최적화" /><published>2023-06-10T06:00:01+09:00</published><updated>2023-06-10T06:00:01+09:00</updated><id>http://localhost:4000/database/2023/06/10/SQL%20%EC%B5%9C%EC%A0%81%ED%99%94</id><content type="html" xml:base="http://localhost:4000/database/2023/06/10/SQL-%EC%B5%9C%EC%A0%81%ED%99%94.html"><![CDATA[<h2 id="옵티마이저optimizer">옵티마이저(Optimizer)</h2>
 
 <hr />
 
@@ -2325,85 +2637,4 @@
 
 <p>모든 편집이 종료되면 레이어 편집 내용 저장을 통해 변경된 내용을 저장해야 한다.</p>
 
-<p><img src="/assets/img/QGIS3/edit_9.png" alt="Image" /></p>]]></content><author><name>Mindol</name></author><category term="QGIS" /><category term="QGIS" /><category term="shapefile" /><summary type="html"><![CDATA[Shapefile edit]]></summary></entry><entry><title type="html">QGIS3 사용법</title><link href="http://localhost:4000/qgis/2023/05/23/QGIS3-%EC%82%AC%EC%9A%A9%EB%B2%95.html" rel="alternate" type="text/html" title="QGIS3 사용법" /><published>2023-05-23T06:00:01+09:00</published><updated>2023-05-23T06:00:01+09:00</updated><id>http://localhost:4000/qgis/2023/05/23/QGIS3%20%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/qgis/2023/05/23/QGIS3-%EC%82%AC%EC%9A%A9%EB%B2%95.html"><![CDATA[<h2 id="개요">개요</h2>
-
-<hr />
-
-<p>해당 포스트는 국토지리정보원의 정밀 도로지도(NGII)를 예로 들고 있음.</p>
-
-<h2 id="qgis란">QGIS란?</h2>
-
-<hr />
-
-<p>QGIS: 공간데이터 조회, 편집, 분석 기능을 제공하는 대표적인 오픈소스 데스크탑 지리정보시스템(GIS) 소프트웨어.</p>
-
-<p><a href="[https://www.qgis.org/ko/site/](https://www.qgis.org/ko/site/)">설치링크</a></p>
-
-<h2 id="qgis3-사용법">QGIS3 사용법</h2>
-
-<hr />
-
-<h3 id="레이어-추가제거">레이어 추가/제거</h3>
-
-<p>QGIS3를 실행하면 아래와 같은 화면이 시작된다.</p>
-
-<p><img src="/assets/img/QGIS3/useage_1.png" alt="Image" /></p>
-
-<p><img src="/assets/img/QGIS3/useage_2.png" alt="Image" /></p>
-
-<p>QGIS3에 Shapefile(.shp)을 올리고 싶으면 좌하단 레이어 탭에 Shapefile을 Drag&amp;Drop한다.</p>
-
-<p>특정 레이어를 제외하고 싶을 시 레이어 탭에서 해당 레이어의 이름 좌측 체크박스로 껏다 켤 수 있다.</p>
-
-<p><img src="/assets/img/QGIS3/useage_3.png" alt="Image" /></p>
-
-<p><code class="language-plaintext highlighter-rouge">A2_LINK의 체크박스 해제 후 모습</code></p>
-
-<p><img src="/assets/img/QGIS3/useage_4.png" alt="Image" /></p>
-
-<p>특정 레이어를 제거하고 싶을 시 레이어 선택 후 레이어 탭 중 상단 바에서 우측에 있는 <code class="language-plaintext highlighter-rouge">레이어/그룹 제거</code> 버튼을 클릭하거나, Ctrl + D를 사용하여 제거할 수 있다.</p>
-
-<p>각 레이어의 심볼을 변경하고 싶을 경우 레이어 탭의 각 레이어를 더블클릭하여 수정할 수 있다.</p>
-
-<p>변경할 수 있는 심볼은 각 레이어의 Shape Type에 맞는 심볼이 나온다.</p>
-
-<p><img src="/assets/img/QGIS3/useage_5.png" alt="Image" /></p>
-
-<p><code class="language-plaintext highlighter-rouge">Point Type의 Layer</code></p>
-
-<p><img src="/assets/img/QGIS3/useage_6.png" alt="Image" /></p>
-
-<p><code class="language-plaintext highlighter-rouge">PolyLine의 Layer</code></p>
-
-<p>나는 각 레이어 식별을 쉽게하기 위해 색을 조정했다.</p>
-
-<p><img src="/assets/img/QGIS3/useage_7.png" alt="Image" /></p>
-
-<h3 id="데이터-조회">데이터 조회</h3>
-
-<p>특정 데이터의 정보를 확인하기 위해서는 상단 바에서 객체 식별을 선택 후 확인해야한다.</p>
-
-<p><img src="/assets/img/QGIS3/useage_8.png" alt="Image" /></p>
-
-<p>‘A1_NODE’의 데이터를 확인하고 싶을 시, 레이어 탭에서 A1_NODE레이어를 선택 후 확인해야한다.</p>
-
-<p><img src="/assets/img/QGIS3/useage_9.png" alt="Image" /></p>
-
-<p>선택한 데이터는 식별 결과 탭에서 확인 가능하다.</p>
-
-<p>특정 데이터의 속성을 검색하고 싶을 시 상단 바에서 <code class="language-plaintext highlighter-rouge">속성테이블 열기</code>를 클릭하거나 F6를 눌러 속성테이블을 켤 수 있다.</p>
-
-<p><img src="/assets/img/QGIS3/useage_10.png" alt="Image" /></p>
-
-<p><img src="/assets/img/QGIS3/useage_13.png" alt="Image" /></p>
-
-<p>‘A1_NODE’의 속성 테이블</p>
-
-<p><img src="/assets/img/QGIS3/useage_11.png" alt="Image" /></p>
-
-<p>속성테이블의 상단 바에서 <code class="language-plaintext highlighter-rouge">서식을 이용해서 객체 선택/필터링</code> 을 선택하거나 Ctrl + F를 입력하여 검색란을 열 수 있다.</p>
-
-<p><img src="/assets/img/QGIS3/useage_12.png" alt="Image" />
-검색하려는 속성의 우측 <code class="language-plaintext highlighter-rouge">필드제외</code> 콤보박스를 클릭하면 검색 조건을 변경할 수 있다.</p>
-
-<p>검색하려는 속성을 입력한 후 아래의 검색 방법 버튼을 클릭하여 특정 속성을 검색할 수 있다.</p>]]></content><author><name>Mindol</name></author><category term="QGIS" /><category term="QGIS" /><category term="shapefile" /><summary type="html"><![CDATA[QGIS3 useage]]></summary></entry></feed>
+<p><img src="/assets/img/QGIS3/edit_9.png" alt="Image" /></p>]]></content><author><name>Mindol</name></author><category term="QGIS" /><category term="QGIS" /><category term="shapefile" /><summary type="html"><![CDATA[Shapefile edit]]></summary></entry></feed>
