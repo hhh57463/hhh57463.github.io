@@ -1,4 +1,73 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-17T17:04:13+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">Navigation</title><link href="http://localhost:4000/unity/2023/06/16/Navigation.html" rel="alternate" type="text/html" title="Navigation" /><published>2023-06-16T07:00:00+09:00</published><updated>2023-06-16T07:00:00+09:00</updated><id>http://localhost:4000/unity/2023/06/16/Navigation</id><content type="html" xml:base="http://localhost:4000/unity/2023/06/16/Navigation.html"><![CDATA[<h2 id="navigation">Navigation?</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-18T16:38:21+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">LOD</title><link href="http://localhost:4000/unity/2023/06/17/LOD.html" rel="alternate" type="text/html" title="LOD" /><published>2023-06-17T07:00:00+09:00</published><updated>2023-06-17T07:00:00+09:00</updated><id>http://localhost:4000/unity/2023/06/17/LOD</id><content type="html" xml:base="http://localhost:4000/unity/2023/06/17/LOD.html"><![CDATA[<h2 id="lod">LOD?</h2>
+
+<hr />
+
+<p>LOD(Level of Detail): 거리에 따라 오브젝트의 정밀도를 조절해주는 기법</p>
+
+<h2 id="오브젝트">오브젝트</h2>
+
+<hr />
+
+<p><img src="/assets/img/Unity/lod_1.png" alt="image" /></p>
+
+<p>예시를 위해 나무 오브젝트를 준비했다. 왼쪽부터 레벨1~3 나무라고 말하겠다.</p>
+
+<p><img src="/assets/img/Unity/lod_2.png" alt="image" /></p>
+
+<p>레벨1, 2 나무는 나무와 나뭇잎으로 이루어져있으며, 레벨3 나무는 나무로만 이루어져있다.</p>
+
+<p><img src="/assets/img/Unity/lod_3.png" alt="image" /></p>
+
+<p>모든 나무를 정확한 위치에 위치 시킨다.(거리에 비례하여 오브젝트의 생김새가 변하는 것이지 위치가 바뀌는 것은 아니기에)</p>
+
+<p><img src="/assets/img/Unity/lod_4.png" alt="image" /></p>
+
+<p>가장 높은 퀄리티를 가진 레벨1 나무에게 LOD Group 컴포넌트를 추가해준다.</p>
+
+<h3 id="프로퍼티">프로퍼티</h3>
+
+<p><img src="/assets/img/Unity/lod_5.png" alt="image" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>프로퍼티</th>
+      <th>기능</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fade Mode</td>
+      <td>오브젝트의 전환 방법<br />- None: 특별한 전환 방법 없이 전환<br />- Cross Fade: 전환하기 전 오브젝트가 잠시동안 남아있음<br />- Speed Tree: 트리 에셋이 <a href="https://store.speedtree.com/unity-5-1-speedtree-updates/">SpeedTree</a>를 통해 생성되었을 때 사용</td>
+    </tr>
+    <tr>
+      <td>LOD Box (노란색)</td>
+      <td>LOD 레벨 영역을 표시하며 LOD 레벨을 추가하거나 제거할 수 있으며 영역 범위를 조절할 수 있음</td>
+    </tr>
+    <tr>
+      <td>LOD 레벨 구성 (파란색)</td>
+      <td>LOD 레벨 영역에 있을 때 그려줄 Renderer</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lod-설정">LOD 설정</h2>
+
+<hr />
+
+<p><img src="/assets/img/Unity/lod_6.png" alt="image" /></p>
+
+<p>LOD 레벨 구성 칸을 다음과 같이 지정해주었다.</p>
+
+<p>나무와 카메라의 거리에 비례해 그려줘야 하는 나무가 다르므로 거리에 맞는 퀄리티의 나무를 지정해주었다.</p>
+
+<h2 id="결과">결과</h2>
+
+<hr />
+
+<p><img src="/assets/img/Unity/lod_gif1.gif" alt="image" /></p>
+
+<p>거리에 비례해 그려주는 나무가 달라지다가 Culled 영역에 다다르면 나무가 그려지지 않는 모습을 볼 수 있다.</p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="unity" /><category term="study" /><summary type="html"><![CDATA[LOD (Level of Detail)]]></summary></entry><entry><title type="html">Navigation</title><link href="http://localhost:4000/unity/2023/06/16/Navigation.html" rel="alternate" type="text/html" title="Navigation" /><published>2023-06-16T07:00:00+09:00</published><updated>2023-06-16T07:00:00+09:00</updated><id>http://localhost:4000/unity/2023/06/16/Navigation</id><content type="html" xml:base="http://localhost:4000/unity/2023/06/16/Navigation.html"><![CDATA[<h2 id="navigation">Navigation?</h2>
 
 <hr />
 
@@ -2500,141 +2569,4 @@
 <ul>
   <li>본질 식별자: 비즈니스 프로세스에서 만들어지는 식별자</li>
   <li>인조 식별자: 인위적으로 만들어지는 식별자</li>
-</ul>]]></content><author><name>Mindol</name></author><category term="Database" /><category term="Database" /><category term="study" /><summary type="html"><![CDATA[데이터 모델링 개념]]></summary></entry><entry><title type="html">QGIS3를 이용한 Shapefile 편집</title><link href="http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html" rel="alternate" type="text/html" title="QGIS3를 이용한 Shapefile 편집" /><published>2023-05-24T06:00:01+09:00</published><updated>2023-05-24T06:00:01+09:00</updated><id>http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20Shapefile%20%ED%8E%B8%EC%A7%91</id><content type="html" xml:base="http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html"><![CDATA[<h2 id="개요">개요</h2>
-
-<hr />
-
-<p>해당 포스트는 국토지리정보원의 정밀 도로지도(NGII)를 예로 들고 있음.<br /><br />
-<a href="https://hhh57463.github.io/qgis/2023/05/22/QGIS3-%EC%82%AC%EC%9A%A9%EB%B2%95.html">QGIS3 사용법</a></p>
-
-<h2 id="shapefile-편집">Shapefile 편집</h2>
-
-<hr />
-
-<h3 id="편집모드">편집모드</h3>
-
-<p>shapefile을 수정할 때는 항상 편집모드가 켜져야한다. 이는 QGIS3의 상단바에 <code class="language-plaintext highlighter-rouge">편집 모드 전환</code> 을 이용하여 켤 수 있다.</p>
-
-<p><img src="/assets/img/QGIS3/edit_1.png" alt="Image" /></p>
-
-<p>편집 모드를 켜면 특정 기능들을 사용할 수 있게 버튼들이 활성화 된다.</p>
-
-<p><img src="/assets/img/QGIS3/edit_2.png" alt="Image" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>아이콘</th>
-      <th>기능</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><img src="/assets/img/QGIS3/Icon/save.png" alt="Image" /></td>
-      <td>레이어 편집 내용 저장</td>
-      <td>해당 레이어에서 변경된 점을 저장한다.</td>
-    </tr>
-    <tr>
-      <td><img src="/assets/img/QGIS3/Icon/add.png" alt="Image" /></td>
-      <td>객체 추가</td>
-      <td>해당 레이어에 맞는 Shape Type을 추가한다.</td>
-    </tr>
-    <tr>
-      <td><img src="/assets/img/QGIS3/Icon/compass.png" alt="Image" /></td>
-      <td>꼭짓점 도구</td>
-      <td>현재 있는 객체의 꼭짓점을 기준으로 객체를 수정한다.</td>
-    </tr>
-    <tr>
-      <td><img src="/assets/img/QGIS3/Icon/alledit.png" alt="Image" /></td>
-      <td>선택한 모든 객체의 속성을 동시에 수정</td>
-      <td>선택한 모든 객체를 동일한 값으로 수정할 수 있다.</td>
-    </tr>
-    <tr>
-      <td><img src="/assets/img/QGIS3/Icon/delete.png" alt="Image" /></td>
-      <td>선택 삭제</td>
-      <td>선택한 객체를 제거한다.</td>
-    </tr>
-    <tr>
-      <td><img src="/assets/img/QGIS3/Icon/cut.png" alt="Image" /></td>
-      <td>잘라내기</td>
-      <td>선택한 객체를 잘라낸다.</td>
-    </tr>
-    <tr>
-      <td><img src="/assets/img/QGIS3/Icon/copy.png" alt="Image" /></td>
-      <td>객체 복사</td>
-      <td>선택한 객체를 복사한다.</td>
-    </tr>
-    <tr>
-      <td><img src="/assets/img/QGIS3/Icon/paste.png" alt="Image" /></td>
-      <td>객체 붙여넣기</td>
-      <td>복사한 객체를 붙여넣는다.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="데이터-수정">데이터 수정</h2>
-
-<hr />
-
-<h3 id="데이터-속성값-수정">데이터 속성값 수정</h3>
-
-<p><code class="language-plaintext highlighter-rouge">이는 .shp를 수정하는 것이 아닌 .dbf의 요소를 수정하는 작업이다.</code></p>
-
-<p>편집 모드가 켜진 상태에서 객체를 식별해준다.</p>
-
-<p><img src="/assets/img/QGIS3/edit_3.png" alt="Image" /></p>
-
-<p>식별 결과 탭에 상단에 있는 <code class="language-plaintext highlighter-rouge">객체 양식 편집</code> 버튼을 선택하여 객체 속성을 수정할 수 있다.</p>
-
-<p><img src="/assets/img/QGIS3/edit_4.png" alt="Image" /></p>
-
-<h2 id="shapefile-수정">Shapefile 수정</h2>
-
-<hr />
-
-<h3 id="데이터-수정-1">데이터 수정</h3>
-
-<p>상단 바 중 <code class="language-plaintext highlighter-rouge">영역 또는 단일 클릭으로 객체 선택</code> 버튼을 선택한다.</p>
-
-<p><img src="/assets/img/QGIS3/edit_5.png" alt="Image" /></p>
-
-<p><img src="/assets/img/QGIS3/edit_6.png" alt="Image" /></p>
-
-<p>해당 상태로 객체를 선택해주면 객체 위에 X표시가 나타난다</p>
-
-<p>상단 탭의 <code class="language-plaintext highlighter-rouge">꼭짓점 도구</code> 를 선택하여 Drag &amp; Drop 하면 해당 꼭짓점의 객체를 이동시킬 수 있다.</p>
-
-<p><img src="/assets/img/QGIS3/shapefile_edit_1.gif" alt="Image" /></p>
-
-<p><code class="language-plaintext highlighter-rouge">Point형의 객체를 선택하면 해당 Point를 이동시킬 수 있다.</code></p>
-
-<p>만약 PolyLine의 Point(지점)을 제거하고 싶다면 객체를 선택한 후 x표시가 나타난 상태에서 해당 객체를 우클릭하면 <code class="language-plaintext highlighter-rouge">꼭짓점 편집기</code> 가 켜진다.</p>
-
-<p><img src="/assets/img/QGIS3/edit_7.png" alt="Image" /></p>
-
-<p>꼭짓점 편집기에서 특정 튜플을 선택하면 객체에도 표시가 되는데 이 상태에서 <code class="language-plaintext highlighter-rouge">Delete</code> 키를 눌러주면 해당 꼭짓점을 삭제할 수 있다.</p>
-
-<h3 id="데이터-삽입">데이터 삽입</h3>
-
-<p>편집 모드 전환을 선택한 상태로 상단바의 <code class="language-plaintext highlighter-rouge">객체 추가</code> 버튼을 선택한다.</p>
-
-<p><img src="/assets/img/QGIS3/shapefile_edit_2.gif" alt="Image" /></p>
-
-<p>마우스 좌클릭으로 꼭짓점을 지정한 후 마우스 우클릭으로 완료해준다.</p>
-
-<p><code class="language-plaintext highlighter-rouge">현재는 선택한 레이어가 PolyLine Type이기 때문에 꼭짓점을 지정해주어야 한다, 선택한 레이어가 Point Type일 시 Point의 위치를 지정해주면 된다.</code></p>
-
-<p>.shp 데이터를 추가했으니 .dbf에 맞는 속성도 정의해 준 후 확인 버튼을 클릭하면 데이터가 추가된다.</p>
-
-<p><img src="/assets/img/QGIS3/edit_8.png" alt="Image" /></p>
-
-<p>해당 객체를 식별 해보면 입력한 속성 값이 들어간 것을 볼 수 있다.</p>
-
-<h2 id="데이터-저장">데이터 저장</h2>
-
-<hr />
-
-<p>모든 편집이 종료되면 레이어 편집 내용 저장을 통해 변경된 내용을 저장해야 한다.</p>
-
-<p><img src="/assets/img/QGIS3/edit_9.png" alt="Image" /></p>]]></content><author><name>Mindol</name></author><category term="QGIS" /><category term="QGIS" /><category term="shapefile" /><summary type="html"><![CDATA[Shapefile edit]]></summary></entry></feed>
+</ul>]]></content><author><name>Mindol</name></author><category term="Database" /><category term="Database" /><category term="study" /><summary type="html"><![CDATA[데이터 모델링 개념]]></summary></entry></feed>
