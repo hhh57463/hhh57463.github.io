@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-18T16:46:32+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">LOD</title><link href="http://localhost:4000/unity/2023/06/17/LOD.html" rel="alternate" type="text/html" title="LOD" /><published>2023-06-17T07:00:00+09:00</published><updated>2023-06-17T07:00:00+09:00</updated><id>http://localhost:4000/unity/2023/06/17/LOD</id><content type="html" xml:base="http://localhost:4000/unity/2023/06/17/LOD.html"><![CDATA[<h2 id="lod">LOD?</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-18T16:56:38+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">LOD</title><link href="http://localhost:4000/unity/2023/06/17/LOD.html" rel="alternate" type="text/html" title="LOD" /><published>2023-06-17T07:00:00+09:00</published><updated>2023-06-17T07:00:00+09:00</updated><id>http://localhost:4000/unity/2023/06/17/LOD</id><content type="html" xml:base="http://localhost:4000/unity/2023/06/17/LOD.html"><![CDATA[<h2 id="lod">LOD?</h2>
 
 <hr />
 
@@ -190,7 +190,7 @@
     </tr>
     <tr>
       <td>Auto Traverse Off Mesh Link</td>
-      <td>Off Mesh Link 횡단 방법<br />- True: 자동으로 횡단<br />- Fasle: 특정 방법으로 횡단</td>
+      <td>Off Mesh Link 횡단 방법<br />- True: 자동으로 횡단<br />- False: 특정 방법으로 횡단</td>
     </tr>
     <tr>
       <td>Auto Repath</td>
