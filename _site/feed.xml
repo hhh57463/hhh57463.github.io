@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-07-05T21:11:55+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">Asset Bundle</title><link href="http://localhost:4000/unity/2023/07/04/Asset-Bundle.html" rel="alternate" type="text/html" title="Asset Bundle" /><published>2023-07-04T06:00:01+09:00</published><updated>2023-07-04T06:00:01+09:00</updated><id>http://localhost:4000/unity/2023/07/04/Asset%20Bundle</id><content type="html" xml:base="http://localhost:4000/unity/2023/07/04/Asset-Bundle.html"><![CDATA[<h2 id="개요">개요</h2>
 <hr />
 <p>회사에 인턴을 가게 되었는데 리소스가 자그마치 50GB가 넘었다. 이에 실장님이 리소스를 프로젝트에 넣지 않고 실행시키게 요청을 하였고 구글링 결과 에셋 번들에 대해 알게 되었다.</p>
@@ -156,6 +157,78 @@
 <h3 id="출처">출처</h3>
 
 <p><a href="https://youtu.be/mC2d94bfI2w">오늘코딩 - 초보자를 위한 에셋번들</a></p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="unity" /><category term="study" /><summary type="html"><![CDATA[유니티 에셋 번들]]></summary></entry><entry><title type="html">Navigation</title><link href="http://localhost:4000/unity/2023/06/16/Navigation.html" rel="alternate" type="text/html" title="Navigation" /><published>2023-06-16T07:00:00+09:00</published><updated>2023-06-16T07:00:00+09:00</updated><id>http://localhost:4000/unity/2023/06/16/Navigation</id><content type="html" xml:base="http://localhost:4000/unity/2023/06/16/Navigation.html"><![CDATA[<h2 id="navigation">Navigation?</h2>
+=======
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-20T14:14:54+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">LOD</title><link href="http://localhost:4000/unity/2023/06/17/LOD.html" rel="alternate" type="text/html" title="LOD" /><published>2023-06-17T07:00:00+09:00</published><updated>2023-06-17T07:00:00+09:00</updated><id>http://localhost:4000/unity/2023/06/17/LOD</id><content type="html" xml:base="http://localhost:4000/unity/2023/06/17/LOD.html"><![CDATA[<h2 id="lod">LOD?</h2>
+
+<hr />
+
+<p>LOD(Level of Detail): 거리에 따라 오브젝트의 정밀도를 조절해주는 기법</p>
+
+<h2 id="오브젝트">오브젝트</h2>
+
+<hr />
+
+<p><img src="/assets/img/Unity/Lod_1.png" alt="image" /></p>
+
+<p>예시를 위해 나무 오브젝트를 준비했다. 왼쪽부터 레벨1~3 나무라고 말하겠다.</p>
+
+<p><img src="/assets/img/Unity/Lod_2.png" alt="image" /></p>
+
+<p>레벨1, 2 나무는 나무와 나뭇잎으로 이루어져있으며, 레벨3 나무는 나무로만 이루어져있다.</p>
+
+<p><img src="/assets/img/Unity/Lod_3.png" alt="image" /></p>
+
+<p>모든 나무를 정확한 위치에 위치 시킨다.(거리에 비례하여 오브젝트의 생김새가 변하는 것이지 위치가 바뀌는 것은 아니기에)</p>
+
+<p><img src="/assets/img/Unity/Lod_4.png" alt="image" /></p>
+
+<p>가장 높은 퀄리티를 가진 레벨1 나무에게 LOD Group 컴포넌트를 추가해준다.</p>
+
+<h3 id="프로퍼티">프로퍼티</h3>
+
+<p><img src="/assets/img/Unity/Lod_5.png" alt="image" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>프로퍼티</th>
+      <th>기능</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fade Mode</td>
+      <td>오브젝트의 전환 방법<br />- None: 특별한 전환 방법 없이 전환<br />- Cross Fade: 전환하기 전 오브젝트가 잠시동안 남아있음<br />- Speed Tree: 트리 에셋이 <a href="https://store.speedtree.com/unity-5-1-speedtree-updates/">SpeedTree</a>를 통해 생성되었을 때 사용</td>
+    </tr>
+    <tr>
+      <td>LOD Box (노란색)</td>
+      <td>LOD 레벨 영역을 표시하며 LOD 레벨을 추가하거나 제거할 수 있으며 영역 범위를 조절할 수 있음</td>
+    </tr>
+    <tr>
+      <td>LOD 레벨 구성 (파란색)</td>
+      <td>LOD 레벨 영역에 있을 때 그려줄 Renderer</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lod-설정">LOD 설정</h2>
+
+<hr />
+
+<p><img src="/assets/img/Unity/Lod_6.png" alt="image" /></p>
+
+<p>LOD 레벨 구성 칸을 다음과 같이 지정해주었다.</p>
+
+<p>나무와 카메라의 거리에 비례해 그려줘야 하는 나무가 다르므로 거리에 맞는 퀄리티의 나무를 지정해주었다.</p>
+
+<h2 id="결과">결과</h2>
+
+<hr />
+
+<p><img src="/assets/img/Unity/lod_gif1.gif" alt="image" /></p>
+
+<p>거리에 비례해 그려주는 나무가 달라지다가 Culled 영역에 다다르면 나무가 그려지지 않는 모습을 볼 수 있다.</p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="unity" /><category term="study" /><summary type="html"><![CDATA[LOD (Level of Detail)]]></summary></entry><entry><title type="html">Navigation</title><link href="http://localhost:4000/unity/2023/06/16/Navigation.html" rel="alternate" type="text/html" title="Navigation" /><published>2023-06-16T07:00:00+09:00</published><updated>2023-06-16T07:00:00+09:00</updated><id>http://localhost:4000/unity/2023/06/16/Navigation</id><content type="html" xml:base="http://localhost:4000/unity/2023/06/16/Navigation.html"><![CDATA[<h2 id="navigation">Navigation?</h2>
+>>>>>>> b18a579fae5ce3451fac8a4196b42fd620d60739
 
 <hr />
 
@@ -278,7 +351,7 @@
     </tr>
     <tr>
       <td>Auto Traverse Off Mesh Link</td>
-      <td>Off Mesh Link 횡단 방법<br />- True: 자동으로 횡단<br />- Fasle: 특정 방법으로 횡단</td>
+      <td>Off Mesh Link 횡단 방법<br />- True: 자동으로 횡단<br />- False: 특정 방법으로 횡단</td>
     </tr>
     <tr>
       <td>Auto Repath</td>

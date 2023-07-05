@@ -165,8 +165,7 @@ void OnApplicationQuit()
 ![image](/assets/img/Unity/JsonUtility_3.png)<br>
 여러 데이터가 JSON 파일에 저장되는 것을 볼 수 있으며,<br><br>
 ![image](/assets/img/Unity/JsonUtility_4.gif)<br>
-각각의 데이터에 맞는 요소들이 인벤토리에 저장되는 것을 볼 수 있다.(이미지 로드가 늦는 이유는 인터넷에서 받아오기에 속도차이가 있다.)
-
+각각의 데이터에 맞는 요소들이 인벤토리에 저장되는 것을 볼 수 있다.
 ## 주의점
 ---
 만약 JSON파일에서 내용을 읽어와 클래스나 구조체에 저장한다면 JSON의 이름과 해당 데이터를 저장하는 변수의 이름을 같게 지정해줘야한다.<br><br>

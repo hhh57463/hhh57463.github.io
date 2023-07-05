@@ -86,7 +86,7 @@ Areas는 캐릭터가 지날 수 있는 영역의 비용을 지정할 수 있다
 | Height | 캐릭터의 충돌 높이 |
 | Quality | 장애물 회피 품질 |
 | Priority | 해당 숫자보다 큰 숫자를 가진 오브젝트는 회피 대상에서 제외 |
-| Auto Traverse Off Mesh Link | Off Mesh Link 횡단 방법<br>- True: 자동으로 횡단<br>- Fasle: 특정 방법으로 횡단 |
+| Auto Traverse Off Mesh Link | Off Mesh Link 횡단 방법<br>- True: 자동으로 횡단<br>- False: 특정 방법으로 횡단 |
 | Auto Repath | 경로의 끝에 도달하면 경로 재탐색 |
 | Area Mask | 어떠한 영역 타입을 이동할 것인지 (캐릭터 마다 이동 영역을 다르게 할 수 있음) |
 
