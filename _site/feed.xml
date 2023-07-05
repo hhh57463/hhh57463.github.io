@@ -1,4 +1,161 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-17T17:04:13+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">Navigation</title><link href="http://localhost:4000/unity/2023/06/16/Navigation.html" rel="alternate" type="text/html" title="Navigation" /><published>2023-06-16T07:00:00+09:00</published><updated>2023-06-16T07:00:00+09:00</updated><id>http://localhost:4000/unity/2023/06/16/Navigation</id><content type="html" xml:base="http://localhost:4000/unity/2023/06/16/Navigation.html"><![CDATA[<h2 id="navigation">Navigation?</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-07-05T21:11:55+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mindol</title><subtitle>Mindol&apos;s Blog</subtitle><author><name>Mindol</name></author><entry><title type="html">Asset Bundle</title><link href="http://localhost:4000/unity/2023/07/04/Asset-Bundle.html" rel="alternate" type="text/html" title="Asset Bundle" /><published>2023-07-04T06:00:01+09:00</published><updated>2023-07-04T06:00:01+09:00</updated><id>http://localhost:4000/unity/2023/07/04/Asset%20Bundle</id><content type="html" xml:base="http://localhost:4000/unity/2023/07/04/Asset-Bundle.html"><![CDATA[<h2 id="개요">개요</h2>
+<hr />
+<p>회사에 인턴을 가게 되었는데 리소스가 자그마치 50GB가 넘었다. 이에 실장님이 리소스를 프로젝트에 넣지 않고 실행시키게 요청을 하였고 구글링 결과 에셋 번들에 대해 알게 되었다.</p>
+
+<h2 id="에셋-번들">에셋 번들</h2>
+<hr />
+<p>에셋 번들: 프로젝트에 존재하는 에셋들을 일정한 규칙으로 묶어 정리하는 것</p>
+
+<p>에셋 번들 빌드: 에셋번만 따로 빌드하는 것</p>
+
+<p><code class="language-plaintext highlighter-rouge">에셋 번들 빌드를 완료한 뒤, 전체 프로젝트를 빌드하면 에셋번들을 제외한 나머지만 빌드가 이뤄지며, 빌드시 용량이 줄어들지만 최초 실행시 곧장 프로그램 사용이 불가하며 에셋 번들을 다운받아야함</code></p>
+
+<h2 id="에셋-번들의-장점">에셋 번들의 장점</h2>
+
+<ul>
+  <li>용량: 용량이 줄어들어 용량제한(스토어에 올릴 상황 등)에 자유로움</li>
+  <li>패치: 수정사항이나 추가패치 때마다 재설치 대신 에셋 번들만 추가 다운로드하면 됨</li>
+</ul>
+
+<h2 id="에셋-번들-생성">에셋 번들 생성</h2>
+<hr />
+<p><img src="/assets/img/Unity/AssetBundle_1.png" alt="Image" /></p>
+
+<p>프로젝트에서 에셋을 설치 후 빌드하여 용량을 살펴보면</p>
+
+<p><img src="/assets/img/Unity/AssetBundle_2.png" alt="Image" /></p>
+
+<p>101MB가 나온다</p>
+
+<p><img src="/assets/img/Unity/AssetBundle_3.png" alt="Image" /></p>
+
+<p>에셋번들을 만들 에셋의 폴더를 지정 후 Inspector 하단의 AssetBundle을 지정해준다.</p>
+
+<p><img src="/assets/img/Unity/AssetBundle_4.png" alt="Image" /></p>
+
+<p>유니티 툴바에 새로운 기능을 만들기 위해 Assets→Editor 디렉토리를 만든 후 기능을 추가할 스크립트를 생성한다.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEditor</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">AssetbundleBuildManager</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nf">MenuItem</span><span class="p">(</span><span class="s">"BundleBuild/AssetBundle Build"</span><span class="p">)]</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">AssetBundleBuild</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kt">string</span> <span class="n">directory</span> <span class="p">=</span> <span class="s">"./Bundle"</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(!</span><span class="n">Directory</span><span class="p">.</span><span class="nf">Exists</span><span class="p">(</span><span class="n">directory</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">Directory</span><span class="p">.</span><span class="nf">CreateDirectory</span><span class="p">(</span><span class="n">directory</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">BuildPipeline</span><span class="p">.</span><span class="nf">BuildAssetBundles</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">BuildAssetBundleOptions</span><span class="p">.</span><span class="n">None</span><span class="p">,</span><span class="n">BuildTarget</span><span class="p">.</span><span class="n">StandaloneWindows</span><span class="p">);</span>
+		<span class="n">EditorUtility</span><span class="p">.</span><span class="nf">DisplayDialog</span><span class="p">(</span><span class="s">"에셋 번들 빌드"</span><span class="p">,</span> <span class="s">"에셋 번들 빌드 완료"</span><span class="p">,</span> <span class="s">"완료"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>빌드 기능을 제작할 것이기에 System.IO 지시문과 유니티 에디터를 수정하기에 UnityEditor를 추가해준다.</p>
+
+<p>유니티의 컴포넌트가 필요없기에 MonoBehaviour도 지워준다</p>
+
+<p><img src="/assets/img/Unity/AssetBundle_5.png" alt="Image" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">[MenuItem("BundleBuild/AssetBundle Build")]</code> 에디터 탭에 추가하기 위해 사용하며 BundleBuild라는 탭 아래 AssetBundle Build가 생긴것을 볼 수 있다.</p>
+
+<p><img src="/assets/img/Unity/AssetBundle_6.png" alt="Image" /></p>
+
+<p>Assets폴더 아래 Bundle이라는 디렉토리 안에 저장하며 만약 Bundle 디렉토리가 없을 시 새로 만든다</p>
+
+<p>BuildPipeline.BuildAssetBundles의 매개변수는 총 3가지가 들어가는데 순서는 아래와 같다</p>
+
+<ol>
+  <li>경로: 지정한 경로</li>
+  <li>에셋 번들 옵션: 압축 방식</li>
+  <li>플랫폼: 사용 플랫폼에 맞춰 적용</li>
+</ol>
+
+<p><img src="/assets/img/Unity/AssetBundle_7.png" alt="Image" /></p>
+
+<p>코드 작성 후 생성된 번들 빌드 버튼을 클릭한 후 조금 기다리면 빌드 완료 창이 나온다.</p>
+
+<p><img src="/assets/img/Unity/AssetBundle_8.png" alt="Image" /></p>
+
+<p>프로젝트 디렉토리에 가면 Bundle 디렉토리가 생성된 것을 볼 수 있다.</p>
+
+<p><img src="/assets/img/Unity/AssetBundle_9.png" alt="Image" /></p>
+
+<p>지정한 에셋 번들 이름의 파일이 생긴것을 볼 수 있는데 이곳에 지정한 리소스가 압축된 것이다.</p>
+
+<h2 id="에셋-번들-로드">에셋 번들 로드</h2>
+<hr />
+<p><img src="/assets/img/Unity/AssetBundle_10.png" alt="Image" /></p>
+
+<p>에셋 번들을 사용할 것이기에 원래 올려놓았던 프리팹을 삭제후 LoadManager라는 스크립트를 생성하였다.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">LoadManager</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="n">IEnumerator</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">AssetBundle</span> <span class="n">asset</span> <span class="p">=</span> <span class="n">AssetBundle</span><span class="p">.</span><span class="nf">LoadFromFile</span><span class="p">(</span><span class="s">"Bundle/charactor"</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">asset</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">yield</span> <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="kt">var</span> <span class="n">hero</span> <span class="p">=</span> <span class="n">asset</span><span class="p">.</span><span class="n">LoadAsset</span><span class="p">&lt;</span><span class="n">GameObject</span><span class="p">&gt;(</span><span class="s">"Hero"</span><span class="p">);</span>
+        <span class="kt">var</span> <span class="n">player</span> <span class="p">=</span> <span class="nf">Instantiate</span><span class="p">(</span><span class="n">hero</span><span class="p">);</span>
+        <span class="n">player</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">zero</span><span class="p">;</span>
+
+				<span class="k">yield</span> <span class="k">return</span> <span class="k">new</span> <span class="nf">WaitUntil</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="n">Input</span><span class="p">.</span><span class="nf">GetMouseButtonDown</span><span class="p">(</span><span class="m">0</span><span class="p">));</span>
+        <span class="nf">Destroy</span><span class="p">(</span><span class="n">player</span><span class="p">);</span>
+        <span class="n">asset</span><span class="p">.</span><span class="nf">Unload</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Start를 코루틴으로 변경해준 후 코드를 작성해준다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">AssetBundle asset = AssetBundle.LoadFromFile("Bundle/charactor");</code></p>
+
+<p>에셋 번들이 있는 디렉토리의 주소를 적어주면 된다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">var hero = asset.LoadAsset&lt;GameObject&gt;("Hero")</code> 에셋 번들에 존재하는 오브젝트를 GameObject로 저장한다.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">yield</span> <span class="k">return</span> <span class="k">new</span> <span class="nf">WaitUntil</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="n">Input</span><span class="p">.</span><span class="nf">GetMouseButtonDown</span><span class="p">(</span><span class="m">0</span><span class="p">));</span>
+<span class="nf">Destroy</span><span class="p">(</span><span class="n">player</span><span class="p">);</span>
+<span class="n">asset</span><span class="p">.</span><span class="nf">Unload</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>위코드는 불러온 에셋 번들의 메모리를 해제하는 작업으로 예시를 통해 마우스 클릭시 해제되게 하였다.</p>
+
+<p><img src="/assets/img/Unity/AssetBundle_11.png" alt="Image" /></p>
+
+<p>코드 실행시 잘 작동하는 것을 볼 수 있다.</p>
+
+<p><img src="/assets/img/Unity/AssetBundle_12.png" alt="Image" /></p>
+
+<p>빌드 후 용량을 확인해보면 용량이 줄어든 것을 볼 수 있다.</p>
+
+<p><img src="/assets/img/Unity/AssetBundle_13.png" alt="Image" /></p>
+
+<p>하지만 빌드파일을 실행하면 아무것도 일어나지 않는것을 볼 수 있는데, 이는 번들 파일이 없기 때문이다.</p>
+
+<p><img src="/assets/img/Unity/AssetBundle_14.png" alt="Image" /></p>
+
+<p>빌드 디렉토리에 번들 디렉토리를 옮긴 후 실행하면</p>
+
+<p><img src="/assets/img/Unity/AssetBundle_15.png" alt="Image" /></p>
+
+<p>오브젝트가 잘 생성되는 것을 볼 수 있다.</p>
+
+<p>번들 파일이 저장되는 코드를 작성하면 되는 것이다.</p>
+
+<h3 id="출처">출처</h3>
+
+<p><a href="https://youtu.be/mC2d94bfI2w">오늘코딩 - 초보자를 위한 에셋번들</a></p>]]></content><author><name>Mindol</name></author><category term="Unity" /><category term="unity" /><category term="study" /><summary type="html"><![CDATA[유니티 에셋 번들]]></summary></entry><entry><title type="html">Navigation</title><link href="http://localhost:4000/unity/2023/06/16/Navigation.html" rel="alternate" type="text/html" title="Navigation" /><published>2023-06-16T07:00:00+09:00</published><updated>2023-06-16T07:00:00+09:00</updated><id>http://localhost:4000/unity/2023/06/16/Navigation</id><content type="html" xml:base="http://localhost:4000/unity/2023/06/16/Navigation.html"><![CDATA[<h2 id="navigation">Navigation?</h2>
 
 <hr />
 
@@ -2500,141 +2657,4 @@
 <ul>
   <li>본질 식별자: 비즈니스 프로세스에서 만들어지는 식별자</li>
   <li>인조 식별자: 인위적으로 만들어지는 식별자</li>
-</ul>]]></content><author><name>Mindol</name></author><category term="Database" /><category term="Database" /><category term="study" /><summary type="html"><![CDATA[데이터 모델링 개념]]></summary></entry><entry><title type="html">QGIS3를 이용한 Shapefile 편집</title><link href="http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html" rel="alternate" type="text/html" title="QGIS3를 이용한 Shapefile 편집" /><published>2023-05-24T06:00:01+09:00</published><updated>2023-05-24T06:00:01+09:00</updated><id>http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20Shapefile%20%ED%8E%B8%EC%A7%91</id><content type="html" xml:base="http://localhost:4000/qgis/2023/05/24/QGIS3%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Shapefile-%ED%8E%B8%EC%A7%91.html"><![CDATA[<h2 id="개요">개요</h2>
-
-<hr />
-
-<p>해당 포스트는 국토지리정보원의 정밀 도로지도(NGII)를 예로 들고 있음.<br /><br />
-<a href="https://hhh57463.github.io/qgis/2023/05/22/QGIS3-%EC%82%AC%EC%9A%A9%EB%B2%95.html">QGIS3 사용법</a></p>
-
-<h2 id="shapefile-편집">Shapefile 편집</h2>
-
-<hr />
-
-<h3 id="편집모드">편집모드</h3>
-
-<p>shapefile을 수정할 때는 항상 편집모드가 켜져야한다. 이는 QGIS3의 상단바에 <code class="language-plaintext highlighter-rouge">편집 모드 전환</code> 을 이용하여 켤 수 있다.</p>
-
-<p><img src="/assets/img/QGIS3/edit_1.png" alt="Image" /></p>
-
-<p>편집 모드를 켜면 특정 기능들을 사용할 수 있게 버튼들이 활성화 된다.</p>
-
-<p><img src="/assets/img/QGIS3/edit_2.png" alt="Image" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>아이콘</th>
-      <th>기능</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><img src="/assets/img/QGIS3/Icon/save.png" alt="Image" /></td>
-      <td>레이어 편집 내용 저장</td>
-      <td>해당 레이어에서 변경된 점을 저장한다.</td>
-    </tr>
-    <tr>
-      <td><img src="/assets/img/QGIS3/Icon/add.png" alt="Image" /></td>
-      <td>객체 추가</td>
-      <td>해당 레이어에 맞는 Shape Type을 추가한다.</td>
-    </tr>
-    <tr>
-      <td><img src="/assets/img/QGIS3/Icon/compass.png" alt="Image" /></td>
-      <td>꼭짓점 도구</td>
-      <td>현재 있는 객체의 꼭짓점을 기준으로 객체를 수정한다.</td>
-    </tr>
-    <tr>
-      <td><img src="/assets/img/QGIS3/Icon/alledit.png" alt="Image" /></td>
-      <td>선택한 모든 객체의 속성을 동시에 수정</td>
-      <td>선택한 모든 객체를 동일한 값으로 수정할 수 있다.</td>
-    </tr>
-    <tr>
-      <td><img src="/assets/img/QGIS3/Icon/delete.png" alt="Image" /></td>
-      <td>선택 삭제</td>
-      <td>선택한 객체를 제거한다.</td>
-    </tr>
-    <tr>
-      <td><img src="/assets/img/QGIS3/Icon/cut.png" alt="Image" /></td>
-      <td>잘라내기</td>
-      <td>선택한 객체를 잘라낸다.</td>
-    </tr>
-    <tr>
-      <td><img src="/assets/img/QGIS3/Icon/copy.png" alt="Image" /></td>
-      <td>객체 복사</td>
-      <td>선택한 객체를 복사한다.</td>
-    </tr>
-    <tr>
-      <td><img src="/assets/img/QGIS3/Icon/paste.png" alt="Image" /></td>
-      <td>객체 붙여넣기</td>
-      <td>복사한 객체를 붙여넣는다.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="데이터-수정">데이터 수정</h2>
-
-<hr />
-
-<h3 id="데이터-속성값-수정">데이터 속성값 수정</h3>
-
-<p><code class="language-plaintext highlighter-rouge">이는 .shp를 수정하는 것이 아닌 .dbf의 요소를 수정하는 작업이다.</code></p>
-
-<p>편집 모드가 켜진 상태에서 객체를 식별해준다.</p>
-
-<p><img src="/assets/img/QGIS3/edit_3.png" alt="Image" /></p>
-
-<p>식별 결과 탭에 상단에 있는 <code class="language-plaintext highlighter-rouge">객체 양식 편집</code> 버튼을 선택하여 객체 속성을 수정할 수 있다.</p>
-
-<p><img src="/assets/img/QGIS3/edit_4.png" alt="Image" /></p>
-
-<h2 id="shapefile-수정">Shapefile 수정</h2>
-
-<hr />
-
-<h3 id="데이터-수정-1">데이터 수정</h3>
-
-<p>상단 바 중 <code class="language-plaintext highlighter-rouge">영역 또는 단일 클릭으로 객체 선택</code> 버튼을 선택한다.</p>
-
-<p><img src="/assets/img/QGIS3/edit_5.png" alt="Image" /></p>
-
-<p><img src="/assets/img/QGIS3/edit_6.png" alt="Image" /></p>
-
-<p>해당 상태로 객체를 선택해주면 객체 위에 X표시가 나타난다</p>
-
-<p>상단 탭의 <code class="language-plaintext highlighter-rouge">꼭짓점 도구</code> 를 선택하여 Drag &amp; Drop 하면 해당 꼭짓점의 객체를 이동시킬 수 있다.</p>
-
-<p><img src="/assets/img/QGIS3/shapefile_edit_1.gif" alt="Image" /></p>
-
-<p><code class="language-plaintext highlighter-rouge">Point형의 객체를 선택하면 해당 Point를 이동시킬 수 있다.</code></p>
-
-<p>만약 PolyLine의 Point(지점)을 제거하고 싶다면 객체를 선택한 후 x표시가 나타난 상태에서 해당 객체를 우클릭하면 <code class="language-plaintext highlighter-rouge">꼭짓점 편집기</code> 가 켜진다.</p>
-
-<p><img src="/assets/img/QGIS3/edit_7.png" alt="Image" /></p>
-
-<p>꼭짓점 편집기에서 특정 튜플을 선택하면 객체에도 표시가 되는데 이 상태에서 <code class="language-plaintext highlighter-rouge">Delete</code> 키를 눌러주면 해당 꼭짓점을 삭제할 수 있다.</p>
-
-<h3 id="데이터-삽입">데이터 삽입</h3>
-
-<p>편집 모드 전환을 선택한 상태로 상단바의 <code class="language-plaintext highlighter-rouge">객체 추가</code> 버튼을 선택한다.</p>
-
-<p><img src="/assets/img/QGIS3/shapefile_edit_2.gif" alt="Image" /></p>
-
-<p>마우스 좌클릭으로 꼭짓점을 지정한 후 마우스 우클릭으로 완료해준다.</p>
-
-<p><code class="language-plaintext highlighter-rouge">현재는 선택한 레이어가 PolyLine Type이기 때문에 꼭짓점을 지정해주어야 한다, 선택한 레이어가 Point Type일 시 Point의 위치를 지정해주면 된다.</code></p>
-
-<p>.shp 데이터를 추가했으니 .dbf에 맞는 속성도 정의해 준 후 확인 버튼을 클릭하면 데이터가 추가된다.</p>
-
-<p><img src="/assets/img/QGIS3/edit_8.png" alt="Image" /></p>
-
-<p>해당 객체를 식별 해보면 입력한 속성 값이 들어간 것을 볼 수 있다.</p>
-
-<h2 id="데이터-저장">데이터 저장</h2>
-
-<hr />
-
-<p>모든 편집이 종료되면 레이어 편집 내용 저장을 통해 변경된 내용을 저장해야 한다.</p>
-
-<p><img src="/assets/img/QGIS3/edit_9.png" alt="Image" /></p>]]></content><author><name>Mindol</name></author><category term="QGIS" /><category term="QGIS" /><category term="shapefile" /><summary type="html"><![CDATA[Shapefile edit]]></summary></entry></feed>
+</ul>]]></content><author><name>Mindol</name></author><category term="Database" /><category term="Database" /><category term="study" /><summary type="html"><![CDATA[데이터 모델링 개념]]></summary></entry></feed>
