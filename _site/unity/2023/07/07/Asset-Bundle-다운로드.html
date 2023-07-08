@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Asset Bundle 다운로드 | Mindol</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Asset Bundle 다운로드" />
+<meta name="author" content="Mindol" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="AssetBundle 로컬 저장소 저장" />
+<meta property="og:description" content="AssetBundle 로컬 저장소 저장" />
+<link rel="canonical" href="http://localhost:4000/unity/2023/07/07/Asset-Bundle-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.html" />
+<meta property="og:url" content="http://localhost:4000/unity/2023/07/07/Asset-Bundle-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.html" />
+<meta property="og:site_name" content="Mindol" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-07-07T06:00:01+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Asset Bundle 다운로드" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mindol"},"dateModified":"2023-07-07T06:00:01+09:00","datePublished":"2023-07-07T06:00:01+09:00","description":"AssetBundle 로컬 저장소 저장","headline":"Asset Bundle 다운로드","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/unity/2023/07/07/Asset-Bundle-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/MinTa.png"},"name":"Mindol"},"url":"http://localhost:4000/unity/2023/07/07/Asset-Bundle-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Mindol" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+  <script>
+    const hour = (new Date()).getHours();
+    let filename = "";
+    if (hour >= 5 && hour < 7) {
+      filename = "/assets/css/skin-sunrise.css";
+    } else if (hour >= 7 && hour < 17) {
+      filename = "/assets/css/skin-daylight.css";
+    } else if (hour >= 17 && hour < 19) {
+      filename = "/assets/css/skin-sunset.css";
+    } else {
+      filename = "/assets/css/skin-midnight.css";
+    }
+    const elem = document.createElement("link");
+    elem.setAttribute("rel", "stylesheet");
+    elem.setAttribute("type", "text/css");
+    elem.setAttribute("href", filename);
+    document.getElementsByTagName("head")[0].appendChild(elem);
+  </script>
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">Mindol</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/assets/img/MinTa.png" class="author-avatar u-photo align-center" alt="Mindol">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Mindol</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:hhh57463@naver.com">hhh57463@naver.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <!-- <a href="/feed.xml"> -->
+    <a href="https://sly-lemonade-717.notion.site/d6f467dc95934f8581ef33fe4e84ad17">
+    <i class="sidebar-icon fas fa-rss"></i><span>Portfolio</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://github.com/hhh57463"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://instagram.com/hhh57463"><i class="fab fa-instagram fa-2x" title="Instagram"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">Asset Bundle 다운로드</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-07-07T06:00:01+09:00" itemprop="datePublished">
+        Jul 7, 2023
+      </time></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="개요">개요</h2>
+
+<hr />
+
+<p>회사에서 에셋 번들 기능이 필요해서 만들었지만 매번 실행마다 에셋 번들을 다운받아야해서 실행 시간이 너무 걸렸다. 이에 서버에서 에셋을 다운받아 로컬 저장소에 저장하는 기능이 필요했다.</p>
+
+<h2 id="웹서버-구축">웹서버 구축</h2>
+
+<hr />
+
+<p>우선 서버에서 저장하는 기능을 만들어야하기에 테스트하기위한 서버가 필요했다. 이에 node.js를 사용하여 로컬 웹서버를 구축한 뒤 다운로드 기능을 만들었다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">express</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">/download</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">download</span><span class="p">(</span><span class="dl">'</span><span class="s1">download/charactor</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">서버 실행</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<h2 id="unitywebrequest">UnityWebRequest</h2>
+
+<hr />
+
+<p>서버와 통신하기 위해 UnityWebRequest를 사용하였다.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine.Networking</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">BundleLoader</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">void</span> <span class="nf">Awake</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nf">StartCoroutine</span><span class="p">(</span><span class="nf">ResourceDownLoad</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span> <span class="n">AssetBundle</span> <span class="n">bundle</span><span class="p">;</span>
+
+    <span class="n">IEnumerator</span> <span class="nf">ResourceDownLoad</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">UnityWebRequest</span> <span class="n">www</span> <span class="p">=</span> <span class="n">UnityWebRequestAssetBundle</span><span class="p">.</span><span class="nf">GetAssetBundle</span><span class="p">(</span><span class="s">"localhost:3000/download"</span><span class="p">);</span>
+        <span class="k">yield</span> <span class="k">return</span> <span class="n">www</span><span class="p">.</span><span class="nf">SendWebRequest</span><span class="p">();</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">www</span><span class="p">.</span><span class="n">isDone</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">bundle</span> <span class="p">=</span> <span class="n">DownloadHandlerAssetBundle</span><span class="p">.</span><span class="nf">GetContent</span><span class="p">(</span><span class="n">www</span><span class="p">);</span>
+            <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"번들 로딩 완료"</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>로컬 서버에서 에셋 번들을 다운 받아 bundle에 저장하는 기능이다 작동하는지 확인해보면</p>
+
+<p><img src="/assets/img/Unity/AssetBundle_2_1.png" alt="Image" /></p>
+
+<p>잘 작동하는 것을 볼 수 있다.</p>
+
+<h2 id="로컬-저장소-저장">로컬 저장소 저장</h2>
+
+<hr />
+
+<p>하지만 우리가 원하는건 서버에서 받아온 에셋 번들을 로컬 저장소에 불러와 실행마다 다운 받는 것이 아닌 처음 실행에만 다운받는 기능이 필요하다.</p>
+
+<p>이에 아래처럼 파일 입출력을 통해 에셋 번들을 다운 받았다.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">IEnumerator</span> <span class="nf">ResourceDownLoad</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">UnityWebRequest</span> <span class="n">www</span> <span class="p">=</span> <span class="n">UnityWebRequest</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">"localhost:3000/download"</span><span class="p">);</span>
+        <span class="k">yield</span> <span class="k">return</span> <span class="n">www</span><span class="p">.</span><span class="nf">SendWebRequest</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">www</span><span class="p">.</span><span class="n">isDone</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">string</span> <span class="n">assetBundleDirectory</span> <span class="p">=</span> <span class="n">Application</span><span class="p">.</span><span class="n">dataPath</span> <span class="p">+</span> <span class="s">"/AssetBundles"</span><span class="p">;</span>
+
+            <span class="k">if</span> <span class="p">(!</span><span class="n">Directory</span><span class="p">.</span><span class="nf">Exists</span><span class="p">(</span><span class="n">assetBundleDirectory</span><span class="p">))</span>
+            <span class="p">{</span>
+                <span class="n">Directory</span><span class="p">.</span><span class="nf">CreateDirectory</span><span class="p">(</span><span class="n">assetBundleDirectory</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="n">FileStream</span> <span class="n">fs</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">FileStream</span><span class="p">(</span><span class="n">assetBundleDirectory</span> <span class="p">+</span> <span class="s">"/"</span> <span class="p">+</span> <span class="s">"charactor"</span><span class="p">,</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">FileMode</span><span class="p">.</span><span class="n">Create</span><span class="p">);</span>
+            <span class="n">fs</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">www</span><span class="p">.</span><span class="n">downloadHandler</span><span class="p">.</span><span class="n">data</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">www</span><span class="p">.</span><span class="n">downloadedBytes</span><span class="p">);</span>
+            <span class="n">fs</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>저장소에서 에셋 번들을 특정 디렉토리에 다운 받는 기능이다. 중간에 조건문은 지정한 디렉토리가 없을시 새로 만드는 기능이다.</p>
+
+<p>하지만 실행할때마다 에셋 번들을 다운 받는것은 동일하다. 이에 나는 Unity의 PlayerPrefs 기능을 사용했다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">PlayerPrefs.SetInt("charactor", 1);</code> 이런 코드를 다운로드가 끝나고 값을 변경해줌으로써 다운로드 받기 전에 해당 변수를 검사하여 값이 다를시 다운로드 받는 것이다.</p>
+
+<p><img src="/assets/img/Unity/AssetBundle_2_2.png" alt="Image" /></p>
+
+<p>콘솔을 확인해보면 다운로드를 건너뛰었다는 것을 알 수 있다.</p>
+
+<h2 id="최종-코드">최종 코드</h2>
+
+<hr />
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine.Networking</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">BundleLoader</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">void</span> <span class="nf">Awake</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">PlayerPrefs</span><span class="p">.</span><span class="nf">GetInt</span><span class="p">(</span><span class="s">"charactor"</span><span class="p">)</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"번들 다운로드 시작"</span><span class="p">);</span>
+            <span class="nf">StartCoroutine</span><span class="p">(</span><span class="nf">ResourceDownLoad</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"번들 다운로드 건너 뜀"</span><span class="p">);</span>
+            <span class="nf">StartCoroutine</span><span class="p">(</span><span class="nf">CreateHero</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">IEnumerator</span> <span class="nf">ResourceDownLoad</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">UnityWebRequest</span> <span class="n">www</span> <span class="p">=</span> <span class="n">UnityWebRequest</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">"localhost:3000/download"</span><span class="p">);</span>
+        <span class="k">yield</span> <span class="k">return</span> <span class="n">www</span><span class="p">.</span><span class="nf">SendWebRequest</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">www</span><span class="p">.</span><span class="n">isDone</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">string</span> <span class="n">assetBundleDirectory</span> <span class="p">=</span> <span class="n">Application</span><span class="p">.</span><span class="n">dataPath</span> <span class="p">+</span> <span class="s">"/AssetBundles"</span><span class="p">;</span>
+
+            <span class="k">if</span> <span class="p">(!</span><span class="n">Directory</span><span class="p">.</span><span class="nf">Exists</span><span class="p">(</span><span class="n">assetBundleDirectory</span><span class="p">))</span>
+            <span class="p">{</span>
+                <span class="n">Directory</span><span class="p">.</span><span class="nf">CreateDirectory</span><span class="p">(</span><span class="n">assetBundleDirectory</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="n">FileStream</span> <span class="n">fs</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">FileStream</span><span class="p">(</span><span class="n">assetBundleDirectory</span> <span class="p">+</span> <span class="s">"/"</span> <span class="p">+</span> <span class="s">"charactor"</span><span class="p">,</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">FileMode</span><span class="p">.</span><span class="n">Create</span><span class="p">);</span>
+            <span class="n">fs</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">www</span><span class="p">.</span><span class="n">downloadHandler</span><span class="p">.</span><span class="n">data</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">www</span><span class="p">.</span><span class="n">downloadedBytes</span><span class="p">);</span>
+            <span class="n">fs</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
+            <span class="n">PlayerPrefs</span><span class="p">.</span><span class="nf">SetInt</span><span class="p">(</span><span class="s">"charactor"</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+            <span class="nf">StartCoroutine</span><span class="p">(</span><span class="nf">CreateHero</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">IEnumerator</span> <span class="nf">CreateHero</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">AssetBundle</span> <span class="n">asset</span> <span class="p">=</span> <span class="n">AssetBundle</span><span class="p">.</span><span class="nf">LoadFromFile</span><span class="p">(</span><span class="n">Application</span><span class="p">.</span><span class="n">dataPath</span> <span class="p">+</span> <span class="s">"/AssetBundles/charactor"</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">asset</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">yield</span> <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="kt">var</span> <span class="n">hero</span> <span class="p">=</span> <span class="n">asset</span><span class="p">.</span><span class="n">LoadAsset</span><span class="p">&lt;</span><span class="n">GameObject</span><span class="p">&gt;(</span><span class="s">"Hero"</span><span class="p">);</span>
+        <span class="kt">var</span> <span class="n">player</span> <span class="p">=</span> <span class="nf">Instantiate</span><span class="p">(</span><span class="n">hero</span><span class="p">);</span>
+        <span class="n">player</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">zero</span><span class="p">;</span>
+
+        <span class="k">yield</span> <span class="k">return</span> <span class="k">new</span> <span class="nf">WaitUntil</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="n">Input</span><span class="p">.</span><span class="nf">GetMouseButtonDown</span><span class="p">(</span><span class="m">0</span><span class="p">));</span>
+        <span class="nf">Destroy</span><span class="p">(</span><span class="n">player</span><span class="p">);</span>
+        <span class="n">asset</span><span class="p">.</span><span class="nf">Unload</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="출처">출처</h3>
+
+<p><a href="https://wergia.tistory.com/36">베르의 프로그래밍 노트</a></p>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/categories/#unity">Unity</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#study">study</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#unity">unity</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/unity/2023/07/04/Asset-Bundle.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> Asset Bundle
+
+          </span>
+        </a>
+      
+
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+<script src="https://utteranc.es/client.js"
+        repo="hhh57463/hhh57463.github.io"
+        issue-term="url"
+        theme="gruvbox-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2017&nbsp;-&nbsp;2023 Mindol; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Mindol&#39;s Blog</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

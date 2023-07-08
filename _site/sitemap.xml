@@ -129,13 +129,16 @@
 <lastmod>2023-06-16T07:00:00+09:00</lastmod>
 </url>
 <url>
-<<<<<<< HEAD
-<loc>http://localhost:4000/unity/2023/07/04/Asset-Bundle.html</loc>
-<lastmod>2023-07-04T06:00:01+09:00</lastmod>
-=======
 <loc>http://localhost:4000/unity/2023/06/17/LOD.html</loc>
 <lastmod>2023-06-17T07:00:00+09:00</lastmod>
->>>>>>> b18a579fae5ce3451fac8a4196b42fd620d60739
+</url>
+<url>
+<loc>http://localhost:4000/unity/2023/07/04/Asset-Bundle.html</loc>
+<lastmod>2023-07-04T06:00:01+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/unity/2023/07/07/Asset-Bundle-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.html</loc>
+<lastmod>2023-07-07T06:00:01+09:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/about/</loc>
