@@ -38,7 +38,7 @@ void UTaskFlash::StartTaskbarFlashing()
 {
 	FLASHWINFO fi;
 	fi.cbSize = sizeof(FLASHWINFO);
-	fi.hwnd = GetActiveWindow();
+	fi.hwnd = GetForegroundWindow();
 	fi.dwFlags = FLASHW_TRAY;
 	fi.uCount = 3;
 	fi.dwTimeout = 0;
@@ -55,7 +55,7 @@ void UTaskFlash::StartTaskbarFlashing()
 - fi.dwTimeout = 0; 깜빡임 시간 지정 (0으로 지정시활성 창으로 변경될 때까지 유지)
 - FlashWindowEx(&fi): 깜빡임 동작 실행
 
-`GetActiveWindow(): 현재 활성창 윈도우 핸들러`
+`GetForegroundWindow(): 현재 활성창 중 최상단 윈도우 핸들러`
 
 위 코드를 작성하여 솔루션 빌드를 진행한 후 블루프린트에 함수를 등록해준다.
 
@@ -81,12 +81,12 @@ HWND this_Handler = nullptr;
 
 void UTaskFlash::SetHandler()
 {
-	this_Handler = GetActiveWindow();
+	this_Handler = GetForegroundWindow();
 }
 
 void UTaskFlash::StartTaskbarFlashing()
 {
-	if (this_Handler != GetActiveWindow())
+	if (this_Handler != GetForegroundWindow())
     {
 		FLASHWINFO fi;
 		fi.cbSize = sizeof(FLASHWINFO);

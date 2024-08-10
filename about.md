@@ -3,8 +3,8 @@ layout: page
 title: About Me
 permalink: /about/
 ---
-## 👨‍💻 Unity Game Client Developer
-😀  유니티 클라이언트 개발자 심민석입니다. 잘부탁드립니다. 😃
+<!-- ## 👨‍💻 Unity Game Client Developer
+😀  유니티 클라이언트 개발자 심민석입니다. 잘부탁드립니다. 😃 -->
 
 ## 👦 Profile
 ---
@@ -17,13 +17,18 @@ permalink: /about/
             👶  1999년 11월 02일 출생<br><br>
             🏫  한국게임과학고등학교 졸업<br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2016.04. ~ 2018.02.)<br><br>
-            👨‍🎓  대전대학교 재학<br>
+            👨‍🎓  대전대학교 컴퓨터공학과 졸업<br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2018.03 ~ 2024.02.)<br><br>
         </div>
         <div style="clear:both;"></div>
     </body>
 </html>
 <br><br>
+
+## 🏟️ 경력
+2023 한국전자통신연구연 하계 연구 연수생 (2023.07. ~ 2023.08.)<br><br>
+2023 올포랜드 인턴 (2023.09. ~ 2023.12.)<br><br>
+올포랜드 (2024.01. ~ )<br>
 
 ## 💡 Contact
 ---
@@ -35,8 +40,11 @@ permalink: /about/
 ## 👨‍🔧 Tech Stack
 ---
 + Unity
++ Unreal
 + C#
++ Window Forms
 + MySQL
++ PostgreSQL
 + Python
 + Android Stduio
 + C++
