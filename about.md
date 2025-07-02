@@ -26,7 +26,7 @@ permalink: /about/
 <br><br>
 
 ## 🏟️ 경력
-2023 한국전자통신연구연 하계 연구 연수생 (2023.07. ~ 2023.08.)<br><br>
+2023 한국전자통신연구원(ETRI) 하계 연구 연수생 (2023.07. ~ 2023.08.)<br><br>
 2023 올포랜드 인턴 (2023.09. ~ 2023.12.)<br><br>
 올포랜드 (2024.01. ~ )<br>
 
@@ -36,6 +36,7 @@ permalink: /about/
 📘  (Minseok Sim)<br>
 🌎  [Blog](http://hhh57463.github.io)<br>
 💻  [GitHub](https://github.com/hhh57463)<br>
+🗺️  [Linked in](https://www.linkedin.com/in/hhh57463/)<br>
 
 ## 👨‍🔧 Tech Stack
 ---
